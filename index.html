@@ -5,55 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 <title>Night City Net</title>
-<style>
-@keyframes blink{50%{opacity:0}}
-@keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-@keyframes marquee2{0%,100%{background-position:0 0}50%{background-position:100% 0}}
-body{margin:0;background:#000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23000'/%3E%3Ccircle cx='1' cy='1' r='.5' fill='%23222'/%3E%3C/svg%3E");color:#00ffcc;font:14px 'Courier New',monospace}
-.wrap{max-width:760px;margin:0 auto;padding:20px}
-.banner{background:linear-gradient(90deg,#ff00cc,#3300ff,#00ffee,#ff00cc);background-size:300% 100%;animation:blink 6s infinite,marquee2 8s linear infinite;padding:3px;text-align:center}
-.banner b{display:block;background:#000;padding:14px;font:800 26px 'Courier New',monospace;letter-spacing:2px;text-shadow:0 0 8px #0ff,0 0 16px #f0f}
-.marquee-box{border:2px solid #ff0;background:#111;overflow:hidden;white-space:nowrap;margin:14px 0;padding:6px 0}
-.marquee-box span{display:inline-block;animation:marquee 14s linear infinite;color:#ff0;font-weight:bold}
-table.layout{width:100%;border-collapse:collapse;margin-top:10px}
-table.layout td{vertical-align:top;padding:0}
-.nav{width:150px;background:#0a0a1a;border:2px outset #444;padding:10px}
-.nav a{display:block;color:#0ff;text-decoration:none;padding:5px 0;font-weight:bold}
-.nav a:hover{color:#f0f}
-.content{padding:0 0 0 14px}
-.hit{border:1px solid #0f0;background:#000;color:#0f0;display:inline-block;padding:4px 10px;font-family:'Courier New',monospace;letter-spacing:3px}
-.site-table{width:100%;border-collapse:collapse;margin-top:14px}
-.site-table td{border:2px outset #333;background:#0d0d1a;padding:10px;vertical-align:top;width:50%}
-.site-table b{color:#ff0;font-size:16px}
-.new{background:red;color:#fff;font-size:9px;padding:1px 4px;animation:blink 1s infinite;margin-left:6px}
-.site-table p{color:#8fd;font-size:12px}
-.site-table a{color:#0ff}
-.tape{background:repeating-linear-gradient(45deg,#000,#000 6px,#ff0 6px,#ff0 12px);height:16px;margin:16px 0}
-footer{text-align:center;color:#555;font-size:11px;margin-top:24px;border-top:1px dashed #333;padding-top:10px}
-.guestbook{text-align:center;margin:16px 0}
-.guestbook a{color:#0ff;border:1px solid #0ff;padding:6px 14px;text-decoration:none;font-weight:bold}
-@media(max-width:600px){table.layout,table.layout tbody,table.layout tr,table.layout td{display:block;width:100%}.nav{width:auto;margin-bottom:14px}.content{padding-left:0}.site-table,.site-table tbody,.site-table tr,.site-table td{display:block;width:100%}}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="wrap">
-  <div class="banner"><b>&#9733; NIGHT CITY . NET &#9733;</b></div>
+  <a href="index.html"><div class="banner"><b>&#9733; NIGHT CITY . NET &#9733;</b></div></a>
   <div class="marquee-box"><span>&nbsp;&nbsp;&nbsp;&nbsp;WELCOME NETRUNNER... YOU ARE VISITOR NUMBER 0083461... BEST VIEWED AT 800x600 ON NETRUNNER BROWSER 3.0... AIRGAP UPTIME 99.1%...&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 
   <table class="layout"><tr>
     <td style="width:160px">
       <div class="nav">
-        <a href="#">&raquo; HOME</a>
-        <a href="#">&raquo; SITE MAP</a>
-        <a href="#">&raquo; WEBRING</a>
-        <a href="#">&raquo; GUESTBOOK</a>
-        <a href="#">&raquo; LINK TO US</a>
-        <a href="#">&raquo; ABOUT NC.NET</a>
+        <a href="index.html" class="current">&raquo; HOME</a>
+        <a href="sitemap.html">&raquo; SITE MAP</a>
+        <a href="webring.html">&raquo; WEBRING</a>
+        <a href="guestbook.html">&raquo; GUESTBOOK</a>
+        <a href="link-to-us.html">&raquo; LINK TO US</a>
+        <a href="about.html">&raquo; ABOUT NC.NET</a>
         <div style="margin-top:16px"><span class="hit">008346</span></div>
       </div>
     </td>
     <td class="content">
-      <p style="color:#faa">This page is a member of the <b>Night City Regional Webring</b>. Hit counter has not been reset since the Corporate War. Please disable pop-up blockers for full experience (there are no pop-ups, we just like saying that).</p>
+      <p>This page is a member of the <b>Night City Regional Webring</b>. Hit counter has not been reset since the Corporate War. Please disable pop-up blockers for full experience (there are no pop-ups, we just like saying that).</p>
 
       <table class="site-table"><tr>
         <td><b>TRAUMA TEAM INTERNATIONAL</b><span class="new">LIVE!</span><p>Premium emergency response. Response subject to area risk.</p><a href="trauma-team/">&raquo; ENTER SITE &laquo;</a></td>
@@ -70,10 +42,11 @@ footer{text-align:center;color:#555;font-size:11px;margin-top:24px;border-top:1p
       </tr></table>
 
       <div class="tape"></div>
-      <div class="guestbook"><a href="#">SIGN OUR GUESTBOOK</a></div>
+      <div class="guestbook-cta"><a href="guestbook.html">SIGN OUR GUESTBOOK</a></div>
     </td>
   </tr></table>
   <footer>&copy; 2045 NIGHT CITY NET &middot; A REGIONAL AIRGAP DIRECTORY &middot; NOT AFFILIATED WITH NCPD<br>THIS SITE LOOKS BEST WITHOUT AN AD BLOCKER (WE HAVE NO ADS) (YET)</footer>
 </div>
+<script src="app.js"></script>
 </body>
 </html>
