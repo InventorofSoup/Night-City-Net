@@ -1,3 +1,20 @@
+const ringSites = ["trauma-team/", "elflines-online/"];
+const ringPrev = document.querySelector("#ring-prev");
+const ringRandom = document.querySelector("#ring-random");
+const ringNext = document.querySelector("#ring-next");
+if (ringPrev) ringPrev.addEventListener("click", function (event) {
+  event.preventDefault();
+  window.location.href = ringSites[1];
+});
+if (ringRandom) ringRandom.addEventListener("click", function (event) {
+  event.preventDefault();
+  window.location.href = ringSites[Math.floor(Math.random() * ringSites.length)];
+});
+if (ringNext) ringNext.addEventListener("click", function (event) {
+  event.preventDefault();
+  window.location.href = ringSites[0];
+});
+
 const gbForm = document.querySelector("#gb-form");
 if (gbForm) {
   gbForm.addEventListener("submit", function (event) {
