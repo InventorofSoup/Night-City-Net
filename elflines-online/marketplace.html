@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070d0a">
+<title>Marketplace | Elflines Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b><small>NIGHT CITY SERVER &middot; UNOFFICIAL PLAYER HUB</small></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="marketplace.html" class="active">Marketplace</a>
+    <a href="forums.html">Forums</a>
+    <a href="newbie-guide.html">Newbie Guide</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <div class="header-actions">
+    <div class="server-status"><b></b>NIGHT CITY-3: ONLINE</div>
+    <a class="button" href="login.html" style="padding:8px 14px;font-size:10px">Log In</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section tight">
+    <p class="eyebrow">Trading post</p>
+    <h1>Marketplace</h1>
+    <p class="lede">Official Armory prices on the left column of your wallet, whatever the community is quietly flipping on the right. We don't run the second half. We definitely don't audit it.</p>
+
+    <!-- TODO: link to Militech Security for Hire site once built -->
+    <div class="ad-banner militech">
+      <span class="ad-tag">AD</span>
+      <div class="ad-art"><svg viewBox="0 0 64 64" width="34" height="34" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 6v12M32 46v12M6 32h12M46 32h12" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="5" fill="currentColor"/></svg></div>
+      <div class="ad-body"><b>Militech Asset Recovery</b><p>Got scammed on a gp trade? We can't help with that. But we can help with everything else.</p></div>
+      <span class="ad-cta">Request a quote &rarr;</span>
+    </div>
+
+    <div class="tabbar">
+      <button data-tabgroup="mk" data-tab="armory" class="active">Official Armory</button>
+      <button data-tabgroup="mk" data-tab="board">Player Trading Board</button>
+      <button data-tabgroup="mk" data-tab="grey">Grey Market</button>
+    </div>
+
+    <div class="tabpanel active" data-tabpanel="mk" data-panel="armory">
+      <div class="table-wrap">
+      <table>
+        <tr><th>Item</th><th>Type</th><th>Price</th></tr>
+        <tr><td>Leather Armor</td><td>Armor</td><td>20gp</td></tr>
+        <tr><td>Studded Leather Armor</td><td>Armor</td><td>50gp</td></tr>
+        <tr><td>Chainmail Armor</td><td>Armor</td><td>100gp</td></tr>
+        <tr><td>Full Plate Armor</td><td>Armor</td><td>500gp</td></tr>
+        <tr><td>Dagger</td><td>Weapon</td><td>50gp</td></tr>
+        <tr><td>Shortsword</td><td>Weapon</td><td>50gp</td></tr>
+        <tr><td>Longsword</td><td>Weapon</td><td>100gp</td></tr>
+        <tr><td>Greataxe (two-handed)</td><td>Weapon</td><td>500gp</td></tr>
+        <tr><td>Shield</td><td>Weapon/Armor</td><td>100gp</td></tr>
+        <tr><td>Bow</td><td>Weapon</td><td>100gp</td></tr>
+        <tr><td>Arrow</td><td>Ammo</td><td>1gp</td></tr>
+        <tr><td>Poison Arrow</td><td>Ammo</td><td>10gp</td></tr>
+        <tr><td>Vial of Poison</td><td>Consumable</td><td>100gp</td></tr>
+        <tr><td>Sacred Herbs</td><td>Consumable (heal, no cooldown)</td><td>50gp</td></tr>
+      </table>
+      </div>
+      <p style="margin-top:16px;font-size:12px;color:var(--dim)">You keep any starting gp you don't spend. Segotari's exchange rate: 1eb buys 100gp, any time, no questions asked. That's the whole "pay to win" pitch, really.</p>
+    </div>
+
+    <div class="tabpanel" data-tabpanel="mk" data-panel="board">
+      <div class="thread-list">
+        <div class="listing">
+          <div class="icon">Ta</div>
+          <div><h4>Bulk raw materials, priced to move</h4><p>Posted by <b>Tira</b> &middot; Undercutting the auction house on purpose. I gather faster than you farm. Bring your own bags.</p></div>
+          <div class="price">30% under AH<small>per stack</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">Wo</div>
+          <div><h4>Free starter gear bundles for new recruits</h4><p>Posted by <b>Wormwood</b>, {Wayfarer's_Rest} &middot; Join us and take a full Leather + Bow kit on the house. Weekly dungeon escorts included.</p></div>
+          <div class="price">Free<small>guild members</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">Sa</div>
+          <div><h4>Cosmetic-only trades, RP-verified buyers only</h4><p>Posted by <b>Salmistra, Mistress of the Winds</b> &middot; Will trade matching violet-toned cosmetic sets. Submit your character's backstory before messaging. Yes, seriously.</p></div>
+          <div class="price">Trade only<small>no gp</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">Ir</div>
+          <div><h4>Excellent-quality Chainmail, world-first tank tested</h4><p>Posted by <b>Ironroot Dessa</b>, {Stonewood_Vanguard} &middot; Ran this set through the entire Dark Tower clear. Barely a scratch. Selling because I upgraded.</p></div>
+          <div class="price">180gp<small>fixed price</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">Lu</div>
+          <div><h4>Freelance tanking services, GP only</h4><p>Posted by <b>Lunchbox</b> &middot; Available for hire, any dungeon, any Elfline. Payment up front. I will not remove the armor for a "quick pic," don't ask.</p></div>
+          <div class="price">Quote on request<small>per clear</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-tabpanel="mk" data-panel="grey">
+      <div class="warn-box" style="margin-bottom:20px">
+        <b>Buyer beware:</b> Real-money account and item trading violates the Elflines Online EULA. Segotari enforcement is inconsistent at best. Nothing on this board is verified, escrowed, or coming back if you get scammed. Trade at your own risk, choom.
+      </div>
+      <div class="thread-list">
+        <div class="listing">
+          <div class="icon">R10</div>
+          <div><h4>Rank 10 character, full Title unlocked</h4><p>Posted by <b>anonymous</b> &middot; Complete account, all cosmetics from Seasons 1&ndash;4. DM only, no public offers. Payment via Fixer escrow preferred.</p></div>
+          <div class="price">~500eb<small>negotiable</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">GP</div>
+          <div><h4>"Gently used" gold, bulk lots</h4><p>Posted by <b>Lapin &amp; Kirk</b> &middot; Large gp lots available, competitive rates, fast turnaround. We ask that you not ask where it comes from. We will not tell you anyway.</p></div>
+          <div class="price">Below 1eb:100gp<small>bulk discount</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+        <div class="listing">
+          <div class="icon">?</div>
+          <div><h4>"Account services" &mdash; slot recovery, fast</h4><p>Posted by <b>a familiar handle</b> &middot; Got banned for multiboxing? I can get you a fresh slot faster than Segotari can process a ban appeal. Ask around, you'll find me.</p></div>
+          <div class="price">Contact for rate<small>repeat customer discount</small><br><button class="reply-link" data-loginwall style="font-size:11px;margin-top:4px">Message seller</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="backdrop" hidden>
+  <section class="modal" role="dialog" aria-modal="true">
+    <button class="close" aria-label="Close">&times;</button>
+    <p class="eyebrow" style="margin-bottom:6px">Elfline account required</p>
+    <h2>Log in to message</h2>
+    <p>You need an active Elfline Account to message other players on the Night City-3 trading board.</p>
+    <p class="actions"><a class="button solid" href="login.html">Go to login</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b></a>
+    <p>Elflines Online is a Segotari Interactive Entertainment product built for the RUSH REVOLUTION platform. This hub is an unofficial, player-run fan project &mdash; not affiliated with, endorsed by, or monitored by Segotari (as far as we know).</p>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+  <div>Night City Airgap Community Project &middot; Est. 2043 &middot; Ad revenue funds approximately none of our server costs</div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

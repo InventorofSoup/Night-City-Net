@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070d0a">
+<title>Newbie Guide | Elflines Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b><small>NIGHT CITY SERVER &middot; UNOFFICIAL PLAYER HUB</small></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="forums.html">Forums</a>
+    <a href="newbie-guide.html" class="active">Newbie Guide</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <div class="header-actions">
+    <div class="server-status"><b></b>NIGHT CITY-3: ONLINE</div>
+    <a class="button" href="login.html" style="padding:8px 14px;font-size:10px">Log In</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section tight">
+    <p class="eyebrow">Start here</p>
+    <h1>Newbie Guide</h1>
+    <p class="lede">Welcome to the Elflands. Here's everything you need before your first login &mdash; and a few things we wish someone had told us before we lost a character to Razorfire Caverns.</p>
+
+    <h2 style="margin-top:40px">Making your elf</h2>
+    <p><b>First</b>, allocate your starting attribute points across INT, REF, DEX, TECH, COOL, WILL, MOVE, BODY, and EMP. Nothing can start above 8 or below 3, so don't bother trying to build a pure glass cannon or a pure tank &mdash; the game won't let you.</p>
+    <p><b>Second</b>, pick your starting Skills from the Elflines Online list (see <a href="resources.html">Resources</a> for the full table). Every elf starts with Language (Elven) already at a solid level, free of charge, so don't waste points there.</p>
+    <p><b>Third</b>, choose an Elfname and spend up to 200gp from the Armory (see <a href="marketplace.html">Marketplace</a>). Keep whatever you don't spend &mdash; it adds up.</p>
+
+    <h2 style="margin-top:40px">Surviving Miasma</h2>
+    <p>Outside major cities and player-made camps, you're standing in Miasma. It blocks accelerated healing and Treatments, and it flags the zone for PvP. Die there and you pay a 2,000gp death tax on respawn &mdash; can't cover it, and you get Revive Sickness, dropping your MOVE to 1 until you pay it off. Budget for this. Seriously.</p>
+
+    <div class="ad-banner tti">
+      <span class="ad-tag">AD</span>
+      <div class="ad-art"><svg viewBox="0 0 64 64" width="34" height="34" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 56 14v18c0 16-10 26-24 28C18 58 8 48 8 32V14z" fill="currentColor" opacity=".18" stroke="currentColor" stroke-width="3"/><path d="M32 20v24M20 32h24" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div class="ad-body"><b>Your elf respawns. You don't.</b><p>Miasma doesn't follow you offline. Real trauma response for your real body, day or night.</p></div>
+      <a class="ad-cta" href="https://inventorofsoup.github.io/Night-City-Net/" target="_blank" rel="noopener">Get covered &rarr;</a>
+    </div>
+
+    <h2 style="margin-top:40px">Common newbie mistakes</h2>
+    <div class="accordion">
+      <details><summary>Setting camp in the wrong spot<b>+</b></summary><div class="body">Ask us how we know. One player set camp at the highest point of a brand-new map on Expansion Day rather than checking if it was actually safe ground first. Scout before you plant.</div></details>
+      <details><summary>Trusting a "rare Segotari leak" without checking the patch notes<b>+</b></summary><div class="body">Leaks about monster weaknesses circulate every patch and are wrong about as often as they're right. Miasmonsters were rumored weak to poison last expansion; turned out to be biotoxin. Verify before you build a whole strategy around a forum post.</div></details>
+      <details><summary>Wandering off from your Elfline mid-dungeon<b>+</b></summary><div class="body">Even a short AFK during a rare-spawn pull can leave your party exposed to PKers. If you have to step away, say so and let your group make the call.</div></details>
+      <details><summary>Not budgeting for the death tax<b>+</b></summary><div class="body">2,000gp disappears fast at low Rank. Keep a reserve, or expect to grind at 1 MOVE with Revive Sickness until you can pay it off.</div></details>
+    </div>
+
+    <h2 style="margin-top:40px">Newbie-friendly Elflines</h2>
+    <p>Not everyone wants to raid six nights a week. <b>{Wayfarer's_Rest}</b>, run by Wormwood, is the server's go-to low-pressure guild: free starter gear, weekly escorted dungeon runs, and a standing group for people who just want to log in and have a good time. Check the recruitment thread on <a href="forums.html">Forums</a>.</p>
+
+    <h2 style="margin-top:40px">Which Title fits you?</h2>
+    <p>At Rank 3 you'll earn a Title based on how you built your character. Not sure what you're aiming for? Answer honestly.</p>
+    <form id="title-quiz" class="quiz">
+      <fieldset>
+        <legend>1. A fight breaks out mid-dungeon. Your first move?</legend>
+        <label><input type="radio" name="q1" value="REF" required> Put an arrow in it from thirty feet away</label>
+        <label><input type="radio" name="q1" value="DEX"> Close the distance and start swinging</label>
+        <label><input type="radio" name="q1" value="BODY"> Step in front of the squishier party members</label>
+        <label><input type="radio" name="q1" value="EMP"> Check on the party's health bars first</label>
+      </fieldset>
+      <fieldset>
+        <legend>2. Your Elfline needs someone to figure out a new boss mechanic. You:</legend>
+        <label><input type="radio" name="q2" value="INT" required> Already have three theories and a spreadsheet</label>
+        <label><input type="radio" name="q2" value="TECH"> Poke at it directly until something clicks</label>
+        <label><input type="radio" name="q2" value="WILL"> Just tank the mechanic until it stops being a mystery</label>
+        <label><input type="radio" name="q2" value="MOVE"> Kite it around the room while everyone else figures it out</label>
+      </fieldset>
+      <fieldset>
+        <legend>3. Pick a starting weapon.</legend>
+        <label><input type="radio" name="q3" value="REF" required> Bow</label>
+        <label><input type="radio" name="q3" value="DEX"> Longsword, maybe two</label>
+        <label><input type="radio" name="q3" value="TECH"> Dagger, for the lockpicking as much as the fighting</label>
+        <label><input type="radio" name="q3" value="BODY"> Greataxe, obviously</label>
+      </fieldset>
+      <fieldset>
+        <legend>4. What's your ideal night in Elflines Online?</legend>
+        <label><input type="radio" name="q4" value="EMP" required> Bringing an undergeared friend along and making sure they survive</label>
+        <label><input type="radio" name="q4" value="WILL"> Solo-clearing something you probably shouldn't</label>
+        <label><input type="radio" name="q4" value="MOVE"> A speedrun attempt, no stops</label>
+        <label><input type="radio" name="q4" value="COOL"> Roleplaying by the campfire until reset</label>
+      </fieldset>
+      <button class="button solid" type="submit">Reveal my Title</button>
+    </form>
+    <div id="quiz-result" class="quiz-result"></div>
+
+    <p style="margin-top:36px;font-size:13px;color:var(--dim)">Need the full mechanical breakdown &mdash; skills, armory, Miasma rules in detail? Head to <a href="resources.html">Resources</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b></a>
+    <p>Elflines Online is a Segotari Interactive Entertainment product built for the RUSH REVOLUTION platform. This hub is an unofficial, player-run fan project &mdash; not affiliated with, endorsed by, or monitored by Segotari (as far as we know).</p>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+  <div>Night City Airgap Community Project &middot; Est. 2043 &middot; Ad revenue funds approximately none of our server costs</div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

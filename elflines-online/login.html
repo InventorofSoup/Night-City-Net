@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070d0a">
+<title>Elfline Account Login | Elflines Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b><small>NIGHT CITY SERVER &middot; UNOFFICIAL PLAYER HUB</small></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="forums.html">Forums</a>
+    <a href="newbie-guide.html">Newbie Guide</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <div class="header-actions">
+    <div class="server-status"><b></b>NIGHT CITY-3: ONLINE</div>
+    <a class="button" href="login.html" style="padding:8px 14px;font-size:10px">Log In</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section tight" style="max-width:440px;margin:0 auto">
+    <p class="eyebrow" style="text-align:center">Elfline account</p>
+    <h1 style="text-align:center;font-size:32px">Log in</h1>
+    <p class="lede" style="text-align:center;margin:0 auto 30px">Sign in to reply to threads, message other players, and post to the trading board.</p>
+
+    <form id="login-form" class="quiz" style="padding:26px">
+      <label style="display:block;font:11px var(--mono);letter-spacing:1px;color:var(--gold-soft);margin-bottom:6px">ELFLINE ACCOUNT HANDLE</label>
+      <input required placeholder="e.g. Daeric_Sylar" style="width:100%;padding:11px;margin-bottom:16px;border:1px solid var(--line);background:var(--panel2);color:var(--paper);font:13px var(--body);border-radius:6px">
+      <label style="display:block;font:11px var(--mono);letter-spacing:1px;color:var(--gold-soft);margin-bottom:6px">PASSWORD</label>
+      <input required type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" style="width:100%;padding:11px;margin-bottom:20px;border:1px solid var(--line);background:var(--panel2);color:var(--paper);font:13px var(--body);border-radius:6px">
+      <button class="button solid" style="width:100%;text-align:center" type="submit">Log in</button>
+      <p id="login-error" style="display:none;margin:16px 0 0;font-size:12px;color:var(--danger)"></p>
+    </form>
+
+    <div class="card" style="margin-top:20px">
+      <h3>Don't have an account?</h3>
+      <p style="font-size:13px;margin:0">Elfline Accounts are provisioned automatically the first time your Segotari RUSH REVOLUTION headset connects to the Night City server &mdash; there's no separate web registration. If you're locked out, your account handle is tied to your headset's serial pairing, not this site. Lost the headset, lost the login. Contact your Elfline's officer if they can vouch for a recovery request.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <a class="logo" href="index.html"><i>EL</i><b>Elflines<em>Online</em></b></a>
+    <p>Elflines Online is a Segotari Interactive Entertainment product built for the RUSH REVOLUTION platform. This hub is an unofficial, player-run fan project &mdash; not affiliated with, endorsed by, or monitored by Segotari (as far as we know).</p>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+  <div>Night City Airgap Community Project &middot; Est. 2043 &middot; Ad revenue funds approximately none of our server costs</div>
+</footer>
+<script src="app.js"></script>
+<script>
+  const errors = [
+    "Login failed: account handle or password not recognized.",
+    "Login failed: this handle isn't paired with a device on the Night City server.",
+    "Login failed: too many attempts from this terminal. Try again later."
+  ];
+  document.querySelector("#login-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const el = document.querySelector("#login-error");
+    el.textContent = errors[Math.floor(Math.random() * errors.length)];
+    el.style.display = "block";
+  });
+</script>
+</body>
+</html>
