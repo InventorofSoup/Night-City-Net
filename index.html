@@ -3,57 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0f">
+<meta name="theme-color" content="#000000">
 <title>Night City Net</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0f;--panel:#131319;--line:rgba(255,255,255,.1);--paper:#f0f0f5;--sub:#8a8a9a;--dim:#5f5f70;--accent:#ffb020;--display:"Barlow Condensed",sans-serif;--body:Inter,sans-serif;--mono:"DM Mono",monospace}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--paper);font:15px/1.6 var(--body);background-image:radial-gradient(circle at 20% 0%,#1a1a2e 0%,transparent 45%),radial-gradient(circle at 80% 100%,#1a1420 0%,transparent 45%)}
-header{padding:26px 5vw;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.logo{font:800 22px var(--display);letter-spacing:-.5px}
-.logo span{color:var(--accent)}
-.status{font:10px var(--mono);color:var(--sub);letter-spacing:1px}
-.status b{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ecf8e;margin-right:6px;box-shadow:0 0 6px 2px #3ecf8e}
-main{padding:70px 5vw 90px;max-width:1100px;margin:0 auto}
-.eyebrow{font:11px var(--mono);letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin:0 0 14px}
-h1{font:800 clamp(38px,5.5vw,64px);line-height:1.02;margin:0 0 20px;letter-spacing:-1px}
-.lede{max-width:600px;color:var(--sub);font-size:16px;margin:0 0 50px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.site{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;position:relative;overflow:hidden;transition:border-color .15s}
-.site:hover{border-color:var(--accent)}
-.site .tag{position:absolute;top:16px;right:16px;font:9px var(--mono);letter-spacing:1px;padding:3px 8px;border-radius:20px;border:1px solid currentColor}
-.site.live .tag{color:#3ecf8e}
-.site.soon .tag{color:var(--dim);border-style:dashed}
-.site h3{font:700 26px var(--display);margin:0 0 8px;letter-spacing:-.3px}
-.site p{margin:0;font-size:13px;color:var(--sub);max-width:34ch}
-.site.soon{cursor:default;opacity:.55}
-.site.soon:hover{border-color:var(--line)}
-footer{padding:30px 5vw;border-top:1px solid var(--line);color:var(--dim);font:10px var(--mono)}
+@keyframes blink{50%{opacity:0}}
+@keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+@keyframes marquee2{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+body{margin:0;background:#000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23000'/%3E%3Ccircle cx='1' cy='1' r='.5' fill='%23222'/%3E%3C/svg%3E");color:#00ffcc;font:14px 'Courier New',monospace}
+.wrap{max-width:760px;margin:0 auto;padding:20px}
+.banner{background:linear-gradient(90deg,#ff00cc,#3300ff,#00ffee,#ff00cc);background-size:300% 100%;animation:blink 6s infinite,marquee2 8s linear infinite;padding:3px;text-align:center}
+.banner b{display:block;background:#000;padding:14px;font:800 26px 'Courier New',monospace;letter-spacing:2px;text-shadow:0 0 8px #0ff,0 0 16px #f0f}
+.marquee-box{border:2px solid #ff0;background:#111;overflow:hidden;white-space:nowrap;margin:14px 0;padding:6px 0}
+.marquee-box span{display:inline-block;animation:marquee 14s linear infinite;color:#ff0;font-weight:bold}
+table.layout{width:100%;border-collapse:collapse;margin-top:10px}
+table.layout td{vertical-align:top;padding:0}
+.nav{width:150px;background:#0a0a1a;border:2px outset #444;padding:10px}
+.nav a{display:block;color:#0ff;text-decoration:none;padding:5px 0;font-weight:bold}
+.nav a:hover{color:#f0f}
+.content{padding:0 0 0 14px}
+.hit{border:1px solid #0f0;background:#000;color:#0f0;display:inline-block;padding:4px 10px;font-family:'Courier New',monospace;letter-spacing:3px}
+.site-table{width:100%;border-collapse:collapse;margin-top:14px}
+.site-table td{border:2px outset #333;background:#0d0d1a;padding:10px;vertical-align:top;width:50%}
+.site-table b{color:#ff0;font-size:16px}
+.new{background:red;color:#fff;font-size:9px;padding:1px 4px;animation:blink 1s infinite;margin-left:6px}
+.site-table p{color:#8fd;font-size:12px}
+.site-table a{color:#0ff}
+.tape{background:repeating-linear-gradient(45deg,#000,#000 6px,#ff0 6px,#ff0 12px);height:16px;margin:16px 0}
+footer{text-align:center;color:#555;font-size:11px;margin-top:24px;border-top:1px dashed #333;padding-top:10px}
+.guestbook{text-align:center;margin:16px 0}
+.guestbook a{color:#0ff;border:1px solid #0ff;padding:6px 14px;text-decoration:none;font-weight:bold}
+@media(max-width:600px){table.layout,table.layout tbody,table.layout tr,table.layout td{display:block;width:100%}.nav{width:auto;margin-bottom:14px}.content{padding-left:0}.site-table,.site-table tbody,.site-table tr,.site-table td{display:block;width:100%}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">NIGHT CITY<span>.</span>NET</div>
-  <div class="status"><b></b>ALL SYSTEMS NOMINAL</div>
-</header>
-<main>
-  <p class="eyebrow">Night City Regional Airgap</p>
-  <h1>Everything on the net,<br>one uplink away.</h1>
-  <p class="lede">A directory of services, portals, and questionable timesinks currently reachable on the Night City server cluster. Uptime not guaranteed. Content not moderated. Log in at your own risk.</p>
+<div class="wrap">
+  <div class="banner"><b>&#9733; NIGHT CITY . NET &#9733;</b></div>
+  <div class="marquee-box"><span>&nbsp;&nbsp;&nbsp;&nbsp;WELCOME NETRUNNER... YOU ARE VISITOR NUMBER 0083461... BEST VIEWED AT 800x600 ON NETRUNNER BROWSER 3.0... AIRGAP UPTIME 99.1%...&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 
-  <div class="grid">
-    <a class="site live" href="trauma-team/"><span class="tag">LIVE</span><h3>Trauma Team International</h3><p>Premium emergency response coverage. Response subject to area risk and payment tier.</p></a>
-    <a class="site live" href="elflines-online/"><span class="tag">LIVE</span><h3>Elflines Online</h3><p>Unofficial player hub for the Segotari MMO. Leaderboards, trading post, forums, and more.</p></a>
-    <div class="site soon"><span class="tag">SOON</span><h3>NC CivicNet</h3><p>Municipal services, alerts, and permits. Chronically underfunded.</p></div>
-    <div class="site soon"><span class="tag">SOON</span><h3>Militech Security for Hire</h3><p>Private contracting, home defense, and convoy escort services.</p></div>
-    <div class="site soon"><span class="tag">SOON</span><h3>Network 55</h3><p>Entertainment, celebrity news, and personalized recommendations.</p></div>
-    <div class="site soon"><span class="tag">SOON</span><h3>Danger Gal</h3><p>Investigations, background checks, and personal protection services.</p></div>
-    <div class="site soon"><span class="tag">SOON</span><h3>Rent-A-Samurai</h3><p>Freelance edgerunner job board.</p></div>
-  </div>
-</main>
-<footer>NIGHT CITY NET &middot; A REGIONAL AIRGAP DIRECTORY &middot; NOT AFFILIATED WITH NCPD, ANY CORP, OR REALITY</footer>
+  <table class="layout"><tr>
+    <td style="width:160px">
+      <div class="nav">
+        <a href="#">&raquo; HOME</a>
+        <a href="#">&raquo; SITE MAP</a>
+        <a href="#">&raquo; WEBRING</a>
+        <a href="#">&raquo; GUESTBOOK</a>
+        <a href="#">&raquo; LINK TO US</a>
+        <a href="#">&raquo; ABOUT NC.NET</a>
+        <div style="margin-top:16px"><span class="hit">008346</span></div>
+      </div>
+    </td>
+    <td class="content">
+      <p style="color:#faa">This page is a member of the <b>Night City Regional Webring</b>. Hit counter has not been reset since the Corporate War. Please disable pop-up blockers for full experience (there are no pop-ups, we just like saying that).</p>
+
+      <table class="site-table"><tr>
+        <td><b>TRAUMA TEAM INTERNATIONAL</b><span class="new">LIVE!</span><p>Premium emergency response. Response subject to area risk.</p><a href="trauma-team/">&raquo; ENTER SITE &laquo;</a></td>
+        <td><b>ELFLINES ONLINE</b><span class="new">LIVE!</span><p>Unofficial MMO player hub. Leaderboards, trading post, forums.</p><a href="elflines-online/">&raquo; ENTER SITE &laquo;</a></td>
+      </tr><tr>
+        <td><b style="color:#888">NC CIVICNET</b><p style="color:#666">Coming soon. Chronically underfunded.</p></td>
+        <td><b style="color:#888">MILITECH SECURITY</b><p style="color:#666">Coming soon.</p></td>
+      </tr><tr>
+        <td><b style="color:#888">NETWORK 55</b><p style="color:#666">Coming soon.</p></td>
+        <td><b style="color:#888">DANGER GAL</b><p style="color:#666">Coming soon.</p></td>
+      </tr><tr>
+        <td><b style="color:#888">RENT-A-SAMURAI</b><p style="color:#666">Coming soon.</p></td>
+        <td></td>
+      </tr></table>
+
+      <div class="tape"></div>
+      <div class="guestbook"><a href="#">SIGN OUR GUESTBOOK</a></div>
+    </td>
+  </tr></table>
+  <footer>&copy; 2045 NIGHT CITY NET &middot; A REGIONAL AIRGAP DIRECTORY &middot; NOT AFFILIATED WITH NCPD<br>THIS SITE LOOKS BEST WITHOUT AN AD BLOCKER (WE HAVE NO ADS) (YET)</footer>
+</div>
 </body>
 </html>
