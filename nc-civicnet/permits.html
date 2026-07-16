@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a2c4e">
+<title>Permits | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<header>
+  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
+  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+</header>
+<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
+<nav class="mainnav">
+  <a href="index.html">HOME</a>
+  <a href="alerts.html">ALERTS</a>
+  <a href="transit.html">TRANSIT</a>
+  <a href="permits.html" class="current">PERMITS</a>
+  <a href="outages.html">OUTAGES</a>
+  <a href="records.html">PUBLIC RECORDS</a>
+  <a href="laws.html">LAWS</a>
+  <a href="comments.html">PUBLIC COMMENTS</a>
+</nav>
+<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Permits</div>
+
+<main id="main">
+  <h1 class="page-title">Permit Applications</h1>
+  <p class="lede">Click a permit type to expand requirements and apply. All fees are non-refundable regardless of outcome. Processing times listed are targets, not guarantees, not even close.</p>
+
+  <h2>Fee &amp; Processing Estimator</h2>
+  <p style="font-size:12px;color:#777;margin:-6px 0 10px">Public estimate only, not a quote. District classification affects both fee and processing speed.</p>
+  <form class="gov-form" id="permit-calc">
+    <label>DISTRICT</label>
+    <select id="calc-district">
+      <option value="1.45,0.65">Charter Hill (premium)</option>
+      <option value="1.45,0.65">Exec Zone (premium)</option>
+      <option value="1.45,0.65">Pacifica Playground (premium)</option>
+      <option value="1,1" selected>Little Europe (standard)</option>
+      <option value="1,1">Watson Development (standard)</option>
+      <option value="1,1">Kabuki (standard)</option>
+      <option value="0.8,1.55">South Night City (underserved)</option>
+      <option value="0.8,1.55">Santo Domingo (underserved)</option>
+      <option value="0.8,1.55">Rancho Coronado (underserved)</option>
+    </select>
+    <label>PERMIT TYPE</label>
+    <select id="calc-permit">
+      <option value="400,75">Business License</option>
+      <option value="250,45">Cyberware Modification Permit</option>
+      <option value="500,90">Firearms Permit</option>
+      <option value="120,21">Curfew Exemption Pass</option>
+      <option value="150,30">Street Vendor Permit</option>
+    </select>
+    <button type="button" id="calc-run">Calculate Estimate</button>
+    <div class="form-msg" id="calc-result"></div>
+  </form>
+
+  <details class="permit">
+    <summary>Business License <span class="fee">Fee: 400eb</span></summary>
+    <div class="body">
+      <p>Required to legally operate any storefront, stall, or fixed business address within city limits. Not required in districts without an active City Manager, since there's no one to enforce it.</p>
+      <dl>
+        <dt>Processing time</dt><dd>60&ndash;90 business days</dd>
+        <dt>Requirements</dt><dd>Notarized proof of address, biometric ID scan, district manager sign-off (where applicable)</dd>
+        <dt>Renewal</dt><dd>Annual, fee increases 8% each cycle without published justification</dd>
+      </dl>
+      <form class="gov-form">
+        <label>BUSINESS NAME</label><input placeholder="e.g. Choppers Bar &amp; Grill">
+        <label>DISTRICT</label><input placeholder="See Public Records for district list">
+        <label>APPLICANT NAME</label><input placeholder="Full legal name">
+        <button type="submit">SUBMIT APPLICATION</button>
+        <div class="form-msg">Application received. Estimated processing time: 60&ndash;90 business days. Do not follow up before day 91.</div>
+      </form>
+    </div>
+  </details>
+
+  <details class="permit">
+    <summary>Cyberware Modification Permit <span class="fee">Fee: 250eb</span></summary>
+    <div class="body">
+      <p>Technically required for any cyberware installation above Municipal Threshold. Enforcement is inconsistent to nonexistent outside of Corporate Plaza districts.</p>
+      <dl>
+        <dt>Processing time</dt><dd>45 business days</dd>
+        <dt>Requirements</dt><dd>Ripperdoc certification of install, biometric baseline scan, Humanity self-assessment form</dd>
+        <dt>Note</dt><dd>Permit does not cover military-grade or restricted cyberware, which requires separate Militech sign-off</dd>
+      </dl>
+      <form class="gov-form">
+        <label>APPLICANT NAME</label><input placeholder="Full legal name">
+        <label>INSTALLING RIPPERDOC / CLINIC</label><input placeholder="Clinic or provider name">
+        <label>CYBERWARE TYPE</label><input placeholder="e.g. Kerenzikov, subdermal armor">
+        <button type="submit">SUBMIT APPLICATION</button>
+        <div class="form-msg">Application received. Estimated processing time: 45 business days. Most applicants proceed with installation before approval anyway. We know. We can't stop you.</div>
+      </form>
+    </div>
+  </details>
+
+  <details class="permit">
+    <summary>Firearms Permit <span class="fee">Fee: 500eb</span></summary>
+    <div class="body">
+      <p>Required for legal ownership of any firearm above small arms classification. Enforcement varies enormously by district Security Provider &mdash; see <a href="records.html">Public Records</a> before assuming this permit means anything where you live.</p>
+      <dl>
+        <dt>Processing time</dt><dd>90+ business days</dd>
+        <dt>Requirements</dt><dd>Background check, in-person interview, psych evaluation waiver (optional but recommended)</dd>
+      </dl>
+      <form class="gov-form">
+        <label>APPLICANT NAME</label><input placeholder="Full legal name">
+        <label>WEAPON CLASSIFICATION</label><input placeholder="e.g. Medium Pistol">
+        <button type="submit">SUBMIT APPLICATION</button>
+        <div class="form-msg">Application received. Estimated processing time: 90+ business days. Given current backlog, actual time may exceed this range considerably.</div>
+      </form>
+    </div>
+  </details>
+
+  <details class="permit">
+    <summary>Curfew Exemption Pass <span class="fee">Fee: 120eb</span></summary>
+    <div class="body">
+      <p>Permits legal movement during municipal curfew hours in districts where curfew is actively enforced (currently: none, but the form still exists).</p>
+      <dl>
+        <dt>Processing time</dt><dd>21 business days</dd>
+        <dt>Requirements</dt><dd>Employer verification letter or medical necessity documentation</dd>
+      </dl>
+      <form class="gov-form">
+        <label>APPLICANT NAME</label><input placeholder="Full legal name">
+        <label>REASON FOR EXEMPTION</label><textarea rows="2" placeholder="Employment, medical, etc."></textarea>
+        <button type="submit">SUBMIT APPLICATION</button>
+        <div class="form-msg">Application received. Note: curfew is not currently enforced in any district, so this pass is, at present, entirely symbolic. Fee still applies.</div>
+      </form>
+    </div>
+  </details>
+
+  <details class="permit">
+    <summary>Street Vendor Permit <span class="fee">Fee: 150eb</span></summary>
+    <div class="body">
+      <p>Required for any mobile food, goods, or service cart operating on public right-of-way.</p>
+      <dl>
+        <dt>Processing time</dt><dd>30 business days</dd>
+        <dt>Requirements</dt><dd>Health inspection (self-certified, no inspector currently on staff), location assignment</dd>
+      </dl>
+      <form class="gov-form">
+        <label>APPLICANT NAME</label><input placeholder="Full legal name">
+        <label>VENDING TYPE</label><input placeholder="e.g. food cart, repair stall">
+        <button type="submit">SUBMIT APPLICATION</button>
+        <div class="form-msg">Application received. Self-certification accepted as submitted; no verification will occur.</div>
+      </form>
+    </div>
+  </details>
+
+  <p class="disclaimer">Fees are payable in eddies at any Municipal Payment Kiosk, none of which are currently operational. Mail-in payment instructions are available upon request, though no one currently staffs the request line.</p>
+</main>
+
+<footer>
+  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
+  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora-panel" hidden>
+  <button class="close" aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

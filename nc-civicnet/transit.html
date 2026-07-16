@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a2c4e">
+<title>Transit | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<header>
+  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
+  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+</header>
+<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
+<nav class="mainnav">
+  <a href="index.html">HOME</a>
+  <a href="alerts.html">ALERTS</a>
+  <a href="transit.html" class="current">TRANSIT</a>
+  <a href="permits.html">PERMITS</a>
+  <a href="outages.html">OUTAGES</a>
+  <a href="records.html">PUBLIC RECORDS</a>
+  <a href="laws.html">LAWS</a>
+  <a href="comments.html">PUBLIC COMMENTS</a>
+</nav>
+<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Transit</div>
+
+<main id="main">
+  <h1 class="page-title">NCART Transit Status</h1>
+  <p class="lede">Night City Area Rapid Transit (NCART) is jointly operated by the City and a rotating cast of corporate sponsors. Line status is updated by hand. If a line says "operating normally," this means no one has reported otherwise, not that anyone has checked.</p>
+  <p class="updated">Last updated: 2045.07.13, 06:40</p>
+
+  <h2>Line Status</h2>
+  <table class="data">
+    <tr><th>Line</th><th>Route</th><th>Status</th><th>Notes</th></tr>
+    <tr><td><b>Red Line</b></td><td>Downtown &ndash; Watson &ndash; Kabuki</td><td style="color:#1a5c2e">Operating normally</td><td>Sponsored by Arasaka. Cars replaced with Arasaka-branded cars last quarter.</td></tr>
+    <tr><td><b>Blue Line</b></td><td>Heywood &ndash; Santo Domingo &ndash; Pacifica</td><td style="color:#7a1414">Suspended</td><td>Suspended past Heywood Industrial Zone indefinitely. No restoration date given.</td></tr>
+    <tr><td><b>Green Line</b></td><td>Little China &ndash; Glen &ndash; University District</td><td style="color:#8a6d1f">Delays</td><td>Running 15&ndash;40 min behind schedule due to "ongoing infrastructure review."</td></tr>
+    <tr><td><b>Gold Line</b></td><td>Charter Hill &ndash; Upper Marina &ndash; Little Europe</td><td style="color:#1a5c2e">Operating normally</td><td>The only line that reliably runs on time. Serves the wealthiest districts. Coincidence, probably.</td></tr>
+    <tr><td><b>Violet Line</b></td><td>South NC &ndash; Reclamation Zone &ndash; Port</td><td style="color:#7a1414">Suspended</td><td>Suspended since 2043 pending a safety review that has not been scheduled.</td></tr>
+    <tr><td><b>Silver Line (Shuttle)</b></td><td>NorCal Military Base &ndash; Watson Development</td><td style="color:#1a5c2e">Operating normally</td><td>Restricted access. Civilian ridership requires base clearance.</td></tr>
+  </table>
+
+  <h2>Fare Schedule</h2>
+  <table class="data">
+    <tr><th>Fare Type</th><th>Price</th><th>Notes</th></tr>
+    <tr><td>Standard single ride</td><td>18eb</td><td>Up 12% this cycle, no public hearing held</td></tr>
+    <tr><td>Weekly pass</td><td>95eb</td><td>Does not cover Silver Line</td></tr>
+    <tr><td>Monthly pass</td><td>310eb</td><td>Price increases without notice historically</td></tr>
+    <tr><td>Reduced fare (verified low income)</td><td>9eb</td><td>Requires in-person biometric verification, one location citywide, by appointment only</td></tr>
+  </table>
+
+  <h2>Report a Transit Issue</h2>
+  <form class="gov-form">
+    <label>LINE</label>
+    <select><option>Red Line</option><option>Blue Line</option><option>Green Line</option><option>Gold Line</option><option>Violet Line</option><option>Silver Line</option></select>
+    <label>ISSUE TYPE</label>
+    <select><option>Delay</option><option>Overcrowding</option><option>Safety Concern</option><option>Fare Dispute</option><option>Other</option></select>
+    <label>DESCRIPTION</label>
+    <textarea rows="3" placeholder="Describe the issue"></textarea>
+    <button type="submit">SUBMIT REPORT</button>
+    <div class="form-msg">Report submitted. Reference number assigned. NCART does not currently have a process for following up on reference numbers.</div>
+  </form>
+
+  <p class="disclaimer">NCART service data is compiled from operator self-reporting and is not independently verified by the City. Actual conditions may differ significantly, especially on the Blue and Violet Lines, which have not run in some time regardless of what this page says on a given day.</p>
+</main>
+
+<footer>
+  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
+  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora-panel" hidden>
+  <button class="close" aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
