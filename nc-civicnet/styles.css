@@ -72,3 +72,11 @@ nav a:before{content:"▸";margin-right:5px;color:#8caeb1}nav a:nth-child(4n):be
 
 /* Mobile corrections applied after the legacy contractor skin. */
 @media(max-width:760px){body{overflow-x:hidden}.utility{flex-wrap:wrap;gap:6px 12px;padding:7px 16px}.utility a,.utility button{white-space:nowrap}header{padding:16px}.head-tools{width:100%}.head-tools>*,.site-search{min-width:0}.site-search{width:100%}.brand{width:100%;min-width:0}nav{padding-left:0}.em-strip{align-items:stretch;gap:8px;padding:8px 15px}.em-strip>*{min-width:0}.em-strip>b{align-self:center}.em-strip>a:first-of-type{flex:1}.trauma-link{margin-left:0!important;max-width:145px}main{width:100%;max-width:100%;padding-left:15px;padding-right:15px}.welcome,.welcome>*,.tiles,.tiles a{min-width:0}.tiles a{overflow-wrap:anywhere}.welcome h1{font-size:35px;overflow-wrap:anywhere}.welcome p{overflow-wrap:anywhere}.page-title{margin-left:-15px;margin-right:-15px;padding-left:15px;padding-right:15px}.page-title h1{font-size:37px;overflow-wrap:anywhere}.alert-backdrop{padding:10px}.alert-popup{width:100%;max-height:96vh}.alert-popup-signal{align-items:flex-start}.alert-popup-signal>i{width:45px;height:45px;font-size:23px}.alert-popup h2,.alert-popup-body>p,.popup-instruction span{overflow-wrap:anywhere}.mute-alert{margin:0 14px;display:grid;grid-template-columns:18px minmax(0,1fr);align-items:start}.alert-popup-actions{display:grid;grid-template-columns:1fr;align-items:stretch}.alert-popup-actions>*{width:100%;min-width:0;margin:0!important;text-align:center;overflow-wrap:anywhere}.popup-legal{overflow-wrap:anywhere}.aq-meter{min-width:0}.aq-slider,.aq-scale{min-width:0}}
+
+/* This ported CSS was written for React (elements were conditionally rendered, so
+   `hidden` never needed a rule). Static HTML toggles `hidden` on always-present
+   elements instead, and several classes above (.backdrop, .alert-backdrop,
+   .status-grid, .two-col, etc.) set `display` unconditionally, which silently wins
+   over the browser's built-in [hidden]{display:none} regardless of source order.
+   One rule fixes every instance of that bug at once. */
+[hidden]{display:none!important}
