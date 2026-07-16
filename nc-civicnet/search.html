@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>Public Comments | NC CivicNet</title>
+<title>Search NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -58,28 +58,21 @@
 
 <main id="main">
   <div class="page-title">
-    <p>ADMINISTRATIVE RECORD / ALL DISTRICTS</p>
-    <h1>Public Comments</h1>
-    <span>The City is legally required to host this comment board and is not legally required to read it. Comments are added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.</span>
+    <p>NC CIVICNET PUBLIC INDEX</p>
+    <h1>Search NC CivicNet</h1>
+    <span>Search published districts, alerts, laws, records, health bulletins, permits, utilities, and public service pages. Restricted attachments and unindexed contractor holdings are excluded.</span>
   </div>
 
-  <div class="comments">
-    <article><small>14 JUL 2045 &bull; LITTLE CHINA</small><p>"The notice says resolved, but our building still has brown water."</p><b>Official status: Referred to contractor / CLOSED</b></article>
-    <article><small>12 JUL 2045 &bull; KABUKI</small><p>"Provider refuses to cross the market after dark. Who exactly is 'security' supposed to be providing here?"</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>11 JUL 2045 &bull; RANCHO CORONADO</small><p>"There is no City Manager, no NCPD that will actually show up, and now the power's out too. Who is supposed to fix any of this? Genuinely asking."</p><b>Official status: No responsible office located</b></article>
-    <article><small>10 JUL 2045 &bull; CITYWIDE</small><p>The pothole tracker says 14,208 open reports and I am now certain at least 3,000 of those are the same pothole on Jig-Jig Street that everyone keeps reporting because it ate someone's tire last month.</p><b>Official status: Duplicate reports merged</b></article>
-    <article><small>09 JUL 2045 &bull; SOUTH NIGHT CITY</small><p>Some of y'all keep calling our City Manager "self-appointed" like it's an insult. He showed up when nobody else did. Where was the City Council in 2041?</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>08 JUL 2045 &bull; CHARTER HILL</small><p>Just want to say the drone patrol reroute this week was very smoothly communicated and I appreciate the advance notice. Wish other districts got the same courtesy, but I'll take it.</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>06 JUL 2045 &bull; WATSON DEVELOPMENT</small><p>Lift 2 and Lift 5 failed their emergency braking tests. I know this because I was in Lift 2 when the inspection sticker said it passed FOUR HOURS before the inspection was actually uploaded. Someone explain that.</p><b>Official status: Referred to contractor / OPEN</b></article>
-    <article><small>03 JUL 2045 &bull; OLD COMBAT ZONE</small><p>Just a reminder that this district has "no enforceable municipal law" per the Laws page, so I'm not sure what filing a comment here is supposed to accomplish, but here I am anyway.</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>30 JUN 2045 &bull; CITYWIDE</small><p>Asked the NORA chat assistant a direct question and it told me "this matter is handled by your district administration" and then suggested paid alternatives. Incredible customer service.</p><b>Official status: Comment noted / no action</b></article>
-    <form id="comment-form">
-      <h3>Submit public comment</h3>
-      <label>District (optional)<input placeholder="e.g. Little China, District E"></label>
-      <textarea required rows="4" placeholder="What's on your mind"></textarea>
-      <button class="btn" type="submit">Submit comment</button>
-    </form>
-  </div>
+  <form class="search-page" id="search-page-form">
+    <label>Search terms<input id="search-input" placeholder="district, ordinance, provider, report number..."></label>
+    <button class="btn" type="submit">Search public index</button>
+  </form>
+
+  <section class="search-results">
+    <div class="section-head"><div><small>PUBLIC INDEX RESULTS</small><h2 id="search-results-title">Enter a search term</h2></div><span class="file-stamp" id="search-match-count"></span></div>
+    <div id="search-empty" class="search-empty" hidden><b>NO INDEXED RESULT</b><p>Try a district, provider, ordinance category, incident term, or public record number. A missing result does not prove that a record does not exist.</p></div>
+    <div id="search-results-list"></div>
+  </section>
 </main>
 
 <footer>
@@ -109,10 +102,54 @@
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script>
-  document.querySelector("#comment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    showNotice("Public Comment Accepted", "Your comment was added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.", "");
+(function () {
+  const navPages = [
+    ["Alerts","alerts.html"],["Emergency","emergency.html"],["Transit","transit.html"],["Municipal Services","services.html"],
+    ["Permits & Licenses","permits.html"],["Public Health","health.html"],["Districts","districts.html"],["Public Records","records.html"],
+    ["Laws","laws.html"],["City Government","government.html"],["Report a Problem","report.html"],["Public Comments","comments.html"]
+  ];
+  const lawEntries = districts.flatMap(function (d) {
+    return getDistrictLaws(d).map(function (l) {
+      return { type: "Law", title: l.title, body: d.name + " • " + l.code + " • " + l.category, href: "laws.html?id=" + d.id };
+    });
   });
+  const entries = []
+    .concat(navPages.map(function (x) { return { type: "Service", title: x[0], body: "NC CivicNet public service and information section", href: x[1] }; }))
+    .concat(districts.map(function (d) { return { type: "District", title: d.name, body: d.classification + " • " + d.manager + " • " + d.security, href: "district.html?id=" + d.id }; }))
+    .concat(alerts.map(function (a, i) { return { type: "Alert", title: a.title, body: a.category + " • " + a.district + " • " + a.detail, href: "alerts.html#incident-" + (i + 1) }; }))
+    .concat(healthReports.map(function (r) { return { type: "Health", title: r.title, body: r.id + " • " + r.area + " • " + r.summary, href: "health.html" }; }))
+    .concat(publicRecordSamples.map(function (r) { return { type: "Record", title: r.title, body: r.id + " • " + r.district + " • " + r.summary, href: "records.html" }; }))
+    .concat(permitTypes.map(function (p) { return { type: "Permit", title: p.name, body: p.code + " • " + p.summary, href: "permits.html" }; }))
+    .concat(municipalServiceTypes.map(function (s) { return { type: "Utility", title: s.name, body: s.code + " • " + s.provider + " • " + s.note, href: "services.html" }; }))
+    .concat(lawEntries);
+
+  function runSearch(q) {
+    const normalized = q.trim().toLowerCase();
+    document.querySelector("#search-results-title").textContent = normalized ? 'Results for "' + q + '"' : "Enter a search term";
+    const list = document.querySelector("#search-results-list");
+    list.innerHTML = "";
+    if (!normalized) { document.querySelector("#search-empty").hidden = true; document.querySelector("#search-match-count").textContent = ""; return; }
+    const results = entries.filter(function (e) { return (e.type + " " + e.title + " " + e.body).toLowerCase().includes(normalized); }).slice(0, 100);
+    document.querySelector("#search-match-count").textContent = results.length + (results.length === 100 ? "+" : "") + " MATCHES";
+    document.querySelector("#search-empty").hidden = results.length !== 0;
+    results.forEach(function (r) {
+      const a = document.createElement("a");
+      a.href = r.href;
+      a.innerHTML = "<span>" + r.type + "</span><h3>" + r.title + "</h3><p>" + r.body + "</p><b>Open &rarr;</b>";
+      list.appendChild(a);
+    });
+  }
+
+  const params = new URLSearchParams(location.search);
+  const initialQ = params.get("q") || "";
+  document.querySelector("#search-input").value = initialQ;
+  runSearch(initialQ);
+
+  document.querySelector("#search-page-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    runSearch(document.querySelector("#search-input").value);
+  });
+})();
 </script>
 </body>
 </html>

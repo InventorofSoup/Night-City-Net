@@ -3,168 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
-<title>Permits | NC CivicNet</title>
+<meta name="theme-color" content="#173a59">
+<title>Permits &amp; Licenses | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html">HOME</a>
-  <a href="alerts.html">ALERTS</a>
-  <a href="transit.html">TRANSIT</a>
-  <a href="permits.html" class="current">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html">PUBLIC RECORDS</a>
-  <a href="laws.html">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Permits</div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
 
 <main id="main">
-  <h1 class="page-title">Permit Applications</h1>
-  <p class="lede">Click a permit type to expand requirements and apply. All fees are non-refundable regardless of outcome. Processing times listed are targets, not guarantees, not even close.</p>
+  <div class="page-title">
+    <p>OFFICE OF LICENSES, CLAIMS, AND PROPERTY ELIGIBILITY</p>
+    <h1>Permits &amp; Licenses</h1>
+    <span>Fees, requirements, processing estimates, and recognized authorities vary by district. Payment does not guarantee approval, legal protection, security-provider recognition, or a functioning appeals process.</span>
+  </div>
 
-  <h2>Fee &amp; Processing Estimator</h2>
-  <p style="font-size:12px;color:#777;margin:-6px 0 10px">Public estimate only, not a quote. District classification affects both fee and processing speed.</p>
-  <form class="gov-form" id="permit-calc">
-    <label>DISTRICT</label>
-    <select id="calc-district">
-      <option value="1.45,0.65">Charter Hill (premium)</option>
-      <option value="1.45,0.65">Exec Zone (premium)</option>
-      <option value="1.45,0.65">Pacifica Playground (premium)</option>
-      <option value="1,1" selected>Little Europe (standard)</option>
-      <option value="1,1">Watson Development (standard)</option>
-      <option value="1,1">Kabuki (standard)</option>
-      <option value="0.8,1.55">South Night City (underserved)</option>
-      <option value="0.8,1.55">Santo Domingo (underserved)</option>
-      <option value="0.8,1.55">Rancho Coronado (underserved)</option>
-    </select>
-    <label>PERMIT TYPE</label>
-    <select id="calc-permit">
-      <option value="400,75">Business License</option>
-      <option value="250,45">Cyberware Modification Permit</option>
-      <option value="500,90">Firearms Permit</option>
-      <option value="120,21">Curfew Exemption Pass</option>
-      <option value="150,30">Street Vendor Permit</option>
-    </select>
-    <button type="button" id="calc-run">Calculate Estimate</button>
-    <div class="form-msg" id="calc-result"></div>
-  </form>
+  <section class="permit-status">
+    <div><span>PUBLIC INTAKE</span><b>DEGRADED</b><small>Node 07-C / forms only</small></div>
+    <div><span>UNASSIGNED APPLICATIONS</span><b>4,218</b><small>Oldest: 2042-11-03</small></div>
+    <div><span>AVERAGE IDENTITY REVIEW</span><b>39 DAYS</b><small>Before processing begins</small></div>
+    <div><span>REFUNDS ISSUED FY2045</span><b>0</b><small>All fees nonrefundable</small></div>
+  </section>
 
-  <details class="permit">
-    <summary>Business License <span class="fee">Fee: 400eb</span></summary>
-    <div class="body">
-      <p>Required to legally operate any storefront, stall, or fixed business address within city limits. Not required in districts without an active City Manager, since there's no one to enforce it.</p>
-      <dl>
-        <dt>Processing time</dt><dd>60&ndash;90 business days</dd>
-        <dt>Requirements</dt><dd>Notarized proof of address, biometric ID scan, district manager sign-off (where applicable)</dd>
-        <dt>Renewal</dt><dd>Annual, fee increases 8% each cycle without published justification</dd>
-      </dl>
-      <form class="gov-form">
-        <label>BUSINESS NAME</label><input placeholder="e.g. Choppers Bar &amp; Grill">
-        <label>DISTRICT</label><input placeholder="See Public Records for district list">
-        <label>APPLICANT NAME</label><input placeholder="Full legal name">
-        <button type="submit">SUBMIT APPLICATION</button>
-        <div class="form-msg">Application received. Estimated processing time: 60&ndash;90 business days. Do not follow up before day 91.</div>
-      </form>
+  <section class="permit-calculator">
+    <div>
+      <small>DISTRICT FEE AND ELIGIBILITY ESTIMATOR</small>
+      <h2>Check a permit before applying</h2>
+      <div class="permit-fields">
+        <label>District<select id="calc-district"></select></label>
+        <label>Permit or license<select id="calc-permit"></select></label>
+      </div>
+      <p id="calc-summary"></p>
+      <label class="expedite-check"><input type="checkbox" id="calc-expedite"><span>Include stakeholder expedited processing estimate</span></label>
     </div>
-  </details>
-
-  <details class="permit">
-    <summary>Cyberware Modification Permit <span class="fee">Fee: 250eb</span></summary>
-    <div class="body">
-      <p>Technically required for any cyberware installation above Municipal Threshold. Enforcement is inconsistent to nonexistent outside of Corporate Plaza districts.</p>
+    <div class="permit-result" id="calc-result">
+      <small>PUBLIC ESTIMATE / NOT A QUOTE</small>
+      <strong id="calc-fee">—</strong>
+      <b id="calc-fee-label">NONREFUNDABLE FILING FEE</b>
       <dl>
-        <dt>Processing time</dt><dd>45 business days</dd>
-        <dt>Requirements</dt><dd>Ripperdoc certification of install, biometric baseline scan, Humanity self-assessment form</dd>
-        <dt>Note</dt><dd>Permit does not cover military-grade or restricted cyberware, which requires separate Militech sign-off</dd>
+        <dt>Processing estimate</dt><dd id="calc-days"></dd>
+        <dt>District authority</dt><dd id="calc-authority"></dd>
+        <dt>Administrative contact</dt><dd id="calc-manager"></dd>
+        <dt>Reviewing security</dt><dd id="calc-security"></dd>
       </dl>
-      <form class="gov-form">
-        <label>APPLICANT NAME</label><input placeholder="Full legal name">
-        <label>INSTALLING RIPPERDOC / CLINIC</label><input placeholder="Clinic or provider name">
-        <label>CYBERWARE TYPE</label><input placeholder="e.g. Kerenzikov, subdermal armor">
-        <button type="submit">SUBMIT APPLICATION</button>
-        <div class="form-msg">Application received. Estimated processing time: 45 business days. Most applicants proceed with installation before approval anyway. We know. We can't stop you.</div>
-      </form>
+      <p id="calc-expedite-note" hidden></p>
     </div>
-  </details>
+  </section>
 
-  <details class="permit">
-    <summary>Firearms Permit <span class="fee">Fee: 500eb</span></summary>
-    <div class="body">
-      <p>Required for legal ownership of any firearm above small arms classification. Enforcement varies enormously by district Security Provider &mdash; see <a href="records.html">Public Records</a> before assuming this permit means anything where you live.</p>
-      <dl>
-        <dt>Processing time</dt><dd>90+ business days</dd>
-        <dt>Requirements</dt><dd>Background check, in-person interview, psych evaluation waiver (optional but recommended)</dd>
-      </dl>
-      <form class="gov-form">
-        <label>APPLICANT NAME</label><input placeholder="Full legal name">
-        <label>WEAPON CLASSIFICATION</label><input placeholder="e.g. Medium Pistol">
-        <button type="submit">SUBMIT APPLICATION</button>
-        <div class="form-msg">Application received. Estimated processing time: 90+ business days. Given current backlog, actual time may exceed this range considerably.</div>
-      </form>
+  <section class="permit-catalog">
+    <div class="section-head"><div><small>PUBLIC PERMIT CATALOG / REVISION 2045.7</small><h2>Select an application class</h2></div><span class="file-stamp">8 APPLICATION TYPES PUBLISHED</span></div>
+    <div id="permit-catalog-list"></div>
+  </section>
+
+  <section class="permit-requirements">
+    <div>
+      <small>CURRENT REQUIREMENTS</small>
+      <h2 id="req-permit-name"></h2>
+      <ol id="req-list"></ol>
     </div>
-  </details>
+    <aside>
+      <b>LOCAL OVERRIDE NOTICE</b>
+      <p id="req-district-name"></p>
+      <a href="laws.html">Review published laws</a>
+      <button class="restricted-record" id="req-restricted"><span aria-hidden="true">&#9635;</span>Download district permit supplements<small>LOGIN REQUIRED</small></button>
+    </aside>
+  </section>
 
-  <details class="permit">
-    <summary>Curfew Exemption Pass <span class="fee">Fee: 120eb</span></summary>
-    <div class="body">
-      <p>Permits legal movement during municipal curfew hours in districts where curfew is actively enforced (currently: none, but the form still exists).</p>
-      <dl>
-        <dt>Processing time</dt><dd>21 business days</dd>
-        <dt>Requirements</dt><dd>Employer verification letter or medical necessity documentation</dd>
-      </dl>
-      <form class="gov-form">
-        <label>APPLICANT NAME</label><input placeholder="Full legal name">
-        <label>REASON FOR EXEMPTION</label><textarea rows="2" placeholder="Employment, medical, etc."></textarea>
-        <button type="submit">SUBMIT APPLICATION</button>
-        <div class="form-msg">Application received. Note: curfew is not currently enforced in any district, so this pass is, at present, entirely symbolic. Fee still applies.</div>
-      </form>
+  <section class="permit-queue">
+    <div class="section-head"><div><small>RECENT PUBLIC QUEUE ACTIVITY</small><h2>Application processing notices</h2></div><button class="restricted-record" id="queue-restricted"><span aria-hidden="true">&#9635;</span>Check application status<small>LOGIN REQUIRED</small></button></div>
+    <div id="permit-queue-list"></div>
+  </section>
+
+  <section class="permit-apply">
+    <div>
+      <small>FORM / PUBLIC ACCESS COPY</small>
+      <h2>Start an application</h2>
+      <p>This form saves an unverified application. A filing date is not established until all responsible authorities accept custody and payment clears.</p>
     </div>
-  </details>
-
-  <details class="permit">
-    <summary>Street Vendor Permit <span class="fee">Fee: 150eb</span></summary>
-    <div class="body">
-      <p>Required for any mobile food, goods, or service cart operating on public right-of-way.</p>
-      <dl>
-        <dt>Processing time</dt><dd>30 business days</dd>
-        <dt>Requirements</dt><dd>Health inspection (self-certified, no inspector currently on staff), location assignment</dd>
-      </dl>
-      <form class="gov-form">
-        <label>APPLICANT NAME</label><input placeholder="Full legal name">
-        <label>VENDING TYPE</label><input placeholder="e.g. food cart, repair stall">
-        <button type="submit">SUBMIT APPLICATION</button>
-        <div class="form-msg">Application received. Self-certification accepted as submitted; no verification will occur.</div>
-      </form>
-    </div>
-  </details>
-
-  <p class="disclaimer">Fees are payable in eddies at any Municipal Payment Kiosk, none of which are currently operational. Mail-in payment instructions are available upon request, though no one currently staffs the request line.</p>
+    <form id="permit-apply-form">
+      <div class="form-grid">
+        <label>Legal name or organization<input required></label>
+        <label>SIN, CIN, or registration number<input required></label>
+        <label>District<input id="apply-district" readonly></label>
+        <label>Application type<input id="apply-permit" readonly></label>
+        <label>Property, site, or operating address<input required></label>
+        <label>Property owner or sponsor<input required></label>
+      </div>
+      <label>Describe the proposed activity<textarea required rows="5"></textarea></label>
+      <fieldset>
+        <legend>Required acknowledgments</legend>
+        <label><input type="checkbox" required> Fees are nonrefundable even if no authority accepts the application.</label>
+        <label><input type="checkbox" required> A city permit may not be recognized by local security or property management.</label>
+      </fieldset>
+      <button class="btn" type="submit">Save and submit for validation</button>
+      <small>No document upload is available through Public Access. Attachments will be requested after identity review.</small>
+    </form>
+  </section>
 </main>
 
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+(function () {
+  let districtId = "little-europe";
+  let permitId = "business";
+
+  const dSel = document.querySelector("#calc-district");
+  districts.forEach(function (d) { const o = document.createElement("option"); o.value = d.id; o.textContent = d.code + " — " + d.name; dSel.appendChild(o); });
+  const pSel = document.querySelector("#calc-permit");
+  permitTypes.forEach(function (p) { const o = document.createElement("option"); o.value = p.id; o.textContent = p.code + " — " + p.name; pSel.appendChild(o); });
+
+  const catalogList = document.querySelector("#permit-catalog-list");
+  permitTypes.forEach(function (p) {
+    const btn = document.createElement("button");
+    btn.dataset.id = p.id;
+    btn.innerHTML = '<code>' + p.code + '</code><h3>' + p.name + '</h3><p>' + p.summary + '</p><span>' + p.base + 'eb base fee</span>';
+    btn.addEventListener("click", function () { permitId = p.id; pSel.value = p.id; refresh(); });
+    catalogList.appendChild(btn);
+  });
+
+  const queueList = document.querySelector("#permit-queue-list");
+  permitQueue.forEach(function (q) {
+    const article = document.createElement("article");
+    article.innerHTML = '<code>' + q[0] + '</code><b>' + q[1] + '</b><span>' + q[2] + '</span><p>' + q[3] + '</p>';
+    queueList.appendChild(article);
+  });
+
+  function refresh() {
+    const d = districts.find(function (x) { return x.id === districtId; });
+    const p = permitTypes.find(function (x) { return x.id === permitId; });
+    const expedite = document.querySelector("#calc-expedite").checked;
+    document.querySelector("#calc-summary").textContent = p.summary;
+
+    document.querySelectorAll("#permit-catalog-list button").forEach(function (b) { b.classList.toggle("active", b.dataset.id === permitId); });
+
+    const authority = d.lawStatus === "none" ? "NO RECOGNIZED AUTHORITY" : d.id === "norcal-base" ? "PUBLIC APPLICATIONS CLOSED" : d.manager === "None" ? "INTAKE SUSPENDED" : d.administration.toUpperCase();
+    const factor = d.wealth === "premium" ? 1.45 : d.wealth === "underserved" ? 0.8 : 1;
+    const fee = Math.max(25, Math.round(p.base * factor * (1 + (d.code.charCodeAt(0) - 65) % 5 * 0.04) / 5) * 5);
+    const days = Math.round(p.days * (d.wealth === "premium" ? 0.65 : d.wealth === "underserved" ? 1.55 : 1) * (expedite ? 0.35 : 1));
+    const available = d.lawStatus !== "none" && d.id !== "norcal-base" && d.manager !== "None";
+
+    const resultBox = document.querySelector("#calc-result");
+    resultBox.classList.toggle("permit-unavailable", !available);
+    document.querySelector("#calc-fee").textContent = available ? fee + "eb" : "—";
+    document.querySelector("#calc-fee-label").textContent = available ? "NONREFUNDABLE FILING FEE" : "APPLICATION UNAVAILABLE";
+    document.querySelector("#calc-days").textContent = available ? (days + "–" + (days + Math.round(days * 0.45)) + " business days") : "No estimate";
+    document.querySelector("#calc-authority").textContent = authority;
+    document.querySelector("#calc-manager").textContent = d.manager;
+    document.querySelector("#calc-security").textContent = d.security;
+    const expNote = document.querySelector("#calc-expedite-note");
+    if (expedite && available) {
+      expNote.hidden = false;
+      expNote.textContent = "Expedited eligibility requires verified property, employer, corporate, or contractor standing. Additional fee: " + (Math.round(fee * 2.5 / 5) * 5) + "eb.";
+    } else { expNote.hidden = true; }
+
+    const reqList = document.querySelector("#req-list");
+    reqList.innerHTML = "";
+    document.querySelector("#req-permit-name").textContent = p.name;
+    const reqNotes = ["Public Access may save this field, but verified credentials are required before intake.", "Ownership, sponsorship, or lawful interest must match a participating registry.", "Review by " + d.security + " may create additional fees or conditions.", "Attachments must use a supported format and may be rejected without notice."];
+    p.requirements.forEach(function (r, i) {
+      const li = document.createElement("li");
+      li.innerHTML = '<span>' + (i + 1) + '</span><div><b>' + r + '</b><p>' + reqNotes[i] + '</p></div>';
+      reqList.appendChild(li);
+    });
+    document.querySelector("#req-district-name").textContent = d.name + " ordinances, property rules, security directives, employer conditions, and corporate-zone agreements may require additional permits or prohibit the activity entirely.";
+
+    document.querySelector("#apply-district").value = d.name;
+    document.querySelector("#apply-permit").value = p.name;
+  }
+
+  dSel.addEventListener("change", function () { districtId = dSel.value; refresh(); });
+  pSel.addEventListener("change", function () { permitId = pSel.value; refresh(); });
+  document.querySelector("#calc-expedite").addEventListener("change", refresh);
+  document.querySelector("#req-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "District permit supplements are not available through Public Access. Sign in with an authorized municipal, district, contractor, property-owner, or corporate account to request this file.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#queue-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "Application status lookup requires a verified account.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#permit-apply-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const d = districts.find(function (x) { return x.id === districtId; });
+    const p = permitTypes.find(function (x) { return x.id === permitId; });
+    const factor = d.wealth === "premium" ? 1.45 : d.wealth === "underserved" ? 0.8 : 1;
+    const fee = Math.max(25, Math.round(p.base * factor / 5) * 5);
+    showNotice("Application Saved — Submission Incomplete", "Your " + p.name + " application for " + d.name + " was stored at NC CivicNet Node 07-C. Submission remains incomplete until identity, property interest, district authority, contractor review, and the " + fee + "eb filing authorization are verified. No queue position has been assigned.", "NC-PERMIT-202 • VALIDATION PROVIDER PENDING");
+  });
+
+  refresh();
+})();
+</script>
 </body>
 </html>

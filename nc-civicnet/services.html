@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173a59">
+<title>Municipal Services | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
+<header>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
+</nav>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
+
+<main id="main">
+  <div class="page-title">
+    <p>CONTRACTED INFRASTRUCTURE AND SERVICE COORDINATION</p>
+    <h1>Municipal Services</h1>
+    <span>NC CivicNet publishes provider-reported conditions for essential services. Status does not guarantee availability at a specific address, safe access, billing eligibility, restoration, or municipal ownership of the infrastructure.</span>
+  </div>
+
+  <section class="service-status">
+    <div><span>DISTRICTS REPORTING DISRUPTION</span><b>17 / 24</b><small>Provider data may be delayed</small></div>
+    <div><span>OPEN PUBLIC REPORTS</span><b>12,604</b><small>8,391 transferred to contractors</small></div>
+    <div><span>UNASSIGNED PROVIDERS</span><b>9</b><small>Across 4 districts</small></div>
+    <div><span>PRIORITY RESTORATION</span><b>CONTRACTED</b><small>Public queue subordinate</small></div>
+  </section>
+
+  <section class="service-selector">
+    <div>
+      <small>DISTRICT SERVICE DASHBOARD</small>
+      <h2>Current public conditions</h2>
+      <label>Service district<select id="svc-district"></select></label>
+      <p id="svc-warning"></p>
+    </div>
+    <div class="service-summary">
+      <div><span>District administration</span><b id="svc-admin"></b></div>
+      <div><span>Nominal security</span><b id="svc-security"></b></div>
+      <div><span>Published utility condition</span><span class="status" id="svc-utility"></span></div>
+      <div><span>City Manager</span><b id="svc-manager"></b></div>
+    </div>
+  </section>
+
+  <section class="service-cards" id="service-cards"></section>
+
+  <section class="service-detail">
+    <div>
+      <small id="svc-detail-code"></small>
+      <h2 id="svc-detail-title"></h2>
+      <div class="reliability"><span>Reported service reliability</span><div><i id="svc-reliability-bar"></i></div><b id="svc-reliability-pct"></b></div>
+      <dl>
+        <dt>Current condition</dt><dd><span class="status" id="svc-detail-state"></span></dd>
+        <dt>Responsible provider</dt><dd id="svc-detail-provider"></dd>
+        <dt>Open public reports</dt><dd id="svc-detail-reports"></dd>
+        <dt>Published restoration estimate</dt><dd id="svc-detail-estimate"></dd>
+        <dt>Priority eligibility</dt><dd id="svc-detail-priority"></dd>
+        <dt>Last provider update</dt><dd id="svc-detail-updated"></dd>
+      </dl>
+    </div>
+    <aside>
+      <b>ADDRESS-LEVEL DATA RESTRICTED</b>
+      <p>Exact outages, shutoff lists, pressure maps, service routes, repair crews, and restoration sequencing require an authorized provider, property-owner, employer, or emergency account.</p>
+      <button class="restricted-record" id="svc-restricted"><span aria-hidden="true">&#9635;</span>Open operations map<small>LOGIN REQUIRED</small></button>
+      <p class="service-caveat">An operational district status may include disconnected buildings, private grids, rationing, unsafe supply, or service limited to contracted properties.</p>
+    </aside>
+  </section>
+
+  <section class="service-notices">
+    <div class="section-head"><div><small>CURRENT INFRASTRUCTURE NOTICES</small><h2>Service interruptions and contractor bulletins</h2></div><span class="file-stamp">5 ACTIVE / 2 UNVERIFIED</span></div>
+    <div id="service-notices-list"></div>
+  </section>
+
+  <section class="service-matrix">
+    <div class="section-head"><div><small>CITYWIDE COMPARISON / PROVIDER-REPORTED</small><h2>District service matrix</h2></div><button class="restricted-record" id="matrix-restricted"><span aria-hidden="true">&#9635;</span>Download service dataset<small>LOGIN REQUIRED</small></button></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>District</th></tr></thead>
+      <tbody id="matrix-body"></tbody>
+    </table></div>
+    <p class="matrix-key"><b>OK</b> Operational &middot; <b>RED</b> Reduced &middot; <b>INT</b> Intermittent &middot; <b>MAJ</b> Major disruption &middot; <b>SUS</b> Suspended &middot; <b>NONE</b> No municipal coverage</p>
+  </section>
+
+  <section class="service-report">
+    <div>
+      <small>PUBLIC SERVICE INTAKE / FORM SR-6</small>
+      <h2>Report an outage or request assessment</h2>
+      <p>Reports are routed by district, provider, property interest, and service contract. Submission does not create a repair order.</p>
+      <ul>
+        <li>Emergency hazards should use Emergency Services.</li>
+        <li>Tenant reports may be transferred to a property owner.</li>
+        <li>Inspection and search fees may apply before dispatch.</li>
+      </ul>
+    </div>
+    <form id="service-report-form">
+      <div class="form-grid">
+        <label>District<input id="report-district" readonly></label>
+        <label>Service<input id="report-service" readonly></label>
+        <label>Address or nearest intersection<input required></label>
+        <label>Relationship to property<select><option>Resident / tenant</option><option>Property owner</option><option>Business operator</option><option>Contractor</option><option>Unknown</option></select></label>
+      </div>
+      <label>Describe the condition<textarea rows="5" required placeholder="Include duration, visible hazards, affected buildings, and any provider markings..."></textarea></label>
+      <label class="service-consent"><input type="checkbox" required><span>I accept transfer to a private provider or property owner and understand that routing may close this report.</span></label>
+      <button class="btn" type="submit">Identify provider and submit report</button>
+      <small>Photos and exact location telemetry require verified login.</small>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(function () {
+  let districtId = "little-europe";
+  let serviceId = "power";
+
+  const dSel = document.querySelector("#svc-district");
+  districts.forEach(function (d) { const o = document.createElement("option"); o.value = d.id; o.textContent = d.code + " — " + d.name; dSel.appendChild(o); });
+  dSel.value = districtId;
+
+  const cardsWrap = document.querySelector("#service-cards");
+  municipalServiceTypes.forEach(function (s) {
+    const btn = document.createElement("button");
+    btn.dataset.id = s.id;
+    btn.innerHTML = '<code>' + s.code + '</code><h3>' + s.name + '</h3><span class="status"></span><p>' + s.note + '</p><small>View provider details &rarr;</small>';
+    btn.addEventListener("click", function () { serviceId = s.id; refresh(); });
+    cardsWrap.appendChild(btn);
+  });
+
+  const matrixThead = document.querySelector(".service-matrix thead tr");
+  municipalServiceTypes.forEach(function (s) { const th = document.createElement("th"); th.textContent = s.code; matrixThead.appendChild(th); });
+  const matrixBody = document.querySelector("#matrix-body");
+  districts.forEach(function (x) {
+    const tr = document.createElement("tr");
+    let cells = '<td><a href="district.html?id=' + x.id + '">' + x.code + ' — ' + x.name + '</a></td>';
+    municipalServiceTypes.forEach(function (s, i) {
+      const state = districtServiceState(x, i);
+      const abbr = state === "Operational" ? "OK" : state === "Reduced Service" ? "RED" : state === "Intermittent" ? "INT" : state === "Major Disruption" ? "MAJ" : state === "Suspended" ? "SUS" : "NONE";
+      cells += '<td><span class="matrix-state matrix-' + state.toLowerCase().replaceAll(" ", "-") + '" title="' + state + '">' + abbr + '</span></td>';
+    });
+    tr.innerHTML = cells;
+    matrixBody.appendChild(tr);
+  });
+
+  const noticesListEl = document.querySelector("#service-notices-list");
+  serviceNotices.forEach(function (n, i) {
+    const article = document.createElement("article");
+    article.innerHTML = '<div><code>' + n[0] + '</code><b>' + (i < 3 ? "VERIFIED" : "UNVERIFIED") + '</b></div><span>' + n[1] + '</span><h3>' + n[2] + '</h3><p>' + n[3] + '</p>';
+    const btn = document.createElement("button");
+    btn.className = "restricted-record";
+    btn.innerHTML = '<span aria-hidden="true">&#9635;</span>Download complete notice<small>LOGIN REQUIRED</small>';
+    btn.addEventListener("click", function () { showNotice("Sign-in Required", "The complete notice for " + n[0] + " is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+    article.appendChild(btn);
+    noticesListEl.appendChild(article);
+  });
+
+  function refresh() {
+    const d = districts.find(function (x) { return x.id === districtId; });
+    const serviceIndex = Math.max(0, municipalServiceTypes.findIndex(function (x) { return x.id === serviceId; }));
+    const service = municipalServiceTypes[serviceIndex];
+    const state = districtServiceState(d, serviceIndex);
+    const reliability = [96, 74, 51, 28, 8, 0][serviceStates.indexOf(state)];
+    const districtIndex = d.code.charCodeAt(0) - 65;
+    const reports = state === "Operational" ? districtIndex % 7 : 34 + districtIndex * 17 + serviceIndex * 29;
+    const estimate = state === "Operational" ? "No active restoration" : state === "Reduced Service" ? "8–36 hours" : state === "Intermittent" ? "2–9 days" : state === "Major Disruption" ? "14–60 days" : state === "Suspended" ? "Provider review required" : "No estimate available";
+
+    document.querySelector("#svc-warning").textContent = d.warning;
+    document.querySelector("#svc-admin").textContent = d.administration;
+    document.querySelector("#svc-security").textContent = d.security;
+    const utilEl = document.querySelector("#svc-utility");
+    utilEl.textContent = d.utility;
+    utilEl.className = "status s-" + d.utility.toLowerCase().replaceAll(" ", "-");
+    document.querySelector("#svc-manager").textContent = d.manager;
+
+    document.querySelectorAll("#service-cards button").forEach(function (btn, i) {
+      btn.classList.toggle("active", btn.dataset.id === serviceId);
+      const st = districtServiceState(d, i);
+      const span = btn.querySelector(".status");
+      span.textContent = st;
+      span.className = "status s-" + st.toLowerCase().replaceAll(" ", "-");
+    });
+
+    document.querySelector("#svc-detail-code").textContent = service.code + " / DISTRICT " + d.code + " / PUBLIC TELEMETRY";
+    document.querySelector("#svc-detail-title").textContent = service.name + " in " + d.name;
+    document.querySelector("#svc-reliability-bar").style.width = reliability + "%";
+    document.querySelector("#svc-reliability-pct").textContent = reliability + "%";
+    const stateEl = document.querySelector("#svc-detail-state");
+    stateEl.textContent = state;
+    stateEl.className = "status s-" + state.toLowerCase().replaceAll(" ", "-");
+    document.querySelector("#svc-detail-provider").textContent = service.provider;
+    document.querySelector("#svc-detail-reports").textContent = reports.toLocaleString("en-US");
+    document.querySelector("#svc-detail-estimate").textContent = estimate;
+    document.querySelector("#svc-detail-priority").textContent = d.wealth === "premium" ? "Contract participants, registered properties, and critical employers" : d.wealth === "standard" ? "Emergency corridors and participating properties" : "No funded public priority schedule located";
+    document.querySelector("#svc-detail-updated").textContent = state === "No Municipal Coverage" ? "No report received" : (7 + districtIndex % 3) + ": " + String(12 + serviceIndex * 7).padStart(2, "0") + " NCT / confidence " + (d.wealth === "premium" ? "HIGH" : d.wealth === "standard" ? "MEDIUM" : "LOW");
+
+    document.querySelector("#report-district").value = d.name;
+    document.querySelector("#report-service").value = service.name;
+  }
+
+  dSel.addEventListener("change", function () { districtId = dSel.value; refresh(); });
+  document.querySelector("#svc-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The operations map is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#matrix-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The full service dataset is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#service-report-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const d = districts.find(function (x) { return x.id === districtId; });
+    const service = municipalServiceTypes.find(function (x) { return x.id === serviceId; });
+    showNotice("Service Report Transferred", "Your " + service.name + " report for " + d.name + " was recorded by NC CivicNet and transferred to " + service.provider + ". The transfer is counted as completed municipal routing. No work order, inspection, restoration date, or right to follow-up has been created.", "NC-SERVICE-202 • PROVIDER CUSTODY UNCONFIRMED");
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>

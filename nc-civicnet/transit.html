@@ -3,85 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
-<title>Transit | NC CivicNet</title>
+<meta name="theme-color" content="#173a59">
+<title>Metroline &amp; Surface Transit | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html">HOME</a>
-  <a href="alerts.html">ALERTS</a>
-  <a href="transit.html" class="current">TRANSIT</a>
-  <a href="permits.html">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html">PUBLIC RECORDS</a>
-  <a href="laws.html">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Transit</div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
 
 <main id="main">
-  <h1 class="page-title">NCART Transit Status</h1>
-  <p class="lede">Night City Area Rapid Transit (NCART) is jointly operated by the City and a rotating cast of corporate sponsors. Line status is updated by hand. If a line says "operating normally," this means no one has reported otherwise, not that anyone has checked.</p>
-  <p class="updated">Last updated: 2045.07.13, 06:40</p>
+  <div class="page-title">
+    <p>NIGHT CITY TRANSIT CORPORATION</p>
+    <h1>Metroline &amp; Surface Transit</h1>
+    <span>Metroline service operates continuously. Frequency, station access, and verified arrivals may be reduced during overnight hours, disruptions, security operations, maintenance, or emergency use.</span>
+  </div>
 
-  <h2>Line Status</h2>
-  <table class="data">
-    <tr><th>Line</th><th>Route</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><b>Red Line</b></td><td>Downtown &ndash; Watson &ndash; Kabuki</td><td style="color:#1a5c2e">Operating normally</td><td>Sponsored by Arasaka. Cars replaced with Arasaka-branded cars last quarter.</td></tr>
-    <tr><td><b>Blue Line</b></td><td>Heywood &ndash; Santo Domingo &ndash; Pacifica</td><td style="color:#7a1414">Suspended</td><td>Suspended past Heywood Industrial Zone indefinitely. No restoration date given.</td></tr>
-    <tr><td><b>Green Line</b></td><td>Little China &ndash; Glen &ndash; University District</td><td style="color:#8a6d1f">Delays</td><td>Running 15&ndash;40 min behind schedule due to "ongoing infrastructure review."</td></tr>
-    <tr><td><b>Gold Line</b></td><td>Charter Hill &ndash; Upper Marina &ndash; Little Europe</td><td style="color:#1a5c2e">Operating normally</td><td>The only line that reliably runs on time. Serves the wealthiest districts. Coincidence, probably.</td></tr>
-    <tr><td><b>Violet Line</b></td><td>South NC &ndash; Reclamation Zone &ndash; Port</td><td style="color:#7a1414">Suspended</td><td>Suspended since 2043 pending a safety review that has not been scheduled.</td></tr>
-    <tr><td><b>Silver Line (Shuttle)</b></td><td>NorCal Military Base &ndash; Watson Development</td><td style="color:#1a5c2e">Operating normally</td><td>Restricted access. Civilian ridership requires base clearance.</td></tr>
-  </table>
+  <div class="transit-summary">
+    <div><span>System</span><b>REDUCED SERVICE</b></div>
+    <div><span>Lines</span><b>6 operating / 1 bypass</b></div>
+    <div><span>Safety</span><b>ELEVATED THEFT</b></div>
+    <div><span>Verified</span><b>09:38 NCT</b></div>
+  </div>
 
-  <h2>Fare Schedule</h2>
-  <table class="data">
-    <tr><th>Fare Type</th><th>Price</th><th>Notes</th></tr>
-    <tr><td>Standard single ride</td><td>18eb</td><td>Up 12% this cycle, no public hearing held</td></tr>
-    <tr><td>Weekly pass</td><td>95eb</td><td>Does not cover Silver Line</td></tr>
-    <tr><td>Monthly pass</td><td>310eb</td><td>Price increases without notice historically</td></tr>
-    <tr><td>Reduced fare (verified low income)</td><td>9eb</td><td>Requires in-person biometric verification, one location citywide, by appointment only</td></tr>
-  </table>
+  <div class="transit-layout">
+    <div>
+      <div class="map-head"><b>Light-rail status map</b><span>STATUS DIAGRAM • NOT TO SCALE</span></div>
+      <div class="map">
+        <i class="route ra"></i><i class="route rb"></i>
+        <button class="station green" style="left:36%;top:35%" data-name="The Glen Central" data-status="green"><span>The Glen Central</span></button>
+        <button class="station red" style="left:47%;top:51%" data-name="Little China" data-status="red"><span>Little China</span></button>
+        <button class="station yellow" style="left:58%;top:24%" data-name="Watson" data-status="yellow"><span>Watson</span></button>
+        <button class="station gray" style="left:67%;top:76%" data-name="Santo Domingo" data-status="gray"><span>Santo Domingo</span></button>
+        <button class="station green" style="left:25%;top:61%" data-name="Upper Marina" data-status="green"><span>Upper Marina</span></button>
+        <button class="station green" style="left:74%;top:43%" data-name="Executive Zone" data-status="green"><span>Executive Zone</span></button>
+      </div>
+      <div class="legend">&#9679; Normal&#12288;<span>&#9679;</span> Delayed&#12288;<b>&#9679;</b> Closed&#12288;<i>&#9679;</i> Unverified</div>
+    </div>
+    <aside class="arrivals">
+      <h3>Arrival board</h3>
+      <div><b>The Glen Central</b><span>RED LINE</span><strong>09:49</strong><em>ON TIME</em></div>
+      <div><b>Watson Development</b><span>BLUE LINE</span><strong>09:57</strong><em>+8 MIN</em></div>
+      <div><b>Little China</b><span>RED LINE</span><strong>&mdash;</strong><em>BYPASS</em></div>
+      <div><b>Upper Marina</b><span>GOLD LINE</span><strong>10:03</strong><em>ON TIME</em></div>
+    </aside>
+  </div>
 
-  <h2>Report a Transit Issue</h2>
-  <form class="gov-form">
-    <label>LINE</label>
-    <select><option>Red Line</option><option>Blue Line</option><option>Green Line</option><option>Gold Line</option><option>Violet Line</option><option>Silver Line</option></select>
-    <label>ISSUE TYPE</label>
-    <select><option>Delay</option><option>Overcrowding</option><option>Safety Concern</option><option>Fare Dispute</option><option>Other</option></select>
-    <label>DESCRIPTION</label>
-    <textarea rows="3" placeholder="Describe the issue"></textarea>
-    <button type="submit">SUBMIT REPORT</button>
-    <div class="form-msg">Report submitted. Reference number assigned. NCART does not currently have a process for following up on reference numbers.</div>
-  </form>
+  <div class="safety">
+    <b>PASSENGER SAFETY ADVISORY</b>
+    <p>Organized theft crews are targeting riders during outages and station bypasses. Reported activity includes credchip skimming, false inspections, weapon theft, boarding raids, and fake replacement buses.</p>
+  </div>
 
-  <p class="disclaimer">NCART service data is compiled from operator self-reporting and is not independently verified by the City. Actual conditions may differ significantly, especially on the Blue and Violet Lines, which have not run in some time regardless of what this page says on a given day.</p>
+  <section class="two-col">
+    <article class="card">
+      <h2>Fare information</h2>
+      <dl>
+        <dt>Single fare</dt><dd>2eb</dd>
+        <dt>Visitor fare</dt><dd>8eb + identity processing</dd>
+        <dt>Security-zone surcharge</dt><dd>5-20eb</dd>
+        <dt>Temporary 24-hour access</dt><dd>18eb, no transfers or corporate stations</dd>
+      </dl>
+    </article>
+    <form class="card transit-funds" id="transit-funds-form">
+      <h2>Add transit funds</h2>
+      <p class="legacy-form-note">All fields are required. Amounts are entered in eurobucks (eb).</p>
+      <label>Transit card<input required></label>
+      <label>Authorization code<input required></label>
+      <label>Linked SIN or CIN<input required></label>
+      <label>Reload amount<div class="amount-entry"><input type="number" min="1" max="500" step="1" inputmode="numeric" placeholder="Enter amount" required><span>eb</span></div></label>
+      <small>A nonrefundable 2eb identity-processing fee may be charged separately.</small>
+      <button class="btn" type="submit">Authorize reload</button>
+    </form>
+  </section>
+  <p class="district-note">Displayed arrival times, frequencies, route conditions, and station statuses are estimates and do not guarantee transportation, station access, personal safety, accessibility accommodation, or arrival.</p>
 </main>
 
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+  document.querySelectorAll(".station").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const status = btn.dataset.status;
+      showNotice(btn.dataset.name, "Status: " + status.toUpperCase() + ". Next expected train: " + (status === "green" ? "8 minutes" : "no verified estimate") + ".", "");
+    });
+  });
+  document.querySelector("#transit-funds-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    showNotice("Funds Not Added", "The submitted transit account credentials could not be verified. No balance change was made.", "NCTA-ACCT-403 • Account Authorization Required");
+  });
+</script>
 </body>
 </html>

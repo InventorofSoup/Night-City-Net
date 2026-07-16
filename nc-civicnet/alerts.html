@@ -3,135 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
-<title>Alerts | NC CivicNet</title>
+<meta name="theme-color" content="#173a59">
+<title>Alerts &amp; Public Notices | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html">HOME</a>
-  <a href="alerts.html" class="current">ALERTS</a>
-  <a href="transit.html">TRANSIT</a>
-  <a href="permits.html">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html">PUBLIC RECORDS</a>
-  <a href="laws.html">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Alerts</div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
 
 <main id="main">
-  <h1 class="page-title">Public Alerts</h1>
-  <p class="lede">Alerts are issued by the district on a rolling basis and are not centrally reviewed. High severity alerts are things you should probably act on. Medium and low severity alerts are things the City is aware of and has chosen not to act on.</p>
-  <p class="updated">Last updated: 2045.07.13, 06:40 &mdash; next update: whenever</p>
-
-  <div class="alert high">
-    <span class="tag">High</span>
-    <h4>Boil-Water Advisory &mdash; South Night City</h4>
-    <p>Water main integrity in South Night City remains compromised. Residents advised to boil tap water for at least one minute before consumption. Advisory in effect since March. City Manager Garven Haakensen has not responded to repair requests.</p>
-    <div class="meta">District I &middot; Issued 2045.03.02 &middot; Status: ongoing</div>
-  </div>
-  <div class="alert high">
-    <span class="tag">High</span>
-    <h4>Elevated Gang Activity &mdash; Old Combat Zone</h4>
-    <p>Increased skirmish activity reported between Edgerunners Inc and The Faded. Residents advised to avoid Blocks L3&ndash;L7 after dark. NCPD has no jurisdiction in this district; direct concerns to Edgerunners Inc security liaison.</p>
-    <div class="meta">District L &middot; Issued 2045.07.10 &middot; Status: ongoing</div>
-  </div>
-  <div class="alert medium">
-    <span class="tag">Medium</span>
-    <h4>Curfew Enforcement Suspended &mdash; Hotzone</h4>
-    <p>Municipal curfew technically remains in effect in the Hotzone. Enforcement has been suspended indefinitely due to lack of any security provider willing to enter the district. This is not new information.</p>
-    <div class="meta">District D &middot; Issued 2044.11.14 &middot; Status: ongoing, unenforced</div>
-  </div>
-  <div class="alert medium">
-    <span class="tag">Medium</span>
-    <h4>Scheduled Drone Patrol Changes &mdash; Charter Hill</h4>
-    <p>Militech drone patrol routes over Charter Hill will shift westward this week to accommodate a private security contract renewal. Residents should not be alarmed by increased overhead drone traffic. Residents may still be alarmed.</p>
-    <div class="meta">District Q &middot; Issued 2045.07.09 &middot; Status: scheduled</div>
-  </div>
-  <div class="alert medium">
-    <span class="tag">Medium</span>
-    <h4>Permit Office Closure &mdash; Thursday</h4>
-    <p>The Municipal Permit Office will be closed Thursday. Reason not specified in the internal memo we received. Online applications will still be accepted and will still take 94 days minimum.</p>
-    <div class="meta">Citywide &middot; Issued 2045.07.12 &middot; Status: one-time</div>
-  </div>
-  <div class="alert low">
-    <span class="tag">Low</span>
-    <h4>NCART Fare Adjustment</h4>
-    <p>Standard fares increase 12% effective this cycle. No public comment period was held, as none was legally required. See <a href="transit.html">Transit</a> for updated fare schedule.</p>
-    <div class="meta">Citywide &middot; Issued 2045.06.19 &middot; Status: in effect</div>
-  </div>
-  <div class="alert low">
-    <span class="tag">Low</span>
-    <h4>Pothole Backlog Update</h4>
-    <p>Open pothole reports have reached 14,208 citywide. The Department of Public Works asks residents to stop filing duplicate reports for the same pothole, as this does not make it get fixed faster.</p>
-    <div class="meta">Citywide &middot; Issued 2045.07.05 &middot; Status: ongoing</div>
-  </div>
-  <div class="alert low">
-    <span class="tag">Low</span>
-    <h4>Air Quality Advisory &mdash; Glen / Little China</h4>
-    <p>Elevated particulate levels expected due to industrial output. Sensitive groups (children, elderly, anyone with functioning lungs) advised to limit outdoor exposure. This advisory is issued most weeks and is not considered actionable by City Council.</p>
-    <div class="meta">Districts G, E &middot; Issued 2045.07.11 &middot; Status: recurring</div>
-  </div>
-  <div class="alert high">
-    <span class="tag">High</span>
-    <h4>Power Outage &mdash; Rancho Coronado</h4>
-    <p>Unplanned outage affecting most of Rancho Coronado. No City Manager is currently assigned to this district to coordinate repairs. See <a href="outages.html">Outages</a> for current status.</p>
-    <div class="meta">District X &middot; Issued 2045.07.13 &middot; Status: ongoing</div>
+  <div class="page-title">
+    <p>CITYWIDE INCIDENT PUBLICATION</p>
+    <h1>Alerts &amp; Public Notices</h1>
+    <span>Authorized users may receive earlier warnings, precise locations, and additional response instructions.</span>
   </div>
 
-  <h2>Health Advisories &amp; Recalls</h2>
-  <p style="font-size:12px;color:#777;margin:-6px 0 10px">Published by the Department of Public Health and Biological Safety, partially supported by Biotechnica Community Stability Services.</p>
-  <div class="alert medium">
-    <span class="tag">Recall</span>
-    <h4>Counterfeit Dermaseal Batch DS-44</h4>
-    <p>Unlicensed sealant sold in gray squeeze cartridges may harden beneath synthetic skin and obstruct thermal regulation. Stop use immediately. Do not peel cured material from implanted seams.</p>
-    <div class="meta">Watson Development, North Heywood &middot; Issued 2045.07.14 &middot; ID: PH-45-0715-19</div>
-  </div>
-  <div class="alert medium">
-    <span class="tag">Recall</span>
-    <h4>NeuroPort K-12 Thermal Regulator</h4>
-    <p>Regulators manufactured before March 2045 may lock cooling responses during sustained neural load. Warning signs include phantom heat, jaw tremor, visual snow, and repeated automatic reboot. Removal covered only at participating clinics with proof of purchase.</p>
-    <div class="meta">Citywide &middot; Issued 2045.07.09 &middot; ID: PH-45-0709-61</div>
-  </div>
-  <div class="alert low">
-    <span class="tag">Investigation</span>
-    <h4>Acute Tremor Cluster near Cannery Row</h4>
-    <p>Eleven patients reported hand tremors, auditory distortion, and a copper taste. Four shared the same street-food vendor; seven interviews remain incomplete. The vendor cart was removed before a follow-up inspection.</p>
-    <div class="meta">Upper Marina &middot; Issued 2045.07.13 &middot; ID: PH-45-0713-08</div>
-  </div>
-  <div class="alert low">
-    <span class="tag">Monitoring</span>
-    <h4>Unlicensed Kibble Additive: "Red Fleck"</h4>
-    <p>Brick-red seasoning found in repackaged protein lots has caused vomiting and temporary low-light blindness in six verified cases. No municipal replacement-food program is funded.</p>
-    <div class="meta">Little Europe, Old Japantown &middot; Issued 2045.07.07 &middot; ID: PH-45-0707-12</div>
-  </div>
-
-  <p class="disclaimer">To report an emergency, contact NCPD directly where applicable, or your district's designated Security Provider. See <a href="records.html">Public Records</a> for a full directory. NC CivicNet is not an emergency service and alerts here may be delayed, incomplete, or wrong.</p>
+  <section>
+    <div class="section-head">
+      <div><small>CURRENT CONDITIONS</small><h2>Citywide alerts</h2></div>
+      <label>Category<select id="alert-cat"><option>All</option></select></label>
+    </div>
+    <div class="alert-list" id="alert-list"></div>
+  </section>
 </main>
 
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+(function () {
+  const catSel = document.querySelector("#alert-cat");
+  [...new Set(alerts.map(function (a) { return a.category; }))].forEach(function (c) { const o = document.createElement("option"); o.textContent = c; catSel.appendChild(o); });
+
+  function instructionFor(a) {
+    return a.category === "Water" ? "Avoid consumption, cooking, washing open wounds, or cyberware cleaning with affected supply. Building tanks and private vendors are not certified by this notice." :
+      a.category === "Weather" ? "Limit exposed travel and inspect garment seals. Public protective-equipment inventory is unavailable; employers and property managers may maintain private supplies." :
+      a.category === "Transit" ? "Use alternate stations where safe. Replacement vehicles, platform access, and posted arrival times may change during security activity." :
+      a.category === "Security" ? "Public movement may be redirected without advance notice. Do not approach checkpoints solely to request clarification." :
+      "Stop using the affected product where possible and retain identifying information. Treatment and replacement eligibility vary by clinic and coverage.";
+  }
+
+  function render() {
+    const cat = catSel.value;
+    const shown = alerts.filter(function (a) { return cat === "All" || a.category === cat; });
+    const list = document.querySelector("#alert-list");
+    list.innerHTML = "";
+    shown.forEach(function (a, i) {
+      const article = document.createElement("article");
+      article.id = "incident-" + (i + 1);
+      article.className = "alert " + a.severity;
+      article.innerHTML = '<div><b>' + a.severity.toUpperCase() + '</b><span>' + a.category + '</span></div>' +
+        '<main><h3>' + a.title + '</h3><p>' + a.detail + '</p><small>' + a.district + ' • ' + a.agency + ' • ' + (a.verified ? "VERIFIED" : "UNVERIFIED") + '</small></main>' +
+        '<a href="#incident-' + (i + 1) + '">Incident file</a>' +
+        '<section class="alert-detail"><div><b>PUBLIC INCIDENT SUMMARY</b><p>' + instructionFor(a) + '</p></div>' +
+        '<dl><dt>Incident ID</dt><dd>NCCN-ALT-' + String(i + 1).padStart(3, "0") + '</dd><dt>Affected jurisdiction</dt><dd>' + a.district + '</dd><dt>Issuing authority</dt><dd>' + a.agency + '</dd><dt>Verification</dt><dd>' + (a.verified ? "Municipal or recognized contractor feed" : "Unverified public report") + '</dd><dt>Last public revision</dt><dd>2045-07-' + String(15 - i).padStart(2, "0") + ' / 09:' + String(12 + i * 7).padStart(2, "0") + ' NCT</dd></dl>' +
+        '<aside><b>RESTRICTED ATTACHMENTS</b><p>Precise boundaries, response assets, sensor sources, and advance closure schedules require authorized access.</p><a class="btn" href="account.html">Sign in for attachments</a></aside></section>';
+      list.appendChild(article);
+    });
+  }
+  catSel.addEventListener("change", render);
+  render();
+})();
+</script>
 </body>
 </html>

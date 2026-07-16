@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173a59">
+<title>City Government | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
+<header>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
+</nav>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
+
+<main id="main">
+  <div class="page-title">
+    <p>NIGHT CITY GOVERNMENT // PUBLIC CLEARANCE</p>
+    <h1>City Government</h1>
+    <span>Night City districts are administered by City Managers, not mayors. Representation, selection methods, service authority, and public access vary by district charter and funding agreement.</span>
+  </div>
+
+  <div class="gov-status">
+    <div><span>COUNCIL STATUS</span><b>IN SESSION / PUBLIC FEED DELAYED</b></div>
+    <div><span>ATLAS DISTRICTS INDEXED</span><b>24 OF 24</b></div>
+    <div><span>CORPORATE ADVISORY SEATS</span><b>7 ACTIVE</b></div>
+    <div><span>NEXT PUBLIC COMMENT</span><b>EST. 11:40 NCT</b></div>
+  </div>
+
+  <nav class="gov-tabs" aria-label="City Government sections">
+    <button class="active" data-tabgroup="gov" data-tab="overview">Overview</button>
+    <button data-tabgroup="gov" data-tab="council">City Council</button>
+    <button data-tabgroup="gov" data-tab="managers">City Managers</button>
+    <button data-tabgroup="gov" data-tab="agencies">Agencies &amp; contractors</button>
+    <button data-tabgroup="gov" data-tab="meetings">Meetings</button>
+    <button data-tabgroup="gov" data-tab="budget">Budgets &amp; elections</button>
+  </nav>
+
+  <div data-tabpanel="gov" data-panel="overview">
+    <section class="gov-intro">
+      <div>
+        <small>HOW NIGHT CITY IS ADMINISTERED</small>
+        <h2>Authority follows funding.</h2>
+        <p>The City Council adopts citywide policies, but most essential services are delivered through district offices, security agreements, utility contracts, corporate partnerships, and emergency-provider coverage. A Council vote does not necessarily create a funded service obligation.</p>
+        <div class="authority-chain">
+          <div><b>Night City Council</b><span>Policy, contracts, appointments</span></div>
+          <i>&rarr;</i>
+          <div><b>District City Managers</b><span>Local administration and agreements</span></div>
+          <i>&rarr;</i>
+          <div><b>Contracted Providers</b><span>Actual service eligibility and response</span></div>
+        </div>
+      </div>
+      <aside><b>PUBLIC ACCESS NOTICE</b><p>Complete ownership, voting-weight, closed-session, and contract-performance records are available only to authorized stakeholders.</p><a href="account.html">Registered stakeholder access &rarr;</a></aside>
+    </section>
+    <section>
+      <div class="section-head"><div><small>ADMINISTRATIVE NOTICES</small><h2>Current government notices</h2></div><button class="restricted-record" id="gov-notice-archive"><span aria-hidden="true">&#9635;</span>Download notice archive<small>LOGIN REQUIRED</small></button></div>
+      <div class="gov-notices">
+        <article><b>PUBLICATION DELAYED</b><h3>Council agenda revision 2045-07-15-B</h3><p>Two contractor exhibits and the final voting-weight schedule have not been released.</p><small>Office of the Council Clerk &bull; 08:31</small></article>
+        <article><b>COMMENT PERIOD OPEN</b><h3>South pressure-zone water agreement</h3><p>Comments accepted through 17 JUL. Submission does not suspend contract approval.</p><button id="gov-comment-btn">Submit comment</button></article>
+        <article><b>ELECTION REVIEW</b><h3>Watson Development seat challenged</h3><p>Seat remains active while employer and resident verification totals are reconciled.</p><small>Estimated review completion: unavailable</small></article>
+      </div>
+    </section>
+  </div>
+
+  <div data-tabpanel="gov" data-panel="council" hidden>
+    <section>
+      <div class="section-head"><div><small>LEGISLATIVE AND ADVISORY BODY</small><h2>Night City Council</h2></div><span class="file-stamp">ROLL FILE 2045-Q3 / PARTIAL</span></div>
+      <p class="gov-lede">District representatives may vote when a funded seat is active. Corporate and institutional advisory seats participate in committees, closed briefings, procurement review, and emergency coordination; public records do not consistently identify when advisory recommendations become binding contract terms.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Seat</th><th>Representative / proxy</th><th>Seat type</th><th>Voting status</th><th>Selected by</th></tr></thead>
+        <tbody id="council-rows"></tbody>
+      </table></div>
+      <h3 class="subheading">Corporate and institutional advisory seats</h3>
+      <div class="advisory-grid" id="advisory-grid"></div>
+    </section>
+  </div>
+
+  <div data-tabpanel="gov" data-panel="managers" hidden>
+    <section>
+      <div class="section-head"><div><small>DISTRICT EXECUTIVE DIRECTORY</small><h2>District City Managers</h2></div><a href="districts.html">Full district directory &rarr;</a></div>
+      <div class="manager-explainer"><b>City Managers are not mayors.</b><p>Depending on the district, a City Manager may be elected by residents, elected only by property owners, appointed by a corporation, selected by an association, installed by a security provider, designated by another authority, or absent entirely.</p></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>District</th><th>City Manager</th><th>Selection method</th><th>Administration</th><th>Council seat</th><th></th></tr></thead>
+        <tbody id="manager-rows"></tbody>
+      </table></div>
+    </section>
+  </div>
+
+  <div data-tabpanel="gov" data-panel="agencies" hidden>
+    <section>
+      <div class="section-head"><div><small>SERVICE AUTHORITY DIRECTORY</small><h2>Agencies and controlling contractors</h2></div><span class="file-stamp">LAST CONTRACT SYNC: 04:17 / 2 ERRORS</span></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Agency or office</th><th>Public function</th><th>Status</th><th>Controlling agreement</th><th></th></tr></thead>
+        <tbody id="agency-rows"></tbody>
+      </table></div>
+      <div class="contract-callout">
+        <div><small>CONTRACTOR PERFORMANCE SUMMARY</small><strong>91.8%</strong><span>reported completion</span></div>
+        <p>"Completed" includes transferred, jurisdiction-closed, duplicate, insufficient-information, fee-pending, and contractor-referred cases. Physical correction is not required for completion credit.</p>
+        <a href="services.html">View service contractor comparisons &rarr;</a>
+      </div>
+    </section>
+  </div>
+
+  <div data-tabpanel="gov" data-panel="meetings" hidden>
+    <section>
+      <div class="section-head"><div><small>COUNCIL AND COMMITTEE CALENDAR</small><h2>Public meetings and records</h2></div><button class="btn" id="gov-comment-slot-btn">Request public comment slot</button></div>
+      <div class="meeting-list" id="meeting-list"></div>
+      <div class="meeting-warning"><b>Participation notice:</b> Entry to a public meeting may be suspended due to room capacity, identity verification, security screening, utility interruption, contractor requirements, or executive use.</div>
+    </section>
+  </div>
+
+  <div data-tabpanel="gov" data-panel="budget" hidden>
+    <section>
+      <div class="section-head"><div><small>PUBLIC FINANCE AND REPRESENTATION</small><h2>Budgets and elections</h2></div><span class="file-stamp">FY2045 PUBLIC EXTRACT / UNAUDITED</span></div>
+      <div class="budget-layout">
+        <div>
+          <h3>Published budget utilization</h3>
+          <div id="budget-rows"></div>
+          <p class="budget-note">Figures exclude classified security costs, corporate in-kind services, district-level assessments, and emergency procurement executed outside the public ledger.</p>
+        </div>
+        <aside>
+          <small>PROCUREMENT ALERT</small>
+          <h3>67% of current allocations are contract-restricted.</h3>
+          <p>Reallocation to direct municipal service may require provider consent, termination fees, emergency review, and replacement coverage.</p>
+          <button class="restricted-record" id="budget-restricted"><span aria-hidden="true">&#9635;</span>Download contracts and budgets<small>LOGIN REQUIRED</small></button>
+        </aside>
+      </div>
+      <h3 class="subheading">Election and appointment status</h3>
+      <div class="election-grid" id="election-grid"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(function () {
+  const councilRows = document.querySelector("#council-rows");
+  districts.forEach(function (d) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = '<td><b>' + d.code + ' — ' + d.name + '</b></td><td>' + d.manager + '</td><td>District seat</td><td>' + d.council + '</td><td>' + d.selection + '</td>';
+    councilRows.appendChild(tr);
+  });
+  const advisoryGrid = document.querySelector("#advisory-grid");
+  advisorySeats.forEach(function (a) {
+    const article = document.createElement("article");
+    article.innerHTML = '<small>' + a[2] + '</small><h3>' + a[0] + '</h3><p>' + a[1] + '</p>';
+    const btn = document.createElement("button");
+    btn.className = "restricted-record";
+    btn.innerHTML = '<span aria-hidden="true">&#9635;</span>Download disclosure record<small>LOGIN REQUIRED</small>';
+    btn.addEventListener("click", function () { showNotice("Sign-in Required", "Disclosure records for " + a[0] + " are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+    article.appendChild(btn);
+    advisoryGrid.appendChild(article);
+  });
+
+  const managerRows = document.querySelector("#manager-rows");
+  districts.forEach(function (d) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = '<td><b>' + d.name + '</b><small>' + d.classification + '</small></td><td>' + d.manager + '</td><td>' + d.selection + '</td><td>' + d.administration + '</td><td>' + d.council + '</td><td><a href="district.html?id=' + d.id + '">Office &rarr;</a></td>';
+    managerRows.appendChild(tr);
+  });
+
+  const agencyTbody = document.querySelector("#agency-rows");
+  agencyRows.forEach(function (r) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = '<td><b>' + r[0] + '</b></td><td>' + r[1] + '</td><td><span class="status s-' + r[2].toLowerCase().replaceAll(" ","-") + '">' + r[2] + '</span></td><td>' + r[3] + '</td><td></td>';
+    const btn = document.createElement("button");
+    btn.className = "restricted-record";
+    btn.innerHTML = '<span aria-hidden="true">&#9635;</span>Download records<small>LOGIN REQUIRED</small>';
+    btn.addEventListener("click", function () { showNotice("Sign-in Required", "Records for " + r[0] + " are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+    tr.lastElementChild.appendChild(btn);
+    agencyTbody.appendChild(tr);
+  });
+
+  (function renderMeetings() {
+    const el = document.querySelector("#meeting-list");
+    el.innerHTML = "";
+    meetingList.forEach(function (m, i) {
+      const article = document.createElement("article");
+      article.innerHTML = '<time>' + m[0] + '</time><div><span>' + m[2] + '</span><h3>' + m[1] + '</h3><p>' + m[3] + '</p></div><div></div>';
+      const btnDiv = article.lastElementChild;
+      const b1 = document.createElement("button");
+      b1.className = "restricted-record";
+      b1.innerHTML = '<span aria-hidden="true">&#9635;</span>Download agenda ' + (i === 1 ? "attachment" : "PDF") + '<small>LOGIN REQUIRED</small>';
+      b1.addEventListener("click", function () { showNotice("Sign-in Required", "This agenda document is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      const b2 = document.createElement("button");
+      b2.className = "restricted-record";
+      b2.innerHTML = '<span aria-hidden="true">&#9635;</span>Download ' + (i < 2 ? "pending minutes" : "partial minutes") + '<small>LOGIN REQUIRED</small>';
+      b2.addEventListener("click", function () { showNotice("Sign-in Required", "Meeting minutes are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      btnDiv.appendChild(b1); btnDiv.appendChild(b2);
+      el.appendChild(article);
+    });
+  })();
+
+  const budgetRowsEl = document.querySelector("#budget-rows");
+  budgetRows.forEach(function (b) {
+    const div = document.createElement("div");
+    div.className = "budget-row";
+    div.innerHTML = '<span>' + b[0] + ' <b>' + b[2] + '</b></span><div><i style="width:' + b[1] + '%"></i></div><small>' + b[1] + '% committed</small>';
+    budgetRowsEl.appendChild(div);
+  });
+
+  const electionGridEl = document.querySelector("#election-grid");
+  electionGrid.forEach(function (e) {
+    const article = document.createElement("article");
+    article.innerHTML = '<span>' + e[2] + '</span><h3>' + e[0] + '</h3><b>' + e[1] + '</b><p>' + e[3] + '</p>';
+    const btn = document.createElement("button");
+    btn.className = "restricted-record";
+    btn.innerHTML = '<span aria-hidden="true">&#9635;</span>Download election record<small>LOGIN REQUIRED</small>';
+    btn.addEventListener("click", function () { showNotice("Sign-in Required", "Election records for " + e[0] + " are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+    article.appendChild(btn);
+    electionGridEl.appendChild(article);
+  });
+
+  document.querySelector("#gov-notice-archive").addEventListener("click", function () { showNotice("Sign-in Required", "The notice archive is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#gov-comment-btn").addEventListener("click", function () { showNotice("Comment Window Opened", "Your comment may be submitted to the administrative record. It will not create a hearing, response obligation, or right to appeal.", ""); });
+  document.querySelector("#gov-comment-slot-btn").addEventListener("click", function () { showNotice("Public Comment Accepted", "Your request to comment was recorded. Speaking order, admission, remote connection, and response are not guaranteed.", ""); });
+  document.querySelector("#budget-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "Contracts and budgets are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+})();
+</script>
+</body>
+</html>

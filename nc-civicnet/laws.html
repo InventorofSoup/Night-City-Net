@@ -3,122 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
+<meta name="theme-color" content="#173a59">
 <title>Laws &amp; Ordinances | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html">HOME</a>
-  <a href="alerts.html">ALERTS</a>
-  <a href="transit.html">TRANSIT</a>
-  <a href="permits.html">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html">PUBLIC RECORDS</a>
-  <a href="laws.html" class="current">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Laws &amp; Ordinances</div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
 
 <main id="main">
-  <h1 class="page-title">Laws &amp; Ordinances</h1>
-  <p class="lede">District ordinances, citywide requirements, security-provider directives, and corporate-zone conditions may overlap or conflict with each other. Publication here does not guarantee enforcement, or a right to appeal. Full official scans require sign-in.</p>
+  <div class="page-title">
+    <p>MUNICIPAL CODE PUBLICATION SYSTEM // 2045</p>
+    <h1>Laws &amp; Ordinances</h1>
+    <span>District ordinances, citywide requirements, security-provider directives, property rules, and corporate-zone conditions may overlap or conflict. Publication does not guarantee enforcement or a right to appeal.</span>
+  </div>
 
-  <h2>Citywide (applies everywhere with a functioning City Manager)</h2>
-  <details class="permit">
-    <summary>Identity and Address Confirmation <span class="fee">A-ORD-001</span></summary>
-    <div class="body"><p>Anyone requesting district service must provide a verifiable SIN, CIN, employer credential, property record, or approved temporary identity. Unverified persons may be detained only when an authorized provider accepts custody.</p><dl><dt>Enforcement</dt><dd>District Security Provider</dd><dt>Penalty</dt><dd>Service denial; 20&ndash;100eb processing assessment</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Emergency &amp; Contractor Corridor Obstruction <span class="fee">A-ORD-002</span></summary>
-    <div class="body"><p>Vehicles, vendors, gatherings, debris, and temporary housing may not obstruct a route designated by the district Security Provider, a utility contractor, Trauma Team, MAX-TAC, or the City Manager.</p><dl><dt>Enforcement</dt><dd>District Security Provider</dd><dt>Penalty</dt><dd>Immediate removal; vehicle or property impound; costs assessed</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Utility Connection and Meter Tampering <span class="fee">A-ORD-004</span></summary>
-    <div class="body"><p>Bypassing a meter, reconnecting suspended service, or interfering with contractor sensors is prohibited even when no regular municipal service is available in the district.</p><dl><dt>Enforcement</dt><dd>Utility contractor</dd><dt>Penalty</dt><dd>Restitution plus 200&ndash;5,000eb; service blacklisting</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Hazard Reporting and Public Nuisance <span class="fee">A-ORD-006</span></summary>
-    <div class="body"><p>Fires, collapses, unexploded ordnance, radiation, contagious disease, and uncontrolled drones must be reported. Filing a report does not create a response obligation.</p><dl><dt>Enforcement</dt><dd>NC CivicNet intake, routed to district provider</dd><dt>Penalty</dt><dd>50&ndash;500eb for failure to report; false-report fees apply</dd></dl></div>
-  </details>
+  <section class="law-district-select">
+    <div><small>SELECT LEGAL JURISDICTION</small><label>District<select id="law-district"></select></label></div>
+    <div><span>District classification</span><b id="law-classification"></b></div>
+    <div><span>Nominal enforcement</span><b id="law-enforcement"></b></div>
+    <div><span>Published ordinances</span><b id="law-count"></b></div>
+  </section>
 
-  <h2>Corporate &amp; Executive Districts (Charter Hill, Exec Zone, Pacifica Playground, Downtown)</h2>
-  <details class="permit">
-    <summary>Credentialed Zone Entry <span class="fee">C-ORD-011</span></summary>
-    <div class="body"><p>Entry beyond public corridors requires a resident, employee, client, delivery, or sponsored-visitor credential. Credentials may be scanned, retained, or revoked without public appeal.</p><dl><dt>Enforcement</dt><dd>Militech / Lazarus / district provider</dd><dt>Penalty</dt><dd>Removal, detention, and access blacklist</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Compliance with Private Security Direction <span class="fee">C-ORD-012 &middot; Stakeholder Only</span></summary>
-    <div class="body"><p>Lawful directions issued by the contracted security provider carry district authority while within the provider boundary. Recording a restricted operation may constitute interference.</p><dl><dt>Enforcement</dt><dd>Contracted security provider</dd><dt>Penalty</dt><dd>250&ndash;5,000eb; credential suspension</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Aerial Device and Counter-Surveillance Control <span class="fee">C-ORD-013</span></summary>
-    <div class="body"><p>Unregistered drones, optics, signal repeaters, and mapping devices are prohibited above private roads, residential compounds, and executive facilities.</p><dl><dt>Enforcement</dt><dd>Contracted security provider</dd><dt>Penalty</dt><dd>Device destruction; 1,000eb minimum</dd></dl></div>
-  </details>
+  <div id="law-lawless" hidden>
+    <section class="lawless-index">
+      <div>NCCN-LAW-000 / JURISDICTION FAILURE</div>
+      <h2 id="law-lawless-title"></h2>
+      <p>This district is an active war zone. Night City recognizes no functioning ordinance system, court, appeal process, fine schedule, permit authority, or guaranteed law-enforcement jurisdiction within the published boundary.</p>
+      <strong>Armed groups may impose rules, tolls, curfews, confiscations, or punishments. These are not municipal laws.</strong>
+      <dl>
+        <dt>City Manager</dt><dd id="law-lawless-manager"></dd>
+        <dt>Municipal police coverage</dt><dd id="law-lawless-security"></dd>
+        <dt>Recognized appeal authority</dt><dd>None</dd>
+        <dt>Emergency legal assistance</dt><dd>No provider assigned</dd>
+      </dl>
+    </section>
+  </div>
 
-  <h2>Combat &amp; Contested Districts (Old Japantown, South Night City, Little China)</h2>
-  <details class="permit">
-    <summary>Provisional Security Checkpoint Compliance <span class="fee">L-ORD-021</span></summary>
-    <div class="body"><p>Checkpoints recognized by the City Manager or district Security Provider may search vehicles, verify identity, and redirect movement. Recognition does not guarantee patrol safety or complaint review.</p><dl><dt>Enforcement</dt><dd>Kimen-Gumi / Scythe Security / Gold Dragons (district-dependent)</dd><dt>Penalty</dt><dd>Detention, confiscation, or denied passage</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Occupied Structure and Salvage Claims <span class="fee">L-ORD-023</span></summary>
-    <div class="body"><p>Removing fixtures, power cells, structural steel, medical equipment, or cyberware from a marked occupied building is prohibited without a local claim token.</p><dl><dt>Enforcement</dt><dd>District Security Provider</dd><dt>Penalty</dt><dd>Restitution at replacement value; local ban</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Open Flame and Ammunition Storage <span class="fee">L-ORD-025</span></summary>
-    <div class="body"><p>Open fires, ammunition loading, and fuel transfer are prohibited inside occupied cargo stacks, tenements, clinic corridors, and marked evacuation lanes.</p><dl><dt>Enforcement</dt><dd>District Security Provider</dd><dt>Penalty</dt><dd>Immediate seizure; community restitution</dd></dl></div>
-  </details>
-
-  <h2>Underserved &amp; Unadministered Districts (Santo Domingo, Rancho Coronado, Hotzone)</h2>
-  <details class="permit">
-    <summary>Emergency Curfew Publication <span class="fee">X-ORD-031</span></summary>
-    <div class="body"><p>A curfew may be announced by radio, posted notice, patrol loudspeaker, or contractor message. Failure to receive the notice is not an exemption.</p><dl><dt>Enforcement</dt><dd>Whichever provider is available that day</dd><dt>Penalty</dt><dd>Dispersal or detention where a patrol is present</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Potable Water Distribution Control <span class="fee">X-ORD-032</span></summary>
-    <div class="body"><p>Resale, diversion, hoarding, or unauthorized connection to a marked potable source is prohibited. Household allocation is not guaranteed.</p><dl><dt>Enforcement</dt><dd>District provider, where assigned</dd><dt>Penalty</dt><dd>Container seizure; exclusion from next distribution</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Unavailable Provider Enforcement Clause <span class="fee">X-ORD-035</span></summary>
-    <div class="body"><p>A law remains in effect when no municipal provider is assigned to a district. Residents may not compel enforcement, investigation, protection, or appeal based on the mere publication of the law.</p><dl><dt>Enforcement</dt><dd>None assigned</dd><dt>Penalty</dt><dd>No standard schedule; contractor rates apply if one shows up</dd></dl></div>
-  </details>
-
-  <h2>Military-Controlled (NorCal Military Base)</h2>
-  <details class="permit">
-    <summary>Controlled Installation Entry <span class="fee">M-ORD-041</span></summary>
-    <div class="body"><p>No public right of entry exists. All persons, vehicles, cargo, and implants are subject to search, escort, tracking, and immediate removal.</p><dl><dt>Enforcement</dt><dd>NorCal Military Police</dd><dt>Penalty</dt><dd>Military detention or exclusion</dd></dl></div>
-  </details>
-  <details class="permit">
-    <summary>Command Curfew and Emergency Orders <span class="fee">M-ORD-045</span></summary>
-    <div class="body"><p>The base commander may establish immediate curfews, shelter orders, communications blackouts, exclusion zones, and compulsory evacuation routes.</p><dl><dt>Enforcement</dt><dd>Base command</dd><dt>Penalty</dt><dd>Military custody; no municipal appeal</dd></dl></div>
-  </details>
-
-  <p class="disclaimer">Note on active war-zone districts: Night City recognizes no functioning ordinance system, court, appeal process, fine schedule, or guaranteed law-enforcement jurisdiction within the Old Combat Zone boundary. Any posted rules, tolls, curfews, or confiscations there are imposed by local armed groups and carry no municipal legal status. See <a href="records.html">Public Records</a> for district administration status.</p>
+  <div id="law-normal">
+    <section class="law-overview">
+      <div><small>PUBLIC LEGAL SUMMARY</small><h2 id="law-overview-title"></h2><p id="law-overview-text"></p></div>
+      <aside><b>DOCUMENT ACCESS</b><p>The public may read summaries below. Official scans, amendments, maps, enforcement exhibits, and signature pages require verified login.</p><button class="restricted-record" id="law-restricted"><span aria-hidden="true">&#9635;</span>Download complete ordinance index<small>LOGIN REQUIRED</small></button></aside>
+    </section>
+    <section class="law-tools">
+      <label>Search this district's code<input id="law-search" placeholder="curfew, weapons, vendor, utility..."></label>
+      <label>Category<select id="law-category"></select></label>
+      <div><span>Results</span><b id="law-results-count"></b></div>
+    </section>
+    <section class="law-list" id="law-list"></section>
+  </div>
 </main>
 
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  let districtId = params.get("id") || "little-europe";
+  let openCode = null;
+
+  const dSel = document.querySelector("#law-district");
+  districts.forEach(function (d) { const o = document.createElement("option"); o.value = d.id; o.textContent = d.code + " — " + d.name; dSel.appendChild(o); });
+  dSel.value = districtId;
+
+  function render() {
+    const d = districts.find(function (x) { return x.id === districtId; });
+    const laws = getDistrictLaws(d);
+    document.querySelector("#law-classification").textContent = d.classification;
+    document.querySelector("#law-enforcement").textContent = d.security;
+    document.querySelector("#law-count").textContent = laws.length || "NONE";
+
+    const lawless = d.lawStatus === "none";
+    document.querySelector("#law-lawless").hidden = !lawless;
+    document.querySelector("#law-normal").hidden = lawless;
+    if (lawless) {
+      document.querySelector("#law-lawless-title").textContent = "No enforceable laws are published for " + d.name + ".";
+      document.querySelector("#law-lawless-manager").textContent = d.manager;
+      document.querySelector("#law-lawless-security").textContent = d.security;
+      return;
+    }
+
+    document.querySelector("#law-overview-title").textContent = d.name + " Municipal Code";
+    document.querySelector("#law-overview-text").textContent = laws.length + " published rules are indexed for this district. Status labels reflect the public copy only; current enforcement instructions may be held by " + d.security + ", property managers, employers, or authorized stakeholders.";
+
+    const catSel = document.querySelector("#law-category");
+    const cats = ["All"].concat([...new Set(laws.map(function (l) { return l.category; }))]);
+    catSel.innerHTML = "";
+    cats.forEach(function (c) { const o = document.createElement("option"); o.textContent = c; catSel.appendChild(o); });
+
+    renderList(laws);
+  }
+
+  function renderList(laws) {
+    const q = document.querySelector("#law-search").value.toLowerCase();
+    const cat = document.querySelector("#law-category").value || "All";
+    const filtered = laws.filter(function (l) {
+      return (cat === "All" || l.category === cat) && (l.code + " " + l.title + " " + l.summary + " " + l.category).toLowerCase().includes(q);
+    });
+    document.querySelector("#law-results-count").textContent = filtered.length + " of " + laws.length;
+    const list = document.querySelector("#law-list");
+    list.innerHTML = "";
+    filtered.forEach(function (l) {
+      const isOpen = openCode === l.code;
+      const article = document.createElement("article");
+      article.className = "law-card law-" + l.status.toLowerCase().replaceAll(" ", "-");
+      article.innerHTML = '<button class="law-card-head"><div><span>' + l.code + '</span><small>' + l.category + '</small></div><div><h3>' + l.title + '</h3><p>' + l.summary + '</p></div><b>' + l.status + '</b><i>' + (isOpen ? "−" : "+") + '</i></button>' +
+        (isOpen ? '<div class="law-detail"><dl><dt>Nominal enforcement</dt><dd>' + l.enforcement + '</dd><dt>Published penalty</dt><dd>' + l.penalty + '</dd><dt>Document status</dt><dd>' + l.status + '</dd></dl><button class="restricted-record" id="law-detail-restricted"><span aria-hidden="true">&#9635;</span>Download official scan ' + l.code + '<small>LOGIN REQUIRED</small></button></div>' : "");
+      article.querySelector(".law-card-head").addEventListener("click", function () { openCode = isOpen ? null : l.code; renderList(getDistrictLaws(districts.find(function (x) { return x.id === districtId; }))); });
+      if (isOpen) article.querySelector("#law-detail-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The official scan for " + l.code + " is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      list.appendChild(article);
+    });
+  }
+
+  dSel.addEventListener("change", function () { districtId = dSel.value; openCode = null; render(); });
+  document.querySelector("#law-search").addEventListener("input", function () { renderList(getDistrictLaws(districts.find(function (x) { return x.id === districtId; }))); });
+  document.querySelector("#law-category").addEventListener("change", function () { renderList(getDistrictLaws(districts.find(function (x) { return x.id === districtId; }))); });
+  document.querySelector("#law-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The complete ordinance index is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+
+  render();
+})();
+</script>
 </body>
 </html>

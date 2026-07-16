@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>Public Comments | NC CivicNet</title>
+<title>Districts | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -58,27 +58,17 @@
 
 <main id="main">
   <div class="page-title">
-    <p>ADMINISTRATIVE RECORD / ALL DISTRICTS</p>
-    <h1>Public Comments</h1>
-    <span>The City is legally required to host this comment board and is not legally required to read it. Comments are added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.</span>
+    <p>DISTRICT ADMINISTRATION DIRECTORY</p>
+    <h1>Night City Districts</h1>
+    <span>District services are administered through locally funded offices, contractors, security providers, and special authorities. 24 districts indexed.</span>
   </div>
 
-  <div class="comments">
-    <article><small>14 JUL 2045 &bull; LITTLE CHINA</small><p>"The notice says resolved, but our building still has brown water."</p><b>Official status: Referred to contractor / CLOSED</b></article>
-    <article><small>12 JUL 2045 &bull; KABUKI</small><p>"Provider refuses to cross the market after dark. Who exactly is 'security' supposed to be providing here?"</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>11 JUL 2045 &bull; RANCHO CORONADO</small><p>"There is no City Manager, no NCPD that will actually show up, and now the power's out too. Who is supposed to fix any of this? Genuinely asking."</p><b>Official status: No responsible office located</b></article>
-    <article><small>10 JUL 2045 &bull; CITYWIDE</small><p>The pothole tracker says 14,208 open reports and I am now certain at least 3,000 of those are the same pothole on Jig-Jig Street that everyone keeps reporting because it ate someone's tire last month.</p><b>Official status: Duplicate reports merged</b></article>
-    <article><small>09 JUL 2045 &bull; SOUTH NIGHT CITY</small><p>Some of y'all keep calling our City Manager "self-appointed" like it's an insult. He showed up when nobody else did. Where was the City Council in 2041?</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>08 JUL 2045 &bull; CHARTER HILL</small><p>Just want to say the drone patrol reroute this week was very smoothly communicated and I appreciate the advance notice. Wish other districts got the same courtesy, but I'll take it.</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>06 JUL 2045 &bull; WATSON DEVELOPMENT</small><p>Lift 2 and Lift 5 failed their emergency braking tests. I know this because I was in Lift 2 when the inspection sticker said it passed FOUR HOURS before the inspection was actually uploaded. Someone explain that.</p><b>Official status: Referred to contractor / OPEN</b></article>
-    <article><small>03 JUL 2045 &bull; OLD COMBAT ZONE</small><p>Just a reminder that this district has "no enforceable municipal law" per the Laws page, so I'm not sure what filing a comment here is supposed to accomplish, but here I am anyway.</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>30 JUN 2045 &bull; CITYWIDE</small><p>Asked the NORA chat assistant a direct question and it told me "this matter is handled by your district administration" and then suggested paid alternatives. Incredible customer service.</p><b>Official status: Comment noted / no action</b></article>
-    <form id="comment-form">
-      <h3>Submit public comment</h3>
-      <label>District (optional)<input placeholder="e.g. Little China, District E"></label>
-      <textarea required rows="4" placeholder="What's on your mind"></textarea>
-      <button class="btn" type="submit">Submit comment</button>
-    </form>
+  <label class="search">Search districts<input id="district-search" placeholder="District, City Manager, or provider"></label>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>District</th><th>City Manager</th><th>Administration</th><th>Council</th><th>Security</th><th>Utilities</th><th></th></tr></thead>
+      <tbody id="district-rows"></tbody>
+    </table>
   </div>
 </main>
 
@@ -109,10 +99,19 @@
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script>
-  document.querySelector("#comment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    showNotice("Public Comment Accepted", "Your comment was added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.", "");
-  });
+  function statusClass(v) { return "status s-" + v.toLowerCase().replaceAll(" ", "-"); }
+  function renderRows(filter) {
+    const q = (filter || "").toLowerCase();
+    const tbody = document.querySelector("#district-rows");
+    tbody.innerHTML = "";
+    districts.filter(function (d) { return (d.name + " " + d.manager + " " + d.security).toLowerCase().includes(q); }).forEach(function (d) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td><b>' + d.name + '</b><small>' + d.code + ' • ' + d.classification + '</small></td><td>' + d.manager + '</td><td>' + d.administration + '</td><td>' + d.council + '</td><td>' + d.security + '</td><td><span class="' + statusClass(d.utility) + '">' + d.utility + '</span></td><td><a href="district.html?id=' + d.id + '">View &rarr;</a></td>';
+      tbody.appendChild(tr);
+    });
+  }
+  renderRows("");
+  document.querySelector("#district-search").addEventListener("input", function (e) { renderRows(e.target.value); });
 </script>
 </body>
 </html>

@@ -3,92 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
-<title>NC CivicNet | Official Portal of Night City</title>
+<meta name="theme-color" content="#173a59">
+<title>NC CivicNet — Official Portal of Night City</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search">
+      <label>Search this site<input placeholder="permits, outages, records..."></label>
+      <button type="submit">Search</button>
+    </form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html" class="current">HOME</a>
-  <a href="alerts.html">ALERTS</a>
-  <a href="transit.html">TRANSIT</a>
-  <a href="permits.html">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html">PUBLIC RECORDS</a>
-  <a href="laws.html">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: Home</div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
 
 <main id="main">
-  <h1 class="page-title">Welcome to NC CivicNet</h1>
-  <p class="lede">Serving Night City residents since before most of us can verify. This portal provides access to municipal alerts, transit status, permit applications, utility outages, public records, and a comment board the City is legally required to host but not required to read.</p>
+  <section class="welcome">
+    <div>
+      <small>CITYWIDE INFORMATION • PUBLIC ACCESS</small>
+      <h1>Welcome to NC CivicNet</h1>
+      <p>This site provides public access to city services, district notices, public records, transit conditions, emergency information, and administrative resources. Service eligibility and response availability may vary by identity status, district, property classification, provider contract, and current public-safety conditions.</p>
+    </div>
+    <aside>
+      <b>Current access tier</b>
+      <strong>Tier 0 — Unverified Visitor</strong>
+      <span>Precise estimates and certain records are hidden.</span>
+      <a href="account.html">Verify identity or stakeholder status &rarr;</a>
+    </aside>
+  </section>
 
-  <div class="stat-grid">
-    <div><b>94</b><small>Avg. permit processing days</small></div>
-    <div><b>21/23</b><small>Districts with an active City Manager</small></div>
-    <div><b>8/23</b><small>Districts still patrolled by NCPD</small></div>
-    <div><b>71%</b><small>This site's uptime, self-reported</small></div>
-    <div><b>14,208</b><small>Open pothole reports, citywide</small></div>
-  </div>
+  <section>
+    <div class="section-head"><div><small>START HERE</small><h2>Common services</h2></div><a href="services.html">View all services &rarr;</a></div>
+    <div class="tiles">
+      <a href="permits.html"><span>01</span><b>Permit applications</b><small>Open service &rarr;</small></a>
+      <a href="account.html"><span>02</span><b>Application status</b><small>Open service &rarr;</small></a>
+      <a href="account.html"><span>03</span><b>Pay fines</b><small>Open service &rarr;</small></a>
+      <a href="services.html"><span>04</span><b>Trash schedule</b><small>Open service &rarr;</small></a>
+      <a href="services.html"><span>05</span><b>Water schedule</b><small>Open service &rarr;</small></a>
+      <a href="report.html"><span>06</span><b>Report outage</b><small>Open service &rarr;</small></a>
+      <a href="records.html"><span>07</span><b>Public records</b><small>Open service &rarr;</small></a>
+      <a href="emergency.html"><span>08</span><b>District security</b><small>Open service &rarr;</small></a>
+      <a href="account.html"><span>09</span><b>SIN services</b><small>Open service &rarr;</small></a>
+      <a href="transit.html"><span>10</span><b>NCART transit</b><small>Open service &rarr;</small></a>
+      <a href="emergency.html"><span>11</span><b>Missing person</b><small>Open service &rarr;</small></a>
+      <a href="permits.html"><span>12</span><b>Vehicle services</b><small>Open service &rarr;</small></a>
+    </div>
+  </section>
 
-  <h2>Services</h2>
-  <div class="card-grid">
-    <div class="card"><h3>Alerts</h3><p>Outages, curfews, weather, and gang activity advisories, updated whenever someone remembers to.</p><a class="btn" href="alerts.html">View Alerts</a></div>
-    <div class="card"><h3>Transit</h3><p>NCART line status, service disruptions, and the fare increase nobody voted on.</p><a class="btn" href="transit.html">Check Transit</a></div>
-    <div class="card"><h3>Permits</h3><p>Business, cyberware, firearms, and curfew exemption applications. Bring patience.</p><a class="btn" href="permits.html">Apply for a Permit</a></div>
-    <div class="card"><h3>Outages</h3><p>Power, water, and network status by district. Report an outage nobody will fix.</p><a class="btn" href="outages.html">View Outages</a></div>
-    <div class="card"><h3>Public Records</h3><p>District governance directory, property records, and other things technically public.</p><a class="btn" href="records.html">Search Records</a></div>
-    <div class="card"><h3>Public Comments</h3><p>Say what you need to say. It will be read by at most one (1) person.</p><a class="btn" href="comments.html">Leave a Comment</a></div>
-  </div>
+  <section class="guide">
+    <small>SITE GUIDE</small>
+    <div>
+      <button class="active" data-tabgroup="guide" data-tab="help">Immediate help</button>
+      <button data-tabgroup="guide" data-tab="permits">Permits &amp; licenses</button>
+      <button data-tabgroup="guide" data-tab="district">District information</button>
+      <button data-tabgroup="guide" data-tab="records">Request records</button>
+      <button data-tabgroup="guide" data-tab="report">Report a problem</button>
+    </div>
+    <p data-tabpanel="guide" data-panel="help">Emergency routing checks identity, coverage, location, and provider availability before assigning a responder.</p>
+    <p data-tabpanel="guide" data-panel="permits" hidden>Verify district authority, property interest, and fees before an estimate is issued.</p>
+    <p data-tabpanel="guide" data-panel="district" hidden>District offices publish local utility, security, water, waste, and meeting information.</p>
+    <p data-tabpanel="guide" data-panel="records" hidden>Search published files before submitting a formal fee-authorized request.</p>
+    <p data-tabpanel="guide" data-panel="report" hidden>The portal will identify a responsible district, contractor, or property owner when possible.</p>
+  </section>
 
-  <h2>Recent Municipal Headlines</h2>
-  <table class="data">
-    <tr><th>Date</th><th>Headline</th></tr>
-    <tr><td>2045.07.11</td><td>City Council votes 4-3 to "further study" the Rancho Coronado water main, tabled since 2039</td></tr>
-    <tr><td>2045.07.08</td><td>Department of Digital Services now down to one (1) employee following third round of budget cuts</td></tr>
-    <tr><td>2045.07.02</td><td>Permit office confirms average wait time has increased to 94 days, calls it "an improvement"</td></tr>
-    <tr><td>2045.06.28</td><td>Charter Hill City Manager Symon Featherstonehaugh unavailable for comment, as usual</td></tr>
-    <tr><td>2045.06.19</td><td>NCART fare increase approved without a public hearing, again</td></tr>
-  </table>
+  <section>
+    <div class="section-head"><div><small>CURRENT CONDITIONS</small><h2>Citywide alerts</h2></div><a href="alerts.html">View all alerts &rarr;</a></div>
+    <div class="alert-list" id="home-alert-list"></div>
+  </section>
 
-  <p class="disclaimer">NC CivicNet is provided as a public service by the City of Night City, with supplemental funding from a Municipal Efficiency Grant whose sponsor asked not to be named. Not all services listed are currently functional. This is not a joke, or it is, we're not sure anymore either.</p>
+  <section>
+    <div class="section-head"><div><small>SELECTED DISTRICT</small><h2>Little Europe</h2></div><a href="district.html?id=little-europe">Open district portal &rarr;</a></div>
+    <div class="summary">
+      <div><span>Administration</span><b>Active</b></div>
+      <div><span>City Manager</span><b>Amanda Polishchuk</b></div>
+      <div><span>Security</span><b>NCPD</b></div>
+      <div><span>Utilities</span><span class="status s-reduced-service">Reduced Service</span></div>
+    </div>
+    <p class="warn"><b>ACTIVE DISTRICT NOTICE:</b> Sewer pressure advisory near the old brick quarter</p>
+    <p style="font-size:11px;color:#5a6268;margin-top:6px">Use the district selector in the header, or <a href="districts.html">browse the full district index</a>, to view any of the 23 districts.</p>
+  </section>
+
+  <section class="dash">
+    <article class="weather">
+      <small>WEATHER OFFICE / 08:55</small>
+      <strong>74&deg;</strong>
+      <h3>Yellow particulate fog</h3>
+      <p>Acid precipitation possible after 19:00. Armor seal inspection advised.</p>
+      <b>FORECAST CONFIDENCE: MODERATE</b>
+    </article>
+    <article>
+      <small>CITYWIDE WATER</small>
+      <h3>2 active potability restrictions</h3>
+      <div class="meter"><i></i></div>
+      <p>64% of zones supplied verified test data.</p>
+      <a href="services.html">View potable windows &rarr;</a>
+    </article>
+    <article>
+      <small>TRANSIT</small>
+      <h3>Metroline operating continuously</h3>
+      <p>2 lines delayed • 1 station bypassed • overnight estimates reduced</p>
+      <a href="transit.html">Open system status &rarr;</a>
+    </article>
+  </section>
+
+  <section class="premium">
+    <div>
+      <small>AUTHORIZED &amp; CONTRACT SERVICES</small>
+      <h2>More accurate information may be available.</h2>
+      <p>Registered property owners, corporate representatives, participating security accounts, and emergency partners may access precise estimates, advance alerts, and high-resolution records.</p>
+    </div>
+    <div>
+      <a class="btn" href="account.html">Access partner portal</a>
+      <a href="emergency.html?sub=trauma-team">Trauma Team clients &rarr;</a>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
-<div class="backdrop emergency-popup" hidden>
-  <div class="modal" role="alertdialog" aria-modal="true">
-    <button class="close" aria-label="Close">&times;</button>
-    <p style="font:11px Arial,sans-serif;color:#7a1414;letter-spacing:.5px;margin:0 0 6px">PUBLIC WARNING NODE 07-C</p>
-    <h2 style="margin:0 0 8px;font-size:20px">Boil-Water Advisory &mdash; South Night City</h2>
-    <p style="font-size:13px;color:#444">Water main integrity in South Night City remains compromised. Boil tap water at least one minute before consumption. Advisory in effect since March.</p>
-    <code class="code">NCCN-ALT-002 &middot; VERIFIED MUNICIPAL FEED</code>
-    <p style="margin-top:14px"><a class="btn" href="alerts.html">View all alerts</a> <button class="dismiss" style="margin-left:8px;background:none;border:1px solid #999;padding:8px 14px;font:700 11px Arial,sans-serif;cursor:pointer">Dismiss</button></p>
-    <p style="font-size:10px;color:#888;margin-top:10px">Receipt of this notice does not confirm eligibility for shelter, transport, medical response, or evacuation assistance.</p>
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog">
+    <button aria-label="Close">&times;</button>
+    <i>!</i>
+    <h2></h2>
+    <p></p>
+    <code hidden></code>
+    <a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a>
+    <button class="btn">Return to portal</button>
   </div>
 </div>
 
+<div class="alert-backdrop" hidden>
+  <section class="alert-popup">
+    <div class="alert-popup-top"><span>NCCN // PUBLIC WARNING NODE 07-C</span><b class="popup-index">NOTICE 1 OF 3</b></div>
+    <div class="alert-popup-signal"><i>!</i><div><small class="popup-severity"></small><h2 class="popup-title"></h2></div></div>
+    <div class="alert-popup-body">
+      <p class="popup-detail"></p>
+      <dl>
+        <dt>Affected area</dt><dd class="popup-district"></dd>
+        <dt>Issuing authority</dt><dd class="popup-agency"></dd>
+        <dt>Verification</dt><dd class="popup-verified"></dd>
+      </dl>
+      <div class="popup-instruction"><b>PUBLIC INSTRUCTION</b><span class="popup-instruction-text"></span></div>
+      <!-- popup-instruction-text populated by app.js -->
+    </div>
+    <label class="mute-alert"><input type="checkbox"> Do not display emergency notices again today on this device</label>
+    <div class="alert-popup-actions">
+      <a class="btn danger" href="alerts.html">Emergency services</a>
+      <a href="alerts.html">View all alerts</a>
+      <button class="next-btn">Next notice &rarr;</button>
+      <button class="dismiss-alert close-x">Dismiss</button>
+    </div>
+    <small class="popup-legal">Receipt of this notice does not confirm eligibility for shelter, transport, medical response, utility service, or evacuation assistance.</small>
+  </section>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+  const homeAlertList = document.querySelector("#home-alert-list");
+  alerts.slice(0,3).forEach(function(a){
+    const article = document.createElement("article");
+    article.className = "alert " + a.severity;
+    article.innerHTML = '<div><b>' + a.severity.toUpperCase() + '</b><span>' + a.category + '</span></div><main><h3>' + a.title + '</h3><p>' + a.detail + '</p><small>' + a.district + ' • ' + a.agency + ' • ' + (a.verified ? "VERIFIED" : "UNVERIFIED") + '</small></main><a href="alerts.html">Details &rarr;</a>';
+    homeAlertList.appendChild(article);
+  });
+</script>
 </body>
 </html>

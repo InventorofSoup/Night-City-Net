@@ -3,127 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1a2c4e">
+<meta name="theme-color" content="#173a59">
 <title>Public Records | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar"><span>NIGHT CITY MUNICIPAL GOVERNMENT</span><span>PUBLIC ACCESS TERMINAL &middot; <a href="#" style="color:#cfd6e4">CITIZEN LOGIN</a></span></div>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
 <header>
-  <div class="seal"><b>SEAL OF<br>NIGHT CITY</b></div>
-  <div><h1>NC CIVICNET</h1><p>Official Portal of Night City Municipal Services</p></div>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
 </header>
-<div class="ticker"><div class="ticker-track"><b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Boil-water advisory extended in South Night City for 4th consecutive month. &nbsp;&nbsp;&nbsp; <b>ALERT:</b> Curfew enforcement in the Hotzone remains "theoretical." &nbsp;&nbsp;&nbsp; <b>NOTICE:</b> Permit office closed Thursday for unspecified reasons.</div></div>
-<nav class="mainnav">
-  <a href="index.html">HOME</a>
-  <a href="alerts.html">ALERTS</a>
-  <a href="transit.html">TRANSIT</a>
-  <a href="permits.html">PERMITS</a>
-  <a href="outages.html">OUTAGES</a>
-  <a href="records.html" class="current">PUBLIC RECORDS</a>
-  <a href="laws.html">LAWS</a>
-  <a href="comments.html">PUBLIC COMMENTS</a>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
 </nav>
-<div class="breadcrumb">You are here: <a href="index.html">Home</a> &raquo; Public Records</div>
-
-<main id="main">
-  <h1 class="page-title">Public Records</h1>
-  <p class="lede">Records available for public inspection under the Municipal Transparency Act, to the extent the City is able to comply with the Municipal Transparency Act.</p>
-
-  <h2>Record Search</h2>
-  <form class="gov-form">
-    <label>RECORD TYPE</label>
-    <select><option>Property Records</option><option>Court Records</option><option>Business License Lookup</option><option>District Governance</option></select>
-    <label>SEARCH TERM</label>
-    <input placeholder="Name, address, case number, or district">
-    <button type="submit">SEARCH</button>
-    <div class="form-msg">Search index is currently being rebuilt (started 2044.02.11). Verified municipal, contractor, and property-owner accounts may search complete holdings via <a href="#" data-restricted="Verified records login">Sign in to records system</a>. Public residents are not currently provisioned for that path. Consult the directory below in the meantime.</div>
-  </form>
-
-  <h2>District Governance Directory</h2>
-  <p style="font-size:13px;color:#333">Every Night City district is required to designate a City Manager and a Security Provider responsible for day-to-day governance and public safety. Compliance with this requirement varies. This directory is maintained as accurately as our one (1) remaining records clerk can manage.</p>
-  <div class="table-wrap">
-  <table class="data">
-    <tr><th>District</th><th>Classification</th><th>City Manager</th><th>How Selected</th><th>Council Seat</th><th>Security Provider</th></tr>
-    <tr><td>Little Europe (A)</td><td>Mixed-Use District</td><td>Amanda Polishchuk</td><td>Elected by property owners</td><td>Voting seat</td><td>NCPD</td></tr>
-    <tr><td>Upper Marina (B)</td><td>Mixed Industrial / Residential</td><td>Kabria Chung</td><td>Elected by property owners</td><td>Voting seat</td><td>NCPD</td></tr>
-    <tr><td>Downtown (C)</td><td>Central Business District</td><td>Emilia Ortega</td><td>Appointed by Chamber of Commerce</td><td>Corporate proxy vote</td><td>Whitewater Security</td></tr>
-    <tr><td>Hotzone (D)</td><td>Restricted Reclamation District</td><td style="color:#7a1414">Vacant</td><td>No active administration</td><td>Seat suspended</td><td>NCPD (in theory)</td></tr>
-    <tr><td>Little China (E)</td><td>Rebuilding Urban District</td><td>David Ling Po</td><td>Appointed by Little China Redevelopment Assoc.</td><td>Advisory seat</td><td>Gold Dragons</td></tr>
-    <tr><td>University District (F)</td><td>Institutional District</td><td>Dr. Edward Michaels</td><td>Self-appointed</td><td>Institutional advisory seat</td><td>NCU Campus Security</td></tr>
-    <tr><td>Glen (G)</td><td>Government District</td><td>Zohara Freeman</td><td>Appointed by Night Corp</td><td>Priority voting seat</td><td>NCPD</td></tr>
-    <tr><td>Old Japantown (H)</td><td>Combat Zone / Cultural District</td><td>Adriane Casselle</td><td>Elected by local family heads</td><td>Advisory seat</td><td>Kimen-Gumi</td></tr>
-    <tr><td>South Night City (I)</td><td>Industrial Combat Zone</td><td>Garven Haakensen</td><td>Self-appointed</td><td>Contested seat</td><td>Scythe Security</td></tr>
-    <tr><td>Port (J)</td><td>Port District</td><td>Calypso</td><td>Appointed by Thelas elders</td><td>Contractual observer</td><td>Thelas Marines</td></tr>
-    <tr><td>Reclamation Zone (K)</td><td>Reclamation District</td><td>Santos Dorado</td><td>Elected by district residents</td><td>Provisional voting seat</td><td>Los Perros Guardianes</td></tr>
-    <tr><td>Old Combat Zone (L)</td><td>Combat Zone / Reclamation District</td><td>Brick Coleman</td><td>Leader, Edgerunners Inc</td><td>Non-voting observer</td><td>Edgerunners Inc</td></tr>
-    <tr><td>NorCal Military Base (M)</td><td>Military-Controlled District</td><td>Gen. Ash Giovanni</td><td>Base commander</td><td>No public seat</td><td>NorCal Military Police</td></tr>
-    <tr><td>Watson Development (N)</td><td>Development District</td><td>Lucius Rhyne</td><td>Elected via general election</td><td>Contested voting seat</td><td>NCPD</td></tr>
-    <tr><td>Kabuki (O)</td><td>Special Administrative Area</td><td>Yoshiki Murakami</td><td>Appointed by the NCCS</td><td>Advisory seat</td><td>Kimen-Gumi</td></tr>
-    <tr><td>New Westbrook (P)</td><td>Mixed-Use Media District</td><td>Belkis Abera</td><td>Appointed by WorldSat and Network 54</td><td>Corporate proxy vote</td><td>NCPD</td></tr>
-    <tr><td>Charter Hill (Q)</td><td>Corporate Residential District</td><td>Symon Featherstonehaugh</td><td>Elected by property owners</td><td>Voting seat</td><td>Militech</td></tr>
-    <tr><td>Exec Zone (R)</td><td>Executive Corporate District</td><td>Dr. Karen Davies</td><td>Elected by Home Owners Association</td><td>Priority voting seat</td><td>Lazarus</td></tr>
-    <tr><td>Heywood Docks (S)</td><td>Corporate Port District</td><td>Andrea Lee</td><td>Appointed by SK Security</td><td>Corporate advisory seat</td><td>SK Security</td></tr>
-    <tr><td>North Heywood (T)</td><td>Residential / Industrial District</td><td>Barry "Big Deal" Delvecchio</td><td>Appointed by district council</td><td>Voting seat</td><td>6th Street</td></tr>
-    <tr><td>Heywood Industrial Zone (U)</td><td>Industrial District</td><td>Theo Walker</td><td>Appointed by the Arroyo Concern</td><td>Industrial advisory seat</td><td>NCPD</td></tr>
-    <tr><td>Santo Domingo (V)</td><td>Industrial / Residential District</td><td>Theresa Valentino</td><td>Elected by residents</td><td>Voting seat</td><td>Aldecaldo Peacekeepers</td></tr>
-    <tr><td>Pacifica Playground (W)</td><td>Corporate Entertainment District</td><td>Elliot Kane</td><td>Appointed by Playland by the Sea mgmt.</td><td>Corporate proxy vote</td><td>Militech</td></tr>
-    <tr><td>Rancho Coronado (X)</td><td>Unadministered Residential District</td><td style="color:#7a1414">Vacant</td><td>No funded office</td><td>Vacant, seat unfunded</td><td>NCPD (in theory)</td></tr>
-  </table>
-  </div>
-  <p style="font-size:12px;color:#777">Directory current as of last full audit: 2043. Individual entries updated on an ad hoc basis. If your district's information is wrong, there is currently no process to correct it.</p>
-
-  <h2>Recently Indexed Fragments</h2>
-  <p style="font-size:13px;color:#333">These short summaries survived automated publication. Full files, attachments, and custody logs require sign-in. 8 of 14,882 index entries shown.</p>
-  <table class="data">
-    <tr><th>Record</th><th>District</th><th>Date</th><th>Status</th></tr>
-    <tr><td><b>Bridgetown platform obstruction invoice</b><br><small>Cleanup contractor billed for twelve plastic chairs, one burned vending unit, and three unregistered cargo crates. Crate contents were transferred to an unnamed security custodian.</small><br><button class="restricted-btn" data-restricted="Bridgetown platform obstruction invoice">Open complete file<small>NCR-45-0711-88</small></button></td><td>Little China</td><td>2045.07.11</td><td>Partial scan</td></tr>
-    <tr><td><b>Megabuilding 8 lift inspection addendum</b><br><small>Cars 2 and 5 failed emergency braking tests. The repair vendor marked both units operational four hours before the inspection was uploaded.</small><br><button class="restricted-btn" data-restricted="Megabuilding 8 lift inspection addendum">Open complete file<small>NCR-45-0630-14</small></button></td><td>Watson Development</td><td>2045.06.30</td><td>Disputed</td></tr>
-    <tr><td><b>South pressure-zone water sample chain</b><br><small>Sample SD-44 changed custody seven times. Seals 3 and 6 were recorded as already broken; laboratory destination field reads "contractor to advise."</small><br><button class="restricted-btn" data-restricted="South pressure-zone water sample chain">Open complete file<small>NCR-45-0602-51</small></button></td><td>Santo Domingo</td><td>2045.06.02</td><td>Incomplete</td></tr>
-    <tr><td><b>Decommissioned shelter inventory</b><br><small>Basement shelter LE-19 retains 31 cots, two water bladders, and a generator reported missing after a 2043 contractor transfer. Public access authorization expired.</small><br><button class="restricted-btn" data-restricted="Decommissioned shelter inventory">Open complete file<small>NCR-45-0509-77</small></button></td><td>Little Europe</td><td>2045.05.09</td><td>Outdated</td></tr>
-    <tr><td><b>Canal recovery and disposal summary</b><br><small>Recovered property included a delivery drone, two vehicle doors, and an encrypted municipal terminal registered to a department dissolved in 2038.</small><br><button class="restricted-btn" data-restricted="Canal recovery and disposal summary">Open complete file<small>NCR-45-0421-09</small></button></td><td>Upper Marina</td><td>2045.04.21</td><td>Redacted</td></tr>
-  </table>
-
-  <h2>Other Records</h2>
-  <table class="data">
-    <tr><th>Record Type</th><th>Access Method</th></tr>
-    <tr><td>Property Records</td><td>In-person only, Downtown Records Office, Tues/Thurs 9am&ndash;12pm</td></tr>
-    <tr><td>Court Records</td><td>Available via written request, 30&ndash;120 day turnaround</td></tr>
-    <tr><td>Business License Lookup</td><td>Search function above (currently rebuilding)</td></tr>
-    <tr><td>Municipal Budget</td><td>Published annually, last published 2043</td></tr>
-    <tr><td>City Council Meeting Minutes</td><td>Not published. Minutes are recorded but classified as internal.</td></tr>
-  </table>
-
-  <p class="disclaimer">Records requests under the Municipal Transparency Act may be submitted in writing to the Department of Digital Services. Please allow 30&ndash;120 business days for a response acknowledging receipt of your request, which is separate from and does not guarantee a response to your request.</p>
-</main>
-
-<div class="backdrop records-gate" hidden>
-  <div class="modal" role="dialog" aria-modal="true">
-    <button class="close" aria-label="Close">&times;</button>
-    <p style="font:11px Arial,sans-serif;color:#7a1414;letter-spacing:.5px;margin:0 0 6px">SIGN-IN REQUIRED</p>
-    <h2 style="margin:0 0 8px;font-size:20px"><span class="modal-label">This record</span> is not available through Public Access.</h2>
-    <p style="font-size:13px;color:#444">Sign in with an authorized municipal, district, contractor, property-owner, or corporate account to request this file.</p>
-    <code class="code">NCCN-DATA-401 &middot; VERIFIED RECORD ACCESS REQUIRED</code>
-    <a class="btn" href="#">Sign in to continue</a>
-  </div>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
 </div>
 
+<main id="main">
+  <div class="page-title">
+    <p>RECORDS ACCESS AND CONTRACTOR HOLDINGS</p>
+    <h1>Public Records</h1>
+    <span>Records may be inspected only through verified account access or a formal disclosure request. Availability does not imply completeness, authenticity, municipal custody, or eventual release.</span>
+  </div>
+
+  <section class="records-access">
+    <div>
+      <small>ACCESS PATH 01 / EXISTING USERS</small>
+      <h2>Verified records login</h2>
+      <p>Municipal employees, participating property owners, contractors, corporate partners, and recognized district offices may search complete holdings.</p>
+      <a class="btn" href="account.html">Sign in to records system</a>
+      <span>Public resident credentials are not currently provisioned.</span>
+    </div>
+    <div>
+      <small>ACCESS PATH 02 / PUBLIC REQUEST</small>
+      <h2>Formal disclosure request</h2>
+      <p>Requests enter jurisdiction, identity, custody, redaction, and fee review before a tracking identifier is assigned.</p>
+      <a href="#formal-records-request">Submit Form PR-19B</a>
+      <span>Published estimate: 90&ndash;240 business days after validation.</span>
+    </div>
+    <aside>
+      <b>SYSTEM NOTICE</b>
+      <strong>Archive search degraded</strong>
+      <p>2041&ndash;2043 migration records are incomplete. Contractor-held documents may require a separate paid search.</p>
+    </aside>
+  </section>
+
+  <section class="public-index">
+    <div class="section-head">
+      <div><small>UNAUDITED PUBLIC CACHE / NO LOGIN REQUIRED</small><h2>Recently indexed fragments</h2><p>These short summaries survived automated publication. Attachments, signatures, addresses, images, and custody logs remain restricted.</p></div>
+      <span class="file-stamp">8 OF 14,882 INDEX ENTRIES DISPLAYED</span>
+    </div>
+    <div class="record-tools">
+      <input id="rec-search" placeholder="record number, district, keyword...">
+      <select id="rec-type"><option>All</option></select>
+      <div><span>MATCHES</span><b id="rec-match-count"></b></div>
+    </div>
+    <div class="public-record-list" id="rec-list"></div>
+  </section>
+
+  <section class="records-request" id="formal-records-request">
+    <div>
+      <small>FORM PR-19B / REVISION 11</small>
+      <h2>Request disclosure of a public record</h2>
+      <p>Describe one record per submission. The City does not search private NET Architectures, active security systems, dissolved agencies, unrecognized district offices, or contractor archives without prepaid authorization.</p>
+      <ol>
+        <li>Identity and district eligibility review</li>
+        <li>Responsible custodian determination</li>
+        <li>Fee estimate and advance payment</li>
+        <li>Security, privacy, and contract redaction</li>
+        <li>Release if a responsive record is located</li>
+      </ol>
+    </div>
+    <form id="records-request-form">
+      <label>Legal name<input required placeholder="As shown on verified identity"></label>
+      <label>Resident or corporate identity number<input required placeholder="SIN / CIN / contract credential"></label>
+      <label>Record sought<textarea required rows="5" placeholder="Include dates, district, agency, contractor, and exact document title..."></textarea></label>
+      <label>Maximum search fee authorization<select required>
+        <option value="" disabled selected>Select amount</option>
+        <option>25eb — index search only</option>
+        <option>100eb — standard contractor search</option>
+        <option>500eb — extended custody search</option>
+      </select></label>
+      <label class="records-consent"><input type="checkbox" required><span>I accept charges even when no responsive record is located.</span></label>
+      <button class="btn" type="submit">Submit formal request</button>
+      <small>Submission does not create a right to response, appeal, refund, or release.</small>
+    </form>
+  </section>
+</main>
+
 <footer>
-  <div class="links"><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">FOIA Requests</a><a href="#">Employment</a><a href="records.html">Site Map</a></div>
-  <p>&copy; 2045 City of Night City. This site is maintained on a volunteer basis by the Department of Digital Services (current staff: 1). Response times not guaranteed. Forms may not be processed. We are aware the search function does not work.</p>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
 <button class="nora-btn">NORA <b>?</b></button>
-<div class="nora-panel" hidden>
-  <button class="close" aria-label="Close">&times;</button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
-  <a href="records.html">Find your district's City Manager &rarr;</a>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
   <em>Paid alternatives are available.</em>
 </div>
 
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+(function () {
+  const types = ["All"].concat([...new Set(publicRecordSamples.map(function (r) { return r.type; }))]);
+  const typeSel = document.querySelector("#rec-type");
+  types.forEach(function (t) { const o = document.createElement("option"); o.textContent = t; typeSel.appendChild(o); });
+
+  const list = document.querySelector("#rec-list");
+  let openId = null;
+  function render() {
+    const q = document.querySelector("#rec-search").value.toLowerCase();
+    const type = typeSel.value;
+    const shown = publicRecordSamples.filter(function (r) {
+      return (type === "All" || r.type === type) && (r.id + " " + r.title + " " + r.district + " " + r.summary).toLowerCase().includes(q);
+    });
+    document.querySelector("#rec-match-count").textContent = shown.length;
+    list.innerHTML = "";
+    shown.forEach(function (r) {
+      const article = document.createElement("article");
+      const isOpen = openId === r.id;
+      article.innerHTML = '<button><div><code>' + r.id + '</code><small>' + r.type + ' • ' + r.district + '</small></div><h3>' + r.title + '</h3><time>' + r.date + '</time><b>' + r.status + '</b><i>' + (isOpen ? "−" : "+") + '</i></button>' +
+        (isOpen ? '<div><p>' + r.summary + '</p><dl><dt>Custodian</dt><dd>Unconfirmed / contractor-supplied</dd><dt>Full file</dt><dd>Restricted pending identity and fee verification</dd></dl><button class="restricted-record" id="open-record-btn"><span aria-hidden="true">&#9635;</span>Open complete file ' + r.id + '<small>LOGIN REQUIRED</small></button></div>' : "");
+      article.querySelector("button").addEventListener("click", function () { openId = isOpen ? null : r.id; render(); });
+      if (isOpen) article.querySelector("#open-record-btn").addEventListener("click", function () { showNotice("Sign-in Required", "This record is not available through Public Access. Sign in with an authorized municipal, district, contractor, property-owner, or corporate account to request this file.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      list.appendChild(article);
+    });
+  }
+  document.querySelector("#rec-search").addEventListener("input", render);
+  typeSel.addEventListener("change", render);
+  render();
+
+  document.querySelector("#records-request-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    showNotice("Request Accepted for Intake", "Your submission was forwarded to the records intake contractor. A tracking number cannot be issued until identity, residency, fee authorization, document custody, and the responsible jurisdiction are verified. Do not resubmit; duplicate requests return to the end of the queue.", "NCCN-FOIA-202 • QUEUED / TRACKING ID NOT GENERATED");
+  });
+})();
+</script>
 </body>
 </html>

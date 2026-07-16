@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173a59">
+<title id="page-title">District | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
+<header>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
+</nav>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
+
+<main id="main">
+  <div class="page-title">
+    <p id="d-eyebrow"></p>
+    <h1 id="d-name"></h1>
+    <span id="d-updated"></span>
+  </div>
+
+  <div class="district-hero" id="d-hero">
+    <div><span>Administration</span><b id="d-admin"></b></div>
+    <div><span>City Manager</span><b id="d-manager-name"></b></div>
+    <div><span>Council seat</span><b id="d-council"></b></div>
+    <div><span>Security</span><b id="d-security"></b></div>
+  </div>
+  <p class="warn"><b>ACTIVE WARNING:</b> <span id="d-warning"></span></p>
+
+  <div class="no-law-banner" id="d-lawless-banner" hidden>
+    <b>NO ENFORCEABLE MUNICIPAL LAW</b>
+    <span>This district is an active war zone. Night City publishes no ordinance set, court jurisdiction, fine schedule, permit requirement, or guaranteed law-enforcement authority for this area. Faction demands and armed control are not municipal law.</span>
+  </div>
+
+  <section class="manager">
+    <div class="portrait">IMAGE<br>PENDING<br>PUBLICATION<small>Official archive: 96 &times; 112</small></div>
+    <div>
+      <small>OFFICE OF THE CITY MANAGER</small>
+      <h2 id="d-manager-h2"></h2>
+      <dl>
+        <dt>Official title</dt><dd id="d-title"></dd>
+        <dt>Selection method</dt><dd id="d-selection"></dd>
+        <dt>Office status</dt><dd id="d-admin2"></dd>
+        <dt>Office hours</dt><dd>Tue 10:00-12:00; Wed by appointment; Fri 09:30-10:15</dd>
+        <dt>Security provider</dt><dd id="d-security2"></dd>
+        <dt>Gangs reported</dt><dd id="d-gangs"></dd>
+        <dt>Last public appearance</dt><dd id="d-lastseen"></dd>
+      </dl>
+    </div>
+    <form class="contact" id="d-contact-form" data-notice-title="Message Not Sent" data-notice-body="The City Manager's municipal inbox has reached its storage limit. New correspondence cannot be accepted at this time." data-notice-code="NCCN-MAIL-507 • Recipient Storage Quota Exceeded">
+      <h3>Contact the City Manager</h3>
+      <p>Questions concerning district services, ordinances, utility agreements, security contracts, waste collection, redevelopment, public meetings, and neighborhood conditions should be directed to this office.</p>
+      <label>Subject<input required></label>
+      <label>Message<textarea required rows="3"></textarea></label>
+      <button class="btn" type="submit">Email City Manager</button>
+      <a href="account.html" id="d-priority-link" hidden>Priority Correspondence Access &rarr;</a>
+    </form>
+  </section>
+
+  <div class="tabs">
+    <button class="active" data-tabgroup="dtab" data-tab="services">Service dashboard</button>
+    <button data-tabgroup="dtab" data-tab="water">Water &amp; waste</button>
+    <button data-tabgroup="dtab" data-tab="records">Ordinances &amp; meetings</button>
+    <button data-tabgroup="dtab" data-tab="comments">Public comments</button>
+  </div>
+
+  <div class="status-grid" data-tabpanel="dtab" data-panel="services" id="d-services-grid"></div>
+
+  <div class="two-col" data-tabpanel="dtab" data-panel="water" hidden>
+    <article class="card">
+      <h2>Water condition</h2>
+      <dl>
+        <dt>Potability</dt><dd id="d-water-potability"></dd>
+        <dt>Provider</dt><dd id="d-water-provider"></dd>
+        <dt>Pressure</dt><dd id="d-water-pressure"></dd>
+        <dt>Next potable window</dt><dd id="d-water-window"></dd>
+      </dl>
+      <button data-notice-btn data-notice-title="Test Requested" data-notice-body="Request logged for standard municipal water testing.">Request municipal test (10-21 days)</button>
+      <button data-notice-btn data-notice-title="Test Requested" data-notice-body="Same-day private test scheduled, subject to contractor availability.">Same-day private test &bull; 50eb</button>
+    </article>
+    <article class="card">
+      <h2>Waste collection</h2>
+      <p id="d-waste-text"></p>
+      <button data-notice-btn data-notice-title="Report Routed" data-notice-body="The request was transferred to the responsible contractor. This transfer is recorded as completed municipal action.">Report missed collection</button>
+      <button data-notice-btn data-notice-title="Hazardous Waste Rules" data-notice-body="Rules vary by material class. Contact your district office for the current schedule.">Hazardous-waste rules</button>
+    </article>
+  </div>
+
+  <div data-tabpanel="dtab" data-panel="records" hidden>
+    <div id="d-lawless-record" class="lawless-record" hidden>
+      <span>NCCN-LAW-000</span>
+      <h2>No ordinance index exists for this district.</h2>
+      <p>Municipal codes are not published or enforced within the active war-zone boundary. Any posted "rules," tolls, curfews, confiscations, or penalties are imposed by local armed groups and carry no Night City legal status.</p>
+      <b>NO COURT &bull; NO APPEAL &bull; NO MUNICIPAL ENFORCEMENT</b>
+    </div>
+    <div class="records" id="d-records-list"></div>
+  </div>
+
+  <div data-tabpanel="dtab" data-panel="comments" hidden>
+    <div class="comments">
+      <article><small>12 JUL 2045 &bull; WATER</small><p>"The notice says resolved, but our building still has brown water."</p><b>Official status: Referred to contractor / CLOSED</b></article>
+      <article><small>09 JUL 2045 &bull; SECURITY</small><p>"Provider refuses to cross the market after dark."</p><b>Official status: Outside municipal authority</b></article>
+      <form data-notice-title="Public Comment Accepted" data-notice-body="Your comment was added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.">
+        <h3>Submit public comment</h3>
+        <textarea required rows="4"></textarea>
+        <button class="btn" type="submit">Submit comment</button>
+      </form>
+    </div>
+  </div>
+
+  <p class="district-note">Service conditions may vary by block, property ownership, identity verification, security jurisdiction, corporate agreement, provider contract, and current threat conditions.</p>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id") || "little-europe";
+  const d = districts.find(function (x) { return x.id === id; }) || districts[0];
+  const poor = d.wealth === "underserved";
+  const lawless = d.lawStatus === "none";
+
+  document.querySelector("#page-title").textContent = d.name + " | NC CivicNet";
+  document.querySelector("#d-eyebrow").textContent = "DISTRICT " + d.code + " • " + d.classification.toUpperCase();
+  document.querySelector("#d-name").textContent = d.name;
+  document.querySelector("#d-updated").textContent = "Last public update: " + (poor ? "date not verified" : "15 JUL 2045, 08:40");
+  document.querySelector("#d-hero").className = "district-hero " + d.wealth;
+  document.querySelector("#d-admin").textContent = d.administration;
+  document.querySelector("#d-manager-name").textContent = d.manager;
+  document.querySelector("#d-council").textContent = d.council;
+  document.querySelector("#d-security").textContent = d.security;
+  document.querySelector("#d-warning").textContent = d.warning;
+  if (lawless) document.querySelector("#d-lawless-banner").hidden = false;
+
+  document.querySelector("#d-manager-h2").textContent = d.manager;
+  document.querySelector("#d-title").textContent = d.manager === "None" ? "No active office" : "District City Manager";
+  document.querySelector("#d-selection").textContent = d.selection;
+  document.querySelector("#d-admin2").textContent = d.administration;
+  document.querySelector("#d-security2").textContent = d.security;
+  document.querySelector("#d-gangs").textContent = d.gangs;
+  document.querySelector("#d-lastseen").textContent = poor ? "No verified record" : "07 JUL 2045";
+  if (d.wealth === "premium") document.querySelector("#d-priority-link").hidden = false;
+
+  const services = ["Power","Water","Sewer","CitiNet","Trash","Street lighting","Transit","Fire response","Medical transport","District administration"];
+  const grid = document.querySelector("#d-services-grid");
+  services.forEach(function (s, i) {
+    const state = (poor && i % 3 === 1) ? "No Municipal Coverage" : (i % 4 === 0 ? d.utility : "Operational");
+    const article = document.createElement("article");
+    article.innerHTML = '<h3>' + s + '</h3><span class="status s-' + state.toLowerCase().replaceAll(" ","-") + '">' + state + '</span><p>Provider: ' + (s === "Transit" ? "NCTC" : "Municipal assignment desk") + '</p><small>Last verified: ' + (poor ? "UNKNOWN" : "09:10") + '</small>';
+    const btn = document.createElement("button");
+    btn.textContent = "Report problem";
+    btn.addEventListener("click", function () { showNotice("Report Routed", "The request was transferred to the responsible contractor. This transfer is recorded as completed municipal action.", ""); });
+    article.appendChild(btn);
+    grid.appendChild(article);
+  });
+
+  document.querySelector("#d-water-potability").textContent = poor ? "Testing pending / boil first" : "Safe to drink";
+  document.querySelector("#d-water-provider").textContent = poor ? "No current assignment" : "Night City Water Cooperative";
+  document.querySelector("#d-water-pressure").textContent = poor ? "Intermittent" : "Normal";
+  document.querySelector("#d-water-window").textContent = poor ? "No verified estimate" : "Today, 18:00-23:00";
+  document.querySelector("#d-waste-text").textContent = poor ? "No regular municipal collection schedule is currently assigned. Contact the City Manager for current disposal instructions." : "Next collection: THU 06:00-11:00. Bulk waste requires property verification.";
+
+  if (lawless) {
+    document.querySelector("#d-lawless-record").hidden = false;
+  } else {
+    const recordsList = document.querySelector("#d-records-list");
+    const meetings = ["District Utility Hearing — 2045-06-22","Security Contract Review — 2045-05-11","Regular District Meeting — 2045-04-03","Budget Hearing — 2044-12-18"];
+    const tags = ["PUBLICATION DELAYED","REDACTED","AUDIO UNAVAILABLE","ARCHIVED SCAN"];
+    meetings.forEach(function (m, i) {
+      const article = document.createElement("article");
+      article.innerHTML = '<span>' + tags[i] + '</span><h3>' + m + '</h3><p>Partial minutes published. Attendance attachment missing.</p>';
+      const btn = document.createElement("button");
+      btn.className = "restricted-record";
+      btn.innerHTML = '<span aria-hidden="true">&#9635;</span>Download ' + (i === 2 ? "audio record" : "PDF scan") + '<small>LOGIN REQUIRED</small>';
+      btn.addEventListener("click", function () { showNotice("Sign-in Required", "This file is not available through Public Access. Sign in with an authorized municipal, district, contractor, property-owner, or corporate account to request this file.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      article.appendChild(btn);
+      recordsList.appendChild(article);
+    });
+  }
+})();
+</script>
+</body>
+</html>

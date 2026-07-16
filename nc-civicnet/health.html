@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173a59">
+<title>Public Health | NC CivicNet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="utility">
+  <a href="#main">Skip to content</a>
+  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button id="lang-toggle">Language: EN</button>
+  <button id="text-minus" aria-label="Decrease text size">A-</button>
+  <button id="text-plus" aria-label="Increase text size">A+</button>
+  <button id="print-btn">Print</button>
+  <a href="services.html">Service status</a>
+  <i></i>
+  <a href="account.html">Employee login</a>
+  <a href="account.html">Authorized agency access</a>
+</div>
+<header>
+  <div class="brand">
+    <div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div>
+    <div><span>OFFICIAL CITY SERVICE</span><a href="index.html">NC CivicNet</a></div>
+  </div>
+  <div class="head-tools">
+    <form class="site-search"><label>Search this site<input placeholder="permits, outages, records..."></label><button type="submit">Search</button></form>
+    <label>Service district<select class="district-jump"><option value="">Jump to a district…</option></select></label>
+    <div>JUL 15 2045<br><b>09:42:17 NCT</b></div>
+    <a class="btn danger" href="emergency.html">EMERGENCY</a>
+    <a class="btn" href="account.html">Sign in</a>
+  </div>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="emergency.html">Emergency</a>
+  <a href="transit.html">Transit</a>
+  <a href="services.html">Municipal Services</a>
+  <a href="permits.html">Permits &amp; Licenses</a>
+  <a href="health.html">Public Health</a>
+  <a href="districts.html">Districts</a>
+  <a href="records.html">Public Records</a>
+  <a href="laws.html">Laws</a>
+  <a href="government.html">City Government</a>
+  <a href="report.html">Report a Problem</a>
+  <a href="comments.html">Public Comments</a>
+</nav>
+<div class="em-strip">
+  <b>NEED HELP?</b>
+  <a href="emergency.html">Submit an Emergency Request</a>
+  <span>Submission does not guarantee dispatch.</span>
+  <span class="alert-count"><i></i> 3 ACTIVE NOTICES</span>
+  <a class="trauma-link" href="../trauma-team/" target="_blank" rel="noopener">TRAUMA TEAM CLIENT ACCESS &rarr;</a>
+</div>
+
+<main id="main">
+  <div class="page-title">
+    <p>DEPARTMENT OF PUBLIC HEALTH AND BIOLOGICAL SAFETY</p>
+    <h1>Public Health</h1>
+    <span>Public health notices combine municipal observations, clinic reports, contractor sensors, insurer disclosures, and unverified district data. Publication is not a diagnosis or guarantee of treatment.</span>
+  </div>
+
+  <section class="health-status">
+    <div><span>ACTIVE PUBLIC NOTICES</span><b>6</b><small>2 recalls / 1 warning</small></div>
+    <div><span>CLINIC CAPACITY</span><b>SEVERE</b><small>Municipal intake delayed</small></div>
+    <div><span>LAB CONFIDENCE</span><b>58%</b><small>3 custody exceptions</small></div>
+    <div><span>PUBLIC SUPPLY</span><b>NONE</b><small>Respirators / seal kits</small></div>
+    <aside><i></i> FEED PARTIALLY CURRENT</aside>
+  </section>
+
+  <section class="air-quality">
+    <div class="aq-copy">
+      <small>ATMOSPHERIC HEALTH MONITOR / PUBLIC SENSOR ARRAY</small>
+      <h2>District air quality</h2>
+      <label>Reporting zone<select id="aq-zone"></select></label>
+      <p>Primary reported pollutant: <b id="aq-pollutant"></b></p>
+      <dl>
+        <dt>Data status</dt><dd id="aq-reading-status"></dd>
+        <dt>Last update</dt><dd id="aq-updated"></dd>
+        <dt>Public guidance</dt><dd id="aq-guidance"></dd>
+      </dl>
+    </div>
+    <div class="aq-meter" id="aq-meter">
+      <div class="aq-reading"><strong id="aq-value"></strong><div><b id="aq-level"></b><small id="aq-label"></small></div></div>
+      <div class="aq-slider"><span></span><span></span><span></span><span></span><span></span><span></span><i id="aq-marker"><b id="aq-marker-val"></b></i></div>
+      <div class="aq-scale"><span>0 GOOD</span><span>50</span><span>100</span><span>150</span><span>200</span><span>300+ HAZARDOUS</span></div>
+      <p id="aq-selected-label">Selected district reading</p>
+    </div>
+    <aside>
+      <b>HOW TO READ THIS METER</b>
+      <p>Values above 100 indicate increasing exposure risk. Readings do not include indoor air, localized fire plumes, chemical weapons, active demolition, or conditions beyond surviving sensors.</p>
+      <p class="aq-warning">A "good" reading does not certify that breathing is safe.</p>
+      <button class="restricted-record" id="aq-restricted"><span aria-hidden="true">&#9635;</span>Download sensor locations and raw telemetry<small>LOGIN REQUIRED</small></button>
+    </aside>
+  </section>
+
+  <section class="health-reports">
+    <div class="section-head"><div><small>CURRENT BULLETINS AND FIELD REPORTS</small><h2>Health advisories, recalls, and investigations</h2></div><span class="file-stamp">PUBLIC SUMMARY FEED / 6 ITEMS</span></div>
+    <div id="health-reports-list"></div>
+  </section>
+
+  <section class="clinic-capacity">
+    <div class="section-head"><div><small>VOLUNTARY PROVIDER REPORTING / 45&ndash;130 MINUTE DELAY</small><h2>Reported treatment availability</h2></div><button class="restricted-record" id="clinic-restricted"><span aria-hidden="true">&#9635;</span>Download provider intake feed<small>LOGIN REQUIRED</small></button></div>
+    <div class="clinic-table" id="clinic-table">
+      <div class="clinic-row clinic-head"><b>Provider</b><b>Area</b><b>Public intake</b><b>Cyberware</b><b>Published fee</b></div>
+    </div>
+    <p class="clinic-note">Listings are self-reported. The City does not reserve beds, confirm staff credentials, guarantee safe travel, or require a provider to honor published fees.</p>
+  </section>
+
+  <section class="health-submit">
+    <div>
+      <small>COMMUNITY SIGNAL COLLECTION</small>
+      <h2>Report an illness pattern or unsafe product</h2>
+      <p>Use this form for clusters, contaminated food or water, defective medical products, unusual symptoms, or unlicensed clinic activity. Reports may not be reviewed.</p>
+    </div>
+    <form id="health-submit-form">
+      <label>Report category<select><option>Illness cluster</option><option>Food or water contamination</option><option>Cyberware or medical product</option><option>Air or chemical exposure</option><option>Clinic concern</option></select></label>
+      <label>District<select id="health-district"></select></label>
+      <label>Public description<textarea required rows="4" placeholder="What happened, where, and approximately how many people were affected?"></textarea></label>
+      <label class="health-check"><input type="checkbox" required><span>I understand this is not an emergency service or medical consultation.</span></label>
+      <button class="btn" type="submit">Submit public health report</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
+    <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
+    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
+  </div>
+  <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
+</footer>
+
+<button class="nora-btn">NORA <b>?</b></button>
+<div class="nora" hidden>
+  <button aria-label="Close">&times;</button>
+  <b>NORA</b>
+  <small>Night City Online Resident Assistant</small>
+  <p>This matter is handled by your district administration.</p>
+  <a href="records.html">Contact the district City Manager &rarr;</a>
+  <em>Paid alternatives are available.</em>
+</div>
+
+<div class="backdrop" id="notice-backdrop" hidden>
+  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(function () {
+  const zoneSel = document.querySelector("#aq-zone");
+  airQualityZones.forEach(function (z) { const o = document.createElement("option"); o.textContent = z.name + (z.aqi === null ? " — NO PUBLIC DATA" : ""); o.value = z.name; zoneSel.appendChild(o); });
+  zoneSel.value = airQualityZones[2].name;
+
+  function renderAQ() {
+    const air = airQualityZones.find(function (z) { return z.name === zoneSel.value; }) || airQualityZones[2];
+    const hasReading = air.aqi !== null;
+    const aqi = air.aqi || 0;
+    const level = !hasReading ? "NO PUBLIC READING" : aqi <= 50 ? "GOOD" : aqi <= 100 ? "MODERATE" : aqi <= 150 ? "SENSITIVE GROUP RISK" : aqi <= 200 ? "UNHEALTHY" : aqi <= 300 ? "VERY UNHEALTHY" : "HAZARDOUS";
+    const marker = Math.min(aqi, 350) / 350 * 100;
+
+    document.querySelector("#aq-pollutant").textContent = air.pollutant;
+    document.querySelector("#aq-reading-status").textContent = air.reading;
+    document.querySelector("#aq-updated").textContent = air.updated + (hasReading ? " NCT" : "");
+    document.querySelector("#aq-guidance").textContent = !hasReading ? "No reading is not evidence of safe air. Use local observation and independent filtration if available." : aqi <= 100 ? "Normal activity; sensitive residents should monitor conditions." : aqi <= 200 ? "Reduce prolonged outdoor activity. Use a fitted particulate filter if available." : "Avoid outdoor exertion. Shelter behind intact seals and independent filtration where possible.";
+
+    document.querySelector("#aq-value").textContent = hasReading ? aqi : "—";
+    document.querySelector("#aq-level").textContent = level;
+    document.querySelector("#aq-label").textContent = hasReading ? "NC-AQI / PROVISIONAL" : "SENSOR FEED UNAVAILABLE";
+    const meter = document.querySelector("#aq-meter");
+    meter.className = "aq-meter" + (hasReading ? "" : " aq-no-reading");
+    document.querySelector("#aq-marker").style.left = marker + "%";
+    document.querySelector("#aq-marker-val").textContent = hasReading ? aqi : "";
+    document.querySelector("#aq-selected-label").textContent = hasReading ? "Selected district reading" : "No municipal measurement available";
+  }
+  zoneSel.addEventListener("change", renderAQ);
+  renderAQ();
+
+  let openReport = null;
+  function renderReports() {
+    const list = document.querySelector("#health-reports-list");
+    list.innerHTML = "";
+    healthReports.forEach(function (r) {
+      const isOpen = openReport === r.id;
+      const article = document.createElement("article");
+      article.className = "health-" + r.level.toLowerCase();
+      article.innerHTML = '<button><div><code>' + r.id + '</code><b>' + r.level + '</b></div><div><h3>' + r.title + '</h3><p>' + r.summary + '</p></div><span>' + r.area + '</span><i>' + (isOpen ? "−" : "+") + '</i></button>' +
+        (isOpen ? '<div class="health-report-detail"><p>' + r.detail + '</p><dl><dt>Issuing desk</dt><dd>Public Health Coordination / contractor intake</dd><dt>Case data</dt><dd>Personally identifying details withheld</dd><dt>Next review</dt><dd>When laboratory or sponsor capacity becomes available</dd></dl><button class="restricted-record" id="report-detail-restricted"><span aria-hidden="true">&#9635;</span>Download full report ' + r.id + '<small>LOGIN REQUIRED</small></button></div>' : "");
+      article.querySelector("button").addEventListener("click", function () { openReport = isOpen ? null : r.id; renderReports(); });
+      if (isOpen) article.querySelector("#report-detail-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The full report for " + r.id + " is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+      list.appendChild(article);
+    });
+  }
+  renderReports();
+
+  const clinicTable = document.querySelector("#clinic-table");
+  clinics.forEach(function (c) {
+    const row = document.createElement("div");
+    row.className = "clinic-row";
+    row.innerHTML = '<strong>' + c[0] + '</strong><span>' + c[1] + '</span><b>' + c[2] + '</b><span>' + c[3] + '</span><span>' + c[4] + '</span>';
+    clinicTable.appendChild(row);
+  });
+
+  const healthDistrict = document.querySelector("#health-district");
+  districts.forEach(function (d) { const o = document.createElement("option"); o.textContent = d.name; healthDistrict.appendChild(o); });
+
+  document.querySelector("#aq-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "Sensor locations and raw telemetry are not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#clinic-restricted").addEventListener("click", function () { showNotice("Sign-in Required", "The live provider intake feed is not available through Public Access.", "NCCN-DATA-401 • VERIFIED RECORD ACCESS REQUIRED"); });
+  document.querySelector("#health-submit-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    showNotice("Report Stored Locally", "Your health report was accepted by Public Information Node 07-C. Transmission to an epidemiology desk is pending provider availability and may require verified identity before review. Do not submit emergency conditions through this form.", "NCCN-HEALTH-202 • ROUTING PROVIDER UNASSIGNED");
+  });
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>Public Comments | NC CivicNet</title>
+<title>My Municipal Account | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
   <a href="services.html">Service status</a>
   <i></i>
   <a href="account.html">Employee login</a>
-  <a href="account.html">Authorized agency access</a>
+  <a href="account.html?authorized=1">Authorized agency access</a>
 </div>
 <header>
   <div class="brand">
@@ -58,27 +58,24 @@
 
 <main id="main">
   <div class="page-title">
-    <p>ADMINISTRATIVE RECORD / ALL DISTRICTS</p>
-    <h1>Public Comments</h1>
-    <span>The City is legally required to host this comment board and is not legally required to read it. Comments are added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.</span>
+    <p id="acct-eyebrow">RESIDENT AND STAKEHOLDER SERVICES</p>
+    <h1 id="acct-title">My Municipal Account</h1>
+    <span id="acct-intro">Most records remain unavailable until a campaign identity is verified.</span>
   </div>
 
-  <div class="comments">
-    <article><small>14 JUL 2045 &bull; LITTLE CHINA</small><p>"The notice says resolved, but our building still has brown water."</p><b>Official status: Referred to contractor / CLOSED</b></article>
-    <article><small>12 JUL 2045 &bull; KABUKI</small><p>"Provider refuses to cross the market after dark. Who exactly is 'security' supposed to be providing here?"</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>11 JUL 2045 &bull; RANCHO CORONADO</small><p>"There is no City Manager, no NCPD that will actually show up, and now the power's out too. Who is supposed to fix any of this? Genuinely asking."</p><b>Official status: No responsible office located</b></article>
-    <article><small>10 JUL 2045 &bull; CITYWIDE</small><p>The pothole tracker says 14,208 open reports and I am now certain at least 3,000 of those are the same pothole on Jig-Jig Street that everyone keeps reporting because it ate someone's tire last month.</p><b>Official status: Duplicate reports merged</b></article>
-    <article><small>09 JUL 2045 &bull; SOUTH NIGHT CITY</small><p>Some of y'all keep calling our City Manager "self-appointed" like it's an insult. He showed up when nobody else did. Where was the City Council in 2041?</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>08 JUL 2045 &bull; CHARTER HILL</small><p>Just want to say the drone patrol reroute this week was very smoothly communicated and I appreciate the advance notice. Wish other districts got the same courtesy, but I'll take it.</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>06 JUL 2045 &bull; WATSON DEVELOPMENT</small><p>Lift 2 and Lift 5 failed their emergency braking tests. I know this because I was in Lift 2 when the inspection sticker said it passed FOUR HOURS before the inspection was actually uploaded. Someone explain that.</p><b>Official status: Referred to contractor / OPEN</b></article>
-    <article><small>03 JUL 2045 &bull; OLD COMBAT ZONE</small><p>Just a reminder that this district has "no enforceable municipal law" per the Laws page, so I'm not sure what filing a comment here is supposed to accomplish, but here I am anyway.</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>30 JUN 2045 &bull; CITYWIDE</small><p>Asked the NORA chat assistant a direct question and it told me "this matter is handled by your district administration" and then suggested paid alternatives. Incredible customer service.</p><b>Official status: Comment noted / no action</b></article>
-    <form id="comment-form">
-      <h3>Submit public comment</h3>
-      <label>District (optional)<input placeholder="e.g. Little China, District E"></label>
-      <textarea required rows="4" placeholder="What's on your mind"></textarea>
-      <button class="btn" type="submit">Submit comment</button>
+  <div class="account" id="acct-wrap">
+    <div class="roles" id="acct-roles" hidden></div>
+    <form class="login" id="acct-form">
+      <span id="acct-node-label">PUBLIC IDENTITY NODE</span>
+      <h2 id="acct-form-title">Verify SIN or CIN</h2>
+      <label>Identity / organization<input required></label>
+      <label>Credential token<input type="password" required></label>
+      <button class="btn" type="submit">Verify credentials</button>
     </form>
+    <div class="benefits">
+      <h3 id="acct-benefits-title">Current access</h3>
+      <div id="acct-benefits-list"></div>
+    </div>
   </div>
 </main>
 
@@ -86,7 +83,7 @@
   <div class="foot-grid">
     <div><div class="seal" aria-label="Night City municipal seal"><b>NC</b><small>EST. 1994</small></div><b>NC CivicNet</b><p>Public information node 07-C<br>Version 11.4.2b</p></div>
     <div><b>Public access</b><a href="records.html">Records</a><a href="government.html">Government</a><a href="report.html">Report a problem</a></div>
-    <div><b>Restricted access</b><a href="account.html">Agency portal</a><a href="account.html">Contractor gateway</a><a href="account.html">Corporate partner access</a></div>
+    <div><b>Restricted access</b><a href="account.html?authorized=1">Agency portal</a><a href="account.html?authorized=1">Contractor gateway</a><a href="account.html?authorized=1">Corporate partner access</a></div>
     <div><b>Incomplete services</b><a href="#">Espa&ntilde;ol (partial)</a><a href="#">Audio [file missing]</a><a href="#">Accessibility statement (2019 PDF)</a></div>
   </div>
   <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
@@ -109,10 +106,38 @@
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script>
-  document.querySelector("#comment-form").addEventListener("submit", function (e) {
+(function () {
+  const authorized = new URLSearchParams(location.search).get("authorized") === "1";
+  const publicBenefits = ["Public alerts","Published records","General transit estimates","Public comments"];
+  const authorizedBenefits = ["Exact vehicle locations","Precise arrival estimates","Advance alerts","Detailed restoration data","Priority correspondence","Closed-session minutes","High-resolution files"];
+  const roles = ["Municipal staff","NCPD","District security","Utility contractors","Transit staff","Trauma Team","Corporate representatives","Property owners","City Council","Emergency partners"];
+
+  if (authorized) {
+    document.title = "Authorized Access | NC CivicNet";
+    document.querySelector("#acct-eyebrow").textContent = "SECURE PARTNER GATEWAY";
+    document.querySelector("#acct-title").textContent = "Authorized Access";
+    document.querySelector("#acct-intro").textContent = "Operational information is limited to approved municipal, agency, contractor, property, and corporate accounts.";
+    document.querySelector("#acct-wrap").classList.add("authorized");
+    document.querySelector("#acct-node-label").textContent = "ENCRYPTED CONTRACT NODE";
+    document.querySelector("#acct-form-title").textContent = "Partner sign in";
+    document.querySelector("#acct-benefits-title").textContent = "Authorized features";
+    const rolesWrap = document.querySelector("#acct-roles");
+    rolesWrap.hidden = false;
+    roles.forEach(function (r) { const btn = document.createElement("button"); btn.innerHTML = r + "<span>&rarr;</span>"; rolesWrap.appendChild(btn); });
+    authorizedBenefits.forEach(function (b) { const p = document.createElement("p"); p.textContent = "✓ " + b; document.querySelector("#acct-benefits-list").appendChild(p); });
+  } else {
+    publicBenefits.forEach(function (b) { const p = document.createElement("p"); p.textContent = "✓ " + b; document.querySelector("#acct-benefits-list").appendChild(p); });
+  }
+
+  document.querySelector("#acct-form").addEventListener("submit", function (e) {
     e.preventDefault();
-    showNotice("Public Comment Accepted", "Your comment was added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.", "");
+    if (authorized) {
+      showNotice("Restricted Access", "The submitted credentials are not authorized for this partner gateway.", "NC-AUTH-403");
+    } else {
+      showNotice("Identity Not Verified", "No valid campaign identity was found. Public Access remains active.", "NCCN-ID-404");
+    }
   });
+})();
 </script>
 </body>
 </html>

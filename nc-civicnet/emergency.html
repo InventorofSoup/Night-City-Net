@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>Public Comments | NC CivicNet</title>
+<title id="page-title">Emergency Services | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -58,28 +58,29 @@
 
 <main id="main">
   <div class="page-title">
-    <p>ADMINISTRATIVE RECORD / ALL DISTRICTS</p>
-    <h1>Public Comments</h1>
-    <span>The City is legally required to host this comment board and is not legally required to read it. Comments are added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.</span>
+    <p>EMERGENCY SERVICES COORDINATION</p>
+    <h1 id="em-title">Emergency Services</h1>
+    <span>Submission does not guarantee dispatch. Response may depend on identity verification, coverage, payment authorization, district agreement, provider availability, and current security conditions.</span>
   </div>
 
-  <div class="comments">
-    <article><small>14 JUL 2045 &bull; LITTLE CHINA</small><p>"The notice says resolved, but our building still has brown water."</p><b>Official status: Referred to contractor / CLOSED</b></article>
-    <article><small>12 JUL 2045 &bull; KABUKI</small><p>"Provider refuses to cross the market after dark. Who exactly is 'security' supposed to be providing here?"</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>11 JUL 2045 &bull; RANCHO CORONADO</small><p>"There is no City Manager, no NCPD that will actually show up, and now the power's out too. Who is supposed to fix any of this? Genuinely asking."</p><b>Official status: No responsible office located</b></article>
-    <article><small>10 JUL 2045 &bull; CITYWIDE</small><p>The pothole tracker says 14,208 open reports and I am now certain at least 3,000 of those are the same pothole on Jig-Jig Street that everyone keeps reporting because it ate someone's tire last month.</p><b>Official status: Duplicate reports merged</b></article>
-    <article><small>09 JUL 2045 &bull; SOUTH NIGHT CITY</small><p>Some of y'all keep calling our City Manager "self-appointed" like it's an insult. He showed up when nobody else did. Where was the City Council in 2041?</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>08 JUL 2045 &bull; CHARTER HILL</small><p>Just want to say the drone patrol reroute this week was very smoothly communicated and I appreciate the advance notice. Wish other districts got the same courtesy, but I'll take it.</p><b>Official status: Comment noted / no action</b></article>
-    <article><small>06 JUL 2045 &bull; WATSON DEVELOPMENT</small><p>Lift 2 and Lift 5 failed their emergency braking tests. I know this because I was in Lift 2 when the inspection sticker said it passed FOUR HOURS before the inspection was actually uploaded. Someone explain that.</p><b>Official status: Referred to contractor / OPEN</b></article>
-    <article><small>03 JUL 2045 &bull; OLD COMBAT ZONE</small><p>Just a reminder that this district has "no enforceable municipal law" per the Laws page, so I'm not sure what filing a comment here is supposed to accomplish, but here I am anyway.</p><b>Official status: Outside municipal authority</b></article>
-    <article><small>30 JUN 2045 &bull; CITYWIDE</small><p>Asked the NORA chat assistant a direct question and it told me "this matter is handled by your district administration" and then suggested paid alternatives. Incredible customer service.</p><b>Official status: Comment noted / no action</b></article>
-    <form id="comment-form">
-      <h3>Submit public comment</h3>
-      <label>District (optional)<input placeholder="e.g. Little China, District E"></label>
-      <textarea required rows="4" placeholder="What's on your mind"></textarea>
-      <button class="btn" type="submit">Submit comment</button>
+  <div class="em-cards" id="em-cards"></div>
+
+  <section class="em-form" id="em-form-section">
+    <div><small>AUTOMATED ROUTING FORM</small><h2 id="em-form-title">Request emergency coordination</h2></div>
+    <form id="emergency-form">
+      <div class="form-grid">
+        <label>Identity<select><option>No ID</option><option>SIN</option><option>CIN</option><option>Temporary ID</option></select></label>
+        <label>SIN / CIN / Member number<input></label>
+        <label>District<select id="em-district"></select></label>
+        <label>Address or intersection<input required></label>
+        <label>Emergency category<select id="em-category"></select></label>
+        <label>Coverage<select><option>Unknown</option><option>Trauma Team contract</option><option>Corporate plan</option><option>Pay dispatch fee</option><option>Unable to pay</option></select></label>
+      </div>
+      <fieldset id="em-hazards"><legend>Approach hazards</legend></fieldset>
+      <label>Describe the situation<textarea required rows="5"></textarea></label>
+      <button class="btn danger" type="submit">Submit emergency request</button>
     </form>
-  </div>
+  </section>
 </main>
 
 <footer>
@@ -109,10 +110,47 @@
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script>
-  document.querySelector("#comment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    showNotice("Public Comment Accepted", "Your comment was added to the administrative record. Submission does not create a service request, investigation, response obligation, or right to appeal.", "");
+(function () {
+  const params = new URLSearchParams(location.search);
+  const sub = params.get("sub");
+  const list = ["Automated 911 Request","Fire Response","NCPD","District Security","REO Meatwagon","Trauma Team","Utility Emergency","Missing Persons","Hazard Reporting","Anonymous Crime Tip"];
+  const slugs = {"Automated 911 Request":"911","Fire Response":"fire-response","NCPD":"ncpd","District Security":"district-security","REO Meatwagon":"reo-meatwagon","Trauma Team":"trauma-team","Utility Emergency":"utility-emergency","Missing Persons":"missing-person","Hazard Reporting":"hazard-reporting","Anonymous Crime Tip":"anonymous-crime-tip"};
+
+  if (!sub) {
+    const cards = document.querySelector("#em-cards");
+    list.forEach(function (x, i) {
+      const a = document.createElement("a");
+      if (x === "Trauma Team") a.className = "trauma";
+      a.href = "emergency.html?sub=" + slugs[x];
+      a.innerHTML = "<span>" + (i + 1) + "</span><h3>" + x + "</h3><p>" + (x === "Trauma Team" ? "Verified members receive direct aeromedical routing." : "Public request and eligibility information.") + "</p>";
+      cards.appendChild(a);
+    });
+  } else {
+    document.querySelector("#em-cards").hidden = true;
+    document.querySelector("#em-title").textContent = sub.replaceAll("-", " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    document.title = document.querySelector("#em-title").textContent + " | NC CivicNet";
+    if (sub === "trauma-team") {
+      document.querySelector("#em-form-section").classList.add("trauma-form");
+      document.querySelector("#em-form-title").textContent = "Trauma Team client verification";
+    }
+  }
+
+  const districtSel = document.querySelector("#em-district");
+  districts.forEach(function (d) { const o = document.createElement("option"); o.textContent = d.name; districtSel.appendChild(o); });
+  const catSel = document.querySelector("#em-category");
+  ["Medical","Fire","Violence","Active shooter","Cyberpsycho","HazMat","Collapse","Utility","Unknown"].forEach(function (c) { const o = document.createElement("option"); o.textContent = c; catSel.appendChild(o); });
+  const hazardSet = document.querySelector("#em-hazards");
+  ["Weapons","Automatic weapons","Explosives","Cyberware threat","Fire","Toxic exposure","Corporate jurisdiction","Combat-zone status"].forEach(function (h) {
+    const label = document.createElement("label");
+    label.innerHTML = '<input type="checkbox"> ' + h;
+    hazardSet.appendChild(label);
   });
+
+  document.querySelector("#emergency-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    showNotice("Request Received — Dispatch Unconfirmed", "No verified emergency coverage was located. The request was transferred to the responsible provider. Payment authorization may be required before dispatch.", "NC-EROUTE-202 • No safe responder currently assigned");
+  });
+})();
 </script>
 </body>
 </html>
