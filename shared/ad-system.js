@@ -103,7 +103,6 @@
 
   const wideNames = ["elflines", "aerial-sphere", "grundy", "viewer-reward", "power-disconnection", "eldergrove", "relief-fund", "identity-reset", "miller", "companion", "neonova", "euroclear", "vortec", "spider-cyberchair", "superflash", "trauma-medscan", "ziggurat", "garden", "digital-gladiator", "cybereye", "dynalar", "biotechnica", "masetto", "fire-brand", "tanson-bellhop", "killstrom", "drink-master", "habitat", "combat-cabb", "aerocab", "ncart", "playland"];
   const sideNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint", "doberman", "mr-biscuit", "boomerang", "dynalar-fingers", "cyberware-warranty", "rapid-angel", "luck-grid"];
-  const tallNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint"];
   const ultraWideNames = ["identity-reset-banner", "elflines", "aerial-sphere", "grundy"];
   const cardNames = ["doberman", "mr-biscuit", "boomerang", "dynalar-fingers", "cyberware-warranty", "rapid-angel", "luck-grid", "pet-restoration", "container-homes", "human-trial", "estate-beneficiary"];
   const subset = function (names) {
@@ -113,8 +112,7 @@
   const widePool = subset(wideNames).filter(function (item) {
     return !sideNames.some(function (name) { return item.src.includes(name); });
   });
-  const sidePool = subset(sideNames);
-  const tallPool = subset(tallNames);
+  const rightRailPool = subset(["memory-chip", "mara-transit", "radiopure", "preparatory-school", "identity-breach", "iron-saint"]);
   const allInventory = legit.concat(scams);
   const bannerPool = ultraWideNames.map(function (name) {
     return allInventory.find(function (item) { return item.src.includes(name); });
@@ -166,11 +164,13 @@
   }
 
   function mountNetwork54NativeAds() {
+    const unusedLeftRail = document.querySelector(".left-ad");
+    if (unusedLeftRail) unusedLeftRail.remove();
     const placements = [
       [document.querySelector(".billboard"), pick(bannerPool, 0), "billboard"],
-      [document.querySelector(".left-ad"), pick(tallPool, 1), "rail"],
-      [document.querySelector(".right-ad"), pick(tallPool, 4), "rail"],
-      [document.querySelector(".sponsor-card"), pick(cardPool, 7), "sponsor"]
+      [document.querySelector(".right-ad"), pick(rightRailPool, 4), "rail"],
+      [document.querySelector(".sponsor-card"), pick(cardPool, 7), "sponsor"],
+      [document.querySelector(".lux-ad"), pick(bannerPool, 3), "footer-banner"]
     ];
     placements.forEach(function (entry) {
       const host = entry[0];
@@ -180,6 +180,18 @@
       host.setAttribute("data-nc-ad-system", "native");
       host.innerHTML = '<button type="button" class="nc-ad-native-creative" aria-label="Open advertisement: ' + item.label.replace(/"/g, "&quot;") + '"><span>ADVERTISEMENT</span><img src="' + new URL(item.src, adBase).href + '" alt="' + item.label.replace(/"/g, "&quot;") + ' advertisement" loading="lazy" decoding="async"></button>';
       host.querySelector("button").addEventListener("click", function () { openNotice(item); });
+    });
+  }
+
+  function mountNetwork54FeedAds() {
+    const placements = [
+      [document.querySelector(".section-tabloids"), 1],
+      [document.querySelector(".broadcast-grid"), 2]
+    ];
+    placements.forEach(function (entry) {
+      const anchor = entry[0];
+      if (!anchor || (anchor.nextElementSibling && anchor.nextElementSibling.matches(".nc-ad-network54-feed"))) return;
+      anchor.insertAdjacentElement("afterend", createSlot("network54-feed", bannerPool, entry[1], { element: "div", label: "Network 54 sponsor break" }));
     });
   }
 
@@ -213,6 +225,7 @@
     if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("civic-footer", bannerPool, 8, { element: "div", label: "Municipal contractor advertisement" }), footer);
   } else if (site === "network54") {
     mountNetwork54NativeAds();
+    mountNetwork54FeedAds();
     window.setTimeout(mountNetwork54NativeAds, 500);
     window.setTimeout(mountNetwork54NativeAds, 1500);
   } else if (site === "trauma") {
