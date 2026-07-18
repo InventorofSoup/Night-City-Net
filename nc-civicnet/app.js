@@ -131,3 +131,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (q) window.location.href = "search.html?q=" + encodeURIComponent(q);
   });
 });
+
+// Lowest-bid advertising exchange used by every CivicNet department page.
+(function loadCivicAdExchange() {
+  const script = document.currentScript;
+  const siteBase = script && script.src ? new URL(".", script.src) : new URL(".", location.href);
+  const adLoader = document.createElement("script");
+  adLoader.src = new URL("../shared/ad-system.js", siteBase).href;
+  document.body.appendChild(adLoader);
+}());
