@@ -1,0 +1,43 @@
+.area-result,
+.clinic-result {
+  border-left: 4px solid var(--green);
+}
+
+.area-result span,
+.area-result em {
+  display: block;
+  margin-top: 8px;
+  color: #284345;
+  font: 11px/1.45 var(--body);
+  font-style: normal;
+}
+
+.area-result span strong {
+  color: #102d2f;
+}
+
+.area-result em {
+  border-top: 1px solid #aac9c1;
+  padding-top: 9px;
+  font: 9px/1.4 var(--mono);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.clinic-result b {
+  font-size: 23px;
+}
+
+#clinic-results td:last-child {
+  width: 34%;
+  color: #244f4a;
+  text-align: right;
+  font: 9px/1.35 var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.result[hidden],
+#clinic-results[hidden] {
+  display: none !important;
+}
