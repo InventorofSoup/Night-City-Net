@@ -1,4 +1,4 @@
-const ringSites = ["trauma-team/", "elflines-online/", "nc-civicnet/", "militech-security/"];
+const ringSites = ["trauma-team/", "elflines-online/", "nc-civicnet/", "militech-security/", "network-54/"];
 const ringPrev = document.querySelector("#ring-prev");
 const ringRandom = document.querySelector("#ring-random");
 const ringNext = document.querySelector("#ring-next");
