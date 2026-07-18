@@ -1,10 +1,10 @@
-const ringSites = ["trauma-team/", "elflines-online/"];
+const ringSites = ["trauma-team/", "elflines-online/", "nc-civicnet/", "militech-security/"];
 const ringPrev = document.querySelector("#ring-prev");
 const ringRandom = document.querySelector("#ring-random");
 const ringNext = document.querySelector("#ring-next");
 if (ringPrev) ringPrev.addEventListener("click", function (event) {
   event.preventDefault();
-  window.location.href = ringSites[1];
+  window.location.href = ringSites[ringSites.length - 1];
 });
 if (ringRandom) ringRandom.addEventListener("click", function (event) {
   event.preventDefault();
