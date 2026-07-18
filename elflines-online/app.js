@@ -133,7 +133,7 @@ if (quizForm) {
       const figure = document.createElement("figure");
       const imageGroup = item[0].split("/")[0].replace(/[^a-z0-9-]/gi, "").toLowerCase();
       figure.className = "elo-image-" + imageGroup;
-      figure.innerHTML = '<img src="' + media(item[0]) + '" alt="' + item[1] + ' from Elflines Online" loading="lazy" decoding="async"><figcaption><b>' + item[1] + '</b><small>PLAYER CAPTURE</small></figcaption>';
+      figure.innerHTML = '<img src="' + media(item[0]) + '" alt="' + item[1] + ' from Elflines Online" loading="lazy" decoding="async">';
       grid.appendChild(figure);
     });
     const footer = document.querySelector("footer");
