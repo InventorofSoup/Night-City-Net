@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  if (document.querySelector("[data-nc-ad-system]")) return;
+  document.documentElement.setAttribute("data-nc-ad-system", "loading");
+
   const loader = document.currentScript;
   const sharedBase = loader && loader.src ? new URL(".", loader.src) : new URL("../shared/", location.href);
   const adBase = new URL("../shared-ads/", sharedBase);
@@ -95,36 +98,47 @@
   const pool = pools[site];
   if (!pool || !pool.length) return;
 
-  const labels = {
-    network54: ["COMMERCIAL GUIDANCE", "Paid placements selected by audience profile"],
-    civic: ["OUTSOURCED PORTAL SPONSORS", "Ad inventory administered by the lowest qualified bidder"],
-    elflines: ["DATAPOOL SPONSORS", "Ad revenue funds approximately none of our server costs"],
-    trauma: ["MEMBER SERVICES PARTNERS", "Independent products shown for member convenience"]
-  }[site];
-
   let cursor = Math.abs(Array.from(path).reduce(function (sum, char) { return ((sum * 31) + char.charCodeAt(0)) | 0; }, 7)) % pool.length;
-  const section = document.createElement("section");
-  section.className = "nc-ad-deck nc-ad-" + site;
-  section.innerHTML = '<header><div><small>' + labels[0] + '</small><h2>' + labels[1] + '</h2></div><button type="button" class="nc-ad-refresh">Show different placements</button></header><div class="nc-ad-grid" aria-live="polite"></div><p class="nc-ad-fine">External destinations are not preserved in this 2045 archive. Advertiser identity and certificate status may vary by Data Pool relay.</p>';
 
-  const target = document.querySelector("main") || document.querySelector("#content") || document.body;
-  const footer = document.querySelector("footer");
-  if (footer && footer.parentNode) footer.parentNode.insertBefore(section, footer); else target.appendChild(section);
+  const wideNames = ["elflines", "aerial-sphere", "grundy", "viewer-reward", "power-disconnection", "eldergrove", "relief-fund", "identity-reset", "miller", "companion", "neonova", "euroclear", "vortec", "spider-cyberchair", "superflash", "trauma-medscan", "ziggurat", "garden", "digital-gladiator", "cybereye", "dynalar", "biotechnica", "masetto", "fire-brand", "tanson-bellhop", "killstrom", "drink-master", "habitat", "combat-cabb", "aerocab", "ncart", "playland"];
+  const sideNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint", "doberman", "mr-biscuit", "boomerang", "dynalar-fingers", "cyberware-warranty", "rapid-angel", "luck-grid"];
+  const tallNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint"];
+  const ultraWideNames = ["elflines", "aerial-sphere", "grundy", "viewer-reward", "power-disconnection", "eldergrove", "relief-fund", "identity-reset", "miller", "companion", "neonova", "euroclear", "vortec"];
+  const subset = function (names) {
+    const matches = byName(names, pool);
+    return matches.length ? matches : pool;
+  };
+  const widePool = subset(wideNames).filter(function (item) {
+    return !sideNames.some(function (name) { return item.src.includes(name); });
+  });
+  const sidePool = subset(sideNames);
+  const tallPool = subset(tallNames);
+  const ultraWidePool = subset(ultraWideNames);
+  const pick = function (source, offset) { return source[(cursor + offset) % source.length]; };
 
-  const grid = section.querySelector(".nc-ad-grid");
-  function render() {
-    grid.innerHTML = "";
-    const count = site === "trauma" ? 2 : 3;
-    for (let i = 0; i < count; i += 1) {
-      const item = pool[(cursor + i) % pool.length];
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "nc-ad-card";
-      button.setAttribute("aria-label", "Open advertisement: " + item.label);
-      button.innerHTML = '<span>PAID PLACEMENT</span><img src="' + new URL(item.src, adBase).href + '" alt="' + item.label.replace(/"/g, "&quot;") + ' advertisement" loading="lazy" decoding="async"><b>' + item.label + '</b>';
-      button.addEventListener("click", function () { openNotice(item); });
-      grid.appendChild(button);
-    }
+  function createSlot(kind, source, offset, options) {
+    const slot = document.createElement(options && options.element ? options.element : "aside");
+    slot.className = "nc-ad-slot nc-ad-" + kind + " nc-ad-" + site;
+    slot.setAttribute("data-nc-ad-system", kind);
+    slot.setAttribute("aria-label", options && options.label ? options.label : "Advertisement");
+    const tag = site === "civic" ? "CONTRACTED PLACEMENT" : site === "trauma" ? "MEMBER PARTNER" : "ADVERTISEMENT";
+    slot.innerHTML = '<span class="nc-ad-tag">' + tag + '</span><button type="button" class="nc-ad-image" aria-label="Open advertisement"><img loading="lazy" decoding="async"></button>' + ((options && options.controls) ? '<div class="nc-ad-controls"><button type="button" class="nc-ad-next" aria-label="Show another advertisement">NEXT</button><button type="button" class="nc-ad-close" aria-label="Close advertisement">&times;</button></div>' : '');
+    let index = offset;
+    const imageButton = slot.querySelector(".nc-ad-image");
+    const image = imageButton.querySelector("img");
+    const draw = function () {
+      const item = pick(source, index);
+      image.src = new URL(item.src, adBase).href;
+      image.alt = item.label + " advertisement";
+      imageButton.setAttribute("aria-label", "Open advertisement: " + item.label);
+      imageButton.onclick = function () { openNotice(item); };
+    };
+    const next = slot.querySelector(".nc-ad-next");
+    if (next) next.addEventListener("click", function () { index += 1; draw(); });
+    const close = slot.querySelector(".nc-ad-close");
+    if (close) close.addEventListener("click", function () { slot.remove(); });
+    draw();
+    return slot;
   }
 
   function openNotice(item) {
@@ -144,9 +158,61 @@
     modal.querySelector("button").focus();
   }
 
-  section.querySelector(".nc-ad-refresh").addEventListener("click", function () {
-    cursor = (cursor + (site === "trauma" ? 2 : 3)) % pool.length;
-    render();
-  });
-  render();
+  function mountNetwork54NativeAds() {
+    const placements = [
+      [document.querySelector(".billboard"), pick(ultraWidePool, 0), "billboard"],
+      [document.querySelector(".left-ad"), pick(tallPool, 1), "rail"],
+      [document.querySelector(".right-ad"), pick(tallPool, 4), "rail"],
+      [document.querySelector(".sponsor-card"), pick(sidePool, 7), "sponsor"]
+    ];
+    placements.forEach(function (entry) {
+      const host = entry[0];
+      const item = entry[1];
+      if (!host || host.querySelector(".nc-ad-native-creative")) return;
+      host.classList.add("nc-ad-native", "nc-ad-native-" + entry[2]);
+      host.setAttribute("data-nc-ad-system", "native");
+      host.innerHTML = '<button type="button" class="nc-ad-native-creative" aria-label="Open advertisement: ' + item.label.replace(/"/g, "&quot;") + '"><span>ADVERTISEMENT</span><img src="' + new URL(item.src, adBase).href + '" alt="' + item.label.replace(/"/g, "&quot;") + ' advertisement" loading="lazy" decoding="async"></button>';
+      host.querySelector("button").addEventListener("click", function () { openNotice(item); });
+    });
+  }
+
+  function mountElflinesNativeAds() {
+    document.querySelectorAll(".ad-banner, .ad").forEach(function (host, index) {
+      if (host.querySelector(".nc-elflines-native-creative")) return;
+      const isBanner = host.classList.contains("ad-banner");
+      const source = isBanner ? widePool : sidePool;
+      const item = pick(source, index + 2);
+      host.classList.add("nc-elflines-native", isBanner ? "nc-elflines-native-banner" : "nc-elflines-native-card");
+      host.setAttribute("data-nc-ad-system", "native");
+      host.innerHTML = '<button type="button" class="nc-elflines-native-creative" aria-label="Open advertisement: ' + item.label.replace(/"/g, "&quot;") + '"><span>ADVERTISEMENT</span><img src="' + new URL(item.src, adBase).href + '" alt="' + item.label.replace(/"/g, "&quot;") + ' advertisement" loading="lazy" decoding="async"></button>';
+      host.querySelector("button").addEventListener("click", function () { openNotice(item); });
+    });
+  }
+
+  const main = document.querySelector("main") || document.querySelector("#content") || document.body;
+  const footer = document.querySelector("footer");
+  const sections = main ? Array.from(main.children).filter(function (child) { return /^(SECTION|ARTICLE|DIV)$/.test(child.tagName); }) : [];
+
+  if (site === "elflines") {
+    const leaderboard = createSlot("leaderboard", ultraWidePool, 0, { label: "Featured advertisement" });
+    main.insertBefore(leaderboard, main.firstChild);
+    mountElflinesNativeAds();
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("footer", ultraWidePool, 6, { label: "Footer advertisement" }), footer);
+  } else if (site === "civic") {
+    const first = createSlot("civic-inline", widePool, 1, { element: "div", label: "Contracted portal placement" });
+    const second = createSlot("civic-inline", widePool, 5, { element: "div", label: "Contracted portal placement" });
+    if (sections[0]) sections[0].insertAdjacentElement("afterend", first); else main.appendChild(first);
+    if (sections.length > 3) sections[Math.floor(sections.length / 2)].insertAdjacentElement("afterend", second); else if (footer && footer.parentNode) footer.parentNode.insertBefore(second, footer);
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("civic-footer", widePool, 8, { element: "div", label: "Municipal contractor advertisement" }), footer);
+  } else if (site === "network54") {
+    mountNetwork54NativeAds();
+    window.setTimeout(mountNetwork54NativeAds, 500);
+    window.setTimeout(mountNetwork54NativeAds, 1500);
+  } else if (site === "trauma") {
+    const partner = createSlot("trauma-inline", widePool, 0, { element: "div", label: "Trauma Team member partner" });
+    if (sections[0]) sections[0].insertAdjacentElement("afterend", partner); else main.appendChild(partner);
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("trauma-footer", widePool, 3, { element: "div", label: "Trauma Team member partner" }), footer);
+  }
+
+  document.documentElement.setAttribute("data-nc-ad-system", "ready");
 }());

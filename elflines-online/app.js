@@ -123,25 +123,21 @@ if (quizForm) {
       ]
     }
   };
-  const fallback = {
-    kicker: "NIGHT CITY-3 // PLAYER CAPTURES",
-    title: "The server does not stop while you browse.",
-    copy: "Recent scenes recovered from public player recordings. Authentication is required for original-resolution downloads.",
-    items: [["actions/04_PVP_Ambush.png", "PVP Ambush"], ["actions/06_Dungeon_Brawl.png", "Dungeon Brawl"], ["actions/07_Elemental_Magic.png", "Elemental Magic"], ["actions/08_Mounted_Charge.png", "Mounted Charge"]]
-  };
-  const set = sets[page] || fallback;
-  const section = document.createElement("section");
-  section.className = "elo-visual-archive";
-  section.innerHTML = '<header><div><p class="eyebrow">' + set.kicker + '</p><h2>' + set.title + '</h2><p>' + set.copy + '</p></div><span>' + set.items.length + ' RECORDS</span></header><div class="elo-visual-grid"></div>';
-  const grid = section.querySelector(".elo-visual-grid");
-  set.items.forEach(function (item) {
-    const figure = document.createElement("figure");
-    figure.innerHTML = '<img src="' + media(item[0]) + '" alt="' + item[1] + ' from Elflines Online" loading="lazy" decoding="async"><figcaption><b>' + item[1] + '</b><small>OPEN PLAYER CAPTURE</small></figcaption>';
-    figure.addEventListener("click", function () { figure.classList.toggle("expanded"); });
-    grid.appendChild(figure);
-  });
-  const footer = document.querySelector("footer");
-  if (footer) footer.parentNode.insertBefore(section, footer);
+  const set = sets[page];
+  if (set) {
+    const section = document.createElement("section");
+    section.className = "elo-visual-archive";
+    section.innerHTML = '<header><div><p class="eyebrow">' + set.kicker + '</p><h2>' + set.title + '</h2><p>' + set.copy + '</p></div><span>' + set.items.length + ' RECORDS</span></header><div class="elo-visual-grid"></div>';
+    const grid = section.querySelector(".elo-visual-grid");
+    set.items.forEach(function (item) {
+      const figure = document.createElement("figure");
+      figure.innerHTML = '<img src="' + media(item[0]) + '" alt="' + item[1] + ' from Elflines Online" loading="lazy" decoding="async"><figcaption><b>' + item[1] + '</b><small>OPEN PLAYER CAPTURE</small></figcaption>';
+      figure.addEventListener("click", function () { figure.classList.toggle("expanded"); });
+      grid.appendChild(figure);
+    });
+    const footer = document.querySelector("footer");
+    if (footer) footer.parentNode.insertBefore(section, footer);
+  }
 
   const heroArt = document.querySelector(".hero-art");
   if (heroArt && page === "index.html") {
