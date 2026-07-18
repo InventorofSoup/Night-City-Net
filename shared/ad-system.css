@@ -47,9 +47,17 @@
 .nc-ad-native>button:hover>img,.nc-ad-native>button:focus>img{transform:scale(1.025);filter:brightness(1.08)}
 .nc-ad-native-billboard{min-height:clamp(150px,18vw,250px)!important}
 .nc-ad-native-billboard img{object-fit:cover!important;object-position:center top}
-.nc-ad-native-rail img{object-fit:contain!important}
+.nc-ad-native-rail{width:150px!important;height:auto!important;aspect-ratio:2/3;padding:0!important}
+.nc-ad-native-rail img{object-fit:cover!important}
+.right-ad.nc-ad-native-rail{right:max(0px,50vw - 850px)}
 .nc-ad-native-sponsor{min-height:320px!important}
 .nc-ad-native-sponsor img{object-position:center}
+.nc-ad-native-footer-banner{height:auto!important;min-height:0!important;padding:0!important}
+.nc-ad-native-footer-banner>button{height:auto}
+.nc-ad-native-footer-banner>button>img{height:auto;object-fit:contain!important;object-position:center}
+.nc-ad-network54.nc-ad-network54-feed{width:min(1180px,calc(100% - 40px));height:auto;margin:34px auto;border:1px solid #313a4a;background:#080a11;box-shadow:0 16px 44px #090b1880}
+.nc-ad-network54-feed .nc-ad-image{height:auto}
+.nc-ad-network54-feed .nc-ad-image img{height:auto;object-fit:contain}
 
 /* Destination status dialog shared by every working ad. */
 .nc-ad-backdrop{position:fixed;z-index:99999;inset:0;display:grid;place-items:center;padding:20px;background:#020607e8;backdrop-filter:blur(7px)}
@@ -70,6 +78,7 @@
   .nc-ad-elflines.nc-ad-footer .nc-ad-image img,.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img,.nc-ad-trauma.nc-ad-trauma-footer .nc-ad-image img{object-fit:contain;object-position:center}
   .nc-ad-image img{object-fit:contain}
   .nc-ad-native-billboard{min-height:135px!important}
+  .nc-ad-network54.nc-ad-network54-feed{width:calc(100% - 20px);height:auto;margin:22px auto}
   .nc-elflines-native-banner{height:150px!important}
   .nc-elflines-native-banner>.nc-elflines-native-creative img{object-fit:contain;object-position:center}
   .nc-elflines-native-card{height:auto!important;aspect-ratio:1.35/1}
