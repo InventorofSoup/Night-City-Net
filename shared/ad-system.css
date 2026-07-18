@@ -7,8 +7,10 @@
 .nc-ad-tag{position:absolute;z-index:3;top:7px;left:7px;padding:4px 7px;background:#030506df;color:#fff;font:700 7px/1 "Courier New",monospace;letter-spacing:.14em;pointer-events:none}
 
 /* Elflines Online: familiar commercial banner above the page, a desktop tower, and a clean footer placement. */
-.nc-ad-elflines.nc-ad-leaderboard{width:min(1180px,calc(100% - 32px));height:clamp(110px,14vw,180px);margin:18px auto 34px;border:1px solid #5b946e;box-shadow:0 12px 34px #0008,0 0 18px #2f9b5525}
-.nc-ad-elflines.nc-ad-footer{width:100%;height:clamp(135px,18vw,235px);margin:38px 0 0;border-block:1px solid #497c5c;background:#07110c}
+.nc-ad-elflines.nc-ad-leaderboard{width:min(1180px,calc(100% - 32px));height:clamp(180px,20vw,260px);margin:18px auto 34px;border:1px solid #5b946e;box-shadow:0 12px 34px #0008,0 0 18px #2f9b5525}
+.nc-ad-elflines.nc-ad-leaderboard .nc-ad-image img{object-fit:cover;object-position:center top}
+.nc-ad-elflines.nc-ad-footer{width:min(1180px,calc(100% - 32px));height:clamp(220px,24vw,300px);margin:38px auto 0;border:1px solid #497c5c;background:#07110c}
+.nc-ad-elflines.nc-ad-footer .nc-ad-image img{object-fit:cover;object-position:center top}
 .nc-ad-controls{position:absolute;z-index:4;right:6px;bottom:6px;display:flex;gap:4px}
 .nc-ad-controls button{min-width:28px;height:25px;padding:0 7px;border:1px solid #ffffff5c;background:#050807df;color:#fff;font:700 8px "Courier New",monospace;cursor:pointer}
 .nc-ad-controls button:hover,.nc-ad-controls button:focus{background:#78cc91;color:#061008}
@@ -17,20 +19,23 @@
 .nc-elflines-native>.nc-elflines-native-creative span{position:absolute;z-index:2;top:7px;right:7px;padding:4px 6px;background:#020503df;color:#fff;font:700 7px/1 "Courier New",monospace;letter-spacing:.13em}
 .nc-elflines-native>.nc-elflines-native-creative img{display:block;width:100%;height:100%;object-fit:contain;transition:filter .2s ease,transform .2s ease}
 .nc-elflines-native>.nc-elflines-native-creative:hover img,.nc-elflines-native>.nc-elflines-native-creative:focus img{filter:brightness(1.08);transform:scale(1.015)}
-.nc-elflines-native-banner{height:clamp(130px,16vw,210px)!important}
-.nc-elflines-native-card{height:clamp(230px,25vw,340px)!important}
+.nc-elflines-native-banner{height:clamp(210px,24vw,300px)!important}
+.nc-elflines-native-banner>.nc-elflines-native-creative img{object-fit:cover;object-position:center top}
+.nc-elflines-native-card{height:auto!important;aspect-ratio:1.5/1}
 
 /* NC CivicNet: low-bid contractor strips interrupt municipal content instead of imitating a media site. */
 .nc-ad-civic.nc-ad-civic-inline{width:min(760px,calc(100% - 36px));height:auto;aspect-ratio:2.2/1;margin:24px auto;border:2px inset #b7b3a6;background:#ddd9cb;box-shadow:none}
 .nc-ad-civic.nc-ad-civic-inline .nc-ad-image{background:#d8d5ca}
 .nc-ad-civic.nc-ad-civic-inline img{object-fit:contain}
 .nc-ad-civic.nc-ad-civic-inline .nc-ad-tag{background:#eee9dc;color:#694039;border:1px solid #878277;font-size:8px}
-.nc-ad-civic.nc-ad-civic-footer{width:100%;height:clamp(110px,14vw,180px);margin-top:28px;border-block:3px double #7d817e;background:#d9d6cb}
+.nc-ad-civic.nc-ad-civic-footer{width:min(1180px,calc(100% - 36px));height:clamp(220px,24vw,300px);margin:28px auto 0;border:3px double #7d817e;background:#d9d6cb}
+.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img{object-fit:cover;object-position:center top}
 .nc-ad-civic.nc-ad-civic-footer .nc-ad-tag{top:auto;bottom:7px;background:#eee9dc;color:#694039;border:1px solid #878277}
 
 /* Trauma Team: restrained member-partner placements, never scam inventory. */
 .nc-ad-trauma.nc-ad-trauma-inline{width:min(620px,calc(100% - 40px));height:auto;aspect-ratio:1.88/1;margin:28px auto;border:1px solid #559ca4;box-shadow:0 10px 34px #00111480}
-.nc-ad-trauma.nc-ad-trauma-footer{width:100%;height:clamp(125px,16vw,205px);margin-top:34px;border-block:1px solid #559ca4;background:#061b1e}
+.nc-ad-trauma.nc-ad-trauma-footer{width:min(1180px,calc(100% - 40px));height:clamp(220px,24vw,300px);margin:34px auto 0;border:1px solid #559ca4;background:#061b1e}
+.nc-ad-trauma.nc-ad-trauma-footer .nc-ad-image img{object-fit:cover;object-position:center top}
 .nc-ad-trauma .nc-ad-tag{background:#062225e8;color:#8ee4e8;border:1px solid #559ca4}
 
 /* Network 54: generated artwork occupies the ad units already designed into the publication. */
@@ -41,7 +46,7 @@
 .nc-ad-native>button>img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s ease,filter .25s ease}
 .nc-ad-native>button:hover>img,.nc-ad-native>button:focus>img{transform:scale(1.025);filter:brightness(1.08)}
 .nc-ad-native-billboard{min-height:clamp(150px,18vw,250px)!important}
-.nc-ad-native-billboard img{object-position:center}
+.nc-ad-native-billboard img{object-fit:cover!important;object-position:center top}
 .nc-ad-native-rail img{object-fit:contain!important}
 .nc-ad-native-sponsor{min-height:320px!important}
 .nc-ad-native-sponsor img{object-position:center}
@@ -57,12 +62,15 @@
 
 @media(max-width:700px){
   .nc-ad-elflines.nc-ad-leaderboard{width:calc(100% - 20px);height:118px;margin:14px auto 24px}
+  .nc-ad-elflines.nc-ad-leaderboard .nc-ad-image img{object-fit:contain;object-position:center}
   .nc-ad-trauma.nc-ad-trauma-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.88/1;margin:14px auto 24px}
   .nc-ad-civic.nc-ad-civic-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.85/1;margin:14px auto 24px}
-  .nc-ad-elflines.nc-ad-footer,.nc-ad-civic.nc-ad-civic-footer,.nc-ad-trauma.nc-ad-trauma-footer{height:132px}
+  .nc-ad-elflines.nc-ad-footer,.nc-ad-civic.nc-ad-civic-footer,.nc-ad-trauma.nc-ad-trauma-footer{width:calc(100% - 20px);height:132px}
+  .nc-ad-elflines.nc-ad-footer .nc-ad-image img,.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img,.nc-ad-trauma.nc-ad-trauma-footer .nc-ad-image img{object-fit:contain;object-position:center}
   .nc-ad-image img{object-fit:contain}
   .nc-ad-native-billboard{min-height:135px!important}
   .nc-elflines-native-banner{height:150px!important}
-  .nc-elflines-native-card{height:260px!important}
+  .nc-elflines-native-banner>.nc-elflines-native-creative img{object-fit:contain;object-position:center}
+  .nc-elflines-native-card{height:auto!important;aspect-ratio:1.35/1}
   .nc-ad-modal{padding:22px}
 }

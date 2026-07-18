@@ -70,6 +70,7 @@
     ["scam/scam-15-pet-restoration.png", "SecondTail pet restoration"],
     ["scam/scam-16-radiopure-detox.png", "RadioPure detox patch"],
     ["scam/scam-17-identity-reset.png", "Credstar identity reset"],
+    ["scam/scam-17-identity-reset-banner.png", "Credstar identity reset"],
     ["scam/scam-18-braindance-refund.png", "Braindance refund approved"],
     ["scam/scam-19-home-safety-audit.png", "Mandatory home safety audit"],
     ["scam/scam-20-relief-fund.png", "Children of the Red Relief Fund"],
@@ -103,7 +104,8 @@
   const wideNames = ["elflines", "aerial-sphere", "grundy", "viewer-reward", "power-disconnection", "eldergrove", "relief-fund", "identity-reset", "miller", "companion", "neonova", "euroclear", "vortec", "spider-cyberchair", "superflash", "trauma-medscan", "ziggurat", "garden", "digital-gladiator", "cybereye", "dynalar", "biotechnica", "masetto", "fire-brand", "tanson-bellhop", "killstrom", "drink-master", "habitat", "combat-cabb", "aerocab", "ncart", "playland"];
   const sideNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint", "doberman", "mr-biscuit", "boomerang", "dynalar-fingers", "cyberware-warranty", "rapid-angel", "luck-grid"];
   const tallNames = ["kibble", "jetboy", "laser-jacket", "memory-chip", "mara-transit", "courier-job", "radiopure", "preparatory-school", "identity-breach", "iron-saint"];
-  const ultraWideNames = ["elflines", "aerial-sphere", "grundy", "viewer-reward", "power-disconnection", "eldergrove", "relief-fund", "identity-reset", "miller", "companion", "neonova", "euroclear", "vortec"];
+  const ultraWideNames = ["identity-reset-banner", "elflines", "aerial-sphere", "grundy"];
+  const cardNames = ["doberman", "mr-biscuit", "boomerang", "dynalar-fingers", "cyberware-warranty", "rapid-angel", "luck-grid", "pet-restoration", "container-homes", "human-trial", "estate-beneficiary"];
   const subset = function (names) {
     const matches = byName(names, pool);
     return matches.length ? matches : pool;
@@ -113,7 +115,12 @@
   });
   const sidePool = subset(sideNames);
   const tallPool = subset(tallNames);
-  const ultraWidePool = subset(ultraWideNames);
+  const allInventory = legit.concat(scams);
+  const bannerPool = ultraWideNames.map(function (name) {
+    return allInventory.find(function (item) { return item.src.includes(name); });
+  }).filter(Boolean);
+  const traumaBannerPool = byName(["elflines", "aerial-sphere", "grundy"], legit);
+  const cardPool = byName(cardNames, allInventory);
   const pick = function (source, offset) { return source[(cursor + offset) % source.length]; };
 
   function createSlot(kind, source, offset, options) {
@@ -160,10 +167,10 @@
 
   function mountNetwork54NativeAds() {
     const placements = [
-      [document.querySelector(".billboard"), pick(ultraWidePool, 0), "billboard"],
+      [document.querySelector(".billboard"), pick(bannerPool, 0), "billboard"],
       [document.querySelector(".left-ad"), pick(tallPool, 1), "rail"],
       [document.querySelector(".right-ad"), pick(tallPool, 4), "rail"],
-      [document.querySelector(".sponsor-card"), pick(sidePool, 7), "sponsor"]
+      [document.querySelector(".sponsor-card"), pick(cardPool, 7), "sponsor"]
     ];
     placements.forEach(function (entry) {
       const host = entry[0];
@@ -180,7 +187,7 @@
     document.querySelectorAll(".ad-banner, .ad").forEach(function (host, index) {
       if (host.querySelector(".nc-elflines-native-creative")) return;
       const isBanner = host.classList.contains("ad-banner");
-      const source = isBanner ? widePool : sidePool;
+      const source = isBanner ? bannerPool : cardPool;
       const item = pick(source, index + 2);
       host.classList.add("nc-elflines-native", isBanner ? "nc-elflines-native-banner" : "nc-elflines-native-card");
       host.setAttribute("data-nc-ad-system", "native");
@@ -194,16 +201,16 @@
   const sections = main ? Array.from(main.children).filter(function (child) { return /^(SECTION|ARTICLE|DIV)$/.test(child.tagName); }) : [];
 
   if (site === "elflines") {
-    const leaderboard = createSlot("leaderboard", ultraWidePool, 0, { label: "Featured advertisement" });
+    const leaderboard = createSlot("leaderboard", bannerPool, 0, { label: "Featured advertisement" });
     main.insertBefore(leaderboard, main.firstChild);
     mountElflinesNativeAds();
-    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("footer", ultraWidePool, 6, { label: "Footer advertisement" }), footer);
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("footer", bannerPool, 6, { label: "Footer advertisement" }), footer);
   } else if (site === "civic") {
     const first = createSlot("civic-inline", widePool, 1, { element: "div", label: "Contracted portal placement" });
     const second = createSlot("civic-inline", widePool, 5, { element: "div", label: "Contracted portal placement" });
     if (sections[0]) sections[0].insertAdjacentElement("afterend", first); else main.appendChild(first);
     if (sections.length > 3) sections[Math.floor(sections.length / 2)].insertAdjacentElement("afterend", second); else if (footer && footer.parentNode) footer.parentNode.insertBefore(second, footer);
-    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("civic-footer", widePool, 8, { element: "div", label: "Municipal contractor advertisement" }), footer);
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("civic-footer", bannerPool, 8, { element: "div", label: "Municipal contractor advertisement" }), footer);
   } else if (site === "network54") {
     mountNetwork54NativeAds();
     window.setTimeout(mountNetwork54NativeAds, 500);
@@ -211,7 +218,7 @@
   } else if (site === "trauma") {
     const partner = createSlot("trauma-inline", widePool, 0, { element: "div", label: "Trauma Team member partner" });
     if (sections[0]) sections[0].insertAdjacentElement("afterend", partner); else main.appendChild(partner);
-    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("trauma-footer", widePool, 3, { element: "div", label: "Trauma Team member partner" }), footer);
+    if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("trauma-footer", traumaBannerPool, 3, { element: "div", label: "Trauma Team member partner" }), footer);
   }
 
   document.documentElement.setAttribute("data-nc-ad-system", "ready");
