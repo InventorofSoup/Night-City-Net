@@ -232,3 +232,7 @@ footer>div:last-child{padding-top:16px;border-top:1px solid var(--line)}
 .elo-visual-grid figure.elo-image-locations.expanded{grid-column:1/-1}
 .elo-visual-grid figure.expanded:not(.elo-image-classes) figcaption{position:static;padding:12px;background:#030704}
 @media(max-width:620px){.elo-visual-grid .elo-image-locations{grid-column:1/-1}}
+
+/* Gallery captures are intentionally static so the sharp, complete compositions remain unchanged. */
+.elo-visual-grid figure{cursor:default;transition:border-color .18s ease}
+.elo-visual-grid figure:hover{transform:none;border-color:#365a46}
