@@ -54,3 +54,23 @@ document.querySelectorAll("[data-modal]").forEach(function (button) {
 closeButton.addEventListener("click", closeModal);
 backdrop.addEventListener("click", function (event) { if (event.target === backdrop) closeModal(); });
 document.addEventListener("keydown", function (event) { if (event.key === "Escape" && !backdrop.hidden) closeModal(); });
+
+// Restored Night City regional photography and legitimate member-service placements.
+(function mountRegionalFieldArchive() {
+  const script = document.currentScript;
+  const siteBase = script && script.src ? new URL(".", script.src) : new URL(".", location.href);
+  const media = function (name) { return new URL("media/" + name, siteBase).href; };
+  const hero = document.querySelector(".hero-art");
+  if (hero) {
+    hero.classList.add("tti-photo-hero");
+    hero.insertAdjacentHTML("afterbegin", '<img src="' + media("trauma-flight.png") + '" alt="Trauma Team AV flying above Night City">');
+  }
+  const section = document.createElement("section");
+  section.className = "tti-field-archive";
+  section.innerHTML = '<header><div><p class="eyebrow">NIGHT CITY REGIONAL OPERATIONS</p><h2>Care arrives as a team.</h2><p>Operational photography from active regional platforms, flight crews, and protected receiving corridors. Images are retained for member education and response-familiarity training.</p></div><span>REGIONAL FILE // 2045</span></header><div class="tti-photo-grid"><figure><img src="' + media("trauma-team-ground-crew.png") + '" alt="Trauma Team flight and ground crew preparing a patient transfer" loading="lazy"><figcaption><b>Transfer-ready on arrival</b><small>GROUND CREW // PATIENT HANDOFF</small></figcaption></figure><figure><img src="' + media("trauma-flight.png") + '" alt="Trauma Team response aircraft crossing Night City" loading="lazy"><figcaption><b>Direct aerial routing</b><small>AV RESPONSE // PRIORITY CORRIDOR</small></figcaption></figure><figure><img src="' + media("trauma-patrol-poster.png") + '" alt="Trauma Team regional air-ambulance service poster" loading="lazy"><figcaption><b>Recognize the aircraft</b><small>MEMBER EDUCATION // ARCHIVE PRINT</small></figcaption></figure><figure><img src="' + media("trauma-city-approach.png") + '" alt="Trauma Team aircraft approaching the Night City skyline" loading="lazy"><figcaption><b>Regional approach pattern</b><small>FLIGHT OPERATIONS // NIGHT CITY</small></figcaption></figure></div>';
+  const footer = document.querySelector("footer");
+  if (footer) footer.parentNode.insertBefore(section, footer);
+  const adLoader = document.createElement("script");
+  adLoader.src = new URL("../shared/ad-system.js", siteBase).href;
+  document.body.appendChild(adLoader);
+}());
