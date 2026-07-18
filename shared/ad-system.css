@@ -47,9 +47,12 @@
 .nc-ad-native>button:hover>img,.nc-ad-native>button:focus>img{transform:scale(1.025);filter:brightness(1.08)}
 .nc-ad-native-billboard{min-height:clamp(150px,18vw,250px)!important}
 .nc-ad-native-billboard img{object-fit:cover!important;object-position:center top}
-.nc-ad-native-rail{width:150px!important;height:auto!important;aspect-ratio:2/3;padding:0!important}
+.nc-ad-native-rail{width:420px!important;height:auto!important;aspect-ratio:2/3;padding:0!important}
 .nc-ad-native-rail img{object-fit:cover!important}
-.right-ad.nc-ad-native-rail{right:max(0px,50vw - 850px)}
+.nc-network54-ad-stage{position:relative}
+.right-ad.nc-ad-native-rail{position:fixed;z-index:12;top:260px;right:max(8px,calc((100vw - 1380px)/2 + 8px));box-shadow:0 12px 30px #09061299}
+.nc-ad-rail-close{position:absolute!important;z-index:6;top:-14px;right:-14px;width:34px!important;height:34px!important;min-height:0!important;padding:0!important;border:1px solid #fff!important;border-radius:50%!important;background:#17111eef!important;color:#fff!important;font:700 22px/31px Arial!important;box-shadow:0 4px 12px #000a;cursor:pointer}
+.nc-ad-rail-close:hover,.nc-ad-rail-close:focus-visible{outline:2px solid #ff2f92;outline-offset:2px;background:#ff2f92!important}
 .nc-ad-native-sponsor{min-height:320px!important}
 .nc-ad-native-sponsor img{object-position:center}
 .nc-ad-native-footer-banner{height:auto!important;min-height:0!important;padding:0!important}
@@ -83,4 +86,8 @@
   .nc-elflines-native-banner>.nc-elflines-native-creative img{object-fit:contain;object-position:center}
   .nc-elflines-native-card{height:auto!important;aspect-ratio:1.35/1}
   .nc-ad-modal{padding:22px}
+}
+
+@media(min-width:1621px) and (max-width:1719px){
+  .nc-ad-native-rail{width:380px!important}
 }

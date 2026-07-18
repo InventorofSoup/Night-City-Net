@@ -9,7 +9,7 @@
   const adBase = new URL("../shared-ads/", sharedBase);
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("ad-system.css", sharedBase).href;
+  stylesheet.href = new URL("ad-system.css?v=20260718-2", sharedBase).href;
   document.head.appendChild(stylesheet);
 
   const legit = [
@@ -166,6 +166,18 @@
   function mountNetwork54NativeAds() {
     const unusedLeftRail = document.querySelector(".left-ad");
     if (unusedLeftRail) unusedLeftRail.remove();
+    let rightRail = document.querySelector(".right-ad");
+    const networkMain = document.querySelector("main");
+    let railDismissed = false;
+    try { railDismissed = sessionStorage.getItem("n54-right-rail-dismissed") === "1"; } catch (error) { railDismissed = false; }
+    if (railDismissed && rightRail) {
+      rightRail.remove();
+      rightRail = null;
+    }
+    if (rightRail && networkMain && rightRail.parentElement !== networkMain) {
+      networkMain.classList.add("nc-network54-ad-stage");
+      networkMain.prepend(rightRail);
+    }
     const placements = [
       [document.querySelector(".billboard"), pick(bannerPool, 0), "billboard"],
       [document.querySelector(".right-ad"), pick(rightRailPool, 4), "rail"],
@@ -180,6 +192,19 @@
       host.setAttribute("data-nc-ad-system", "native");
       host.innerHTML = '<button type="button" class="nc-ad-native-creative" aria-label="Open advertisement: ' + item.label.replace(/"/g, "&quot;") + '"><span>ADVERTISEMENT</span><img src="' + new URL(item.src, adBase).href + '" alt="' + item.label.replace(/"/g, "&quot;") + ' advertisement" loading="lazy" decoding="async"></button>';
       host.querySelector("button").addEventListener("click", function () { openNotice(item); });
+      if (entry[2] === "rail") {
+        const closeRail = document.createElement("button");
+        closeRail.type = "button";
+        closeRail.className = "nc-ad-rail-close";
+        closeRail.setAttribute("aria-label", "Close side advertisement");
+        closeRail.textContent = "×";
+        closeRail.addEventListener("click", function (event) {
+          event.stopPropagation();
+          try { sessionStorage.setItem("n54-right-rail-dismissed", "1"); } catch (error) { /* Session storage is optional. */ }
+          host.remove();
+        });
+        host.appendChild(closeRail);
+      }
     });
   }
 
