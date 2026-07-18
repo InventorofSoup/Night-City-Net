@@ -1,1 +1,68 @@
-.nc-ad-deck{box-sizing:border-box;width:min(1440px,calc(100% - 40px));margin:42px auto;padding:22px;border:1px solid #ffffff2e;background:#080b0de8;color:#f4f0e8;font-family:Arial,sans-serif;box-shadow:0 18px 50px #0007}.nc-ad-deck *{box-sizing:border-box}.nc-ad-deck>header{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #ffffff27}.nc-ad-deck small{font:700 9px "Courier New",monospace;letter-spacing:.16em;color:#e6c36f}.nc-ad-deck h2{margin:6px 0 0;font:700 clamp(18px,2vw,30px)/1.05 Georgia,serif}.nc-ad-refresh{border:1px solid #d9bd7b;background:transparent;color:#f1d58d;padding:9px 12px;font:700 9px "Courier New",monospace;letter-spacing:.08em;cursor:pointer}.nc-ad-refresh:hover,.nc-ad-refresh:focus{background:#d9bd7b;color:#111}.nc-ad-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.nc-ad-card{position:relative;min-width:0;padding:0 0 10px;overflow:hidden;border:1px solid #ffffff31;background:#101518;color:#fff;text-align:left;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.nc-ad-card:hover,.nc-ad-card:focus{transform:translateY(-3px);border-color:#e6c36f;box-shadow:0 11px 30px #0009}.nc-ad-card>span{position:absolute;z-index:2;top:7px;left:7px;padding:4px 6px;background:#050708df;color:#fff;font:700 7px "Courier New",monospace;letter-spacing:.12em}.nc-ad-card img{display:block;width:100%;height:clamp(150px,18vw,260px);object-fit:cover;background:#111}.nc-ad-card>b{display:block;padding:10px 12px 0;font-size:12px;letter-spacing:.03em}.nc-ad-fine{margin:13px 0 0;color:#aeb5b7;font:9px/1.5 "Courier New",monospace}.nc-ad-civic{border:2px inset #b7b3a6;background:#e7e4d8;color:#263943;box-shadow:none}.nc-ad-civic small{color:#7a2b25}.nc-ad-civic>header{border-color:#8d979a}.nc-ad-civic .nc-ad-refresh{border:2px outset #d7d4c8;background:#d9d7cd;color:#173f5c}.nc-ad-civic .nc-ad-card{border:2px inset #b9b6aa;background:#f3f0e6;color:#243c4c}.nc-ad-civic .nc-ad-fine{color:#606c70}.nc-ad-elflines{border-color:#4b7c65;background:linear-gradient(145deg,#07110cfa,#111a15f7);box-shadow:0 18px 50px #000b,0 0 35px #2e7b4a22}.nc-ad-elflines small{color:#88db9d}.nc-ad-elflines .nc-ad-refresh{border-color:#72c98c;color:#8ee0a5}.nc-ad-elflines .nc-ad-card:hover{border-color:#7ed99a}.nc-ad-trauma{border-color:#68aeb5;background:#071d20f5}.nc-ad-trauma small{color:#75d0d5}.nc-ad-trauma .nc-ad-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nc-ad-trauma .nc-ad-refresh{border-color:#70c7cc;color:#8adbe0}.nc-ad-network54{border-color:#ff2b8c66;background:linear-gradient(145deg,#110617f7,#080813fa);box-shadow:0 18px 55px #000b,0 0 36px #d9006d22}.nc-ad-network54 small{color:#ff4da5}.nc-ad-network54 .nc-ad-refresh{border-color:#ff3d9a;color:#ff77b9}.nc-ad-network54 .nc-ad-card:hover{border-color:#ff3d9a}.nc-ad-backdrop{position:fixed;z-index:99999;inset:0;display:grid;place-items:center;padding:20px;background:#020607e8;backdrop-filter:blur(7px)}.nc-ad-modal{width:min(560px,100%);padding:30px;border:1px solid #d7b96e;background:#0b1012;color:#f2eee4;box-shadow:0 25px 90px #000}.nc-ad-modal small{color:#e1c170;font:700 9px "Courier New",monospace;letter-spacing:.14em}.nc-ad-modal h2{margin:11px 0 14px;font:700 clamp(28px,5vw,45px)/.95 Georgia,serif}.nc-ad-modal p{line-height:1.65;color:#d0d7d5}.nc-ad-modal code{display:block;margin:20px 0;padding:12px;border:1px solid #ffffff24;background:#030506;color:#e9c773;font-size:11px}.nc-ad-modal button{border:1px solid #d9bd76;background:#d9bd76;color:#101413;padding:11px 15px;font-weight:700;cursor:pointer}@media(max-width:760px){.nc-ad-deck{width:calc(100% - 24px);margin:28px auto;padding:14px}.nc-ad-deck>header{align-items:flex-start;flex-direction:column}.nc-ad-grid,.nc-ad-trauma .nc-ad-grid{grid-template-columns:1fr}.nc-ad-card img{height:auto;max-height:330px}.nc-ad-refresh{width:100%}}
+.nc-ad-slot,
+.nc-ad-slot *{box-sizing:border-box}
+.nc-ad-slot{position:relative;overflow:hidden}
+.nc-ad-image{display:block;width:100%;height:100%;margin:0;padding:0;overflow:hidden;border:0;background:#07090a;cursor:pointer}
+.nc-ad-image img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s ease,filter .25s ease}
+.nc-ad-image:hover img,.nc-ad-image:focus img{transform:scale(1.018);filter:brightness(1.08)}
+.nc-ad-tag{position:absolute;z-index:3;top:7px;left:7px;padding:4px 7px;background:#030506df;color:#fff;font:700 7px/1 "Courier New",monospace;letter-spacing:.14em;pointer-events:none}
+
+/* Elflines Online: familiar commercial banner above the page, a desktop tower, and a clean footer placement. */
+.nc-ad-elflines.nc-ad-leaderboard{width:min(1180px,calc(100% - 32px));height:clamp(110px,14vw,180px);margin:18px auto 34px;border:1px solid #5b946e;box-shadow:0 12px 34px #0008,0 0 18px #2f9b5525}
+.nc-ad-elflines.nc-ad-footer{width:100%;height:clamp(135px,18vw,235px);margin:38px 0 0;border-block:1px solid #497c5c;background:#07110c}
+.nc-ad-controls{position:absolute;z-index:4;right:6px;bottom:6px;display:flex;gap:4px}
+.nc-ad-controls button{min-width:28px;height:25px;padding:0 7px;border:1px solid #ffffff5c;background:#050807df;color:#fff;font:700 8px "Courier New",monospace;cursor:pointer}
+.nc-ad-controls button:hover,.nc-ad-controls button:focus{background:#78cc91;color:#061008}
+.nc-elflines-native{padding:0!important;background:#050906!important}
+.nc-elflines-native>.nc-elflines-native-creative{position:relative;display:block;width:100%;height:100%;margin:0;padding:0;overflow:hidden;border:0;background:#050906;cursor:pointer}
+.nc-elflines-native>.nc-elflines-native-creative span{position:absolute;z-index:2;top:7px;right:7px;padding:4px 6px;background:#020503df;color:#fff;font:700 7px/1 "Courier New",monospace;letter-spacing:.13em}
+.nc-elflines-native>.nc-elflines-native-creative img{display:block;width:100%;height:100%;object-fit:contain;transition:filter .2s ease,transform .2s ease}
+.nc-elflines-native>.nc-elflines-native-creative:hover img,.nc-elflines-native>.nc-elflines-native-creative:focus img{filter:brightness(1.08);transform:scale(1.015)}
+.nc-elflines-native-banner{height:clamp(130px,16vw,210px)!important}
+.nc-elflines-native-card{height:clamp(230px,25vw,340px)!important}
+
+/* NC CivicNet: low-bid contractor strips interrupt municipal content instead of imitating a media site. */
+.nc-ad-civic.nc-ad-civic-inline{width:min(760px,calc(100% - 36px));height:auto;aspect-ratio:2.2/1;margin:24px auto;border:2px inset #b7b3a6;background:#ddd9cb;box-shadow:none}
+.nc-ad-civic.nc-ad-civic-inline .nc-ad-image{background:#d8d5ca}
+.nc-ad-civic.nc-ad-civic-inline img{object-fit:contain}
+.nc-ad-civic.nc-ad-civic-inline .nc-ad-tag{background:#eee9dc;color:#694039;border:1px solid #878277;font-size:8px}
+.nc-ad-civic.nc-ad-civic-footer{width:100%;height:clamp(110px,14vw,180px);margin-top:28px;border-block:3px double #7d817e;background:#d9d6cb}
+.nc-ad-civic.nc-ad-civic-footer .nc-ad-tag{top:auto;bottom:7px;background:#eee9dc;color:#694039;border:1px solid #878277}
+
+/* Trauma Team: restrained member-partner placements, never scam inventory. */
+.nc-ad-trauma.nc-ad-trauma-inline{width:min(620px,calc(100% - 40px));height:auto;aspect-ratio:1.88/1;margin:28px auto;border:1px solid #559ca4;box-shadow:0 10px 34px #00111480}
+.nc-ad-trauma.nc-ad-trauma-footer{width:100%;height:clamp(125px,16vw,205px);margin-top:34px;border-block:1px solid #559ca4;background:#061b1e}
+.nc-ad-trauma .nc-ad-tag{background:#062225e8;color:#8ee4e8;border:1px solid #559ca4}
+
+/* Network 54: generated artwork occupies the ad units already designed into the publication. */
+.nc-ad-native{padding:0!important;overflow:hidden!important;background:#08070d!important}
+.nc-ad-native:after{display:none!important}
+.nc-ad-native>button{position:relative;display:block;width:100%;height:100%;min-height:inherit;margin:0;padding:0;overflow:hidden;border:0;background:#08070d;cursor:pointer;color:#fff}
+.nc-ad-native>button>span{position:absolute;z-index:3;top:6px;left:6px;padding:4px 6px;background:#08070de0;color:#fff;font:700 7px/1 "Courier New",monospace;letter-spacing:.13em}
+.nc-ad-native>button>img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s ease,filter .25s ease}
+.nc-ad-native>button:hover>img,.nc-ad-native>button:focus>img{transform:scale(1.025);filter:brightness(1.08)}
+.nc-ad-native-billboard{min-height:clamp(150px,18vw,250px)!important}
+.nc-ad-native-billboard img{object-position:center}
+.nc-ad-native-rail img{object-fit:contain!important}
+.nc-ad-native-sponsor{min-height:320px!important}
+.nc-ad-native-sponsor img{object-position:center}
+
+/* Destination status dialog shared by every working ad. */
+.nc-ad-backdrop{position:fixed;z-index:99999;inset:0;display:grid;place-items:center;padding:20px;background:#020607e8;backdrop-filter:blur(7px)}
+.nc-ad-modal{box-sizing:border-box;width:min(560px,100%);padding:30px;border:1px solid #d7b96e;background:#0b1012;color:#f2eee4;box-shadow:0 25px 90px #000;font-family:Arial,sans-serif}
+.nc-ad-modal small{color:#e1c170;font:700 9px "Courier New",monospace;letter-spacing:.14em}
+.nc-ad-modal h2{margin:11px 0 14px;font:700 clamp(28px,5vw,45px)/.95 Georgia,serif}
+.nc-ad-modal p{line-height:1.65;color:#d0d7d5}
+.nc-ad-modal code{display:block;margin:20px 0;padding:12px;border:1px solid #ffffff24;background:#030506;color:#e9c773;font-size:11px}
+.nc-ad-modal button{border:1px solid #d9bd76;background:#d9bd76;color:#101413;padding:11px 15px;font-weight:700;cursor:pointer}
+
+@media(max-width:700px){
+  .nc-ad-elflines.nc-ad-leaderboard{width:calc(100% - 20px);height:118px;margin:14px auto 24px}
+  .nc-ad-trauma.nc-ad-trauma-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.88/1;margin:14px auto 24px}
+  .nc-ad-civic.nc-ad-civic-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.85/1;margin:14px auto 24px}
+  .nc-ad-elflines.nc-ad-footer,.nc-ad-civic.nc-ad-civic-footer,.nc-ad-trauma.nc-ad-trauma-footer{height:132px}
+  .nc-ad-image img{object-fit:contain}
+  .nc-ad-native-billboard{min-height:135px!important}
+  .nc-elflines-native-banner{height:150px!important}
+  .nc-elflines-native-card{height:260px!important}
+  .nc-ad-modal{padding:22px}
+}
