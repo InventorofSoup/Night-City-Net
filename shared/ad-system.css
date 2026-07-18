@@ -24,12 +24,12 @@
 .nc-elflines-native-card{height:auto!important;aspect-ratio:1.5/1}
 
 /* NC CivicNet: low-bid contractor strips interrupt municipal content instead of imitating a media site. */
-.nc-ad-civic.nc-ad-civic-inline{width:min(760px,calc(100% - 36px));height:auto;aspect-ratio:2.2/1;margin:24px auto;border:2px inset #b7b3a6;background:#ddd9cb;box-shadow:none}
-.nc-ad-civic.nc-ad-civic-inline .nc-ad-image{background:#d8d5ca}
-.nc-ad-civic.nc-ad-civic-inline img{object-fit:contain}
+.nc-ad-civic.nc-ad-civic-inline{width:min(1040px,calc(100% - 36px));height:auto;margin:24px auto;border:2px inset #b7b3a6;background:#ddd9cb;box-shadow:none}
+.nc-ad-civic .nc-ad-image{height:auto;background:#d8d5ca}
+.nc-ad-civic .nc-ad-image img{height:auto;object-fit:contain}
 .nc-ad-civic.nc-ad-civic-inline .nc-ad-tag{background:#eee9dc;color:#694039;border:1px solid #878277;font-size:8px}
-.nc-ad-civic.nc-ad-civic-footer{width:min(1180px,calc(100% - 36px));height:clamp(220px,24vw,300px);margin:28px auto 0;border:3px double #7d817e;background:#d9d6cb}
-.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img{object-fit:cover;object-position:center top}
+.nc-ad-civic.nc-ad-civic-footer{width:min(1180px,calc(100% - 36px));height:auto;margin:28px auto 0;border:3px double #7d817e;background:#d9d6cb}
+.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img{object-fit:contain;object-position:center}
 .nc-ad-civic.nc-ad-civic-footer .nc-ad-tag{top:auto;bottom:7px;background:#eee9dc;color:#694039;border:1px solid #878277}
 
 /* Trauma Team: restrained member-partner placements, never scam inventory. */
@@ -64,8 +64,9 @@
   .nc-ad-elflines.nc-ad-leaderboard{width:calc(100% - 20px);height:118px;margin:14px auto 24px}
   .nc-ad-elflines.nc-ad-leaderboard .nc-ad-image img{object-fit:contain;object-position:center}
   .nc-ad-trauma.nc-ad-trauma-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.88/1;margin:14px auto 24px}
-  .nc-ad-civic.nc-ad-civic-inline{width:calc(100% - 20px);height:auto;aspect-ratio:1.85/1;margin:14px auto 24px}
-  .nc-ad-elflines.nc-ad-footer,.nc-ad-civic.nc-ad-civic-footer,.nc-ad-trauma.nc-ad-trauma-footer{width:calc(100% - 20px);height:132px}
+  .nc-ad-civic.nc-ad-civic-inline{width:calc(100% - 20px);height:auto;margin:14px auto 24px}
+  .nc-ad-elflines.nc-ad-footer,.nc-ad-trauma.nc-ad-trauma-footer{width:calc(100% - 20px);height:132px}
+  .nc-ad-civic.nc-ad-civic-footer{width:calc(100% - 20px);height:auto}
   .nc-ad-elflines.nc-ad-footer .nc-ad-image img,.nc-ad-civic.nc-ad-civic-footer .nc-ad-image img,.nc-ad-trauma.nc-ad-trauma-footer .nc-ad-image img{object-fit:contain;object-position:center}
   .nc-ad-image img{object-fit:contain}
   .nc-ad-native-billboard{min-height:135px!important}

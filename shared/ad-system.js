@@ -90,8 +90,8 @@
   };
   const pools = {
     network54: legit.concat(scams),
-    civic: byName(["ncart", "aerocab", "habitat", "ziggurat", "bc-mr-biscuit", "bc-zonda", "playland", "combat-cabb"], legit)
-      .concat(byName(["civic-warrant", "power-disconnection", "home-safety", "relief-fund", "container-homes", "estate-beneficiary", "identity-breach", "agent-upgrade", "euroclear", "human-trial"], scams)),
+    civic: byName(["miller", "neonova", "companion", "vortec"], legit)
+      .concat(byName(["power-disconnection", "relief-fund", "identity-reset-banner", "viewer-reward", "euroclear"], scams)),
     elflines: byName(["elflines", "kibble", "rush-revolution", "digital-gladiator", "superflash", "killstrom", "drink-master", "garden", "playland", "laser-jacket"], legit)
       .concat(byName(["eldergrove", "memory-chip", "agent-upgrade", "mara-transit", "identity-reset", "braindance-refund", "courier-job", "viewer-reward", "luck-grid", "pet-restoration"], scams)),
     trauma: byName(["trauma-medscan", "biotechnica-health", "cybereye", "dynalar", "habitat", "bc-aerial-sphere", "bc-zonda", "rocklin"], legit)
