@@ -131,8 +131,25 @@ if (quizForm) {
     const grid = section.querySelector(".elo-visual-grid");
     set.items.forEach(function (item) {
       const figure = document.createElement("figure");
+      const imageGroup = item[0].split("/")[0].replace(/[^a-z0-9-]/gi, "").toLowerCase();
+      figure.className = "elo-image-" + imageGroup;
+      figure.tabIndex = 0;
+      figure.setAttribute("role", "button");
+      figure.setAttribute("aria-expanded", "false");
+      figure.setAttribute("aria-label", "Expand " + item[1] + " image");
       figure.innerHTML = '<img src="' + media(item[0]) + '" alt="' + item[1] + ' from Elflines Online" loading="lazy" decoding="async"><figcaption><b>' + item[1] + '</b><small>OPEN PLAYER CAPTURE</small></figcaption>';
-      figure.addEventListener("click", function () { figure.classList.toggle("expanded"); });
+      const toggleExpanded = function () {
+        const expanded = figure.classList.toggle("expanded");
+        figure.setAttribute("aria-expanded", String(expanded));
+        figure.setAttribute("aria-label", (expanded ? "Collapse " : "Expand ") + item[1] + " image");
+      };
+      figure.addEventListener("click", toggleExpanded);
+      figure.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleExpanded();
+        }
+      });
       grid.appendChild(figure);
     });
     const footer = document.querySelector("footer");
