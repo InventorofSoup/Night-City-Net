@@ -9,7 +9,7 @@
   const adBase = new URL("../shared-ads/", sharedBase);
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("ad-system.css?v=20260718-2", sharedBase).href;
+  stylesheet.href = new URL("ad-system.css?v=20260718-3", sharedBase).href;
   document.head.appendChild(stylesheet);
 
   const legit = [
