@@ -98,7 +98,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const accBtn = document.querySelector("#acc-toggle");
   if (accBtn) accBtn.addEventListener("click", function () {
     const on = document.body.classList.toggle("accessible-mode");
+    accBtn.setAttribute("aria-pressed", String(on));
     accBtn.textContent = "Accessibility: " + (on ? "ON" : "OFF");
+  });
+  const langBtn = document.querySelector("#lang-toggle");
+  if (langBtn) langBtn.addEventListener("click", function () {
+    showNotice(
+      "Language Service Unavailable",
+      "The contracted Spanish-language portal is not synchronized with this public terminal. Telephone interpretation may be requested during staffed municipal hours; connection, accuracy, and response are not guaranteed.",
+      "NCCN-LANG-503 • PARTIAL TRANSLATION SERVICE"
+    );
   });
   const aMinus = document.querySelector("#text-minus"), aPlus = document.querySelector("#text-plus");
   let scale = 100;
@@ -129,6 +138,20 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     const q = siteSearch.querySelector("input").value.trim();
     if (q) window.location.href = "search.html?q=" + encodeURIComponent(q);
+  });
+
+  // The footer deliberately lists incomplete municipal services. They should
+  // still acknowledge a click instead of behaving like broken links.
+  document.querySelectorAll('footer a[href="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const label = link.textContent.trim();
+      showNotice(
+        "Resource Unavailable",
+        label + " is listed in the municipal directory, but the associated public file is missing, expired, or awaiting contractor restoration. No completion estimate is available.",
+        "NCCN-RESOURCE-404 • DIRECTORY ENTRY RETAINED"
+      );
+    });
   });
 });
 
