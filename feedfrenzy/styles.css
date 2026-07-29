@@ -579,21 +579,6 @@ dialog::backdrop { background: rgba(9,11,11,.78); }
 .story-dialog .story-meta { padding: 8px; border-block: 1px dashed var(--ink); font: 700 9px "Courier New", monospace; }
 .story-dialog .story-body { font: 1rem/1.65 Georgia, serif; }
 .story-dialog .story-body strong { background: var(--acid); }
-.story-section { margin-top: 25px; }
-.story-section + .story-section {
-  padding-top: 17px;
-  border-top: 2px dashed var(--ink);
-}
-.story-section h3 {
-  display: inline-block;
-  margin: 0 0 4px;
-  padding: 5px 8px;
-  background: var(--acid);
-  font: 900 .9rem "Arial Black", sans-serif;
-  letter-spacing: .025em;
-  transform: rotate(-.35deg);
-}
-.story-section p { margin: 12px 0; }
 .comments { margin-top: 25px; border-top: 5px solid var(--ink); }
 .comments h3 { font: 900 1.4rem Impact, sans-serif; }
 .comment-count {

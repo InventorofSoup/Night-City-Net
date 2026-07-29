@@ -525,16 +525,10 @@ function openStory(id) {
     showToast("STORY FILE MOVED, DELETED, OR NEVER EXISTED.");
     return;
   }
-  const sections = [
-    ["WHAT HAPPENED", story.body],
-    ["WHAT WE FOUND", additionalReporting[id] || []],
-    ["WHAT HAPPENED NEXT", continuedCoverage[id] || []],
-  ].map(([heading, paragraphs]) => `
-    <section class="story-section">
-      <h3>${heading}</h3>
-      ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
-    </section>
-  `).join("");
+  const paragraphs = story.body
+    .concat(additionalReporting[id] || [], continuedCoverage[id] || [])
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
   const visibleComments = pickComments(story);
   const claimedTotal = randomInt(Math.max(visibleComments.length + 20, 80), 4800);
   const comments = visibleComments.map((comment) => `
@@ -549,7 +543,7 @@ function openStory(id) {
     <h2>${story.title}</h2>
     <p class="dek">${story.dek}</p>
     <p class="story-meta">${story.meta}</p>
-    <div class="story-body">${sections}</div>
+    <div class="story-body">${paragraphs}</div>
     <section class="comments">
       <h3>THE COMMENTS HAVE ESCALATED</h3>
       <p class="comment-count">SHOWING ${visibleComments.length} OF ${claimedTotal.toLocaleString()} CLAIMED COMMENTS // REFRESH FOR A DIFFERENT ARGUMENT</p>
