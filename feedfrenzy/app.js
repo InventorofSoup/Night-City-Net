@@ -390,6 +390,89 @@ const additionalReporting = {
   ],
 };
 
+const continuedCoverage = {
+  van: [
+    "The delivery company recovered the van but left the cargo lock assembly with city investigators. A photograph taken during removal shows a thin cable attached near the emergency release. The company calls it standard equipment; two drivers who contacted us do not recognize it.",
+    "The vacant building on the route received three visitors the following afternoon. They entered through a side door carrying empty insulated cases and departed before our contributor crossed the street. Property records still list the address as unoccupied.",
+    "For residents, the story has settled into an argument over who owned the food and who needed it more. For FeedFrenzy, the unresolved questions are simpler: who added the stop, why was the manifest short, and why did the doors open at exactly the moment the crowd arrived?",
+  ],
+  juno: [
+    "Halden Voss eventually posted a photograph from another venue stamped twenty minutes after Raye left the rooftop. The image could prove he was elsewhere, but the travel time between locations is possible if his driver ignored several laws.",
+    "A venue employee says Raye’s security team requested a private exit only after someone entered the service corridor without credentials. Management denies any breach and has quietly replaced two members of the door staff.",
+    "The original feud theory is losing engagement to a contract-dispute theory involving Raye’s next braindance release. There is still no direct evidence for either one, but the pastry has now been identified as pear.",
+  ],
+  mist: [
+    "Independent air samples collected too late to capture the vapor show elevated metallic residue near the drain. The lab cautions that the alley already contains enough industrial contamination to make the result nearly meaningless.",
+    "A resident later recovered part of the contractor truck’s obscured identifier from a reflection in a shop window. The visible digits match vehicles registered to two different subcontractors that share the same dispatch office.",
+    "The barrier remains in place, and overnight vibration reports continue. CivicNet restored one deleted leak notice but changed its location by two blocks. FeedFrenzy has archived both versions because this may be the rare story worth remembering.",
+  ],
+  vending: [
+    "Vend-All remotely updated the machine after our report. The CUSTOMER EXPERIENCE INPUT label disappeared from the service menu and was replaced with GENERAL SENSOR, which answers no questions while using fewer letters.",
+    "Three additional readers reproduced personalized offers without scanning account chips. Two had retail broadcasting enabled on their Agents. The third owns an older device without the setting and is now considerably more upset.",
+    "The machines are almost certainly not analyzing chewing in the way our headline suggests. They are, however, gathering more nearby information than most customers understand, which is less funny and therefore receiving fewer shares.",
+  ],
+  forks: [
+    "A box containing seventy-two forks appeared outside the cafeteria after midnight with no shipping label. Fourteen carry colored tape applied by staff earlier that week, proving at least part of the missing inventory never reached the listed facility.",
+    "Security footage for the loading dock is unavailable because the archive system exceeded its storage limit during a mandatory executive seminar. Employees have requested the seminar recording in case the forks appear in the background.",
+    "The company has declared the matter resolved even though more than three thousand utensils remain missing. Cafeteria workers have begun issuing numbered spoons and expect management to lose those next.",
+  ],
+  pigeons: [
+    "A bird rescue volunteer reviewed the images and believes two photographs show the same pigeon. She bases this on feather damage near the left wing, not the disrespectful stance emphasized by Pem.",
+    "The pale leg band resembles markers used in municipal air-quality studies, but the city program says none of its birds operate in the districts Pem visited. The word operate was theirs, not ours.",
+    "Pem has accepted a route that keeps him indoors and says the problem is finished. His Agent continues to log unidentified local connection requests around sunrise, when the pigeon is most often seen.",
+  ],
+  coat: [
+    "A fourth stylist examined the images and concluded that both coats are from the same maker but not necessarily the same garment. This reasonable middle position has been rejected by every active fan group.",
+    "Ardon wore a white jacket at her next appearance, causing searches for “Kess Ardon health crisis” to rise anyway. The nine black coats were later photographed together, though critics say one appears digitally duplicated.",
+    "The financial-trouble theory has no supporting documents, and the clone theory has no supporting reality. The only verified development is that black-coat resale prices have tripled since FeedFrenzy began asking.",
+  ],
+  dog: [
+    "A family from Santo Domingo contacted the clinic with photographs of a similar missing dog. Markings do not match, but the family donated to the treatment fund and voted for Kevin.",
+    "Two members of the booster crew returned after closing hours with a bag of food and a small armored collar. Staff accepted the food and declined the collar because it weighed nearly as much as the dog.",
+    "Adoption applications now exceed three hundred. The clinic will wait through the required owner-search period before choosing a home, while FeedFrenzy continues to support Murder Biscuit on editorial grounds.",
+  ],
+  market: [
+    "Shoppers have begun comparing purchase records and discovered that several products came from businesses closed years ago. One jacket carries a manufacturer tag last used before the Fourth Corporate War but appears newly made.",
+    "The inactive neighborhood fund that paid the power bill received a single deposit the morning before the market. The source is hidden behind a municipal grant code that currently redirects to an empty CivicNet page.",
+    "No market appeared the following Wednesday. At 03:00, every person who had posted the original location received the same message: WRONG LEVEL. Nobody has identified the sender or agreed on whether to follow it.",
+  ],
+  ncart: [
+    "Two commuters copied the fourth message before the display was removed. Beneath the visible warning, one photograph shows a smaller maintenance line containing a time eleven minutes in the future.",
+    "NCART’s replacement board does not display predictions, but nearby ticket kiosks briefly printed receipts with estimated interruption times. Transit staff collected the receipts and blamed a test template.",
+    "An employee speaking anonymously says predictive crowd trials were cancelled because they caused passengers to gather where incidents were expected. The employee would not explain how the system knew where to send them.",
+  ],
+  ceiling: [
+    "The shadow known as Niko has been matched to a hanging jacket moving when the door opened. This finding reduced shadow engagement by twelve percent and increased jacket engagement by forty.",
+    "A medical-suite company confirmed its chimes use the same licensed sound but denied hosting Vane. The denial was issued before FeedFrenzy named the company, suggesting excellent monitoring or unfortunate timing.",
+    "Vane’s upcoming release now lists an additional performer whose identity is hidden. Fans believe the ceiling stream captured a rehearsal meeting. His publicist has stopped answering ceiling-related questions.",
+  ],
+  apology: [
+    "A higher-resolution copy of the original photograph surfaced from a fan notification preview. It confirms the words “I should have said this sooner” and reveals the next line begins with a name starting in R.",
+    "Three people connected to Hex’s tour have names beginning in R. All denied receiving an apology, although one requested that we spell his denial exactly and another asked when the story would publish.",
+    "Hex has since performed the unreleased song twice. The second verse includes the line from the reflected document, supporting the lyric explanation without clarifying whether the song itself is an apology.",
+  ],
+  floor23: [
+    "A former maintenance worker remembers servicing a narrow mechanical level between 22 and the roof. He says the space contained office doors, climate controls, and no machinery he was permitted to touch.",
+    "Building access records obtained by employees show two active credentials assigned to Floor 23. Both belong to people absent from the public company directory, and both entered the garage this week.",
+    "DynaCore’s auditor has reclassified the lease as strategic storage and restored payments. The suspended accountants remain suspended, while someone has replaced the service elevator’s diagnostic panel.",
+  ],
+  mascot: [
+    "Employees extracted a copy of BUD-E’s voice package before the kiosk was removed. The archive includes cheerful scripts for layoffs, benefit reductions, injury reporting, and something called facility consolidation day.",
+    "Helix Harvest sent affected workers a survey asking whether the mascot showed empathy. Selecting no opens a text box limited to twenty characters. Selecting yes submits the form immediately.",
+    "The company has paused Compassionate Separation Automation pending review. A new lobby poster promises that future difficult conversations will contain more human presence, with human printed in quotation marks.",
+  ],
+  streetlights: [
+    "The switching-station coordinates in the response file lead to a sealed control room containing newer networking equipment than the rest of the site. Ownership labels have been scraped from the cabinets.",
+    "When crews cut power to one affected block, the remaining lights altered their sequence to preserve the complete rhythm. A grid engineer called the behavior coordinated and then withdrew the word from her statement.",
+    "The pattern stopped at 04:12 on the third night. Minutes later, pirate radio operators across Watson received a clean audio tone lasting exactly thirty-two seconds. Nobody has successfully decoded it.",
+  ],
+  door: [
+    "Residents on two other floors found painted-over hinges behind closet walls. One panel was opened under supervision and revealed the same corridor, but its lights were off and the fresh footprints ended at the wall.",
+    "The fire department returned after determining that an unidentified corridor is itself a safety concern. Inspectors were denied entry by building management, then received a permit showing the hallway as telecommunications infrastructure.",
+    "The original tenant has moved the closet away from the door and installed a camera. It recorded the handle turning once at 03:16, though the door remained locked and no motion appeared in the apartment.",
+  ],
+};
+
 const communityComments = [
   ["refreshDamage", "I opened this story for evidence and now there are three updates but no evidence.", "UPDATE BUTTON CURRENTLY SMOKING"],
   ["SourceAdjacent", "My neighbor knows somebody who was almost there.", "PROXIMITY TO SOURCE: UNCLEAR"],
@@ -442,8 +525,16 @@ function openStory(id) {
     showToast("STORY FILE MOVED, DELETED, OR NEVER EXISTED.");
     return;
   }
-  const paragraphs = story.body.concat(additionalReporting[id] || [])
-    .map((paragraph) => `<p>${paragraph}</p>`).join("");
+  const sections = [
+    ["WHAT HAPPENED", story.body],
+    ["WHAT WE FOUND", additionalReporting[id] || []],
+    ["WHAT HAPPENED NEXT", continuedCoverage[id] || []],
+  ].map(([heading, paragraphs]) => `
+    <section class="story-section">
+      <h3>${heading}</h3>
+      ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+    </section>
+  `).join("");
   const visibleComments = pickComments(story);
   const claimedTotal = randomInt(Math.max(visibleComments.length + 20, 80), 4800);
   const comments = visibleComments.map((comment) => `
@@ -458,7 +549,7 @@ function openStory(id) {
     <h2>${story.title}</h2>
     <p class="dek">${story.dek}</p>
     <p class="story-meta">${story.meta}</p>
-    <div class="story-body">${paragraphs}</div>
+    <div class="story-body">${sections}</div>
     <section class="comments">
       <h3>THE COMMENTS HAVE ESCALATED</h3>
       <p class="comment-count">SHOWING ${visibleComments.length} OF ${claimedTotal.toLocaleString()} CLAIMED COMMENTS // REFRESH FOR A DIFFERENT ARGUMENT</p>
@@ -524,7 +615,14 @@ document.querySelector("#search-form").addEventListener("submit", (event) => {
     return;
   }
   const match = Object.entries(stories).find(([id, story]) =>
-    [story.title, story.dek, story.label, ...story.body, ...(additionalReporting[id] || [])].join(" ").toLowerCase().includes(query)
+    [
+      story.title,
+      story.dek,
+      story.label,
+      ...story.body,
+      ...(additionalReporting[id] || []),
+      ...(continuedCoverage[id] || []),
+    ].join(" ").toLowerCase().includes(query)
   );
   if (match) openStory(match[0]);
   else showToast(`NO RESULTS FOR “${query.toUpperCase()}.” TRY A LESS ACCURATE WORD.`);
