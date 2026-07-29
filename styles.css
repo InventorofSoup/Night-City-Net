@@ -20,8 +20,11 @@ table.layout td{vertical-align:top;padding:0}
 .site-table{width:100%;border-collapse:collapse;margin-top:14px}
 .site-table td{border:2px outset #333;background:#0d0d1a;padding:10px;vertical-align:top;width:50%}
 .site-table b{color:#ff0;font-size:16px}
+.site-table b.dead{color:#888}
 .new{background:red;color:#fff;font-size:9px;padding:1px 4px;animation:blink 1s infinite;margin-left:6px}
 .site-table p{color:#8fd;font-size:12px}
+.muted{color:#666!important}
+.static-label{animation:none}
 .tape{background:repeating-linear-gradient(45deg,#000,#000 6px,#ff0 6px,#ff0 12px);height:16px;margin:16px 0}
 footer{text-align:center;color:#555;font-size:11px;margin-top:24px;border-top:1px dashed #333;padding-top:10px}
 .guestbook-cta{text-align:center;margin:16px 0}
