@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Danger Gal public services desk for investigations, security requests, selected public releases, and confidential information submission.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <title>Danger Gal | Public Services Desk</title>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to public services desk</a>
+
+  <div class="node-strip">
+    <span>DANGER GAL // PUBLIC SERVICES NODE NC-1</span>
+    <span>DISCLOSURE FILTER ACTIVE</span>
+    <time>07.29.2045</time>
+  </div>
+
+  <div class="desk-shell">
+    <aside class="agency-rail">
+      <a class="official-logo" href="#services" data-view-link="services" aria-label="Danger Gal public services home">
+        <img src="media/danger-gal-logo.png" alt="Official Danger Gal logo">
+      </a>
+
+      <div class="rail-status">
+        <span>NODE</span><b>PUBLIC</b>
+        <span>REGION</span><b>NIGHT CITY</b>
+        <span>ACCESS</span><b>LIMITED</b>
+      </div>
+
+      <nav class="desk-nav" aria-label="Danger Gal public desk">
+        <button class="active" type="button" data-view-target="services"><i>01</i><span>Start a matter</span></button>
+        <button type="button" data-view-target="request"><i>02</i><span>Request intake</span></button>
+        <button type="button" data-view-target="releases"><i>03</i><span>Released files</span></button>
+        <button type="button" data-view-target="puma"><i>04</i><span>Puma Squad</span></button>
+        <button type="button" data-view-target="submit"><i>05</i><span>Evidence drop</span></button>
+      </nav>
+
+      <div class="rail-restricted">
+        <small>EXISTING CLIENT</small>
+        <strong>Restricted case node</strong>
+        <button type="button" id="open-access">Present credentials →</button>
+      </div>
+
+      <div class="rail-footer">
+        <a href="../">← NIGHT CITY NET</a>
+        <button type="button" data-policy="privacy">PRIVACY</button>
+        <button type="button" data-policy="terms">TERMS</button>
+      </div>
+    </aside>
+
+    <main class="workspace" id="workspace">
+      <header class="workspace-header">
+        <div>
+          <span>DG / PUBLIC DESK / <b id="workspace-code">START</b></span>
+          <h1 id="workspace-title">Start a matter</h1>
+        </div>
+        <div class="header-controls">
+          <span><i></i> INTAKE ONLINE</span>
+          <button type="button" id="open-access-header">CLIENT ACCESS</button>
+        </div>
+      </header>
+
+      <section class="desk-view active" id="services" data-view="services">
+        <div class="file-header">
+          <div class="file-index">PUBLIC INTAKE / 01</div>
+          <p class="overline">INVESTIGATION + SECURITY</p>
+          <h2>What do you need resolved?</h2>
+          <p class="file-intro">Choose the closest description. An intake analyst will classify the matter, screen for conflicts, and decide whether Danger Gal can accept it.</p>
+          <div class="classification"><span>CLASSIFICATION</span><b>UNASSIGNED</b><span>CLIENT STATUS</span><b>NOT ESTABLISHED</b></div>
+        </div>
+
+        <div class="service-register">
+          <button type="button" data-service="Private investigation">
+            <span class="service-code">INV</span><strong>Private investigation</strong><p>Fraud, misconduct, disputed events, sensitive fact-finding.</p><b>OPEN INTAKE</b>
+          </button>
+          <button type="button" data-service="Background verification">
+            <span class="service-code">VER</span><strong>Background verification</strong><p>Identity, employment, affiliation, reputation, and risk review.</p><b>OPEN INTAKE</b>
+          </button>
+          <button type="button" data-service="Missing-person search">
+            <span class="service-code">MPS</span><strong>Missing-person search</strong><p>Consent-aware tracing, welfare verification, and family liaison.</p><b>OPEN INTAKE</b>
+          </button>
+          <button type="button" data-service="Personal protection">
+            <span class="service-code">PRO</span><strong>Personal protection</strong><p>Threat review, protected movement, event coverage, discreet escort.</p><b>OPEN INTAKE</b>
+          </button>
+          <button type="button" data-service="Home security audit">
+            <span class="service-code">HSA</span><strong>Home security audit</strong><p>Access control, observation risk, safe-room and response readiness.</p><b>OPEN INTAKE</b>
+          </button>
+          <button type="button" data-service="Information recovery">
+            <span class="service-code">REC</span><strong>Information recovery</strong><p>Lost records, compromised files, archive research, source verification.</p><b>OPEN INTAKE</b>
+          </button>
+        </div>
+
+        <div class="desk-notes">
+          <article>
+            <span>NOTICE / ACTIVE DANGER</span>
+            <h3>This is not an emergency dispatch service.</h3>
+            <p>If you face immediate physical danger, move to a defensible location and contact an available emergency or contracted response provider. Danger Gal acceptance is not immediate.</p>
+          </article>
+          <article>
+            <span>NOTICE / CONFIDENTIALITY</span>
+            <h3>Do not send access credentials.</h3>
+            <p>Provide facts, dates, people, and the answer you need. Do not provide passwords, live authentication tokens, or data you are not authorized to disclose.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="desk-view" id="request" data-view="request" hidden>
+        <div class="file-header compact">
+          <div class="file-index">CONFIDENTIAL INTAKE / 02</div>
+          <p class="overline">NEW MATTER SCREENING</p>
+          <h2>Request professional services.</h2>
+          <p class="file-intro">This preliminary form supports conflict and eligibility review. It does not establish representation or reserve personnel.</p>
+        </div>
+
+        <div class="intake-layout">
+          <form id="intake-form" class="dossier-form">
+            <label>MATTER TYPE
+              <select id="service-select" name="service" required>
+                <option value="">Select a service</option>
+                <option>Private investigation</option><option>Background verification</option>
+                <option>Missing-person search</option><option>Personal protection</option>
+                <option>Home security audit</option><option>Information recovery</option>
+              </select>
+            </label>
+            <div class="field-pair">
+              <label>NAME OR ORGANIZATION<input name="name" required autocomplete="name"></label>
+              <label>SECURE CONTACT CHANNEL<input name="contact" required placeholder="Agent handle or mailbox"></label>
+            </div>
+            <div class="field-pair">
+              <label>PRIMARY DISTRICT
+                <select name="district" required>
+                  <option value="">Choose district</option><option>City Center</option><option>Heywood</option>
+                  <option>Little Europe</option><option>New Westbrook</option><option>Pacifica</option>
+                  <option>Santo Domingo</option><option>South Night City</option><option>Watson</option>
+                  <option>Outside Night City</option>
+                </select>
+              </label>
+              <label>URGENCY
+                <select name="urgency" required>
+                  <option value="">Choose urgency</option><option>Planning / no immediate threat</option>
+                  <option>Time-sensitive</option><option>Active concern</option><option>Immediate danger</option>
+                </select>
+              </label>
+            </div>
+            <label>WHAT SHOULD THE ANALYST UNDERSTAND?<textarea name="details" rows="7" required placeholder="People, dates, known facts, risks, and the answer you need..."></textarea></label>
+            <label class="check-line"><input type="checkbox" required> I am authorized to request this review and understand acceptance is subject to conflict and legality screening.</label>
+            <button class="red-action" type="submit">TRANSMIT FOR REVIEW</button>
+            <p class="form-status" id="intake-status" role="status"></p>
+          </form>
+
+          <aside class="intake-margin">
+            <div><span>EXPECTED REVIEW</span><strong>2–24 HOURS</strong></div>
+            <div><span>OPERATING AREA</span><strong>NIGHT CITY + CONTRACTED REGIONS</strong></div>
+            <div><span>CONFLICT SCREEN</span><strong>REQUIRED BEFORE ACCEPTANCE</strong></div>
+            <p>Danger Gal may decline a matter without explaining the conflict, legal restriction, capacity limit, or operational concern involved.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="desk-view" id="releases" data-view="releases" hidden>
+        <div class="file-header compact">
+          <div class="file-index">DISCLOSURE REGISTER / 03</div>
+          <p class="overline">SANITIZED + APPROVED</p>
+          <h2>Released files.</h2>
+          <p class="file-intro">Selected findings are published only when disclosure supports safety, corrects a material falsehood, or assists an approved public request.</p>
+        </div>
+
+        <div class="release-table">
+          <div class="release-columns"><span>TYPE / DATE</span><span>RELEASE</span><span>SUMMARY</span><span>ACCESS</span></div>
+          <article>
+            <div><b>CLOSED MATTER</b><time>07.18.2045</time><code>DG-45-0718</code></div>
+            <h3>Loggagia Arboretum Water Lily Recovery</h3>
+            <p>Rare specimens recovered. Coordinated patent-poaching operation disrupted. Identifying client information withheld.</p>
+            <button type="button" data-release="arboretum">OPEN FILE</button>
+          </article>
+          <article>
+            <div><b>PUBLIC ADVISORY</b><time>07.11.2045</time><code>DG-45-0711</code></div>
+            <h3>Residential Credential Impersonation</h3>
+            <p>False security auditors are requesting home access in Watson and Little Europe. Verification guidance released.</p>
+            <button type="button" data-release="credentials">OPEN FILE</button>
+          </article>
+          <article>
+            <div><b>INFO REQUEST</b><time>06.29.2045</time><code>DG-45-0629</code></div>
+            <h3>Unidentified Witness — Glen Transit Concourse</h3>
+            <p>Voluntary contact requested from a witness present during a restricted time window. No allegation is made.</p>
+            <button type="button" data-release="witness">OPEN FILE</button>
+          </article>
+          <article>
+            <div><b>SAFETY BULLETIN</b><time>06.20.2045</time><code>DG-45-0620</code></div>
+            <h3>Contractor Badge Cloning Indicators</h3>
+            <p>Recognition guidance for duplicated facilities credentials. Technical replication details withheld.</p>
+            <button type="button" data-release="badges">OPEN FILE</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="desk-view" id="puma" data-view="puma" hidden>
+        <div class="file-header puma-header">
+          <div class="file-index">PUBLIC TEAM BRIEF / 04</div>
+          <p class="overline">SPECIAL INVESTIGATIONS + OUTREACH</p>
+          <h2>Puma Squad</h2>
+          <p class="file-intro">Five recognizable operatives. One carefully limited public record.</p>
+          <button class="plain-link" type="button" id="puma-release">READ TEAM DISCLOSURE →</button>
+        </div>
+
+        <div class="roster-file">
+          <button type="button" data-agent="Mouse"><i>MS-01</i><strong>Mouse</strong><span>FIELD OPERATIONS + PUBLIC LIAISON</span><b>PUBLIC PROFILE →</b></button>
+          <button type="button" data-agent="Pantera"><i>PN-02</i><strong>Pantera</strong><span>RESEARCH + INTELLIGENCE SYSTEMS</span><b>PUBLIC PROFILE →</b></button>
+          <button type="button" data-agent="Tigress"><i>TG-03</i><strong>Tigress</strong><span>PROTECTIVE FIELDWORK + OUTREACH</span><b>PUBLIC PROFILE →</b></button>
+          <button type="button" data-agent="Doc Mittens"><i>DM-04</i><strong>Doc Mittens</strong><span>MEDICAL SUPPORT + FORENSICS</span><b>PUBLIC PROFILE →</b></button>
+          <button type="button" data-agent="Lynx"><i>LX-05</i><strong>Lynx</strong><span>TRACKING + FIELD INVESTIGATIONS</span><b>PUBLIC PROFILE →</b></button>
+        </div>
+
+        <div class="public-case">
+          <span>PUBLICLY DOCUMENTED RECOVERY</span>
+          <h3>The Arboretum Water Lily Heist</h3>
+          <p>Puma Squad recovered rare specimens stolen from the Loggagia Arboretum living vault at Night City University and documented the plant-poaching operation responsible.</p>
+          <button type="button" data-release="arboretum">OPEN SANITIZED CASE RELEASE</button>
+        </div>
+      </section>
+
+      <section class="desk-view" id="submit" data-view="submit" hidden>
+        <div class="file-header compact">
+          <div class="file-index">PUBLIC EVIDENCE DROP / 05</div>
+          <p class="overline">ANALYST TRIAGE</p>
+          <h2>Submit information.</h2>
+          <p class="file-intro">Send a tip, record, image, or recording for review. Danger Gal cannot promise a response, payment, or use of submitted material.</p>
+        </div>
+
+        <div class="intake-layout">
+          <form id="tip-form" class="dossier-form">
+            <div class="field-pair">
+              <label>SUBMISSION TYPE
+                <select name="type" required>
+                  <option value="">Choose type</option><option>Tip or observation</option>
+                  <option>Document or record</option><option>Image or video</option>
+                  <option>Case-related response</option>
+                </select>
+              </label>
+              <label>CASE REFERENCE, IF KNOWN<input name="reference" placeholder="DG-45-0000"></label>
+            </div>
+            <label>INFORMATION<textarea name="information" rows="8" required placeholder="What you observed, when, where, and how you know..."></textarea></label>
+            <label class="file-line">OPTIONAL FILE<input name="file" type="file" accept="image/*,video/*,audio/*,.pdf,.txt"></label>
+            <label class="check-line"><input type="checkbox" required> I understand false or malicious submissions may be retained and investigated.</label>
+            <button class="red-action" type="submit">TRANSFER TO TRIAGE</button>
+            <p class="form-status" id="tip-status" role="status"></p>
+          </form>
+
+          <aside class="intake-margin evidence-note">
+            <span>NETWORK NOTICE</span>
+            <strong>ANONYMITY IS NOT GUARANTEED</strong>
+            <p>Material is separated from this public session after receipt where technically possible. Network metadata and malicious payloads may be retained.</p>
+            <button type="button" data-policy="disclosure">READ DISCLOSURE POLICY</button>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="desk-footer">
+        <span>DANGER GAL PUBLIC SERVICES // LITTLE EUROPE, NIGHT CITY</span>
+        <span>SELECTED INFORMATION ONLY</span>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="content-dialog">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button>
+    <article id="dialog-content"></article>
+  </dialog>
+
+  <dialog id="access-dialog" class="access-dialog">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button>
+    <form id="access-form">
+      <span class="dialog-code">RESTRICTED NODE / AUTH-2</span>
+      <h2>Case access</h2>
+      <p>Both credentials must match the engagement record issued by your case coordinator.</p>
+      <label>CASE REFERENCE<input name="case" required placeholder="DG-45-0000"></label>
+      <label>CLIENT TOKEN<input name="token" required type="password" placeholder="••••••••••••"></label>
+      <button class="black-action" type="submit">VERIFY CREDENTIALS</button>
+      <p class="form-status" id="access-status" role="status"></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
