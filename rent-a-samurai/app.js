@@ -36,7 +36,7 @@ const jobs = [
     pay: 1700, crew: "1–2", danger: "Low", client: "GoodDog Catering", trust: "DISPUTED / 2 LATE PAYMENTS",
     summary: "Pickup in South Night City, delivery in Heywood. Van supplied. Client insists refrigeration stay powered.",
     brief: "Collect a refrigerated catering van and deliver it to a Heywood loading dock within ninety minutes. Do not open the cargo compartment. Two prior runners report delayed payment; client disputes both reviews.",
-    flags: ["PAYMENT DISPUTE", "SEALED CARGO", "TOO EASY"],
+    flags: ["PAYMENT DISPUTE", "SEALED CARGO", "UNUSUAL TERMS"],
   },
   {
     id: "RAS-11818", title: "Find who is spoofing our dispatch calls", type: "Investigation", district: "Heywood",
@@ -69,7 +69,7 @@ const runners = [
   { id: "patch", handle: "Patchwork", initials: "PW", roles: ["Medtech", "Tech"], status: "Crew only", rate: "Negotiable", verified: true, score: "4.7 / 5", jobs: 23, area: "Watson", pitch: "Field medicine, cyberware stabilization, and getting injured professionals to the next sunrise.", preferred: "Crew support, community work", refused: "Organ harvesting" },
   { id: "switchback", handle: "Switchback", initials: "SB", roles: ["Driver", "Scout"], status: "Available now", rate: "500eb+", verified: true, score: "4.5 / 5", jobs: 16, area: "South Night City", pitch: "Routes, pursuit breaks, discreet pickup, and off-road shortcuts that do not appear on municipal maps.", preferred: "Transport, extraction", refused: "Unrestrained explosives in cabin" },
   { id: "sable", handle: "Sable", initials: "SA", roles: ["Solo", "Scout"], status: "Selective", rate: "2,500eb+", verified: true, score: "4.9 / 5", jobs: 38, area: "Little Europe", pitch: "Counter-surveillance, protective advance work, and precise force when avoiding force has failed.", preferred: "High-risk protection", refused: "Open-ended gang wars" },
-  { id: "zero", handle: "Zero Coolant", initials: "0C", roles: ["Netrunner", "Tech"], status: "Available now", rate: "1,000eb+", verified: false, disputed: true, score: "3.9 / 5", jobs: 8, area: "Pacifica", pitch: "Industrial control systems and cheap subnet work. Ignore the handle; refrigeration incident was settled.", preferred: "Infrastructure, sabotage", refused: "Nothing listed" },
+  { id: "zero", handle: "Zero Coolant", initials: "0C", roles: ["Netrunner", "Tech"], status: "Available now", rate: "1,000eb+", verified: false, disputed: true, score: "3.9 / 5", jobs: 8, area: "Pacifica", pitch: "Industrial control systems, infrastructure access, and time-sensitive subnet work.", preferred: "Infrastructure, sabotage", refused: "Nothing listed" },
 ];
 
 const routes = ["jobs", "runners", "crew", "post", "profile"];
@@ -77,6 +77,7 @@ const dialog = document.querySelector("#detail-dialog");
 const dialogContent = document.querySelector("#dialog-content");
 const toast = document.querySelector("#toast");
 let activeRole = "All";
+let selectedJobId = jobs[0].id;
 let toastTimer;
 
 function money(value) {
@@ -109,8 +110,54 @@ function activateRoute(id, updateHash = true) {
 
 function flagClass(flag) {
   if (/ESCROW|CONSENTS|COMMUNITY RATE|LOCAL BUSINESS/.test(flag)) return "good";
-  if (/UNKNOWN|DISPUTE|CORP|ARMED|ANONYMOUS|CONTESTED|TOO EASY/.test(flag)) return "warn";
+  if (/UNKNOWN|DISPUTE|CORP|ARMED|ANONYMOUS|CONTESTED|UNUSUAL/.test(flag)) return "warn";
   return "";
+}
+
+const jobSymbols = {
+  Extraction: "EX",
+  Protection: "PR",
+  Investigation: "IN",
+  Transport: "TR",
+  Netrunning: "NR",
+  Recovery: "RC",
+  Technical: "TC",
+};
+
+const roleRecommendations = {
+  Extraction: [["Solo", 3], ["Stealth", 2], ["Driver", 2], ["Medtech", 1]],
+  Protection: [["Solo", 3], ["Driver", 2], ["Medtech", 2], ["Scout", 1]],
+  Investigation: [["Face", 2], ["Scout", 3], ["Netrunner", 2], ["Solo", 1]],
+  Transport: [["Driver", 3], ["Solo", 2], ["Tech", 2], ["Scout", 1]],
+  Netrunning: [["Netrunner", 3], ["Tech", 2], ["Solo", 1], ["Driver", 1]],
+  Recovery: [["Scout", 2], ["Solo", 2], ["Driver", 2], ["Tech", 1]],
+  Technical: [["Tech", 3], ["Solo", 1], ["Driver", 1], ["Medtech", 1]],
+};
+
+function updateFeatured(job, position, total) {
+  document.querySelector("#featured-index").textContent = `DROP ${String(position + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  document.querySelector("#featured-contract").innerHTML = `
+    <div class="featured-icon" data-type="${job.type.toUpperCase()}">${jobSymbols[job.type] || "WK"}</div>
+    <div class="featured-body">
+      <span class="contract-ref">${job.id} // ${job.client.toUpperCase()}</span>
+      <h1>${job.title}</h1>
+      <p>${job.summary}</p>
+      <div class="featured-tags">${job.flags.map((flag) => `<span class="${flagClass(flag)}">${flag}</span>`).join("")}</div>
+    </div>
+    <div class="featured-pay">
+      <span>CONTRACT OFFER</span><strong>${money(job.pay)}</strong>
+      <time>DISTRICT<br>${job.district.toUpperCase()}<br><br>CREW<br>${job.crew} OPERATORS</time>
+      <button class="accept-contract" type="button" data-apply-feature="${job.id}">ACCEPT CONTRACT ›››</button>
+      <button class="view-detail" type="button" data-feature-details="${job.id}">VIEW PUBLIC BRIEF</button>
+    </div>`;
+
+  document.querySelector("#intel-risk").textContent = job.danger.toUpperCase();
+  const riskCount = { Low: 1, Medium: 2, High: 4, Unknown: 3 }[job.danger] || 2;
+  document.querySelector("#risk-meter").innerHTML = Array.from({ length: 4 }, (_, index) => `<i class="${index < riskCount ? "active" : ""}"></i>`).join("");
+  document.querySelector("#intel-roles").innerHTML = (roleRecommendations[job.type] || roleRecommendations.Recovery).map(([role, level]) => `
+    <div class="role-bar"><span>${role.toUpperCase()}</span>${Array.from({ length: 3 }, (_, index) => `<i class="${index < level ? "active" : ""}"></i>`).join("")}</div>`).join("");
+  document.querySelector("#intel-trust").textContent = job.trust;
+  document.querySelector("#intel-note").textContent = `Client marker applies only to the public account used for ${job.id}. Final terms remain unverified.`;
 }
 
 function renderJobs() {
@@ -123,14 +170,19 @@ function renderJobs() {
     return (!query || haystack.includes(query)) && (type === "all" || job.type === type) && (district === "all" || job.district === district) && job.pay >= minPay;
   });
 
-  document.querySelector("#job-board").innerHTML = shown.map((job) => `
-    <article class="job-card${job.featured ? " featured" : ""}" data-id="${job.id}">
-      <div class="job-meta"><span class="pay">${money(job.pay)}</span><span>${job.district}</span><span>${job.type.toUpperCase()}</span><span>DANGER: ${job.danger.toUpperCase()}</span></div>
-      <div class="job-title"><h2>${job.title}</h2><span>CLIENT // ${job.client} · CREW ${job.crew}</span></div>
-      <div><p class="job-summary">${job.summary}</p><div class="job-flags">${job.flags.map((flag) => `<span class="flag ${flagClass(flag)}">${flag}</span>`).join("")}</div></div>
-      <div class="job-action"><span class="trust">CLIENT STATUS<b>${job.trust}</b></span><button type="button" data-job="${job.id}">READ CONTRACT</button></div>
-    </article>
-  `).join("");
+  if (shown.length && !shown.some((job) => job.id === selectedJobId)) selectedJobId = shown[0].id;
+  const selected = shown.find((job) => job.id === selectedJobId);
+  if (selected) updateFeatured(selected, shown.indexOf(selected), shown.length);
+
+  const stripJobs = shown.filter((job) => job.id !== selectedJobId).slice(0, 4);
+  document.querySelector("#job-board").innerHTML = stripJobs.map((job) => `
+    <button class="job-card" type="button" data-job-select="${job.id}">
+      <code>${job.id} // ${job.type.toUpperCase()}</code>
+      <h2>${job.title}</h2>
+      <p>${job.summary}</p>
+      <span class="card-pay">${money(job.pay)}</span>
+      <span class="card-meta"><span>${job.district.toUpperCase()}</span><span>${job.danger.toUpperCase()}</span></span>
+    </button>`).join("");
   document.querySelector("#job-result-count").textContent = `${shown.length} CONTRACT${shown.length === 1 ? "" : "S"}`;
   document.querySelector("#job-empty").hidden = shown.length !== 0;
 }
@@ -169,6 +221,15 @@ function renderRunners() {
   document.querySelector("#runner-empty").hidden = shown.length !== 0;
 }
 
+function renderOperatorPreview() {
+  document.querySelector("#operator-count").textContent = String(runners.length);
+  document.querySelector("#operator-preview").innerHTML = runners.slice(0, 5).map((runner) => `
+    <button class="operator-preview" type="button" data-preview-runner="${runner.id}">
+      <span class="operator-avatar">${runner.initials}</span>
+      <span><b>${runner.handle}</b><span>${runner.roles.join(" / ").toUpperCase()}</span><small>${runner.status.toUpperCase()}</small></span>
+    </button>`).join("");
+}
+
 function openRunner(id) {
   const runner = runners.find((item) => item.id === id);
   showDialog(`
@@ -197,7 +258,7 @@ function buildCrew(event) {
   const size = Number(document.querySelector("#crew-size").value);
   const output = document.querySelector("#crew-output");
   if (!selected.length) {
-    output.innerHTML = '<span class="stencil">SELECTION REQUIRED</span><h2>Pick at least one role.</h2><p>The board cannot build a crew around “somebody good at stuff.”</p>';
+    output.innerHTML = '<span class="stencil">SELECTION REQUIRED</span><h2>Choose at least one role.</h2><p>Role requirements are necessary before the board can match public operator records.</p>';
     return;
   }
   const ranked = runners
@@ -229,15 +290,27 @@ document.querySelector("#direct-runner").innerHTML = runners.map((runner) => `<o
 document.querySelector("#role-chips").innerHTML = ["All", ...roles].map((role) => `<button type="button" class="${role === "All" ? "active" : ""}" data-role="${role}">${role.toUpperCase()}</button>`).join("");
 document.querySelector("#crew-roles").innerHTML = roles.map((role) => `<label><input type="checkbox" value="${role}"> ${role}</label>`).join("");
 document.querySelector("#profile-roles").innerHTML = roles.map((role) => `<label><input type="checkbox" name="role" value="${role}"> ${role}</label>`).join("");
-document.querySelector("#open-count").textContent = `${jobs.length} OPEN CONTRACTS`;
 
 document.querySelectorAll("[data-route-target]").forEach((button) => button.addEventListener("click", () => activateRoute(button.dataset.routeTarget)));
 document.querySelectorAll("[data-route-link]").forEach((link) => link.addEventListener("click", (event) => { event.preventDefault(); activateRoute(link.dataset.routeLink); }));
 document.querySelector("#job-filters").addEventListener("input", renderJobs);
 document.querySelector("#job-filters").addEventListener("reset", () => setTimeout(renderJobs));
 document.querySelector("#job-board").addEventListener("click", (event) => {
-  const button = event.target.closest("[data-job]");
-  if (button) openJob(button.dataset.job);
+  const button = event.target.closest("[data-job-select]");
+  if (button) {
+    selectedJobId = button.dataset.jobSelect;
+    renderJobs();
+  }
+});
+document.querySelector("#featured-contract").addEventListener("click", (event) => {
+  const details = event.target.closest("[data-feature-details]");
+  const apply = event.target.closest("[data-apply-feature]");
+  if (details) openJob(details.dataset.featureDetails);
+  if (apply) showToast(`APPLICATION DROP OPENED // ${apply.dataset.applyFeature} // CLIENT CONTACT REMAINS SEALED`);
+});
+document.querySelector("#operator-preview").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-preview-runner]");
+  if (button) openRunner(button.dataset.previewRunner);
 });
 document.querySelector("#runner-filters").addEventListener("input", renderRunners);
 document.querySelector("#role-chips").addEventListener("click", (event) => {
@@ -301,10 +374,11 @@ document.querySelector("#open-safety").addEventListener("click", () => showDialo
 document.querySelector("#open-burn-policy").addEventListener("click", () => showDialog(`
   <span class="dialog-code">MODERATION POLICY // BURN NOTICES</span><h2>Permanent marks require evidence.</h2>
   <p>A burn notice may be added for verified nonpayment, deliberate ambush, stolen credentials, review manipulation, or material falsification. Accused users may publish one dispute statement.</p>
-  <p>Rumor alone receives a temporary caution marker, not a permanent notice. Board moderators may be wrong, bribed, threatened, asleep, or all four.</p>
+  <p>Rumor alone receives a temporary caution marker, not a permanent notice. Moderation decisions may be disputed through the board review channel.</p>
 `));
 
 window.addEventListener("hashchange", () => activateRoute(location.hash.slice(1), false));
 renderJobs();
 renderRunners();
+renderOperatorPreview();
 activateRoute(location.hash.slice(1), false);
