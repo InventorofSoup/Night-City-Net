@@ -136,9 +136,17 @@
       id: "rent-a-samurai",
       name: "Rent-A-Samurai",
       href: "rent-a-samurai/",
-      status: "coming-soon",
-      description: "Not yet indexed.",
-      pages: [],
+      status: "live",
+      description: "Independent contract listings, edgerunner profiles, direct offers, and crew matching.",
+      ringStatus: "online, trust no listing",
+      ringDescription: "Night City's open market for dangerous work and the people willing to do it",
+      pages: [
+        ["Open Contracts", "rent-a-samurai/#jobs"],
+        ["Find a Runner", "rent-a-samurai/#runners"],
+        ["Build a Crew", "rent-a-samurai/#crew"],
+        ["Post a Contract", "rent-a-samurai/#post"],
+        ["Create a Profile", "rent-a-samurai/#profile"],
+      ],
     },
   ];
 

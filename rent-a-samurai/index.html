@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff5b24">
+  <meta name="description" content="Night City's independent contract board for hiring edgerunners, finding work, and building crews.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <title>Rent-A-Samurai | Night City Contract Board</title>
+</head>
+<body>
+  <a class="skip-link" href="#market">Skip to listings</a>
+
+  <header class="masthead">
+    <a class="brand" href="#jobs" data-route-link="jobs" aria-label="Rent-A-Samurai home">
+      <span class="brand-mark">R<span>/</span>A<span>/</span>S</span>
+      <span class="brand-copy"><b>RENT-A-SAMURAI</b><small>NIGHT CITY INDEPENDENT CONTRACT BOARD</small></span>
+    </a>
+    <p class="tagline">Need a samurai? A netrunner? A wheelman? <b>Close enough. Post the job.</b></p>
+    <div class="mast-actions">
+      <button type="button" data-route-target="post">POST A CONTRACT</button>
+      <button type="button" class="acid" data-route-target="profile">LIST YOURSELF</button>
+    </div>
+  </header>
+
+  <div class="ticker">
+    <div>
+      <span>LIVE BOARD // <b id="open-count">0 OPEN CONTRACTS</b></span>
+      <span>ESCROW IS OPTIONAL. COMMON SENSE IS NOT.</span>
+      <span>DO NOT ACCEPT “EASY EXTRACTION” WITHOUT AN EXIT PLAN.</span>
+      <span>LIVE BOARD // <b>INDEPENDENT SINCE 2038</b></span>
+    </div>
+  </div>
+
+  <nav class="market-nav" aria-label="Contract board sections">
+    <button class="active" type="button" data-route-target="jobs"><i>01</i> OPEN CONTRACTS</button>
+    <button type="button" data-route-target="runners"><i>02</i> FIND A RUNNER</button>
+    <button type="button" data-route-target="crew"><i>03</i> BUILD A CREW</button>
+    <button type="button" data-route-target="post"><i>04</i> POST A CONTRACT</button>
+    <button type="button" data-route-target="profile"><i>05</i> LIST YOURSELF</button>
+  </nav>
+
+  <main id="market">
+    <section class="market-view active" id="jobs" data-route="jobs">
+      <div class="view-heading">
+        <div>
+          <span class="eyebrow">PUBLIC BOARD / UPDATED 4 MINUTES AGO</span>
+          <h1>Work that needs doing.</h1>
+          <p>Clients post the problem. You decide whether the money covers the bullets, betrayal, and parking.</p>
+        </div>
+        <aside class="board-warning"><b>BOARD RULE 01</b><p>If the client refuses to name the district, assume Pacifica.</p></aside>
+      </div>
+
+      <form class="filter-bar" id="job-filters">
+        <label>SEARCH<input id="job-search" type="search" placeholder="Job, client, keyword..."></label>
+        <label>WORK TYPE<select id="job-type"><option value="all">All work</option></select></label>
+        <label>DISTRICT<select id="job-district"><option value="all">All districts</option></select></label>
+        <label>MINIMUM PAY
+          <select id="job-pay"><option value="0">Any pay</option><option value="1000">1,000eb+</option><option value="5000">5,000eb+</option><option value="10000">10,000eb+</option></select>
+        </label>
+        <button type="reset">CLEAR</button>
+      </form>
+      <div class="result-line"><b id="job-result-count">0 CONTRACTS</b><span>Newest first // descriptions are client-supplied</span></div>
+      <div class="job-board" id="job-board"></div>
+      <p class="empty-state" id="job-empty" hidden>No contracts match those filters. Lower your standards or raise your risk tolerance.</p>
+    </section>
+
+    <section class="market-view" id="runners" data-route="runners" hidden>
+      <div class="view-heading runner-heading">
+        <div>
+          <span class="eyebrow">PUBLIC TALENT DIRECTORY / CLAIMS NOT GUARANTEED</span>
+          <h1>Find someone dangerous.</h1>
+          <p>Search independent runners by specialty, availability, and how much of their reputation survived verification.</p>
+        </div>
+        <div class="verification-key"><b>PROFILE MARKS</b><span><i class="verified-dot"></i> BOARD VERIFIED</span><span><i class="disputed-dot"></i> DISPUTED CLAIM</span></div>
+      </div>
+      <form class="runner-filters" id="runner-filters">
+        <input id="runner-search" type="search" aria-label="Search runners" placeholder="Search handle, role, specialty...">
+        <div id="role-chips" class="role-chips"></div>
+        <label><input id="available-only" type="checkbox"> AVAILABLE NOW</label>
+      </form>
+      <div class="runner-grid" id="runner-grid"></div>
+      <p class="empty-state" id="runner-empty" hidden>No runners match. Try a broader specialty.</p>
+    </section>
+
+    <section class="market-view" id="crew" data-route="crew" hidden>
+      <div class="view-heading crew-heading">
+        <div>
+          <span class="eyebrow">CREW BUILDER / PUBLIC PROFILES ONLY</span>
+          <h1>One problem. Several specialists.</h1>
+          <p>Choose the roles your job needs. The board will suggest available runners whose public profiles fit.</p>
+        </div>
+      </div>
+      <div class="crew-workbench">
+        <form id="crew-form" class="crew-controls">
+          <span>SELECT REQUIRED ROLES</span>
+          <div id="crew-roles"></div>
+          <label>CREW SIZE<select id="crew-size"><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+          <button type="submit">ASSEMBLE SUGGESTED CREW</button>
+        </form>
+        <section class="crew-output" id="crew-output" aria-live="polite">
+          <span class="stencil">NO CREW SELECTED</span>
+          <h2>Pick at least one role.</h2>
+          <p>Matches use public profile claims and current availability. Compatibility, sobriety, and shared enemies are not evaluated.</p>
+        </section>
+      </div>
+      <div class="crew-notes">
+        <article><b>DON'T FORGET A DRIVER</b><p>Walking away from the objective is not the same as extracting.</p></article>
+        <article><b>CHECK SHARED HISTORY</b><p>Two five-star runners can still be a one-star crew if they hate each other.</p></article>
+        <article><b>SETTLE THE SPLIT FIRST</b><p>“We’ll figure it out later” is how ammunition becomes negotiation.</p></article>
+      </div>
+    </section>
+
+    <section class="market-view" id="post" data-route="post" hidden>
+      <div class="view-heading form-heading">
+        <div><span class="eyebrow">CLIENT INTAKE / PUBLIC OR DIRECT</span><h1>Post the problem.</h1><p>Give runners enough truth to price the risk. Exact locations and sensitive files should wait until a crew is selected.</p></div>
+      </div>
+      <div class="form-layout">
+        <form class="market-form" id="contract-form">
+          <div class="form-pair">
+            <label>POSTING TYPE<select id="posting-type" name="postingType" required><option value="public">Public contract</option><option value="direct">Direct request</option></select></label>
+            <label>CLIENT HANDLE<input name="client" required placeholder="Who should runners call you?"></label>
+          </div>
+          <label id="direct-runner-label" hidden>REQUESTED RUNNER<select id="direct-runner" name="runner"></select></label>
+          <div class="form-pair">
+            <label>WORK TYPE<select id="contract-type" name="type" required></select></label>
+            <label>DISTRICT<select id="contract-district" name="district" required></select></label>
+          </div>
+          <label>CONTRACT TITLE<input name="title" required maxlength="70" placeholder="Short, honest, specific..."></label>
+          <label>WHAT NEEDS DOING?<textarea name="brief" required rows="6" placeholder="Objective, known opposition, time pressure, and what you are not telling the public..."></textarea></label>
+          <div class="form-triple">
+            <label>TOTAL PAY (EB)<input name="pay" required type="number" min="100" step="100" placeholder="5000"></label>
+            <label>CREW NEEDED<select name="crew" required><option>1</option><option>2</option><option>3</option><option>4+</option></select></label>
+            <label>DANGER CLAIM<select name="danger" required><option>Low</option><option selected>Medium</option><option>High</option><option>Unknown</option></select></label>
+          </div>
+          <fieldset>
+            <legend>DISCLOSE WHAT YOU KNOW</legend>
+            <label><input type="checkbox" name="corp"> Corporate involvement</label>
+            <label><input type="checkbox" name="illegal"> Illegal activity</label>
+            <label><input type="checkbox" name="combat"> Armed opposition likely</label>
+            <label><input type="checkbox" name="time"> Hard deadline</label>
+          </fieldset>
+          <label class="legal-check"><input type="checkbox" required> I understand deliberate omissions can void board protections and permanently mark this client handle.</label>
+          <button class="submit-action" type="submit">SUBMIT FOR BOARD REVIEW</button>
+          <p class="form-status" id="contract-status" role="status"></p>
+        </form>
+        <aside class="street-guide">
+          <span>BEFORE YOU POST</span><h2>Runners price uncertainty higher than danger.</h2>
+          <ol><li>Name the actual objective.</li><li>Disclose known corporate interest.</li><li>Set aside payment before recruiting.</li><li>Never post the meetup publicly.</li></ol>
+          <p>Board review checks formatting and known scam patterns. It does not certify your job, legality, solvency, or survival rate.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="market-view" id="profile" data-route="profile" hidden>
+      <div class="view-heading form-heading">
+        <div><span class="eyebrow">RUNNER REGISTRATION / PUBLIC CLAIMS</span><h1>Make yourself hireable.</h1><p>Advertise the work you want without publishing the details that help someone find you first.</p></div>
+      </div>
+      <div class="form-layout">
+        <form class="market-form" id="profile-form">
+          <div class="form-pair"><label>HANDLE<input name="handle" required maxlength="30" placeholder="Public name"></label><label>CONTACT DROP<input name="contact" required placeholder="Secure mailbox or agent"></label></div>
+          <fieldset><legend>PRIMARY ROLES</legend><div id="profile-roles"></div></fieldset>
+          <label>PUBLIC PITCH<textarea name="pitch" required rows="5" maxlength="420" placeholder="What are you good at, and why should a client believe you?"></textarea></label>
+          <div class="form-pair"><label>PREFERRED WORK<input name="preferred" required placeholder="Protection, recovery, quiet entry..."></label><label>WON'T TAKE<input name="refused" required placeholder="Your public red lines"></label></div>
+          <div class="form-triple">
+            <label>BASE RATE<select name="rate"><option>Negotiable</option><option>500eb+</option><option>1,000eb+</option><option>2,500eb+</option></select></label>
+            <label>STATUS<select name="status"><option>Available now</option><option>Selective</option><option>Crew only</option></select></label>
+            <label>OPERATING AREA<select id="profile-district" name="district"></select></label>
+          </div>
+          <label class="legal-check"><input type="checkbox" required> I understand false credentials, stolen work samples, and review manipulation can result in a permanent burn notice.</label>
+          <button class="submit-action" type="submit">CREATE PENDING PROFILE</button>
+          <p class="form-status" id="profile-status" role="status"></p>
+        </form>
+        <aside class="street-guide purple">
+          <span>PUBLIC PROFILE SAFETY</span><h2>Show capability. Hide vulnerability.</h2>
+          <ul><li>Use a handle, not a legal identity.</li><li>Do not list your home district.</li><li>Keep active contracts private.</li><li>Expect clients to check your claims.</li></ul>
+          <button type="button" id="open-burn-policy">READ BURN NOTICE POLICY</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="../">← NIGHT CITY NET</a>
+    <span>RENT-A-SAMURAI IS A LISTING BOARD, NOT YOUR FIXER, LAWYER, OR TRAUMA COVERAGE.</span>
+    <button type="button" id="open-safety">BOARD SAFETY</button>
+  </footer>
+  <dialog id="detail-dialog"><button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button><div id="dialog-content"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
