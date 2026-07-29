@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d7ff29">
+  <meta name="description" content="FeedFrenzy — Night City's loudest source for rumors, street clips, celebrity panic, and facts pending review.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <title>FeedFrenzy — Facts Pending</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-feed">Skip the screaming</a>
+
+  <div class="utility-bar">
+    <a href="../">← NIGHT CITY NET</a>
+    <span>WED 07.29.2045 // 23:48:09</span>
+    <button type="button" id="open-tip-top">SEND US SOMETHING</button>
+  </div>
+
+  <header class="site-header">
+    <div class="masthead">
+      <div class="logo-lockup" aria-label="FeedFrenzy">
+        <span class="feed-word">FEED</span><span class="frenzy-word">FRENZY</span>
+        <small>YOU SCROLL. WE SPECULATE.</small>
+      </div>
+      <form class="search" id="search-form">
+        <label for="site-search">SEARCH THE MESS</label>
+        <div>
+          <input id="site-search" type="search" placeholder="person, rumor, district..." autocomplete="off">
+          <button type="submit">GO</button>
+        </div>
+      </form>
+    </div>
+
+    <nav class="topic-nav" aria-label="Feed topics">
+      <button class="active" type="button" data-filter="all">EVERYTHING</button>
+      <button type="button" data-filter="street">STREET PANIC</button>
+      <button type="button" data-filter="celeb">CELEB MESS</button>
+      <button type="button" data-filter="corp">CORP DRAMA</button>
+      <button type="button" data-filter="weird">WEIRD?</button>
+      <button type="button" id="open-tip-nav">DROP A TIP</button>
+    </nav>
+  </header>
+
+  <div class="panic-strip">
+    <strong>BREAKING-ISH</strong>
+    <div><span>CITY DENIES FOOD RIOT // VIDEO SHOWS FOOD + PEOPLE RUNNING // THAT COUNTS FOR SOMETHING // DEVELOPING UNTIL WE GET BORED //</span></div>
+  </div>
+
+  <main id="main-feed">
+    <section class="top-ad-zone" aria-label="Advertisement">
+      <span>THIS POP-UP PAID OUR SERVER BILL</span>
+      <div class="feed-ad-top"></div>
+    </section>
+
+    <section class="lead-scramble" data-feed-item data-category="street">
+      <article class="lead-story">
+        <button class="story-image-button" type="button" data-story="van">
+          <img src="media/delivery-van-panic.webp" alt="Crowd surrounding an overturned delivery van on a wet Night City street">
+          <span class="live-stamp">LIVE? 22 MIN AGO</span>
+        </button>
+        <div class="lead-copy">
+          <div class="source-line">
+            <span class="confidence bad">SOURCE: A GUY NEAR IT</span>
+            <span>6.2K yelling now</span>
+          </div>
+          <h1><button type="button" data-story="van">FOOD RIOT OR FREE SAMPLE? DELIVERY VAN FLIPS AND WATSON MAKES A DECISION</button></h1>
+          <p>Officials say “traffic incident.” Witnesses say the doors opened by themselves. One person says the noodles were already warm. We have enlarged the video and learned nothing.</p>
+          <div class="reaction-row" data-reactions>
+            <button type="button" data-reaction="believe">I BELIEVE IT <b>2,841</b></button>
+            <button type="button" data-reaction="fake">STAGED <b>1,106</b></button>
+            <button type="button" data-reaction="hungry">LOOKED EDIBLE <b>932</b></button>
+          </div>
+        </div>
+        <div class="correction-note">
+          <strong>UPDATE 4:</strong> Previous update called this a “riot.” Legal asked us to call it “energetic redistribution.” We have ignored legal.
+        </div>
+      </article>
+
+      <aside class="screaming-now">
+        <div class="section-slash"><span>NOW SCREAMING</span><small>ranked by refresh damage</small></div>
+        <ol>
+          <li data-feed-item data-category="weird">
+            <button type="button" data-story="vending">
+              <b>01</b><span>ARE VENDING MACHINES LISTENING TO YOU CHEW?</span><em>↑ 311%</em>
+            </button>
+          </li>
+          <li data-feed-item data-category="celeb">
+            <button type="button" data-story="juno">
+              <b>02</b><span>JUNO RAYE LEFT A ROOFTOP EARLY. WHAT HAPPENED UP THERE?</span><em>↑ 204%</em>
+            </button>
+          </li>
+          <li data-feed-item data-category="corp">
+            <button type="button" data-story="forks">
+              <b>03</b><span>4,000 CORPO CAFETERIA FORKS MISSING. INSIDE JOB?</span><em>↑ 188%</em>
+            </button>
+          </li>
+          <li data-feed-item data-category="street">
+            <button type="button" data-story="pigeons">
+              <b>04</b><span>LOCAL MAN CLAIMS SAME PIGEON FOLLOWED HIM THROUGH THREE DISTRICTS</span><em>↑ 91%</em>
+            </button>
+          </li>
+        </ol>
+        <div class="feed-ad-rail"></div>
+      </aside>
+    </section>
+
+    <section class="clip-rush">
+      <div class="section-slash">
+        <span>RAW CLIPS / MINIMAL CONTEXT</span>
+        <small>vertical stabilization costs extra</small>
+      </div>
+      <div class="clip-strip">
+        <article data-feed-item data-category="celeb">
+          <button class="clip-image" type="button" data-story="juno">
+            <img src="media/juno-raye-rooftop.webp" alt="Braindance performer Juno Raye leaving a rooftop gathering with security">
+            <i>00:17</i>
+          </button>
+          <div><span class="confidence shrug">CONFIDENCE: 38%</span><h2><button type="button" data-story="juno">Juno Raye exits party before dessert. Feud? Allergy? Secret meeting?</button></h2><small>12.8K loops // 4.1K arguments</small></div>
+        </article>
+        <article data-feed-item data-category="weird street">
+          <button class="clip-image" type="button" data-story="mist">
+            <img src="media/utility-leak-video.webp" alt="Low-quality street footage of vapor leaking from a utility pipe">
+            <i>00:41</i>
+          </button>
+          <div><span class="confidence maybe">CONFIDENCE: SOME</span><h2><button type="button" data-story="mist">Mystery vapor in Little China. City truck leaves before anyone asks questions.</button></h2><small>3.4K loops // location disputed</small></div>
+        </article>
+        <article class="audio-clip" data-feed-item data-category="corp weird">
+          <button type="button" data-story="forks">
+            <span class="waveform" aria-hidden="true">▂▅▃▇▆▂▃▆▇▃▂▅▇▆▃▂▃▅▇</span>
+            <i>PLAY LEAKED AUDIO // 01:08</i>
+          </button>
+          <div><span class="confidence bad">VOICE: UNVERIFIED</span><h2><button type="button" data-story="forks">Someone whispers “the forks are accounted for.” FeedFrenzy asks: where?</button></h2><small>8.9K listens // transcript guessed</small></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mess-grid">
+      <div class="rumor-column">
+        <div class="section-slash"><span>THE INFINITE FEED</span><small id="filter-status">showing everything, unfortunately</small></div>
+
+        <article class="mess-item loud" data-feed-item data-category="celeb">
+          <p class="kicker">CELEB MESS // 11 MIN AGO</p>
+          <h2><button type="button" data-story="coat">KESS ARDON WORE THE SAME COAT TWICE. FINANCIAL TROUBLE OR CLONE MALFUNCTION?</button></h2>
+          <p>Three pixels, two anonymous stylists, and one reader’s cousin agree the stitching “felt suspicious.”</p>
+          <div class="mini-stats"><span>🔥 8,211</span><span>💬 690</span><span>TRUTH ODDS: 7%</span></div>
+        </article>
+
+        <article class="mess-item taped" data-feed-item data-category="corp">
+          <span class="tape-label">REPOSTED WITHOUT PERMISSION</span>
+          <p class="kicker">CORP DRAMA // 34 MIN AGO</p>
+          <h2><button type="button" data-story="forks">CAFETERIA FORK SHORTAGE ENTERS THIRD DAY; EXECUTIVES SEEN EATING WITH HANDS*</button></h2>
+          <p>*One executive. It may have been a pastry. Video removed at source, which proves either nothing or everything.</p>
+          <div class="mini-stats"><span>😡 2,309</span><span>💬 144</span><span>LEGAL THREATS: 2</span></div>
+        </article>
+
+        <div class="feed-ad-inline"></div>
+
+        <article class="mess-item warning" data-feed-item data-category="weird street">
+          <p class="kicker">WEIRD? // UPDATED SIX TIMES</p>
+          <h2><button type="button" data-story="mist">YELLOW MIST VIDEO: PUBLIC WORKS SAYS “NORMAL VENTING.” NORMAL FOR WHO?</button></h2>
+          <p>A contractor vehicle departed nineteen seconds before the leak began. The city’s response form returned FILE MISSING. This could be an actual story, so engagement is low.</p>
+          <div class="mini-stats"><span>👁 811</span><span>💬 23</span><span>USEFUL DETAIL: MAYBE</span></div>
+        </article>
+
+        <article class="mess-item crooked" data-feed-item data-category="street">
+          <p class="kicker">COMMUNITY // 1 HOUR AGO</p>
+          <h2><button type="button" data-story="dog">BOOSTER CREW STOPS TRAFFIC TO RESCUE TINY DOG; ARGUES FOR 40 MINUTES ABOUT ITS NAME</button></h2>
+          <p>The dog is safe. The intersection is not. Poll currently favors “Murder Biscuit.”</p>
+          <div class="mini-stats"><span>❤️ 14,099</span><span>💬 2,401</span><span>DOG CONFIRMED</span></div>
+        </article>
+      </div>
+
+      <aside class="side-chaos">
+        <section class="rumor-meter">
+          <h2>RUMOR-O-METER™</h2>
+          <p>Our proprietary truth system is a slider you control.</p>
+          <label for="rumor-range">HOW TRUE DOES THIS FEEL?</label>
+          <input id="rumor-range" type="range" min="0" max="100" value="63">
+          <output id="rumor-output">63% // REPEATABLE AT PARTIES</output>
+        </section>
+
+        <section class="poll-box">
+          <span>UNSCIENTIFIC POLL</span>
+          <h2>WHO FLIPPED THE VAN?</h2>
+          <button type="button" data-poll="city">THE CITY <b>31%</b></button>
+          <button type="button" data-poll="corp">THE DELIVERY CORP <b>28%</b></button>
+          <button type="button" data-poll="noodles">THE NOODLES <b>41%</b></button>
+          <small>18,442 votes // repeat voting encouraged</small>
+        </section>
+
+        <section class="corrections">
+          <h2>CORRECTIONS / EXCUSES</h2>
+          <ul>
+            <li><time>23:31</time> The mayor’s assistant owns nine coats, not eleven.</li>
+            <li><time>22:54</time> “Exploded” replaced with “made a loud noise.”</li>
+            <li><time>22:09</time> Juno Raye did eat dessert. Different dessert.</li>
+            <li><time>21:47</time> That was not a moon. It was a light.</li>
+          </ul>
+        </section>
+
+        <button class="tip-poster" type="button" id="open-tip-poster">
+          <strong>KNOW SOMETHING?</strong>
+          <span>WE DON’T NEED PROOF.<br>WE NEED A FILE.</span>
+          <em>DROP AN ANONYMOUS TIP →</em>
+        </button>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>FEEDFRENZY</strong>
+      <span>Facts pending. Feelings immediate.</span>
+    </div>
+    <p>FeedFrenzy is an independent Night City attention service. Headlines may be edited after publication, before publication, or during arguments. Sources are protected primarily because we forgot their handles.</p>
+    <nav aria-label="Footer">
+      <button type="button" data-footer-action="standards">OUR STANDARDS</button>
+      <button type="button" data-footer-action="corrections">DEMAND A CORRECTION</button>
+      <button type="button" data-footer-action="jobs">UNPAID CAREERS</button>
+      <a href="../">BACK TO NC.NET</a>
+    </nav>
+  </footer>
+
+  <dialog id="story-dialog" class="story-dialog">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close article">×</button>
+    <article id="story-content"></article>
+  </dialog>
+
+  <dialog id="tip-dialog" class="tip-dialog">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close tip form">×</button>
+    <form id="tip-form">
+      <p class="kicker">ANONYMOUS-ISH SUBMISSION PIPE</p>
+      <h2>DROP SOMETHING INTO THE FEED</h2>
+      <label>WHAT HAPPENED?
+        <textarea name="tip" required rows="5" placeholder="Start with the most alarming version..."></textarea>
+      </label>
+      <label>WHERE?
+        <input name="location" required placeholder="district, intersection, suspicious basement">
+      </label>
+      <label>UPLOAD
+        <input name="file" type="file" accept="image/*,video/*,audio/*">
+      </label>
+      <label class="checkbox"><input type="checkbox" required> I confirm this is true, true-ish, or receiving significant engagement.</label>
+      <button class="submit-tip" type="submit">SEND WITHOUT READING TERMS</button>
+      <p class="form-result" id="tip-result" role="status"></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+  <script src="../shared/ad-system.js"></script>
+</body>
+</html>

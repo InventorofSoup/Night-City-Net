@@ -82,7 +82,7 @@
   ].map(function (entry) { return { src: entry[0], label: entry[1], scam: true }; });
 
   const path = location.pathname.toLowerCase();
-  const site = path.includes("network-54") ? "network54" : path.includes("nc-civicnet") ? "civic" : path.includes("elflines-online") ? "elflines" : path.includes("trauma-team") ? "trauma" : "none";
+  const site = path.includes("network-54") ? "network54" : path.includes("nc-civicnet") ? "civic" : path.includes("elflines-online") ? "elflines" : path.includes("trauma-team") ? "trauma" : path.includes("feedfrenzy") ? "feedfrenzy" : "none";
   if (site === "none" || path.includes("webring")) return;
 
   const byName = function (names, source) {
@@ -94,7 +94,8 @@
       .concat(byName(["power-disconnection", "relief-fund", "identity-reset-banner", "viewer-reward", "euroclear"], scams)),
     elflines: byName(["elflines", "kibble", "rush-revolution", "digital-gladiator", "superflash", "killstrom", "drink-master", "garden", "playland", "laser-jacket"], legit)
       .concat(byName(["eldergrove", "memory-chip", "agent-upgrade", "mara-transit", "identity-reset", "braindance-refund", "courier-job", "viewer-reward", "luck-grid", "pet-restoration"], scams)),
-    trauma: byName(["trauma-medscan", "biotechnica-health", "cybereye", "dynalar", "habitat", "bc-aerial-sphere", "bc-zonda", "rocklin"], legit)
+    trauma: byName(["trauma-medscan", "biotechnica-health", "cybereye", "dynalar", "habitat", "bc-aerial-sphere", "bc-zonda", "rocklin"], legit),
+    feedfrenzy: scams.concat(legit)
   };
   const pool = pools[site];
   if (!pool || !pool.length) return;
@@ -127,7 +128,8 @@
     slot.setAttribute("data-nc-ad-system", kind);
     slot.setAttribute("aria-label", options && options.label ? options.label : "Advertisement");
     const tag = site === "civic" ? "CONTRACTED PLACEMENT" : site === "trauma" ? "MEMBER PARTNER" : "ADVERTISEMENT";
-    slot.innerHTML = '<span class="nc-ad-tag">' + tag + '</span><button type="button" class="nc-ad-image" aria-label="Open advertisement"><img loading="lazy" decoding="async"></button>' + ((options && options.controls) ? '<div class="nc-ad-controls"><button type="button" class="nc-ad-next" aria-label="Show another advertisement">NEXT</button><button type="button" class="nc-ad-close" aria-label="Close advertisement">&times;</button></div>' : '');
+    const loading = site === "feedfrenzy" ? "eager" : "lazy";
+    slot.innerHTML = '<span class="nc-ad-tag">' + tag + '</span><button type="button" class="nc-ad-image" aria-label="Open advertisement"><img loading="' + loading + '" decoding="async"></button>' + ((options && options.controls) ? '<div class="nc-ad-controls"><button type="button" class="nc-ad-next" aria-label="Show another advertisement">NEXT</button><button type="button" class="nc-ad-close" aria-label="Close advertisement">&times;</button></div>' : '');
     let index = offset;
     const imageButton = slot.querySelector(".nc-ad-image");
     const image = imageButton.querySelector("img");
@@ -233,6 +235,24 @@
     });
   }
 
+  function mountFeedFrenzyAds() {
+    const placements = [
+      [document.querySelector(".feed-ad-top"), "feed-banner", bannerPool, 2],
+      [document.querySelector(".feed-ad-rail"), "feed-rail", rightRailPool, 4],
+      [document.querySelector(".feed-ad-inline"), "feed-inline", cardPool, 7]
+    ];
+    placements.forEach(function (entry) {
+      const host = entry[0];
+      if (!host || !host.parentNode) return;
+      const slot = createSlot(entry[1], entry[2], entry[3], {
+        element: "div",
+        label: "FeedFrenzy advertisement",
+        controls: entry[1] === "feed-rail"
+      });
+      host.replaceWith(slot);
+    });
+  }
+
   const main = document.querySelector("main") || document.querySelector("#content") || document.body;
   const footer = document.querySelector("footer");
   const sections = main ? Array.from(main.children).filter(function (child) { return /^(SECTION|ARTICLE|DIV)$/.test(child.tagName); }) : [];
@@ -257,6 +277,8 @@
     const partner = createSlot("trauma-inline", widePool, 0, { element: "div", label: "Trauma Team member partner" });
     if (sections[0]) sections[0].insertAdjacentElement("afterend", partner); else main.appendChild(partner);
     if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("trauma-footer", traumaBannerPool, 3, { element: "div", label: "Trauma Team member partner" }), footer);
+  } else if (site === "feedfrenzy") {
+    mountFeedFrenzyAds();
   }
 
   document.documentElement.setAttribute("data-nc-ad-system", "ready");

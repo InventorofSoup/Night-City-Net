@@ -104,6 +104,18 @@
       ],
     },
     {
+      id: "feedfrenzy",
+      name: "FeedFrenzy",
+      href: "feedfrenzy/",
+      status: "live",
+      description: "Rumors, outrage, street clips, and whatever everyone is yelling about right now.",
+      ringStatus: "online, facts pending",
+      ringDescription: "viral clips, anonymous claims, celebrity meltdowns, and corrections nobody reads",
+      pages: [
+        ["Trending Feed", "feedfrenzy/"],
+      ],
+    },
+    {
       id: "danger-gal",
       name: "Danger Gal",
       href: "danger-gal/",
