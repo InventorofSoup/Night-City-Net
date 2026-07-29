@@ -476,28 +476,16 @@ main {
   position: sticky;
   top: 10px;
 }
-.rumor-meter, .poll-box, .corrections {
+.poll-box, .corrections {
   padding: 14px;
   border: 3px solid var(--ink);
   background: #fff;
   box-shadow: 5px 5px 0 var(--ink);
 }
-.rumor-meter { background: var(--acid); transform: rotate(.5deg); }
-.rumor-meter h2, .poll-box h2, .corrections h2 {
+.poll-box h2, .corrections h2 {
   margin: 0 0 8px;
   font: 900 1.5rem Impact, "Arial Black", sans-serif;
   letter-spacing: .02em;
-}
-.rumor-meter p { margin: 0 0 13px; font: 700 11px/1.4 "Courier New", monospace; }
-.rumor-meter label { display: block; font: 900 9px "Courier New", monospace; }
-.rumor-meter input { width: 100%; accent-color: var(--red); }
-.rumor-meter output {
-  display: block;
-  margin-top: 7px;
-  padding: 5px;
-  border: 2px solid var(--ink);
-  background: #fff;
-  font: 900 10px "Courier New", monospace;
 }
 .poll-box { background: #dce7ff; transform: rotate(-.35deg); }
 .poll-box > span { font: 900 9px "Courier New", monospace; color: var(--blue); }
@@ -593,6 +581,11 @@ dialog::backdrop { background: rgba(9,11,11,.78); }
 .story-dialog .story-body strong { background: var(--acid); }
 .comments { margin-top: 25px; border-top: 5px solid var(--ink); }
 .comments h3 { font: 900 1.4rem Impact, sans-serif; }
+.comment-count {
+  margin: -7px 0 12px;
+  color: var(--muted);
+  font: 800 9px/1.4 "Courier New", monospace;
+}
 .comment { margin: 9px 0; padding: 10px; border: 2px solid var(--ink); background: #fff; }
 .comment b { font: 900 11px "Courier New", monospace; color: var(--blue); }
 .comment p { margin: 5px 0; font: 13px/1.4 Arial, sans-serif; }
@@ -641,29 +634,31 @@ dialog::backdrop { background: rgba(9,11,11,.78); }
 }
 
 .nc-ad-feed-banner, .nc-ad-feed-inline, .nc-ad-feed-rail {
+  width: 100%!important;
   max-width: 100%!important;
+  overflow: hidden!important;
   border: 2px solid var(--ink)!important;
   border-radius: 0!important;
-  background: #fff!important;
+  background: #111!important;
   box-shadow: none!important;
 }
 .nc-ad-feed-banner .nc-ad-image,
 .nc-ad-feed-inline .nc-ad-image,
 .nc-ad-feed-rail .nc-ad-image {
-  height: auto!important;
+  width: 100%!important;
+  height: 100%!important;
 }
 .nc-ad-feed-banner .nc-ad-image img,
 .nc-ad-feed-inline .nc-ad-image img,
 .nc-ad-feed-rail .nc-ad-image img {
-  height: auto!important;
-}
-.nc-ad-feed-banner .nc-ad-image img {
   width: 100%!important;
-  max-height: 110px!important;
+  height: 100%!important;
+  max-height: none!important;
   object-fit: cover!important;
 }
-.nc-ad-feed-inline .nc-ad-image img { max-height: 190px!important; object-fit: contain!important; }
-.nc-ad-feed-rail .nc-ad-image img { max-height: 330px!important; object-fit: contain!important; }
+.nc-ad-feed-banner { height: clamp(92px, 9vw, 126px)!important; }
+.nc-ad-feed-inline { aspect-ratio: 16 / 5!important; }
+.nc-ad-feed-rail { aspect-ratio: 2 / 3!important; }
 
 @media (max-width: 900px) {
   .masthead { align-items: stretch; flex-direction: column; }

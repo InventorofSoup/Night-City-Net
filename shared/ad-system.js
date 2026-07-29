@@ -239,7 +239,7 @@
     const placements = [
       [document.querySelector(".feed-ad-top"), "feed-banner", bannerPool, 2],
       [document.querySelector(".feed-ad-rail"), "feed-rail", rightRailPool, 4],
-      [document.querySelector(".feed-ad-inline"), "feed-inline", cardPool, 7]
+      [document.querySelector(".feed-ad-inline"), "feed-inline", widePool, 7]
     ];
     placements.forEach(function (entry) {
       const host = entry[0];
