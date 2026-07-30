@@ -1,0 +1,1395 @@
+.city-pulse {
+  --pulse-bg: #111417;
+  --pulse-panel: #1a2025;
+  --pulse-ink: #f3f3ed;
+  --pulse-muted: #aab2b8;
+  --pulse-accent: #ef3f4f;
+  --pulse-line: rgba(255, 255, 255, 0.18);
+  box-sizing: border-box;
+  width: min(1180px, calc(100% - 32px));
+  margin: 42px auto;
+  padding: clamp(22px, 4vw, 42px);
+  color: var(--pulse-ink);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--pulse-accent) 12%, transparent), transparent 42%),
+    var(--pulse-bg);
+  border: 1px solid var(--pulse-line);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.55;
+}
+
+.city-pulse *,
+.city-pulse *::before,
+.city-pulse *::after {
+  box-sizing: border-box;
+}
+
+.city-pulse__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+  gap: 28px;
+  align-items: end;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--pulse-line);
+}
+
+.city-pulse__eyebrow,
+.city-pulse__status,
+.city-pulse__story-meta,
+.city-pulse__related-label,
+.city-pulse__file {
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.city-pulse__eyebrow,
+.city-pulse__file {
+  color: var(--pulse-accent);
+}
+
+.city-pulse h2 {
+  margin: 8px 0 6px;
+  color: var(--pulse-ink);
+  font: 800 clamp(1.65rem, 3vw, 2.8rem)/1.02 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.city-pulse__intro,
+.city-pulse__header p,
+.city-pulse__story p {
+  margin: 0;
+  color: var(--pulse-muted);
+}
+
+.city-pulse__status {
+  justify-self: end;
+  max-width: 310px;
+  padding: 12px 14px;
+  color: var(--pulse-ink);
+  border-left: 3px solid var(--pulse-accent);
+  background: color-mix(in srgb, var(--pulse-panel) 88%, transparent);
+}
+
+.city-pulse__media {
+  position: relative;
+  overflow: hidden;
+  margin: 24px 0;
+  min-height: 260px;
+  border: 1px solid var(--pulse-line);
+  background: #080a0b;
+}
+
+.city-pulse__media img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 42vw, 520px);
+  object-fit: cover;
+}
+
+.city-pulse__media figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 16px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.city-pulse__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.city-pulse__story {
+  padding: 20px;
+  border: 1px solid var(--pulse-line);
+  background: var(--pulse-panel);
+}
+
+.city-pulse__story-meta {
+  color: var(--pulse-accent);
+}
+
+.city-pulse__story h3 {
+  margin: 9px 0;
+  color: var(--pulse-ink);
+  font: 800 clamp(1.08rem, 2vw, 1.45rem)/1.14 Arial, Helvetica, sans-serif;
+}
+
+.city-pulse__story details {
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--pulse-line);
+}
+
+.city-pulse__story summary {
+  color: var(--pulse-ink);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.city-pulse__story details p {
+  margin-top: 12px;
+}
+
+.city-pulse__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.city-pulse__file,
+.city-pulse__related a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 9px 12px;
+  color: var(--pulse-ink);
+  border: 1px solid var(--pulse-line);
+  background: transparent;
+  text-decoration: none;
+}
+
+.city-pulse__file:hover,
+.city-pulse__file:focus-visible,
+.city-pulse__related a:hover,
+.city-pulse__related a:focus-visible {
+  color: var(--pulse-bg);
+  background: var(--pulse-accent);
+  border-color: var(--pulse-accent);
+}
+
+.city-pulse__related {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--pulse-line);
+}
+
+.city-pulse__related nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.city-pulse--network-54 {
+  --pulse-bg: #faf8ff;
+  --pulse-panel: #ffffff;
+  --pulse-ink: #17121f;
+  --pulse-muted: #5f5868;
+  --pulse-accent: #7947e8;
+  --pulse-line: rgba(52, 36, 77, 0.2);
+  border-radius: 24px;
+}
+
+.city-pulse--feedfrenzy {
+  --pulse-bg: #d7ff29;
+  --pulse-panel: #101010;
+  --pulse-ink: #ffffff;
+  --pulse-muted: #d8d8d8;
+  --pulse-accent: #ff4f9a;
+  --pulse-line: rgba(0, 0, 0, 0.4);
+  transform: rotate(-0.15deg);
+  box-shadow: 9px 10px 0 #101010;
+}
+
+.city-pulse--danger-gal {
+  --pulse-bg: #f4f2ef;
+  --pulse-panel: #ffffff;
+  --pulse-ink: #181818;
+  --pulse-muted: #5f5c59;
+  --pulse-accent: #c8202f;
+  --pulse-line: rgba(28, 28, 28, 0.22);
+  box-shadow: 12px 12px 0 rgba(200, 32, 47, 0.12);
+}
+
+.city-pulse--rent-a-samurai {
+  --pulse-bg: #0d0f10;
+  --pulse-panel: #181c1f;
+  --pulse-ink: #f3eee1;
+  --pulse-muted: #aaa79e;
+  --pulse-accent: #f0a52b;
+  --pulse-line: rgba(240, 165, 43, 0.28);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+.city-pulse--nc-civicnet {
+  --pulse-bg: #e8e4d8;
+  --pulse-panel: #f6f3e9;
+  --pulse-ink: #1f2a32;
+  --pulse-muted: #55616a;
+  --pulse-accent: #175c7a;
+  --pulse-line: rgba(31, 42, 50, 0.24);
+  box-shadow: none;
+}
+
+.city-pulse--trauma-team {
+  --pulse-bg: #f7f9f8;
+  --pulse-panel: #ffffff;
+  --pulse-ink: #17201c;
+  --pulse-muted: #58635e;
+  --pulse-accent: #db272c;
+  --pulse-line: rgba(23, 32, 28, 0.2);
+}
+
+.city-pulse--militech-security {
+  --pulse-bg: #172019;
+  --pulse-panel: #202b22;
+  --pulse-ink: #f1f0e7;
+  --pulse-muted: #b4b8ae;
+  --pulse-accent: #d5bd73;
+  --pulse-line: rgba(213, 189, 115, 0.3);
+}
+
+.city-pulse--elflines-online {
+  --pulse-bg: #f1e8ce;
+  --pulse-panel: #fffaf0;
+  --pulse-ink: #332719;
+  --pulse-muted: #70614d;
+  --pulse-accent: #3f7d4a;
+  --pulse-line: rgba(51, 39, 25, 0.22);
+  border-radius: 18px;
+}
+
+.city-pulse details {
+  margin-top: 16px;
+  border-top: 1px solid var(--pulse-line);
+}
+
+.city-pulse summary {
+  padding: 12px 0;
+  color: var(--pulse-ink);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.city-pulse details p + p {
+  margin-top: 12px;
+}
+
+.city-pulse__related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.city-pulse__related-links a {
+  padding: 8px 10px;
+  color: var(--pulse-ink);
+  border: 1px solid var(--pulse-line);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.city-pulse__related-links a:hover,
+.city-pulse__related-links a:focus-visible {
+  color: var(--pulse-bg);
+  background: var(--pulse-accent);
+  border-color: var(--pulse-accent);
+}
+
+/* Network 54: glossy local-magazine insert. */
+.city-pulse--network-54 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.pulse54__bar,
+.pulse54 > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 24px;
+  color: #fff;
+  background: #17121f;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.pulse54__bar em {
+  color: #cbb6ff;
+}
+
+.pulse54__headline {
+  max-width: 870px;
+  padding: 42px 42px 26px;
+}
+
+.pulse54__headline > span,
+.pulse54__lead article > span,
+.pulse54__tonight article > span {
+  color: #7947e8;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pulse54__headline h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  font-weight: 500;
+}
+
+.pulse54__lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  border-block: 1px solid var(--pulse-line);
+}
+
+.pulse54 .city-pulse__media {
+  margin: 0;
+  border: 0;
+}
+
+.pulse54__lead > article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px;
+}
+
+.pulse54__lead h3 {
+  margin: 10px 0;
+  font: 500 clamp(1.8rem, 3vw, 3rem)/1.04 Georgia, "Times New Roman", serif;
+}
+
+.pulse54__tonight {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  margin: 24px 42px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--pulse-line);
+}
+
+.pulse54__tonight > div {
+  display: flex;
+  flex-direction: column;
+  color: #7947e8;
+}
+
+.pulse54__tonight > div b {
+  font-size: 4.8rem;
+  line-height: 1;
+}
+
+.pulse54__tonight h3 {
+  margin: 7px 0;
+  font: 500 1.65rem/1.1 Georgia, "Times New Roman", serif;
+}
+
+.pulse54 > footer {
+  align-items: center;
+}
+
+/* FeedFrenzy: crooked receipts, numbers, and aggressive annotations. */
+.city-pulse--feedfrenzy {
+  padding: 18px;
+  color: #111;
+  background: #d7ff29;
+}
+
+.pulsefeed {
+  padding: clamp(16px, 3vw, 30px);
+  border: 5px solid #111;
+}
+
+.pulsefeed > header {
+  position: relative;
+  padding-right: 230px;
+}
+
+.pulsefeed > header > span,
+.pulsefeed__receipt span {
+  font: 900 0.76rem/1 Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulsefeed h2 {
+  max-width: 800px;
+  color: #111;
+  font-size: clamp(2.8rem, 7vw, 6.6rem);
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+.pulsefeed__dek {
+  max-width: 760px;
+  color: #111;
+  font-weight: 700;
+}
+
+.pulsefeed__stamp {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  padding: 12px;
+  color: #fff;
+  background: #ff4f9a;
+  border: 3px solid #111;
+  transform: rotate(3deg);
+  text-align: center;
+}
+
+.pulsefeed .city-pulse__media {
+  margin: 24px 0;
+  border: 5px solid #111;
+  transform: rotate(-0.45deg);
+}
+
+.pulsefeed__receipts {
+  display: grid;
+  gap: 14px;
+}
+
+.pulsefeed__receipt {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  color: #fff;
+  background: #111;
+  border: 3px solid #111;
+}
+
+.pulsefeed__receipt:nth-child(2) {
+  color: #111;
+  background: #fff;
+  transform: rotate(0.35deg);
+}
+
+.pulsefeed__number {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  color: #111;
+  background: #ff4f9a;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.pulsefeed__receipt > div:last-child {
+  padding: 20px;
+}
+
+.pulsefeed__receipt h3 {
+  margin: 7px 0;
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.pulsefeed__receipt p {
+  color: inherit;
+}
+
+.pulsefeed__receipt summary {
+  color: inherit;
+}
+
+.pulsefeed > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.pulsefeed .city-pulse__related-links a {
+  color: #111;
+  border: 2px solid #111;
+}
+
+/* Danger Gal: sanitized case register with evidence indexing. */
+.city-pulse--danger-gal {
+  padding: 0;
+}
+
+.pulsedg > header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  padding: 32px;
+  border-top: 9px solid #c8202f;
+  border-bottom: 1px solid var(--pulse-line);
+}
+
+.pulsedg > header span,
+.pulsedg__evidence b,
+.pulsedg__register header {
+  color: #c8202f;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.pulsedg > header h2 {
+  max-width: 760px;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.pulsedg dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5px 16px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--pulse-line);
+}
+
+.pulsedg dt {
+  color: var(--pulse-muted);
+  font-size: 0.68rem;
+}
+
+.pulsedg dd {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.pulsedg__evidence {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  margin: 28px 32px;
+  border: 1px solid var(--pulse-line);
+}
+
+.pulsedg .city-pulse__media {
+  margin: 0;
+  border: 0;
+}
+
+.pulsedg__evidence aside {
+  padding: 28px;
+  background: #fff;
+}
+
+.pulsedg__evidence aside small {
+  display: block;
+  margin-top: 24px;
+  padding: 12px;
+  border: 1px solid #c8202f;
+}
+
+.pulsedg__register {
+  margin: 0 32px;
+  border-top: 3px solid #171717;
+}
+
+.pulsedg__register > article {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  border-bottom: 1px solid var(--pulse-line);
+}
+
+.pulsedg__register article > header,
+.pulsedg__register article > div {
+  padding: 22px;
+}
+
+.pulsedg__register article > header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid var(--pulse-line);
+}
+
+.pulsedg__register h3 {
+  margin: 0 0 7px;
+}
+
+.pulsedg > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 18px 32px;
+  color: #fff;
+  background: #181818;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+/* Rent-A-Samurai: fighting-board mission selection. */
+.city-pulse--rent-a-samurai {
+  padding: 0;
+  border: 2px solid #f0a52b;
+}
+
+.pulseras > header {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  background: linear-gradient(110deg, #121619 72%, #f0a52b 72%);
+}
+
+.pulseras > header > div {
+  padding: 30px;
+}
+
+.pulseras > header span,
+.pulseras__missions article > span {
+  color: #f0a52b;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.pulseras > header aside {
+  display: grid;
+  align-content: center;
+  padding: 26px;
+  color: #111;
+}
+
+.pulseras > header aside b {
+  font-size: 1.5rem;
+}
+
+.pulseras__select {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  min-height: 560px;
+}
+
+.pulseras__visual {
+  position: relative;
+  overflow: hidden;
+  border-right: 2px solid #f0a52b;
+}
+
+.pulseras .city-pulse__media {
+  height: 100%;
+  margin: 0;
+  border: 0;
+}
+
+.pulseras .city-pulse__media img {
+  height: 100%;
+  filter: saturate(0.7) contrast(1.12);
+}
+
+.pulseras__visual > b {
+  position: absolute;
+  inset: auto 18px 18px;
+  padding: 10px;
+  color: #111;
+  background: #f0a52b;
+}
+
+.pulseras__missions {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 22px;
+}
+
+.pulseras__missions article {
+  position: relative;
+  padding: 22px 22px 22px 82px;
+  background: #181c1f;
+  border: 1px solid rgba(240, 165, 43, 0.3);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+.pulseras__rank {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: grid;
+  width: 58px;
+  place-items: center;
+  color: #111;
+  background: #f0a52b;
+  font-size: 0.68rem;
+  font-weight: 900;
+  writing-mode: vertical-rl;
+}
+
+.pulseras__missions h3 {
+  margin: 7px 0;
+  font-size: 1.45rem;
+}
+
+.pulseras > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 15px 22px;
+  border-top: 2px solid #f0a52b;
+}
+
+/* CivicNet: municipal record ledger. */
+.city-pulse--nc-civicnet {
+  padding: 0;
+}
+
+.pulsecivic > header {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding: 26px 30px;
+  color: #fff;
+  background: #173a59;
+}
+
+.pulsecivic__seal {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  border: 3px double #fff;
+  border-radius: 50%;
+  font: 900 1.2rem Georgia, serif;
+}
+
+.pulsecivic > header span {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.pulsecivic > header h2 {
+  margin: 4px 0;
+  color: #fff;
+  font: 700 clamp(1.8rem, 4vw, 3.1rem)/1 Georgia, "Times New Roman", serif;
+}
+
+.pulsecivic > header p {
+  color: #dbe5eb;
+}
+
+.pulsecivic > header aside {
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.4);
+  font-size: 0.68rem;
+}
+
+.pulsecivic__status {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  padding: 12px 30px;
+  color: #25333c;
+  background: #d8c977;
+  font-size: 0.78rem;
+}
+
+.pulsecivic__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+}
+
+.pulsecivic__records {
+  border-right: 1px solid var(--pulse-line);
+}
+
+.pulsecivic__records > article {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  border-bottom: 1px solid var(--pulse-line);
+}
+
+.pulsecivic__records article > div {
+  padding: 22px 16px;
+  text-align: center;
+  border-right: 1px solid var(--pulse-line);
+}
+
+.pulsecivic__records article > div span {
+  display: block;
+  font-size: 0.62rem;
+}
+
+.pulsecivic__records article > div b {
+  font-size: 2rem;
+}
+
+.pulsecivic__records section {
+  padding: 22px;
+}
+
+.pulsecivic__records h3 {
+  margin: 5px 0;
+  font-family: Georgia, serif;
+}
+
+.pulsecivic__image {
+  padding: 18px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.pulsecivic .city-pulse__media {
+  margin: 10px 0 0;
+}
+
+.pulsecivic .city-pulse__media img {
+  height: 330px;
+  filter: saturate(0.65);
+}
+
+.pulsecivic > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 30px;
+  background: #d8d3c4;
+  font-size: 0.72rem;
+}
+
+/* Trauma Team: clinical readiness dashboard. */
+.city-pulse--trauma-team {
+  padding: 0;
+  border-top: 10px solid #db272c;
+}
+
+.pulsetti > header {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  height: auto;
+  padding: 26px 32px;
+  position: static;
+  backdrop-filter: none;
+}
+
+.pulsetti__mark {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pulsetti__mark i {
+  color: #db272c;
+  font-style: normal;
+  font-size: 1.7rem;
+  transform: rotate(90deg);
+}
+
+.pulsetti__mark b {
+  line-height: 0.9;
+}
+
+.pulsetti__mark em {
+  display: block;
+  color: #db272c;
+  font-style: normal;
+}
+
+.pulsetti > header span,
+.pulsetti__response article > span,
+.pulsetti__advisories span {
+  color: #db272c;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.pulsetti > header h2 {
+  margin: 5px 0;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+}
+
+.pulsetti > header aside {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 3px 8px;
+  align-items: center;
+}
+
+.pulsetti > header aside i {
+  grid-row: 1 / 3;
+  width: 12px;
+  height: 12px;
+  background: #24a36a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(36,163,106,.14);
+}
+
+.pulsetti__response {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  background: #15201c;
+}
+
+.pulsetti .city-pulse__media {
+  margin: 0;
+  border: 0;
+}
+
+.pulsetti__response > article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px;
+  color: #fff;
+}
+
+.pulsetti__response strong {
+  margin: 10px 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.9;
+}
+
+.pulsetti__response p,
+.pulsetti__response small {
+  color: #c7d1cc;
+}
+
+.pulsetti__advisories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--pulse-line);
+}
+
+.pulsetti__advisories > article {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  padding: 28px;
+  background: #fff;
+}
+
+.pulsetti__advisories > article > b {
+  color: #db272c;
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+.pulsetti__advisories h3 {
+  margin: 6px 0;
+}
+
+.pulsetti > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 30px;
+}
+
+/* Militech: controlled executive intelligence brief. */
+.city-pulse--militech-security {
+  padding: 0;
+}
+
+.pulsems > header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  padding: 34px;
+  border-top: 5px solid #d5bd73;
+}
+
+.pulsems > header span,
+.pulsems__summary b,
+.pulsems__findings article > span {
+  color: #d5bd73;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.pulsems > header h2 {
+  max-width: 800px;
+  font: 500 clamp(2rem, 4vw, 4rem)/0.98 Georgia, serif;
+}
+
+.pulsems dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(213,189,115,.35);
+}
+
+.pulsems dt {
+  color: #999f97;
+  font-size: 0.65rem;
+}
+
+.pulsems dd {
+  margin: 0;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.pulsems__summary {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  background: #0e1410;
+}
+
+.pulsems__summary > article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+}
+
+.pulsems__summary small {
+  display: block;
+  margin-top: 22px;
+  color: #9da59e;
+}
+
+.pulsems .city-pulse__media {
+  margin: 0;
+  border: 0;
+}
+
+.pulsems__findings {
+  margin: 0;
+  padding: 0 34px;
+  list-style: none;
+  counter-reset: none;
+}
+
+.pulsems__findings > li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  border-bottom: 1px solid rgba(213,189,115,.25);
+}
+
+.pulsems__findings > li > b {
+  padding: 28px 18px;
+  color: #d5bd73;
+  font-size: 2.8rem;
+  border-right: 1px solid rgba(213,189,115,.25);
+}
+
+.pulsems__findings article {
+  padding: 28px;
+}
+
+.pulsems__findings h3 {
+  margin: 7px 0;
+  font-family: Georgia, serif;
+}
+
+.pulsems > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 34px;
+  background: #0e1410;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* Elflines: player forum thread, not an official notice. */
+.city-pulse--elflines-online {
+  padding: 0;
+  overflow: hidden;
+  border: 6px double #6d5736;
+}
+
+.pulseelo > header {
+  position: relative;
+  padding: 28px 34px;
+  color: #f7efd8;
+  background: linear-gradient(#294f31, #173820);
+  border-bottom: 5px solid #a8874e;
+}
+
+.pulseelo > header > span {
+  color: #d9c48b;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.pulseelo > header h2 {
+  margin: 8px 0;
+  color: #fff6dc;
+  font-family: Cinzel, Georgia, serif;
+  text-shadow: 0 2px #102516;
+}
+
+.pulseelo > header p {
+  max-width: 780px;
+  color: #dfe8d8;
+}
+
+.pulseelo > header > b {
+  position: absolute;
+  right: 26px;
+  bottom: -17px;
+  padding: 8px 14px;
+  color: #2f2417;
+  background: #d9c48b;
+  border: 2px solid #6d5736;
+  transform: rotate(1deg);
+}
+
+.pulseelo__post {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  background: #fffaf0;
+  border-bottom: 2px solid #cab991;
+}
+
+.pulseelo__post > aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 28px 18px;
+  color: #eee4ca;
+  background: #29392c;
+  text-align: center;
+}
+
+.pulseelo__post > aside i {
+  display: grid;
+  width: 74px;
+  height: 74px;
+  place-items: center;
+  color: #2f2417;
+  background: #d9c48b;
+  border: 4px ridge #a8874e;
+  border-radius: 14px;
+  font: 900 1.25rem Cinzel, Georgia, serif;
+}
+
+.pulseelo__post > aside small,
+.pulseelo__post > aside span {
+  color: #bfcdbd;
+  font-size: 0.66rem;
+}
+
+.pulseelo__post > div {
+  padding: 26px 30px;
+}
+
+.pulseelo__post > div > header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  color: #6e5b3d;
+  border-bottom: 1px solid #d6c7a5;
+  font-size: 0.7rem;
+}
+
+.pulseelo__post h3 {
+  margin: 18px 0 8px;
+  color: #332719;
+  font-family: Cinzel, Georgia, serif;
+}
+
+.pulseelo__post p {
+  color: #5f503e;
+}
+
+.pulseelo .city-pulse__media {
+  margin: 18px 0;
+  border: 5px ridge #a8874e;
+}
+
+.pulseelo__post > div > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid #d6c7a5;
+}
+
+.pulseelo__post button {
+  padding: 8px 11px;
+  color: #fff;
+  background: #3f7d4a;
+  border: 1px solid #285830;
+  border-radius: 4px;
+}
+
+.pulseelo > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 28px;
+  color: #f7efd8;
+  background: #29392c;
+}
+
+@media (max-width: 760px) {
+  .city-pulse {
+    width: min(100% - 20px, 1180px);
+    margin: 28px auto;
+    padding: 20px;
+  }
+
+  .city-pulse__header,
+  .city-pulse__grid,
+  .city-pulse__related {
+    grid-template-columns: 1fr;
+  }
+
+  .city-pulse__status {
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .city-pulse__media {
+    min-height: 210px;
+  }
+
+  .city-pulse__media img {
+    height: 260px;
+  }
+
+  .city-pulse__media figcaption {
+    position: static;
+    background: #090b0c;
+  }
+
+  .pulse54__lead,
+  .pulse54__tonight,
+  .pulsedg > header,
+  .pulsedg__evidence,
+  .pulsedg__register > article,
+  .pulseras > header,
+  .pulseras__select,
+  .pulsecivic > header,
+  .pulsecivic__body,
+  .pulsetti > header,
+  .pulsetti__response,
+  .pulsetti__advisories,
+  .pulsems > header,
+  .pulsems__summary,
+  .pulseelo__post {
+    grid-template-columns: 1fr;
+  }
+
+  .pulse54__headline,
+  .pulse54__lead > article,
+  .pulse54__tonight {
+    padding-inline: 20px;
+  }
+
+  .pulse54__tonight {
+    margin-inline: 0;
+  }
+
+  .pulsefeed > header {
+    padding-right: 0;
+    padding-bottom: 74px;
+  }
+
+  .pulsefeed__stamp {
+    top: auto;
+    right: 0;
+    bottom: 0;
+  }
+
+  .pulsefeed__receipt {
+    grid-template-columns: 54px 1fr;
+  }
+
+  .pulsefeed .city-pulse__media,
+  .pulsefeed__receipt:nth-child(2) {
+    transform: none;
+  }
+
+  .pulsefeed__receipt > div:last-child {
+    min-width: 0;
+    padding: 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .pulsefeed__number {
+    font-size: 1.6rem;
+  }
+
+  .pulsedg__evidence,
+  .pulsedg__register {
+    margin-inline: 18px;
+  }
+
+  .pulsedg__register article > header {
+    border-right: 0;
+    border-bottom: 1px solid var(--pulse-line);
+  }
+
+  .pulseras__visual {
+    min-height: 330px;
+    border-right: 0;
+    border-bottom: 2px solid #f0a52b;
+  }
+
+  .pulsecivic > header {
+    text-align: left;
+  }
+
+  .pulsecivic__status {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .pulsecivic__records {
+    border-right: 0;
+  }
+
+  .pulsetti > header aside {
+    grid-template-columns: 14px 1fr;
+  }
+
+  .pulsems__findings {
+    padding-inline: 16px;
+  }
+
+  .pulsems__findings > li {
+    grid-template-columns: 58px 1fr;
+  }
+
+  .pulsems__findings > li > b {
+    padding-inline: 8px;
+    font-size: 1.8rem;
+  }
+
+  .pulseelo__post > aside {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    text-align: left;
+  }
+
+  .pulseelo__post > aside i {
+    grid-row: 1 / 4;
+    width: 52px;
+    height: 52px;
+  }
+
+  .pulse54 > footer,
+  .pulsefeed > footer,
+  .pulsedg > footer,
+  .pulseras > footer,
+  .pulsecivic > footer,
+  .pulsetti > footer,
+  .pulsems > footer,
+  .pulseelo > footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -12,6 +12,22 @@
   stylesheet.href = new URL("ad-system.css?v=20260718-3", sharedBase).href;
   document.head.appendChild(stylesheet);
 
+  function loadCityPulse(delay) {
+    window.setTimeout(function () {
+      if (!document.querySelector('link[href*="city-pulse.css"]')) {
+        const pulseStyles = document.createElement("link");
+        pulseStyles.rel = "stylesheet";
+        pulseStyles.href = new URL("city-pulse.css", sharedBase).href;
+        document.head.appendChild(pulseStyles);
+      }
+      if (!document.querySelector('script[src*="city-pulse.js"]')) {
+        const pulseScript = document.createElement("script");
+        pulseScript.src = new URL("city-pulse.js", sharedBase).href;
+        document.body.appendChild(pulseScript);
+      }
+    }, delay || 0);
+  }
+
   const legit = [
     ["legit/spider-cyberchair.png", "Rocklin Spider Cyberchair"],
     ["legit/microcutie.png", "MicroCutie Personal Defense"],
@@ -277,12 +293,14 @@
       window.setTimeout(mountNetwork54NativeAds, 500);
       window.setTimeout(mountNetwork54NativeAds, 1500);
     }, 500);
+    loadCityPulse(800);
   } else if (site === "trauma") {
     const partner = createSlot("trauma-inline", widePool, 0, { element: "div", label: "Trauma Team member partner" });
     if (sections[0]) sections[0].insertAdjacentElement("afterend", partner); else main.appendChild(partner);
     if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("trauma-footer", traumaBannerPool, 3, { element: "div", label: "Trauma Team member partner" }), footer);
   } else if (site === "feedfrenzy") {
     mountFeedFrenzyAds();
+    loadCityPulse(0);
   }
 
   document.documentElement.setAttribute("data-nc-ad-system", "ready");
