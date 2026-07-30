@@ -12,7 +12,10 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: auto; }
+html {
+  overflow-x: clip;
+  scroll-behavior: auto;
+}
 body {
   margin: 0;
   min-width: 320px;
@@ -178,6 +181,8 @@ a { color: inherit; }
   white-space: nowrap;
 }
 .panic-strip div {
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   padding: 9px 0 8px;
   white-space: nowrap;

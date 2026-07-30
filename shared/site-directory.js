@@ -80,6 +80,7 @@
         ["Client Resources", "militech-security/#resources"],
         ["Private Consultation", "militech-security/#consultation"],
         ["Incident Response", "militech-security/information/incident-response/"],
+        ["Public Intelligence Notes", "militech-security/information/public-intelligence/"],
         ["Client Portal Information", "militech-security/information/client-portal/"],
         ["Privacy", "militech-security/information/privacy/"],
         ["Terms of Service", "militech-security/information/terms-of-service/"],
