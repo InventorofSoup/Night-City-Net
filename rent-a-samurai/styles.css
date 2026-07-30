@@ -98,7 +98,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .rook-note > span, .rook-note p { color: #24221e!important; }
 
 .contract-carousel, .operator-strip { margin-top: 17px; border: 1px solid #383d3c; background: #111415; }
+.job-filters { display: grid; grid-template-columns: minmax(190px,1.4fr) repeat(3,minmax(120px,.7fr)) auto; gap: 7px; padding: 9px 9px 0; }
+.job-filters input, .job-filters select { min-height: 38px; font: 700 9px "Courier New", monospace; }
+.job-filters button, .contracts-more { min-height: 38px; padding: 8px 12px; border: 1px solid #555a56; background: #1b1f20; color: var(--bone); font: 800 9px "Courier New", monospace; cursor: pointer; }
+.job-filters button:hover, .contracts-more:hover { border-color: var(--red-bright); color: #fff; }
 .contract-strip { display: grid; grid-template-columns: repeat(4,minmax(150px,1fr)); gap: 7px; padding: 9px; }
+.contracts-more { display: block; width: calc(100% - 18px); margin: 0 9px 9px; border-color: #754039; background: repeating-linear-gradient(135deg,#171a1b 0 8px,#1d2122 8px 16px); }
 .job-card { position: relative; min-height: 150px; padding: 15px; overflow: hidden; border: 1px solid #555951; background: linear-gradient(145deg,#252a2a,#171a1b); color: var(--bone); text-align: left; cursor: pointer; clip-path: polygon(5% 0,100% 0,100% 88%,95% 100%,0 100%,0 12%); }
 .job-card:hover, .job-card.selected { border-color: var(--red-bright); box-shadow: inset 0 -4px 0 var(--red); }
 .job-card.selected::before { content: ""; position: absolute; top: 0; left: 0; border-top: 28px solid var(--red); border-right: 28px solid transparent; }
@@ -132,6 +137,7 @@ textarea { resize: vertical; }
 .role-chips button.active { background: var(--red); color: #fff; }
 .runner-filters > label { display: flex; align-items: center; gap: 7px; font: 800 9px "Courier New", monospace; }
 .runner-filters input[type="checkbox"] { width: 18px; min-height: 18px; }
+.preview-notice { padding: 10px 12px; border-left: 3px solid var(--ochre); background: #211f19; color: #d4c8aa; font: 800 9px/1.55 "Courier New", monospace; }
 .runner-grid { display: grid; grid-template-columns: repeat(4,minmax(200px,1fr)); gap: 12px; }
 .runner-card { display: flex; flex-direction: column; min-height: 360px; overflow: hidden; border: 1px solid #555a56; background: linear-gradient(160deg,#252a29,#121516 65%); clip-path: polygon(7% 0,100% 0,100% 94%,93% 100%,0 100%,0 6%); }
 .runner-card:hover { border-color: var(--ochre); }
@@ -238,6 +244,7 @@ dialog::backdrop { background: #070808dd; }
   .featured-pay { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #7d7569; border-left: 0; }
   .featured-pay .accept-contract { grid-column: 1 / -1; }
   .contract-strip { grid-template-columns: repeat(4,210px); overflow-x: auto; }
+  .job-filters { grid-template-columns: 1fr 1fr; }
   .operator-cards { grid-template-columns: repeat(5,150px); overflow-x: auto; }
   .contract-intel { grid-template-columns: repeat(2,1fr); }
   .runner-grid { grid-template-columns: repeat(2,1fr); }
@@ -257,6 +264,7 @@ dialog::backdrop { background: #070808dd; }
   .roster-more { min-height: 55px; margin: 0 9px 9px; }
   .screen-heading { clip-path: none; }
   .runner-filters, .form-pair, .form-triple { grid-template-columns: 1fr; }
+  .job-filters { grid-template-columns: 1fr; }
   .crew-controls { padding: 20px; }
   #profile-roles { grid-template-columns: 1fr 1fr; }
   .site-footer { align-items: flex-start; flex-direction: column; }

@@ -147,6 +147,7 @@
             </div>
             <label>WHAT SHOULD THE ANALYST UNDERSTAND?<textarea name="details" rows="7" required placeholder="People, dates, known facts, risks, and the answer you need..."></textarea></label>
             <label class="check-line"><input type="checkbox" required> I am authorized to request this review and understand acceptance is subject to conflict and legality screening.</label>
+            <p class="preview-notice">PUBLIC NODE PREVIEW // This demonstration does not transmit, store, or begin review of the information entered here.</p>
             <button class="red-action" type="submit">TRANSMIT FOR REVIEW</button>
             <p class="form-status" id="intake-status" role="status"></p>
           </form>
@@ -243,8 +244,9 @@
               <label>CASE REFERENCE, IF KNOWN<input name="reference" placeholder="DG-45-0000"></label>
             </div>
             <label>INFORMATION<textarea name="information" rows="8" required placeholder="What you observed, when, where, and how you know..."></textarea></label>
-            <label class="file-line">OPTIONAL FILE<input name="file" type="file" accept="image/*,video/*,audio/*,.pdf,.txt"></label>
+            <label class="file-line">OPTIONAL FILE — PREVIEW ONLY, NOT UPLOADED<input name="file" type="file" accept="image/*,video/*,audio/*,.pdf,.txt"></label>
             <label class="check-line"><input type="checkbox" required> I understand false or malicious submissions may be retained and investigated.</label>
+            <p class="preview-notice">PUBLIC NODE PREVIEW // No text or selected file is transmitted or stored by this demonstration.</p>
             <button class="red-action" type="submit">TRANSFER TO TRIAGE</button>
             <p class="form-status" id="tip-status" role="status"></p>
           </form>

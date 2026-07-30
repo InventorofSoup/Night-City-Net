@@ -54,8 +54,21 @@
               <article class="featured-contract" id="featured-contract"></article>
 
               <section class="contract-carousel">
-                <div class="section-label"><span>OTHER OPEN CONTRACTS</span><small>SELECT TO REVIEW</small></div>
+                <div class="section-label"><span>OTHER OPEN CONTRACTS</span><small id="job-result-count">0 CONTRACTS</small></div>
+                <form id="job-filters" class="job-filters">
+                  <input id="job-search" type="search" aria-label="Search contracts" placeholder="SEARCH TITLE / CLIENT / KEYWORD">
+                  <select id="job-type" aria-label="Filter by work type"></select>
+                  <select id="job-district" aria-label="Filter by district"></select>
+                  <select id="job-pay" aria-label="Filter by minimum pay">
+                    <option value="0">ANY PAY</option>
+                    <option value="2000">2,000EB+</option>
+                    <option value="5000">5,000EB+</option>
+                    <option value="10000">10,000EB+</option>
+                  </select>
+                  <button type="reset">CLEAR</button>
+                </form>
                 <div class="contract-strip" id="job-board"></div>
+                <button type="button" class="contracts-more" id="contracts-more">LOAD MORE CONTRACTS</button>
               </section>
 
               <section class="operator-strip">
@@ -74,8 +87,6 @@
             </aside>
           </div>
           <p class="empty-state" id="job-empty" hidden>No contracts match the current filters.</p>
-          <span id="job-result-count" hidden></span>
-          <form id="job-filters" hidden><input id="job-search"><select id="job-type"></select><select id="job-district"></select><select id="job-pay"><option value="0">Any</option></select></form>
         </section>
 
         <section class="market-view" id="runners" data-route="runners" hidden>
@@ -117,6 +128,7 @@
               <div class="form-triple"><label>TOTAL PAY (EB)<input name="pay" required type="number" min="100" step="100"></label><label>CREW NEEDED<select name="crew"><option>1</option><option>2</option><option>3</option><option>4+</option></select></label><label>DANGER CLAIM<select name="danger"><option>Low</option><option selected>Medium</option><option>High</option><option>Unknown</option></select></label></div>
               <fieldset><legend>KNOWN CONDITIONS</legend><label><input type="checkbox" name="corp"> Corporate involvement</label><label><input type="checkbox" name="illegal"> Illegal activity</label><label><input type="checkbox" name="combat"> Armed opposition likely</label><label><input type="checkbox" name="time"> Hard deadline</label></fieldset>
               <label class="legal-check"><input type="checkbox" required> I understand deliberate omissions can permanently mark this client handle.</label>
+              <p class="preview-notice">SITE PREVIEW // This form demonstrates the board workflow. It does not transmit or publish a shared contract.</p>
               <button class="submit-action" type="submit">SUBMIT FOR BOARD REVIEW</button><p class="form-status" id="contract-status" role="status"></p>
             </form>
             <aside class="street-guide"><span>CLIENT DISCLOSURE STANDARD</span><h2>Unknown risk changes the rate.</h2><ol><li>Name the actual objective.</li><li>Disclose known corporate interest.</li><li>Set aside payment before recruiting.</li><li>Never post the meetup publicly.</li></ol><p>Board review checks known scam patterns. It does not certify legality or solvency.</p></aside>
@@ -133,6 +145,7 @@
               <div class="form-pair"><label>PREFERRED WORK<input name="preferred" required></label><label>WON'T TAKE<input name="refused" required></label></div>
               <div class="form-triple"><label>BASE RATE<select name="rate"><option>Negotiable</option><option>500eb+</option><option>1,000eb+</option><option>2,500eb+</option></select></label><label>STATUS<select name="status"><option>Available now</option><option>Selective</option><option>Crew only</option></select></label><label>OPERATING AREA<select id="profile-district" name="district"></select></label></div>
               <label class="legal-check"><input type="checkbox" required> False credentials and review manipulation can result in a permanent burn notice.</label>
+              <p class="preview-notice">SITE PREVIEW // This form demonstrates operator intake. It does not transmit or create a shared public profile.</p>
               <button class="submit-action" type="submit">CREATE PENDING PROFILE</button><p class="form-status" id="profile-status" role="status"></p>
             </form>
             <aside class="street-guide"><span>PUBLIC PROFILE STANDARD</span><h2>Publish capability, not exposure.</h2><ul><li>Use a handle.</li><li>Do not list your home district.</li><li>Keep active contracts private.</li><li>Expect clients to verify claims.</li></ul><button type="button" id="open-burn-policy">READ BURN NOTICE POLICY</button></aside>

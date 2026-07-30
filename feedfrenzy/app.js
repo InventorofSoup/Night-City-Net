@@ -519,7 +519,12 @@ function showToast(message) {
   toastTimer = window.setTimeout(() => toast.classList.remove("show"), 3400);
 }
 
-function openStory(id) {
+function setStoryHash(id) {
+  const hash = `#story-${id}`;
+  if (location.hash !== hash) history.pushState(null, "", hash);
+}
+
+function openStory(id, updateHash = true) {
   const story = stories[id];
   if (!story) {
     showToast("STORY FILE MOVED, DELETED, OR NEVER EXISTED.");
@@ -554,6 +559,7 @@ function openStory(id) {
     button.addEventListener("click", () => showToast(button.dataset.commentReply));
   });
   storyDialog.showModal();
+  if (updateHash) setStoryHash(id);
 }
 
 document.querySelectorAll("[data-story]").forEach((button) => {
@@ -568,6 +574,10 @@ document.querySelectorAll("[data-close-dialog]").forEach((button) => {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
+});
+
+storyDialog.addEventListener("close", () => {
+  if (location.hash.startsWith("#story-")) history.replaceState(null, "", location.pathname + location.search);
 });
 
 document.querySelectorAll("[data-reactions]").forEach((group) => {
@@ -642,7 +652,7 @@ function openTipDialog() {
 document.querySelector("#tip-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const result = document.querySelector("#tip-result");
-  result.textContent = "UPLOAD REJECTED // SOURCE-PROTECTION SERVER IS USING ITS ONLY PORT FOR MUSIC. Your text was added to a review queue with no assigned reviewer.";
+  result.textContent = "DEMO COMPLETE // The server remains busy with music. Nothing was transmitted, uploaded, or stored.";
   event.currentTarget.reset();
 });
 
@@ -660,3 +670,15 @@ document.querySelectorAll("[data-footer-action]").forEach((button) => {
 window.setTimeout(() => {
   showToast("ALERT: PUBLIC WORKS DENIES THE MIST IS “MYSTERY VAPOR.” THEY DID NOT SAY WHAT IT IS.");
 }, 1300);
+
+function openStoryFromHash() {
+  const hash = decodeURIComponent(location.hash.slice(1));
+  if (hash.startsWith("story-")) {
+    openStory(hash.slice("story-".length), false);
+  } else if (storyDialog.open) {
+    storyDialog.close();
+  }
+}
+
+window.addEventListener("hashchange", openStoryFromHash);
+openStoryFromHash();
