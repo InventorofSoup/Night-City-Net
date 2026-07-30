@@ -76,9 +76,16 @@ function showToast(message) {
   toastTimer = window.setTimeout(() => toast.classList.remove("show"), 3600);
 }
 
-function showContent(html) {
+function setItemHash(value) {
+  const hash = `#${value}`;
+  if (location.hash !== hash) history.pushState(null, "", hash);
+}
+
+function showContent(html, parentView = "", hashValue = "") {
   dialogContent.innerHTML = html;
+  contentDialog.dataset.parentView = parentView;
   contentDialog.showModal();
+  if (hashValue) setItemHash(hashValue);
 }
 
 const viewNames = {
@@ -97,7 +104,9 @@ function activateView(id, updateHash = true) {
     section.classList.toggle("active", active);
   });
   document.querySelectorAll("[data-view-target]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.viewTarget === view);
+    const active = button.dataset.viewTarget === view;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-current", active ? "page" : "false");
   });
   document.querySelector("#workspace-code").textContent = viewNames[view][0];
   document.querySelector("#workspace-title").textContent = viewNames[view][1];
@@ -127,50 +136,64 @@ document.querySelectorAll("[data-service]").forEach((button) => {
 document.querySelector("#intake-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const reference = `DG-PRE-${Math.floor(100000 + Math.random() * 900000)}`;
-  document.querySelector("#intake-status").textContent = `RECEIVED // ${reference} // Preliminary conflict and eligibility review started. This reference does not grant client access.`;
+  document.querySelector("#intake-status").textContent = `PREVIEW COMPLETE // ${reference} // No information was transmitted, stored, or sent for review.`;
   event.currentTarget.reset();
 });
 
-document.querySelectorAll("[data-release]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const release = releases[button.dataset.release];
-    showContent(`
+function openRelease(id, updateHash = true) {
+  const release = releases[id];
+  if (!release) return;
+  activateView("releases", false);
+  showContent(`
       <span class="release-stamp">${release.stamp}</span>
       <h2>${release.title}</h2>
       ${release.body.map((paragraph) => `<p>${paragraph}</p>`).join("")}
       <h3>Information withheld</h3>
       <p><span class="redaction"></span> &nbsp; Client identity, source identities, investigative methods, and non-public evidence.</p>
-    `);
-  });
+    `, "releases", updateHash ? `release-${id}` : "");
+}
+
+document.querySelectorAll("[data-release]").forEach((button) => {
+  button.addEventListener("click", () => openRelease(button.dataset.release));
 });
 
-document.querySelectorAll("[data-agent]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const name = button.dataset.agent;
-    showContent(`
+function agentSlug(name) {
+  return name.toLowerCase().replace(/\s+/g, "-");
+}
+
+function openAgent(name, updateHash = true) {
+  if (!publicAgents[name]) return;
+  activateView("puma", false);
+  showContent(`
       <span class="release-stamp">PUMA SQUAD // PUBLIC TEAM BRIEF</span>
       <h2>${name}</h2>
       <p>${publicAgents[name]}</p>
       <p>Personal history, current assignments, technical capabilities, contact channels, and deployment status are not available through the public node.</p>
       <p><span class="redaction"></span> <span class="redaction"></span></p>
-    `);
-  });
+    `, "puma", updateHash ? `agent-${agentSlug(name)}` : "");
+}
+
+document.querySelectorAll("[data-agent]").forEach((button) => {
+  button.addEventListener("click", () => openAgent(button.dataset.agent));
 });
 
-document.querySelector("#puma-release").addEventListener("click", () => {
+function openPumaRelease(updateHash = true) {
+  activateView("puma", false);
   showContent(`
     <span class="release-stamp">PUBLIC OUTREACH FILE // PUMA SQUAD</span>
     <h2>Visible by design. Capable by necessity.</h2>
     <p>Puma Squad is Danger Gal’s public-facing special-investigations team. Mouse, Pantera, Tigress, Doc Mittens, and Lynx support selected recovery matters, public-interest investigations, and community outreach.</p>
     <p>The team’s best-known public recovery involved rare water lily specimens stolen from the Loggagia Arboretum living vault at Night City University. A sanitized account is available in Public Releases.</p>
     <p>Entertainment adaptations and licensed merchandise do not constitute operational records. Do not use public appearances to infer active assignments.</p>
-  `);
-});
+  `, "puma", updateHash ? "puma-overview" : "");
+}
+
+document.querySelector("#puma-release").addEventListener("click", () => openPumaRelease());
 
 document.querySelector("#tip-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const receipt = `DROP-${Math.floor(10000 + Math.random() * 90000)}`;
-  document.querySelector("#tip-status").textContent = `TRANSFER COMPLETE // ${receipt} // Material queued for analyst triage. A response is not guaranteed.`;
+  document.querySelector("#tip-status").textContent = `PREVIEW COMPLETE // ${receipt} // No text or file was transmitted, uploaded, or stored.`;
   event.currentTarget.reset();
 });
 
@@ -205,5 +228,41 @@ document.querySelectorAll("[data-close-dialog]").forEach((button) => {
   });
 });
 
-window.addEventListener("hashchange", () => activateView(location.hash.slice(1), false));
-activateView(location.hash.slice(1), false);
+contentDialog.addEventListener("close", () => {
+  const parentView = contentDialog.dataset.parentView;
+  if (parentView && /^(#release-|#agent-|#puma-overview)/.test(location.hash)) {
+    history.replaceState(null, "", `#${parentView}`);
+  }
+  contentDialog.dataset.parentView = "";
+});
+
+function openFromHash() {
+  const hash = decodeURIComponent(location.hash.slice(1));
+  if (hash.startsWith("release-")) {
+    const id = hash.slice("release-".length);
+    if (releases[id]) {
+      openRelease(id, false);
+      return;
+    }
+  }
+  if (hash.startsWith("agent-")) {
+    const slug = hash.slice("agent-".length);
+    const name = Object.keys(publicAgents).find((agent) => agentSlug(agent) === slug);
+    if (name) {
+      openAgent(name, false);
+      return;
+    }
+  }
+  if (hash === "puma-overview") {
+    openPumaRelease(false);
+    return;
+  }
+  if (contentDialog.open && contentDialog.dataset.parentView) {
+    contentDialog.dataset.parentView = "";
+    contentDialog.close();
+  }
+  activateView(hash, false);
+}
+
+window.addEventListener("hashchange", openFromHash);
+openFromHash();

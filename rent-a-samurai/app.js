@@ -78,6 +78,7 @@ const dialogContent = document.querySelector("#dialog-content");
 const toast = document.querySelector("#toast");
 let activeRole = "All";
 let selectedJobId = jobs[0].id;
+let jobLimit = 4;
 let toastTimer;
 
 function money(value) {
@@ -91,9 +92,16 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove("show"), 3400);
 }
 
-function showDialog(html) {
+function setItemHash(value) {
+  const hash = `#${value}`;
+  if (location.hash !== hash) history.pushState(null, "", hash);
+}
+
+function showDialog(html, parentRoute = "", hashValue = "") {
   dialogContent.innerHTML = html;
+  dialog.dataset.parentRoute = parentRoute;
   dialog.showModal();
+  if (hashValue) setItemHash(hashValue);
 }
 
 function activateRoute(id, updateHash = true) {
@@ -103,7 +111,11 @@ function activateRoute(id, updateHash = true) {
     view.hidden = !active;
     view.classList.toggle("active", active);
   });
-  document.querySelectorAll("[data-route-target]").forEach((button) => button.classList.toggle("active", button.dataset.routeTarget === route));
+  document.querySelectorAll("[data-route-target]").forEach((button) => {
+    const active = button.dataset.routeTarget === route;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-current", active ? "page" : "false");
+  });
   document.querySelector("#market").scrollIntoView({ block: "start" });
   if (updateHash && location.hash !== `#${route}`) history.pushState(null, "", `#${route}`);
 }
@@ -173,8 +185,12 @@ function renderJobs() {
   if (shown.length && !shown.some((job) => job.id === selectedJobId)) selectedJobId = shown[0].id;
   const selected = shown.find((job) => job.id === selectedJobId);
   if (selected) updateFeatured(selected, shown.indexOf(selected), shown.length);
+  document.querySelector(".stage-label").hidden = !selected;
+  document.querySelector("#featured-contract").hidden = !selected;
+  document.querySelector(".contract-intel").hidden = !selected;
 
-  const stripJobs = shown.filter((job) => job.id !== selectedJobId).slice(0, 4);
+  const otherJobs = shown.filter((job) => job.id !== selectedJobId);
+  const stripJobs = otherJobs.slice(0, jobLimit);
   document.querySelector("#job-board").innerHTML = stripJobs.map((job) => `
     <button class="job-card" type="button" data-job-select="${job.id}">
       <code>${job.id} // ${job.type.toUpperCase()}</code>
@@ -185,10 +201,17 @@ function renderJobs() {
     </button>`).join("");
   document.querySelector("#job-result-count").textContent = `${shown.length} CONTRACT${shown.length === 1 ? "" : "S"}`;
   document.querySelector("#job-empty").hidden = shown.length !== 0;
+  const moreButton = document.querySelector("#contracts-more");
+  moreButton.hidden = otherJobs.length <= jobLimit;
+  moreButton.textContent = `LOAD MORE CONTRACTS // ${Math.max(0, otherJobs.length - jobLimit)} REMAIN`;
 }
 
-function openJob(id) {
+function openJob(id, updateHash = true) {
   const job = jobs.find((item) => item.id === id);
+  if (!job) return;
+  selectedJobId = job.id;
+  activateRoute("jobs", false);
+  renderJobs();
   showDialog(`
     <span class="dialog-code">${job.id} // PUBLIC CONTRACT PREVIEW</span>
     <h2>${job.title}</h2>
@@ -199,7 +222,7 @@ function openJob(id) {
     <h3>Board note</h3>
     <p>${job.trust}. Board verification confirms only the stated marker. It does not guarantee complete disclosure, payment beyond funded escrow, legality, or survival.</p>
     <div class="dialog-actions"><button type="button" data-apply-job="${job.id}">APPLY TO CONTRACT</button><button type="button" class="secondary" data-report-job="${job.id}">REPORT LISTING</button></div>
-  `);
+  `, "jobs", updateHash ? `contract-${job.id}` : "");
 }
 
 function renderRunners() {
@@ -230,8 +253,10 @@ function renderOperatorPreview() {
     </button>`).join("");
 }
 
-function openRunner(id) {
+function openRunner(id, updateHash = true) {
   const runner = runners.find((item) => item.id === id);
+  if (!runner) return;
+  activateRoute("runners", false);
   showDialog(`
     <span class="dialog-code">RUNNER PROFILE // ${runner.verified ? "BOARD VERIFIED" : "IDENTITY PARTIAL"}${runner.disputed ? " // CLAIM DISPUTED" : ""}</span>
     <h2>${runner.handle}</h2>
@@ -239,7 +264,7 @@ function openRunner(id) {
     <p>${runner.pitch}</p><h3>Preferred work</h3><p>${runner.preferred}</p><h3>Public red lines</h3><p>${runner.refused}</p>
     <h3>Reputation notice</h3><p>${runner.score} across ${runner.jobs} listed jobs. Reviews may be anonymous, incomplete, contested, or written by people with excellent reasons to lie.</p>
     <div class="dialog-actions"><button type="button" data-hire="${runner.id}">SEND DIRECT OFFER</button><button type="button" class="secondary" data-report-runner="${runner.id}">REPORT PROFILE</button></div>
-  `);
+  `, "runners", updateHash ? `runner-${runner.id}` : "");
 }
 
 function beginDirectOffer(id) {
@@ -293,8 +318,18 @@ document.querySelector("#profile-roles").innerHTML = roles.map((role) => `<label
 
 document.querySelectorAll("[data-route-target]").forEach((button) => button.addEventListener("click", () => activateRoute(button.dataset.routeTarget)));
 document.querySelectorAll("[data-route-link]").forEach((link) => link.addEventListener("click", (event) => { event.preventDefault(); activateRoute(link.dataset.routeLink); }));
-document.querySelector("#job-filters").addEventListener("input", renderJobs);
-document.querySelector("#job-filters").addEventListener("reset", () => setTimeout(renderJobs));
+document.querySelector("#job-filters").addEventListener("input", () => {
+  jobLimit = 4;
+  renderJobs();
+});
+document.querySelector("#job-filters").addEventListener("reset", () => {
+  jobLimit = 4;
+  setTimeout(renderJobs);
+});
+document.querySelector("#contracts-more").addEventListener("click", () => {
+  jobLimit += 4;
+  renderJobs();
+});
 document.querySelector("#job-board").addEventListener("click", (event) => {
   const button = event.target.closest("[data-job-select]");
   if (button) {
@@ -346,7 +381,7 @@ document.querySelector("#profile-form").addEventListener("submit", (event) => {
     return;
   }
   const reference = `RAS-PROFILE-${Math.floor(10000 + Math.random() * 90000)}`;
-  document.querySelector("#profile-status").textContent = `PENDING PROFILE CREATED // ${reference} // Identity and claim review required before public listing.`;
+  document.querySelector("#profile-status").textContent = `PREVIEW COMPLETE // ${reference} // No profile was transmitted, stored, or published.`;
   event.currentTarget.reset();
 });
 
@@ -365,6 +400,13 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 document.querySelector("[data-close-dialog]").addEventListener("click", () => dialog.close());
+dialog.addEventListener("close", () => {
+  const parentRoute = dialog.dataset.parentRoute;
+  if (parentRoute && /^(#contract-|#runner-)/.test(location.hash)) {
+    history.replaceState(null, "", `#${parentRoute}`);
+  }
+  dialog.dataset.parentRoute = "";
+});
 
 document.querySelector("#open-safety").addEventListener("click", () => showDialog(`
   <span class="dialog-code">BOARD SAFETY // READ BEFORE ACCEPTANCE</span><h2>The listing is not the truth.</h2>
@@ -377,8 +419,31 @@ document.querySelector("#open-burn-policy").addEventListener("click", () => show
   <p>Rumor alone receives a temporary caution marker, not a permanent notice. Moderation decisions may be disputed through the board review channel.</p>
 `));
 
-window.addEventListener("hashchange", () => activateRoute(location.hash.slice(1), false));
+function openFromHash() {
+  const hash = decodeURIComponent(location.hash.slice(1));
+  if (hash.startsWith("contract-")) {
+    const id = hash.slice("contract-".length);
+    if (jobs.some((job) => job.id === id)) {
+      openJob(id, false);
+      return;
+    }
+  }
+  if (hash.startsWith("runner-")) {
+    const id = hash.slice("runner-".length);
+    if (runners.some((runner) => runner.id === id)) {
+      openRunner(id, false);
+      return;
+    }
+  }
+  if (dialog.open && dialog.dataset.parentRoute) {
+    dialog.dataset.parentRoute = "";
+    dialog.close();
+  }
+  activateRoute(hash, false);
+}
+
+window.addEventListener("hashchange", openFromHash);
 renderJobs();
 renderRunners();
 renderOperatorPreview();
-activateRoute(location.hash.slice(1), false);
+openFromHash();

@@ -148,6 +148,7 @@ textarea { resize: vertical; }
 .red-action:hover { background: var(--red-dark); }
 .black-action { background: var(--ink); }
 .form-status { min-height: 1.4em; margin: 0; color: var(--red-dark); font: 800 10px/1.55 "Courier New", monospace; }
+.preview-notice { margin: 0; padding: 11px 13px; border-left: 4px solid var(--red); background: var(--wash); color: var(--ink); font: 800 9px/1.55 "Courier New", monospace; }
 .intake-margin { align-self: start; border-top: 5px solid var(--red); }
 .intake-margin > div { padding: 15px 5px; border-bottom: 1px solid var(--line); }
 .intake-margin span { display: block; margin-bottom: 5px; color: var(--red); font: 800 8px "Courier New", monospace; letter-spacing: .08em; }
