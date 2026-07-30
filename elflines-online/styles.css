@@ -213,6 +213,10 @@ footer>div:last-child{padding-top:16px;border-top:1px solid var(--line)}
   nav{display:none}
 }
 @media(max-width:600px){
+  header{align-items:flex-start;flex-wrap:wrap}
+  .logo{min-width:0}
+  .logo small{white-space:normal}
+  .header-actions{width:100%;justify-content:space-between;gap:8px}
   .thread{grid-template-columns:1fr}
   .listing{grid-template-columns:1fr}
   .listing .price{text-align:left}

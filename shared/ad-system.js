@@ -269,10 +269,14 @@
     if (sections.length > 3) sections[Math.floor(sections.length / 2)].insertAdjacentElement("afterend", second); else if (footer && footer.parentNode) footer.parentNode.insertBefore(second, footer);
     if (footer && footer.parentNode) footer.parentNode.insertBefore(createSlot("civic-footer", bannerPool, 8, { element: "div", label: "Municipal contractor advertisement" }), footer);
   } else if (site === "network54") {
-    mountNetwork54NativeAds();
-    mountNetwork54FeedAds();
-    window.setTimeout(mountNetwork54NativeAds, 500);
-    window.setTimeout(mountNetwork54NativeAds, 1500);
+    // Network 54 hydrates a server-rendered React page. Let hydration finish
+    // before replacing its built-in ad slots, or React discards the server DOM.
+    window.setTimeout(function () {
+      mountNetwork54NativeAds();
+      mountNetwork54FeedAds();
+      window.setTimeout(mountNetwork54NativeAds, 500);
+      window.setTimeout(mountNetwork54NativeAds, 1500);
+    }, 500);
   } else if (site === "trauma") {
     const partner = createSlot("trauma-inline", widePool, 0, { element: "div", label: "Trauma Team member partner" });
     if (sections[0]) sections[0].insertAdjacentElement("afterend", partner); else main.appendChild(partner);
