@@ -1,0 +1,141 @@
+.tti-membership-audio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+  gap: 22px 34px;
+  align-items: center;
+  margin: 0 0 34px;
+  padding: 24px 26px;
+  border-left: 7px solid var(--coral);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 14px 36px rgba(6, 25, 27, .13);
+}
+
+.tti-membership-audio__identity {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.tti-membership-audio__identity > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--mint);
+  color: var(--mint);
+  font: 700 17px var(--mono);
+  letter-spacing: .08em;
+}
+
+.tti-membership-audio__identity p,
+.tti-membership-audio__player p {
+  margin: 0;
+  color: var(--mint);
+  font: 8px var(--mono);
+  letter-spacing: .09em;
+}
+
+.tti-membership-audio__identity h3 {
+  margin: 4px 0 2px;
+  color: #fff;
+  font: 700 clamp(26px, 3vw, 38px)/1 var(--display);
+}
+
+.tti-membership-audio__identity small {
+  color: #bad2cd;
+  font-size: 10px;
+}
+
+.tti-membership-audio__player {
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid rgba(156, 245, 220, .25);
+  background: #0b2a2c;
+  color-scheme: dark;
+}
+
+.tti-membership-audio__player audio {
+  display: block;
+  width: 100%;
+  height: 38px;
+  accent-color: var(--coral);
+}
+
+.tti-membership-audio__player p {
+  margin-top: 8px;
+  color: #8ebbb4;
+}
+
+.tti-membership-audio details {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(156, 245, 220, .22);
+}
+
+.tti-membership-audio summary {
+  padding: 15px 0 0;
+  color: #fff;
+  font: 700 11px var(--body);
+  letter-spacing: .02em;
+}
+
+.tti-membership-audio summary b {
+  float: right;
+  color: var(--mint);
+  font: 400 20px var(--display);
+}
+
+.tti-membership-audio details[open] summary b {
+  transform: rotate(45deg);
+}
+
+.tti-membership-audio__transcript {
+  columns: 2;
+  column-gap: 36px;
+  padding: 17px 0 3px;
+  color: #c7dcda;
+}
+
+.tti-membership-audio__transcript p {
+  break-inside: avoid;
+  margin: 0 0 11px;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.tti-membership-audio__transcript .tti-membership-audio__legal {
+  color: #82aaa5;
+  font: 8px/1.5 var(--mono);
+}
+
+@media (max-width: 850px) {
+  .tti-membership-audio {
+    grid-template-columns: 1fr;
+  }
+
+  .tti-membership-audio details {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .tti-membership-audio {
+    padding: 20px 17px;
+  }
+
+  .tti-membership-audio__identity {
+    align-items: flex-start;
+  }
+
+  .tti-membership-audio__identity > span {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    font-size: 13px;
+  }
+
+  .tti-membership-audio__transcript {
+    columns: 1;
+  }
+}

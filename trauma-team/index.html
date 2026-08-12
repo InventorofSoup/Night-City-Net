@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="functionality.css?v=20260718-1">
+  <link rel="stylesheet" href="audio-player.css">
   <link rel="stylesheet" href="../shared/city-pulse.css">
 </head>
 <body>
@@ -38,6 +39,37 @@
     <section class="emergency-strip" id="emergency"><div><b>+</b><p><strong>Already a member?</strong><br>Your coverage follows your verified biometric signature.</p></div><div><p>Need immediate assistance?</p><a href="tel:911">Call 911</a></div><div><p>From outside Night City</p><a href="tel:+18005550113">+1 800 555 0113</a></div></section>
     <section class="section" id="plans">
       <div class="intro"><p class="eyebrow">MEMBERSHIP, BUILT AROUND YOU</p><h2>Protection has a tier.</h2><p>Every plan includes access to Trauma Team dispatch. The care, speed, and places we go from there depend on your membership.</p></div>
+      <aside class="tti-membership-audio" aria-labelledby="tti-audio-title">
+        <div class="tti-membership-audio__identity">
+          <span aria-hidden="true">TTI</span>
+          <div>
+            <p>TRAUMA TEAM INTERNATIONAL // SPONSORED SERVICE MESSAGE</p>
+            <h3 id="tti-audio-title">Membership audio briefing</h3>
+            <small>Regional dispatch explains available services and coverage tiers.</small>
+          </div>
+        </div>
+        <div class="tti-membership-audio__player">
+          <audio controls preload="metadata">
+            <source src="media/audio/trauma-team-membership-overview.mp3" type="audio/mpeg">
+            Your browser does not support embedded audio.
+          </audio>
+          <p>1:46 // English // Transcript available</p>
+        </div>
+        <details>
+          <summary>Read the advertisement transcript <b aria-hidden="true">+</b></summary>
+          <div class="tti-membership-audio__transcript">
+            <p>Night City moves fast. When every second matters, Trauma Team is ready to move faster.</p>
+            <p>With one verified distress signal, our regional dispatch center identifies your location, evaluates local conditions, and coordinates the medical response available through your membership. From on-scene stabilization to armed extraction, transport, and continued care through our facility network, Trauma Team helps bring professional emergency medicine directly to you.</p>
+            <p>Memberships begin with Bronze Essential, offering dispatch coordination, safe-scene stabilization, and network clinic referral for 1,650 eurodollars per year.</p>
+            <p>Silver Priority, our most selected plan, adds priority routing, armed medical response when conditions allow, network transport, and 15,000 in treatment credit.</p>
+            <p>Gold Executive provides guaranteed armed AV dispatch, priority intervention, access to any in-network facility, 100,000 in treatment credit, and coverage for one dependent.</p>
+            <p>For clients who expect the highest available level of protection, Platinum Black includes maximum-force extraction, global network access, private facility admission, 500,000 in treatment credit, and family or executive coverage.</p>
+            <p>Your life does not follow a schedule. Your protection should not have to catch up. Explore Trauma Team membership today, and choose the response that is ready when you need it.</p>
+            <p>Trauma Team International. Care at the speed of survival.</p>
+            <p class="tti-membership-audio__legal">Response, timing, personnel, transport, and facility access remain subject to membership terms, identity verification, regional availability, and current threat conditions.</p>
+          </div>
+        </details>
+      </aside>
       <div class="plans">
         <article><p class="tier">BRONZE</p><h3>Essential</h3><p class="price">€$1,650 <small>/ year</small></p><p class="desc">For those who want a number to call.</p><ul><li>Dispatch coordination</li><li>Stabilization at scene, when safe</li><li>Network clinic referral</li><li>Response subject to area risk</li></ul><button data-modal="quote" data-plan="Bronze Essential">Select Bronze</button><small>Most exclusions apply. Transport not included.</small></article>
         <article class="selected"><p class="tag">MOST SELECTED</p><p class="tier">SILVER</p><h3>Priority</h3><p class="price">€$7,500 <small>/ year</small></p><p class="desc">A faster path to the care you need.</p><ul><li>Armed medical response*</li><li>Priority dispatch routing</li><li>Emergency stabilization</li><li>Transport to network facility</li><li>€$15,000 treatment credit</li></ul><button data-modal="quote" data-plan="Silver Priority">Select Silver</button><small>*Subject to threat assessment.</small></article>
