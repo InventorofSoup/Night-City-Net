@@ -1,0 +1,6 @@
+document.querySelector("#ping").addEventListener("click",function(){const result=document.querySelector("#ping-result");result.textContent="PING SENT...";window.setTimeout(function(){result.textContent="NO RESPONSE · ROUTE EXPIRED";document.querySelector("#signal").textContent="UPLINK: SEARCHING"},900)});
+document.querySelector("#recover").addEventListener("click",function(){this.disabled=true;this.textContent="RECOVERY FAILED";document.querySelector("#terminal").textContent+="> entry_002 payload: zero bytes\n> remote field unit did not acknowledge"});
+document.querySelector("#rules").addEventListener("click",function(){const panel=document.querySelector("#rule-panel");panel.hidden=!panel.hidden;this.textContent=panel.hidden?"VIEW CHALLENGE RULES":"HIDE CHALLENGE RULES"});
+document.querySelectorAll("[data-node]").forEach(function(node){node.addEventListener("click",function(){const parts=node.dataset.node.split("|");document.querySelector("#node-readout").innerHTML="<b>"+parts[0]+"</b> — "+parts[1]})});
+document.querySelector("#social").addEventListener("click",function(){document.querySelector("#echo").showModal()});
+document.querySelector("#echo button").addEventListener("click",function(){document.querySelector("#echo").close()});

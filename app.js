@@ -96,7 +96,7 @@ function renderWebring() {
     item.appendChild(textElement("small", "ring position " + (index + 1) + " · status: " + member.status));
     const description = document.createElement("p");
     if (member.href) {
-      const link = textElement("a", member.href);
+      const link = textElement("a", member.linkLabel || member.href);
       link.href = member.href;
       description.appendChild(link);
       description.appendChild(document.createTextNode(" — "));

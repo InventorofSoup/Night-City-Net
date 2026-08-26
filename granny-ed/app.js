@@ -1,0 +1,4 @@
+document.querySelector("#tea").addEventListener("click",function(){document.querySelector("#tea-msg").textContent="Tea poured. Mind the chipped cup."});
+document.querySelectorAll("[data-clip]").forEach(function(button){button.addEventListener("click",function(){document.querySelectorAll("[data-clip]").forEach(function(b){b.classList.toggle("active",b===button)});const parts=button.dataset.clip.split("|");document.querySelector("#clip-screen").innerHTML="<b>"+parts[0]+"</b><p>"+parts[1]+"</p><small>"+parts[2]+"</small>"})});
+document.querySelector("#note-form").addEventListener("submit",function(event){event.preventDefault();document.querySelector("#note-result").textContent="Pinned! Granny Ed will read it after the raid queue.";event.currentTarget.reset()});
+document.querySelector("#seed-mail").addEventListener("click",function(){document.querySelector("#seed-result").textContent="REQUEST NOTED. Ed will send a Night City-3 trade invite after supper."});

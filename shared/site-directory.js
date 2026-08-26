@@ -149,38 +149,75 @@
         ["Create a Profile", "rent-a-samurai/#profile"],
       ],
     },
+    {
+      id: "granny-ed",
+      name: "Granny Ed's Garden & Gaming Corner",
+      href: "granny-ed/",
+      status: "live",
+      description: "Virtual horticulture notes, raid-night recipes, and lovingly labeled ELO kill-cams.",
+      ringStatus: "online, barely",
+      ringDescription: "half Elflands gardening blog, half ELO kill-cam cupboard; surprisingly high uptime for someone's grandmother",
+      pages: [
+        ["Garden & Gaming Corner", "granny-ed/"],
+        ["Garden Notes", "granny-ed/#garden"],
+        ["Kill-cam Cupboard", "granny-ed/#clips"],
+        ["Raid-night Recipes", "granny-ed/#recipes"],
+      ],
+    },
+    {
+      id: "burs-razorfire-log",
+      name: "Bur's Razorfire Survival Log",
+      href: "burs-razorfire-log/",
+      status: "live",
+      description: "One recovered field entry from a camp that seemed smart at the time.",
+      ringStatus: "online",
+      ringDescription: "a damaged single-entry survival cache; the field unit has not answered in thirty-six days",
+      pages: [
+        ["Recovered Survival Log", "burs-razorfire-log/"],
+      ],
+    },
+    {
+      id: "southside-fixer-directory",
+      name: "Southside Fixer Directory (Unverified)",
+      href: "southside-fixer-directory/",
+      status: "live",
+      description: "A searchable mirror of names, specialties, burner numbers, and warnings.",
+      ringStatus: "online",
+      ringDescription: "a list of names and numbers; we did not vet this, and neither should you, probably",
+      pages: [
+        ["Unverified Fixer Ledger", "southside-fixer-directory/"],
+      ],
+    },
+    {
+      id: "last-stop-grill",
+      name: "The Last Stop Grill",
+      href: "last-stop-grill/",
+      status: "live",
+      description: "A tired all-night counter serving Kibble and Generic Prepak beneath the old rail line.",
+      ringStatus: "online, kitchen open",
+      ringDescription: "an old diner with six stools, patched wiring, honest food labels, and a surprisingly functional order terminal",
+      pages: [
+        ["The Last Stop Grill", "last-stop-grill/"],
+        ["Picture Menu", "last-stop-grill/#menu"],
+        ["Counter Order", "last-stop-grill/#order"],
+      ],
+    },
   ];
 
   const offlineRingMembers = [
     {
       name: "Daeric Sylar's ELO Fansite",
       status: "404",
+      href: "daeric-sylar-fansite/",
+      linkLabel: "OPEN RECOVERED 404",
       description: "\"my elfline, my rules, my terrible html.\" last updated sometime before the Expansion Pack 1 drop. domain expired, nobody renewed it.",
-    },
-    {
-      name: "Granny Ed's Garden & Gaming Corner",
-      status: "online, barely",
-      description: "half gardening blog, half ELO kill-cam highlight reel. surprisingly high uptime for someone's grandmother.",
     },
     {
       name: "Watson Nightlife Guide",
       status: "404",
+      href: "watson-nightlife-guide/",
+      linkLabel: "OPEN ARCHIVED 404",
       description: "hasn't been updated since three of the bars it reviewed stopped existing. rest in peace, Watson Nightlife Guide.",
-    },
-    {
-      name: "Bur's Razorfire Survival Log",
-      status: "online",
-      description: "a single page. one entry. \"day 1: setting up camp here seemed smart at the time.\" no day 2.",
-    },
-    {
-      name: "Southside Fixer Directory (Unverified)",
-      status: "online",
-      description: "a list of names and numbers. we did not vet this. neither should you, probably.",
-    },
-    {
-      name: "Wormwood's Newbie Elfline Recruitment Page",
-      status: "online",
-      description: "free starter gear, weekly escorts, a surprisingly professional layout for a guild recruitment flyer.",
     },
     {
       name: "+ 3 more members",
