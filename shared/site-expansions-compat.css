@@ -1,0 +1,47 @@
+/* Loaded after each site's own stylesheet so global site rules cannot reshape the added consoles. */
+.site section.nc-expansion,
+.workspace section.nc-expansion,
+main > section.nc-expansion {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 0;
+  margin: 72px auto 0;
+  padding: clamp(28px, 5vw, 72px);
+  background: var(--nc-bg);
+  color: var(--nc-text);
+  border: 0;
+  border-top: 1px solid var(--nc-line);
+  border-bottom: 1px solid var(--nc-line);
+}
+
+.nc-expansion nav.nc-expansion__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  overflow-x: auto;
+  background: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.nc-expansion article.nc-card,
+.nc-expansion section.nc-panel {
+  min-height: 0;
+  margin: 0;
+  color: var(--nc-text);
+  box-shadow: none;
+}
+
+@media (max-width: 850px) {
+  .site section.nc-expansion,
+  .workspace section.nc-expansion,
+  main > section.nc-expansion {
+    margin-top: 40px;
+    padding: 28px 18px;
+  }
+}

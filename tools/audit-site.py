@@ -220,7 +220,8 @@ def check_discovery_files(errors: list[str]) -> None:
             relative = page.relative_to(ROOT)
             content = page.read_text(encoding="utf-8", errors="ignore")
             title = re.search(r"<title>([\s\S]*?)</title>", content, re.IGNORECASE)
-            if relative.as_posix() == "404.html" or (title and re.match(r"\s*404\s*\|", title.group(1), re.IGNORECASE)):
+            hidden = re.search(r'<meta\b[^>]*\bname=["\']robots["\'][^>]*\bcontent=["\'][^"\']*noindex', content, re.IGNORECASE)
+            if relative.as_posix() == "404.html" or hidden or (title and re.match(r"\s*404\s*\|", title.group(1), re.IGNORECASE)):
                 continue
             canonical = re.search(r'<link\b[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']+)', content, re.IGNORECASE)
             if canonical:
@@ -238,6 +239,36 @@ def check_discovery_files(errors: list[str]) -> None:
         errors.append("robots.txt does not identify the published sitemap")
 
 
+def check_campaign_tools(errors: list[str]) -> None:
+    control = ROOT / "gm-control" / "index.html"
+    if not control.exists():
+        errors.append("gm-control/index.html is missing")
+    else:
+        text = control.read_text(encoding="utf-8", errors="ignore")
+        if "noindex,nofollow" not in text:
+            errors.append("gm-control/index.html must remain excluded from search indexing")
+        if "shared/campaign-state.js" not in text:
+            errors.append("gm-control/index.html does not load the campaign-state layer")
+    for folder in ("rent-a-samurai", "danger-gal", "feedfrenzy", "nc-civicnet", "trauma-team", "militech-security"):
+        page = ROOT / folder / "index.html"
+        text = page.read_text(encoding="utf-8", errors="ignore")
+        if "shared/campaign-state.js" not in text or "shared/site-expansions.js" not in text:
+            errors.append(f"{folder}/index.html: site-specific campaign tools are not loaded")
+    expansion = ROOT / "shared" / "site-expansions.js"
+    if expansion.exists():
+        text = expansion.read_text(encoding="utf-8", errors="ignore")
+        if 'new URL(".", document.currentScript.src)' not in text:
+            errors.append("shared/site-expansions.js: dynamic assets are not resolved from the shared directory")
+        for asset in ("site-expansions.css", "site-expansions-compat.css"):
+            if not (ROOT / "shared" / asset).exists() or f'new URL("{asset}' not in text:
+                errors.append(f"shared/site-expansions.js: dynamic stylesheet is missing or not loaded: {asset}")
+        for expected in ("nc-burner-form", "nc-case-form", "nc-vote-status", "nc-property-form", "nc-member-form", "Threat Briefings"):
+            if expected not in text:
+                errors.append(f"shared/site-expansions.js: expected feature is missing: {expected}")
+    else:
+        errors.append("shared/site-expansions.js is missing")
+
+
 def main() -> int:
     errors: list[str] = []
     pages, references = check_pages(errors)
@@ -247,6 +278,7 @@ def main() -> int:
     javascript = check_javascript(errors)
     check_offline_cache(errors)
     check_discovery_files(errors)
+    check_campaign_tools(errors)
     tracked_png = subprocess.run(
         ["git", "ls-files", "*.png"], cwd=ROOT, capture_output=True, text=True, check=False
     ).stdout.splitlines()
