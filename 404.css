@@ -1,0 +1,15 @@
+html { min-height: 100%; background: #020608; color: #b8ccd2; }
+body { min-height: 100vh; margin: 0; display: flex; flex-direction: column; background: radial-gradient(circle at 50% 35%, #16323b 0, #071115 38%, #020608 75%); font-family: "Courier New", monospace; }
+.lost-node { width: min(760px, calc(100% - 36px)); margin: auto; border: 1px solid #536c74; background: #050b0eee; box-shadow: 0 20px 90px #000; }
+.lost-node header { display: flex; justify-content: space-between; gap: 20px; padding: 10px 14px; border-bottom: 1px solid #536c74; color: #7e969e; font-size: 11px; letter-spacing: .1em; }
+.lost-copy { padding: clamp(28px, 6vw, 68px); }
+.lost-copy small { color: #f0c45c; font-weight: 700; letter-spacing: .16em; }
+.lost-copy h1 { margin: 12px 0 8px; color: #eff8fa; font: 900 clamp(54px, 15vw, 128px)/.82 Arial, sans-serif; letter-spacing: -.07em; }
+.lost-copy h2 { margin: 0 0 24px; color: #eff8fa; font-size: clamp(20px, 4vw, 34px); }
+.lost-copy p { max-width: 62ch; line-height: 1.7; }
+.route-code { display: block; margin: 24px 0; padding: 12px; border-left: 3px solid #f0c45c; background: #0b1519; color: #8fa6ad; }
+.lost-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.lost-actions a { border: 1px solid #708991; color: #ddecf0; padding: 10px 12px; text-decoration: none; font-weight: 700; }
+.lost-actions a:hover, .lost-actions a:focus-visible { border-color: #8ff7e8; color: #8ff7e8; outline: 2px solid #8ff7e8; outline-offset: 2px; }
+.lost-node footer { padding: 12px 14px; border-top: 1px solid #536c74; color: #6f858c; font-size: 10px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

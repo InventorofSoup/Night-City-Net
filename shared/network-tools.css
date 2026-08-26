@@ -1,0 +1,75 @@
+.nc-network-tools {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 18px;
+  border-top: 1px solid #52636c;
+  background: #05080a;
+  color: #d6e0e4;
+  font: 700 11px/1.4 "Courier New", monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.nc-network-tools a,
+.nc-network-tools button {
+  box-sizing: border-box;
+  border: 1px solid #6c818b;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  padding: 7px 10px;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nc-network-tools a:hover,
+.nc-network-tools button:hover,
+.nc-network-tools a:focus-visible,
+.nc-network-tools button:focus-visible {
+  border-color: #8ff7e8;
+  color: #8ff7e8;
+  outline: 2px solid #8ff7e8;
+  outline-offset: 2px;
+}
+
+.nc-network-tools span {
+  margin-left: auto;
+  color: #7d9098;
+  font-size: 10px;
+}
+
+.nc-reset-dialog {
+  max-width: 520px;
+  border: 1px solid #78909b;
+  border-radius: 0;
+  background: #071014;
+  color: #edf5f7;
+  padding: 24px;
+  font: 14px/1.55 Arial, sans-serif;
+  box-shadow: 0 22px 80px #000c;
+}
+
+.nc-reset-dialog::backdrop { background: #000b; }
+.nc-reset-dialog small { color: #8ff7e8; font: 700 11px/1.4 "Courier New", monospace; letter-spacing: .12em; }
+.nc-reset-dialog h2 { margin: 8px 0 12px; color: #fff; font: 700 25px/1.1 Arial, sans-serif; }
+.nc-reset-dialog p { margin: 0 0 18px; color: #c7d3d7; }
+.nc-reset-dialog menu { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.nc-reset-dialog button { border: 1px solid #78909b; background: #111d21; color: #fff; padding: 9px 13px; font-weight: 700; cursor: pointer; }
+.nc-reset-dialog button[value="confirm"] { border-color: #e4b85a; color: #ffd77b; }
+.nc-reset-dialog button:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+@media (max-width: 620px) {
+  .nc-network-tools { align-items: stretch; flex-direction: column; }
+  .nc-network-tools a, .nc-network-tools button { text-align: center; }
+  .nc-network-tools span { margin: 0; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nc-network-tools *, .nc-reset-dialog * { animation: none !important; transition: none !important; }
+}
