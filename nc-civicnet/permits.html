@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>Permits &amp; Licenses | NC CivicNet</title>
+<meta name="description" content="Permits & Licenses | NC CivicNet. Official municipal information and public services for Night City residents in 2045."><title>Permits &amp; Licenses | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="utility">
   <a href="#main">Skip to content</a>
-  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
-  <button id="lang-toggle">Language: EN</button>
-  <button id="text-minus" aria-label="Decrease text size">A-</button>
-  <button id="text-plus" aria-label="Increase text size">A+</button>
-  <button id="print-btn">Print</button>
+  <button type="button" id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button type="button" id="lang-toggle">Language: EN</button>
+  <button type="button" id="text-minus" aria-label="Decrease text size">A-</button>
+  <button type="button" id="text-plus" aria-label="Increase text size">A+</button>
+  <button type="button" id="print-btn">Print</button>
   <a href="services.html">Service status</a>
   <i></i>
   <a href="account.html">Employee login</a>
@@ -110,12 +110,12 @@
       <b>LOCAL OVERRIDE NOTICE</b>
       <p id="req-district-name"></p>
       <a href="laws.html">Review published laws</a>
-      <button class="restricted-record" id="req-restricted"><span aria-hidden="true">&#9635;</span>Download district permit supplements<small>LOGIN REQUIRED</small></button>
+      <button type="button" class="restricted-record" id="req-restricted"><span aria-hidden="true">&#9635;</span>Download district permit supplements<small>LOGIN REQUIRED</small></button>
     </aside>
   </section>
 
   <section class="permit-queue">
-    <div class="section-head"><div><small>RECENT PUBLIC QUEUE ACTIVITY</small><h2>Application processing notices</h2></div><button class="restricted-record" id="queue-restricted"><span aria-hidden="true">&#9635;</span>Check application status<small>LOGIN REQUIRED</small></button></div>
+    <div class="section-head"><div><small>RECENT PUBLIC QUEUE ACTIVITY</small><h2>Application processing notices</h2></div><button type="button" class="restricted-record" id="queue-restricted"><span aria-hidden="true">&#9635;</span>Check application status<small>LOGIN REQUIRED</small></button></div>
     <div id="permit-queue-list"></div>
   </section>
 
@@ -156,9 +156,9 @@
   <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
-<button class="nora-btn">NORA <b>?</b></button>
+<button type="button" class="nora-btn">NORA <b>?</b></button>
 <div class="nora" hidden>
-  <button aria-label="Close">&times;</button>
+  <button type="button" aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
@@ -167,7 +167,7 @@
 </div>
 
 <div class="backdrop" id="notice-backdrop" hidden>
-  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+  <div class="modal" role="dialog"><button type="button" aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button type="button" class="btn">Return to portal</button></div>
 </div>
 
 <script src="data.js"></script>

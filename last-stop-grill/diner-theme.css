@@ -18,3 +18,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opa
 dialog{border:8px ridge #b52f26;background:#ebd9b3}.dialog-shell h2{font-family:Georgia,serif;color:#91261f}.submit-order{background:#a62d25;border:3px outset #db8c73}#toast{background:#f0dfb7;border:4px ridge #a82c24;color:#3d2b20}
 @media(max-width:900px){.masthead{position:relative;flex-wrap:wrap;gap:10px}.diner-nav{order:3;width:100%;justify-content:center}.hero{margin-inline:10px!important}.old-web-note,.ticker{margin-inline:10px}.counter-menu{background:#ead9b5}}
 @media(max-width:560px){.diner-nav{overflow:auto;justify-content:flex-start}.diner-nav a,.diner-nav button{white-space:nowrap}.hero h1{font-size:58px}.hero h1 em{font-family:Georgia,serif}.hero:after{top:20px;right:15px;font-size:11px}.old-web-note span{display:block;margin-top:5px}}
+
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
