@@ -23,3 +23,21 @@ The homepage, sitemap, webring membership list, live-site counts, and random/pre
 Do not open the HTML files directly from the filesystem. Several sites use the deployed GitHub Pages base path `/Night-City-Net/`, so a local preview must expose this repository at that same path. Serving the repository only at `/` will leave some Militech and Network 54 assets unresolved.
 
 The production address is `https://inventorofsoup.github.io/Night-City-Net/`.
+
+## Shared terminal controls
+
+Every published page loads `shared/network-tools.js`. It adds a non-overlay utility strip after the page content with a route back to the Night City Net directory and a two-step local reset. The reset clears browser-only campaign state and cached pages; it never changes repository or public-site data.
+
+The same script registers `service-worker.js`. The service worker stores the directory shell and caches other same-origin pages and assets as they are visited. It does not force the entire media library to download during a first visit.
+
+When the service worker or its core file list changes, update the cache name near the top of `service-worker.js` so returning browsers discard the previous cache.
+
+## Pre-publish audit
+
+Run `python tools/audit-site.py` before publishing. It checks every HTML route and local asset, metadata, image accessibility and dimensions, duplicate IDs, WebP headers, shared terminal controls, tracked PNG files, and JavaScript syntax.
+
+The same audit runs automatically on pull requests and changes to `main` through `.github/workflows/site-audit.yml`.
+
+## Lore notes
+
+`.github/LORE-SOURCE-REGISTER.md` is the internal production record for canon anchors, source-informed adaptations, and original campaign material. It is kept outside the player-facing site.
