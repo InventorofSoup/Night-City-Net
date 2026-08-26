@@ -240,3 +240,5 @@ footer>div:last-child{padding-top:16px;border-top:1px solid var(--line)}
 /* Gallery captures are intentionally static so the sharp, complete compositions remain unchanged. */
 .elo-visual-grid figure{cursor:default;transition:border-color .18s ease}
 .elo-visual-grid figure:hover{transform:none;border-color:#365a46}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

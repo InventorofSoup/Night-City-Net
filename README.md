@@ -20,6 +20,6 @@ The homepage, sitemap, webring membership list, live-site counts, and random/pre
 
 ## Local preview
 
-Serve the repository root with any static web server. Do not open the HTML files directly from the filesystem because some sites use root-relative paths.
+Do not open the HTML files directly from the filesystem. Several sites use the deployed GitHub Pages base path `/Night-City-Net/`, so a local preview must expose this repository at that same path. Serving the repository only at `/` will leave some Militech and Network 54 assets unresolved.
 
-The deployed GitHub Pages base path is `/Night-City-Net/`.
+The production address is `https://inventorofsoup.github.io/Night-City-Net/`.

@@ -7,8 +7,8 @@ Last updated: 2026-08-26
 - Repository: `publish-night-city-net`
 - Working branch: `agent/webring-microsites`
 - Branch started from: `642d6f4 Merge pull request #26 from InventorofSoup/agent/trauma-team-audio`
-- Nothing from this microsite pass has been committed or pushed.
-- The current edits are intentionally left together for review.
+- The microsite pass was committed and pushed as `b1341f8`.
+- The current optimization and audit-correction pass is intentionally uncommitted pending review.
 
 ## Completed in this pass
 
@@ -67,7 +67,7 @@ Preview: `http://127.0.0.1:4317/last-stop-grill/`
 - `shared/site-directory.js` now lists all four microsites as live.
 - Granny Ed's directory description now explicitly says virtual/Elflands gardening.
 - Wormwood's recruitment entry was replaced by The Last Stop Grill.
-- `webring.html` fallback totals were updated to 18 members and 13 live members.
+- `webring.html` fallback totals match the shared directory: 17 members and 12 live members.
 - The old untracked `wormwood-recruitment/` directory was removed.
 - Daeric Sylar's ELO Fansite and Watson Nightlife Guide now link to purpose-built custom 404 experiences while remaining counted as offline members.
 
@@ -121,16 +121,4 @@ These are older local screenshots and are unrelated to this microsite pass:
 - `preview-n54-cached-fix-footer.png`
 - `preview-n54-cached-fix-top.png`
 
-## Expected files for the eventual commit
-
-- `shared/site-directory.js`
-- `webring.html`
-- `granny-ed/`
-- `burs-razorfire-log/`
-- `southside-fixer-directory/`
-- `last-stop-grill/`
-- `daeric-sylar-fansite/`
-- `watson-nightlife-guide/`
-- `WEBRING-MICROSITES-HANDOFF.md`
-
-Before committing, inspect the working tree again and stage only this explicit set.
+Before committing any later pass, inspect the working tree and continue excluding the unrelated preview screenshots listed above.

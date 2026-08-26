@@ -237,7 +237,7 @@
       intro: "Trauma Team is asking regional members to review identity, medical, access, and emergency-contact information before the next quarterly readiness cycle.",
       status: "Member review window: open. Updating information does not change the terms or tier of an active agreement.",
       media: {
-        src: "trauma-team/media/trauma-flight.png",
+        src: "trauma-team/media/trauma-flight.webp",
         alt: "Trauma Team response aircraft crossing the Night City skyline",
         caption: "Night City regional flight operations",
         credit: "Member education archive",
@@ -276,7 +276,7 @@
       intro: "Common access-control and temporary-venue failures share one weakness: authority exists on paper but is not assigned to a person at the point of decision.",
       status: "Distribution: public. This summary does not disclose client operations or active deployments.",
       media: {
-        src: "militech-security/militech-controlled-arrival.png",
+        src: "militech-security/militech-controlled-arrival.webp",
         alt: "Executive security vehicle arriving at a controlled private entrance",
         caption: "Controlled arrival procedure",
         credit: "Militech regional operations",

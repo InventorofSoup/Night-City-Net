@@ -139,3 +139,5 @@
     columns: 1;
   }
 }
+
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }

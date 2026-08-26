@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>NC CivicNet — Official Portal of Night City</title>
+<meta name="description" content="NC CivicNet — Official Portal of Night City. Official municipal information and public services for Night City residents in 2045."><title>NC CivicNet — Official Portal of Night City</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="../shared/city-pulse.css">
 </head>
 <body>
 <div class="utility">
   <a href="#main">Skip to content</a>
-  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
-  <button id="lang-toggle">Language: EN</button>
-  <button id="text-minus" aria-label="Decrease text size">A-</button>
-  <button id="text-plus" aria-label="Increase text size">A+</button>
-  <button id="print-btn">Print</button>
+  <button type="button" id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button type="button" id="lang-toggle">Language: EN</button>
+  <button type="button" id="text-minus" aria-label="Decrease text size">A-</button>
+  <button type="button" id="text-plus" aria-label="Increase text size">A+</button>
+  <button type="button" id="print-btn">Print</button>
   <a href="services.html">Service status</a>
   <i></i>
   <a href="account.html">Employee login</a>
@@ -96,11 +96,11 @@
   <section class="guide">
     <small>SITE GUIDE</small>
     <div>
-      <button class="active" data-tabgroup="guide" data-tab="help">Immediate help</button>
-      <button data-tabgroup="guide" data-tab="permits">Permits &amp; licenses</button>
-      <button data-tabgroup="guide" data-tab="district">District information</button>
-      <button data-tabgroup="guide" data-tab="records">Request records</button>
-      <button data-tabgroup="guide" data-tab="report">Report a problem</button>
+      <button type="button" class="active" data-tabgroup="guide" data-tab="help">Immediate help</button>
+      <button type="button" data-tabgroup="guide" data-tab="permits">Permits &amp; licenses</button>
+      <button type="button" data-tabgroup="guide" data-tab="district">District information</button>
+      <button type="button" data-tabgroup="guide" data-tab="records">Request records</button>
+      <button type="button" data-tabgroup="guide" data-tab="report">Report a problem</button>
     </div>
     <p data-tabpanel="guide" data-panel="help">Emergency routing checks identity, coverage, location, and provider availability before assigning a responder.</p>
     <p data-tabpanel="guide" data-panel="permits" hidden>Verify district authority, property interest, and fees before an estimate is issued.</p>
@@ -172,9 +172,9 @@
   <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
-<button class="nora-btn">NORA <b>?</b></button>
+<button type="button" class="nora-btn">NORA <b>?</b></button>
 <div class="nora" hidden>
-  <button aria-label="Close">&times;</button>
+  <button type="button" aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
@@ -184,13 +184,13 @@
 
 <div class="backdrop" id="notice-backdrop" hidden>
   <div class="modal" role="dialog">
-    <button aria-label="Close">&times;</button>
+    <button type="button" aria-label="Close">&times;</button>
     <i>!</i>
     <h2></h2>
     <p></p>
     <code hidden></code>
     <a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a>
-    <button class="btn">Return to portal</button>
+    <button type="button" class="btn">Return to portal</button>
   </div>
 </div>
 
@@ -212,8 +212,8 @@
     <div class="alert-popup-actions">
       <a class="btn danger" href="alerts.html">Emergency services</a>
       <a href="alerts.html">View all alerts</a>
-      <button class="next-btn">Next notice &rarr;</button>
-      <button class="dismiss-alert close-x">Dismiss</button>
+      <button type="button" class="next-btn">Next notice &rarr;</button>
+      <button type="button" class="dismiss-alert close-x">Dismiss</button>
     </div>
     <small class="popup-legal">Receipt of this notice does not confirm eligibility for shelter, transport, medical response, utility service, or evacuation assistance.</small>
   </section>

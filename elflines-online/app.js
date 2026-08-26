@@ -90,9 +90,9 @@ if (quizForm) {
       title: "The battles people call in sick to finish.",
       copy: "Player captures from active raids, contested Miasma breaches, and the server events that became local legend before the next reset.",
       items: [
-        ["actions/01_Elfline_Raid.png", "Elfline Raid"], ["actions/02_Dragon_Battle.png", "Dragon Battle"],
-        ["actions/03_Miasma_Breach.png", "Miasma Breach"], ["actions/05_Boss_Showdown.png", "Boss Showdown"],
-        ["actions/09_Siege_Defense.png", "Siege Defense"], ["actions/10_Team_Finisher.png", "Team Finisher"]
+        ["actions/01_Elfline_Raid.webp", "Elfline Raid"], ["actions/02_Dragon_Battle.webp", "Dragon Battle"],
+        ["actions/03_Miasma_Breach.webp", "Miasma Breach"], ["actions/05_Boss_Showdown.webp", "Boss Showdown"],
+        ["actions/09_Siege_Defense.webp", "Siege Defense"], ["actions/10_Team_Finisher.webp", "Team Finisher"]
       ]
     },
     "newbie-guide.html": {
@@ -100,10 +100,10 @@ if (quizForm) {
       title: "Choose the legend people will remember.",
       copy: "Every Title favors a different approach to the Elflands. Study the silhouettes, then use the player quiz above when you are ready to commit.",
       items: [
-        ["classes/01_Sage.png", "Sage"], ["classes/02_Bowmaster.png", "Bowmaster"], ["classes/03_Bladedancer.png", "Bladedancer"],
-        ["classes/04_Quickhand.png", "Quickhand"], ["classes/05_Warmheart.png", "Warmheart"], ["classes/06_Wildblood.png", "Wildblood"],
-        ["classes/07_Windkin.png", "Windkin"], ["classes/08_Barkshield.png", "Barkshield"], ["classes/09_Druid.png", "Druid"],
-        ["classes/10_Wayfarer.png", "Wayfarer"]
+        ["classes/01_Sage.webp", "Sage"], ["classes/02_Bowmaster.webp", "Bowmaster"], ["classes/03_Bladedancer.webp", "Bladedancer"],
+        ["classes/04_Quickhand.webp", "Quickhand"], ["classes/05_Warmheart.webp", "Warmheart"], ["classes/06_Wildblood.webp", "Wildblood"],
+        ["classes/07_Windkin.webp", "Windkin"], ["classes/08_Barkshield.webp", "Barkshield"], ["classes/09_Druid.webp", "Druid"],
+        ["classes/10_Wayfarer.webp", "Wayfarer"]
       ]
     },
     "resources.html": {
@@ -111,15 +111,15 @@ if (quizForm) {
       title: "Places to reach. Things to survive.",
       copy: "The practical visual index maintained by Night City players. Location records are followed by the creature silhouettes most often omitted from official patch notes.",
       items: [
-        ["locations/01_Elfhold.png", "Elfhold"], ["locations/02_Autumn_Palace.png", "Autumn Palace"], ["locations/03_Port_Treasure.png", "Port Treasure"],
-        ["locations/04_Razorfire_Caverns.png", "Razorfire Caverns"], ["locations/05_Twisted_Eldertree.png", "Twisted Eldertree"],
-        ["locations/06_Flooded_Palace.png", "Flooded Palace"], ["locations/07_Warlocks_Tower.png", "Warlock's Tower"],
-        ["locations/08_Deepgrave.png", "Deepgrave"], ["locations/09_Black_Mountain_Pass.png", "Black Mountain Pass"],
-        ["locations/10_Heart_of_Miasma.png", "Heart of Miasma"], ["monsters/01_Bearwolf.png", "Bearwolf"],
-        ["monsters/02_Cursed_Head.png", "Cursed Head"], ["monsters/03_Draglin.png", "Draglin"], ["monsters/04_Dragon.png", "Dragon"],
-        ["monsters/05_Golem.png", "Golem"], ["monsters/06_Gremlin.png", "Gremlin"], ["monsters/07_Restless_Spirit.png", "Restless Spirit"],
-        ["monsters/08_Slime.png", "Slime"], ["monsters/09_Zazzolif.png", "Zazzolif"], ["monsters/10_Miasmelf.png", "Miasmelf"],
-        ["monsters/11_Miasmelf_Boss.png", "Miasmelf Boss"], ["monsters/12_Miasma_Core.png", "Miasma Core"]
+        ["locations/01_Elfhold.webp", "Elfhold"], ["locations/02_Autumn_Palace.webp", "Autumn Palace"], ["locations/03_Port_Treasure.webp", "Port Treasure"],
+        ["locations/04_Razorfire_Caverns.webp", "Razorfire Caverns"], ["locations/05_Twisted_Eldertree.webp", "Twisted Eldertree"],
+        ["locations/06_Flooded_Palace.webp", "Flooded Palace"], ["locations/07_Warlocks_Tower.webp", "Warlock's Tower"],
+        ["locations/08_Deepgrave.webp", "Deepgrave"], ["locations/09_Black_Mountain_Pass.webp", "Black Mountain Pass"],
+        ["locations/10_Heart_of_Miasma.webp", "Heart of Miasma"], ["monsters/01_Bearwolf.webp", "Bearwolf"],
+        ["monsters/02_Cursed_Head.webp", "Cursed Head"], ["monsters/03_Draglin.webp", "Draglin"], ["monsters/04_Dragon.webp", "Dragon"],
+        ["monsters/05_Golem.webp", "Golem"], ["monsters/06_Gremlin.webp", "Gremlin"], ["monsters/07_Restless_Spirit.webp", "Restless Spirit"],
+        ["monsters/08_Slime.webp", "Slime"], ["monsters/09_Zazzolif.webp", "Zazzolif"], ["monsters/10_Miasmelf.webp", "Miasmelf"],
+        ["monsters/11_Miasmelf_Boss.webp", "Miasmelf Boss"], ["monsters/12_Miasma_Core.webp", "Miasma Core"]
       ]
     }
   };
@@ -143,7 +143,7 @@ if (quizForm) {
   const heroArt = document.querySelector(".hero-art");
   if (heroArt && page === "index.html") {
     heroArt.classList.add("elo-photo-hero");
-    heroArt.insertAdjacentHTML("afterbegin", '<img src="' + media("actions/01_Elfline_Raid.png") + '" alt="An Elflines Online raid party entering battle">');
+    heroArt.insertAdjacentHTML("afterbegin", '<img src="' + media("actions/01_Elfline_Raid.webp") + '" alt="An Elflines Online raid party entering battle">');
   }
 
   const adLoader = document.createElement("script");

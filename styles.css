@@ -85,3 +85,7 @@ code.box{display:block;background:#000;border:1px solid #333;color:#0f0;padding:
   .content{padding-left:0}
   .site-table,.site-table tbody,.site-table tr,.site-table td{display:block;width:100%}
 }
+
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

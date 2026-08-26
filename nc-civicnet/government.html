@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#173a59">
-<title>City Government | NC CivicNet</title>
+<meta name="description" content="City Government | NC CivicNet. Official municipal information and public services for Night City residents in 2045."><title>City Government | NC CivicNet</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="utility">
   <a href="#main">Skip to content</a>
-  <button id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
-  <button id="lang-toggle">Language: EN</button>
-  <button id="text-minus" aria-label="Decrease text size">A-</button>
-  <button id="text-plus" aria-label="Increase text size">A+</button>
-  <button id="print-btn">Print</button>
+  <button type="button" id="acc-toggle" aria-pressed="false">Accessibility: OFF</button>
+  <button type="button" id="lang-toggle">Language: EN</button>
+  <button type="button" id="text-minus" aria-label="Decrease text size">A-</button>
+  <button type="button" id="text-plus" aria-label="Increase text size">A+</button>
+  <button type="button" id="print-btn">Print</button>
   <a href="services.html">Service status</a>
   <i></i>
   <a href="account.html">Employee login</a>
@@ -71,12 +71,12 @@
   </div>
 
   <nav class="gov-tabs" aria-label="City Government sections">
-    <button class="active" data-tabgroup="gov" data-tab="overview">Overview</button>
-    <button data-tabgroup="gov" data-tab="council">City Council</button>
-    <button data-tabgroup="gov" data-tab="managers">City Managers</button>
-    <button data-tabgroup="gov" data-tab="agencies">Agencies &amp; contractors</button>
-    <button data-tabgroup="gov" data-tab="meetings">Meetings</button>
-    <button data-tabgroup="gov" data-tab="budget">Budgets &amp; elections</button>
+    <button type="button" class="active" data-tabgroup="gov" data-tab="overview">Overview</button>
+    <button type="button" data-tabgroup="gov" data-tab="council">City Council</button>
+    <button type="button" data-tabgroup="gov" data-tab="managers">City Managers</button>
+    <button type="button" data-tabgroup="gov" data-tab="agencies">Agencies &amp; contractors</button>
+    <button type="button" data-tabgroup="gov" data-tab="meetings">Meetings</button>
+    <button type="button" data-tabgroup="gov" data-tab="budget">Budgets &amp; elections</button>
   </nav>
 
   <div data-tabpanel="gov" data-panel="overview">
@@ -96,10 +96,10 @@
       <aside><b>PUBLIC ACCESS NOTICE</b><p>Complete ownership, voting-weight, closed-session, and contract-performance records are available only to authorized stakeholders.</p><a href="account.html">Registered stakeholder access &rarr;</a></aside>
     </section>
     <section>
-      <div class="section-head"><div><small>ADMINISTRATIVE NOTICES</small><h2>Current government notices</h2></div><button class="restricted-record" id="gov-notice-archive"><span aria-hidden="true">&#9635;</span>Download notice archive<small>LOGIN REQUIRED</small></button></div>
+      <div class="section-head"><div><small>ADMINISTRATIVE NOTICES</small><h2>Current government notices</h2></div><button type="button" class="restricted-record" id="gov-notice-archive"><span aria-hidden="true">&#9635;</span>Download notice archive<small>LOGIN REQUIRED</small></button></div>
       <div class="gov-notices">
         <article><b>PUBLICATION DELAYED</b><h3>Council agenda revision 2045-07-15-B</h3><p>Two contractor exhibits and the final voting-weight schedule have not been released.</p><small>Office of the Council Clerk &bull; 08:31</small></article>
-        <article><b>COMMENT PERIOD OPEN</b><h3>South pressure-zone water agreement</h3><p>Comments accepted through 17 JUL. Submission does not suspend contract approval.</p><button id="gov-comment-btn">Submit comment</button></article>
+        <article><b>COMMENT PERIOD OPEN</b><h3>South pressure-zone water agreement</h3><p>Comments accepted through 17 JUL. Submission does not suspend contract approval.</p><button type="button" id="gov-comment-btn">Submit comment</button></article>
         <article><b>ELECTION REVIEW</b><h3>Watson Development seat challenged</h3><p>Seat remains active while employer and resident verification totals are reconciled.</p><small>Estimated review completion: unavailable</small></article>
       </div>
     </section>
@@ -146,7 +146,7 @@
 
   <div data-tabpanel="gov" data-panel="meetings" hidden>
     <section>
-      <div class="section-head"><div><small>COUNCIL AND COMMITTEE CALENDAR</small><h2>Public meetings and records</h2></div><button class="btn" id="gov-comment-slot-btn">Request public comment slot</button></div>
+      <div class="section-head"><div><small>COUNCIL AND COMMITTEE CALENDAR</small><h2>Public meetings and records</h2></div><button type="button" class="btn" id="gov-comment-slot-btn">Request public comment slot</button></div>
       <div class="meeting-list" id="meeting-list"></div>
       <div class="meeting-warning"><b>Participation notice:</b> Entry to a public meeting may be suspended due to room capacity, identity verification, security screening, utility interruption, contractor requirements, or executive use.</div>
     </section>
@@ -165,7 +165,7 @@
           <small>PROCUREMENT ALERT</small>
           <h3>67% of current allocations are contract-restricted.</h3>
           <p>Reallocation to direct municipal service may require provider consent, termination fees, emergency review, and replacement coverage.</p>
-          <button class="restricted-record" id="budget-restricted"><span aria-hidden="true">&#9635;</span>Download contracts and budgets<small>LOGIN REQUIRED</small></button>
+          <button type="button" class="restricted-record" id="budget-restricted"><span aria-hidden="true">&#9635;</span>Download contracts and budgets<small>LOGIN REQUIRED</small></button>
         </aside>
       </div>
       <h3 class="subheading">Election and appointment status</h3>
@@ -184,9 +184,9 @@
   <p class="disclaimer">Information displayed through this portal may be delayed, incomplete, contractor-supplied, disputed, or unavailable due to utility interruption, violence, network failure, security restrictions, legal requirements, confidentiality agreements, or administrative limitations. The City of Night City does not guarantee service availability, dispatch, information accuracy, personal safety, medical outcomes, utility restoration, transportation, or survival.</p>
 </footer>
 
-<button class="nora-btn">NORA <b>?</b></button>
+<button type="button" class="nora-btn">NORA <b>?</b></button>
 <div class="nora" hidden>
-  <button aria-label="Close">&times;</button>
+  <button type="button" aria-label="Close">&times;</button>
   <b>NORA</b>
   <small>Night City Online Resident Assistant</small>
   <p>This matter is handled by your district administration.</p>
@@ -195,7 +195,7 @@
 </div>
 
 <div class="backdrop" id="notice-backdrop" hidden>
-  <div class="modal" role="dialog"><button aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button class="btn">Return to portal</button></div>
+  <div class="modal" role="dialog"><button type="button" aria-label="Close">&times;</button><i>!</i><h2></h2><p></p><code hidden></code><a class="btn restricted-login" href="account.html" hidden>Sign in to continue</a><button type="button" class="btn">Return to portal</button></div>
 </div>
 
 <script src="data.js"></script>
