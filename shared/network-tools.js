@@ -13,10 +13,12 @@
   document.head.appendChild(stylesheet);
 
   function registerOfflineCache() {
-    if (!("serviceWorker" in navigator) || location.protocol === "file:") return;
-    navigator.serviceWorker.register(new URL("service-worker.js", root).href).catch(function () {
-      /* The site remains fully usable when registration is unavailable. */
-    });
+    if (!("serviceWorker" in navigator)) return Promise.resolve("unsupported");
+    if (location.protocol === "file:") return Promise.resolve("online-only");
+    return navigator.serviceWorker.register(new URL("service-worker.js", root).href)
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () { return "active"; })
+      .catch(function () { return "unavailable"; });
   }
 
   function resetTerminal() {
@@ -41,20 +43,27 @@
     const directory = document.createElement("a");
     directory.href = root.href;
     directory.textContent = "← Night City Net Directory";
+    if (location.pathname === root.pathname || location.pathname === root.pathname + "index.html") {
+      directory.textContent = "Night City Net Directory";
+      directory.setAttribute("aria-current", "page");
+    }
 
     const reset = document.createElement("button");
     reset.type = "button";
-    reset.textContent = "Reset This Terminal";
+    reset.textContent = "Clear All Local NC.NET State";
 
     const status = document.createElement("span");
     status.textContent = "Regional cache: checking";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
 
     tools.append(directory, reset, status);
     document.body.appendChild(tools);
 
     const dialog = document.createElement("dialog");
     dialog.className = "nc-reset-dialog";
-    dialog.innerHTML = '<small>NC.NET LOCAL TERMINAL CONTROL</small><h2>Clear this browser’s campaign state?</h2><p>This removes dismissed alerts, temporary carts, feed preferences, form progress, and cached Night City Net pages from this device. It does not alter the public sites.</p><menu><button type="button" value="cancel">Keep current state</button><button type="button" value="confirm">Clear and reload</button></menu>';
+    dialog.setAttribute("aria-labelledby", "nc-reset-title");
+    dialog.innerHTML = '<small>NC.NET LOCAL TERMINAL CONTROL</small><h2 id="nc-reset-title">Clear all local Night City Net state?</h2><p>This removes dismissed alerts, temporary carts, feed preferences, form progress, and locally stored Night City Net pages from this device. The regional cache will rebuild as pages are revisited. Public site data is never changed.</p><menu><button type="button" value="cancel">Keep current state</button><button type="button" value="confirm">Clear and reload</button></menu>';
     document.body.appendChild(dialog);
 
     reset.addEventListener("click", function () {
@@ -63,17 +72,22 @@
     });
     dialog.querySelector('[value="cancel"]').addEventListener("click", function () { dialog.close(); });
     dialog.querySelector('[value="confirm"]').addEventListener("click", resetTerminal);
+    dialog.addEventListener("close", function () { reset.focus(); });
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.ready.then(function () { status.textContent = "Regional cache: active"; });
-    } else {
-      status.textContent = "Regional cache: unsupported";
-    }
+    offlineState.then(function (state) {
+      const labels = {
+        active: "Regional cache: active",
+        unavailable: "Regional cache: unavailable",
+        unsupported: "Regional cache: unsupported",
+        "online-only": "Regional cache: online preview"
+      };
+      status.textContent = labels[state] || "Regional cache: unavailable";
+    });
 
     document.documentElement.setAttribute("data-nc-network-tools", "ready");
   }
 
-  registerOfflineCache();
+  const offlineState = registerOfflineCache();
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mountTools, { once: true });
   else mountTools();
 }());
