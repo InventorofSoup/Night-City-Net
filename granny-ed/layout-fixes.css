@@ -1,0 +1,3 @@
+/* Keeps the six scrapbook sections beside Ed's pinned server note. */
+.side-note{grid-row:span 6}
+@media(max-width:760px){.side-note{grid-row:auto}}
