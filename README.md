@@ -38,6 +38,12 @@ Run `node tools/update-site-metadata.mjs` after adding or renaming pages, then r
 
 The same audit runs automatically on pull requests and changes to `main` through `.github/workflows/site-audit.yml`.
 
+## Game Master campaign desk
+
+`gm-control/` is an unlisted, search-excluded local control desk. It publishes campaign date, time, conditions, a regional event, district statuses, outlet-specific headlines, one Rent-A-Samurai contract, and one sanitized Danger Gal matter through browser storage. It does not disable routes, create real authentication, or transmit information.
+
+The six expanded player sites load `shared/campaign-state.js` and `shared/site-expansions.js`. Network 54 loads the smaller regional headline insert. Campaign state can be exported and imported as JSON for use on another browser. Run `node tools/audit-campaign-state.mjs` to verify default state, nested updates, browser events, import/export, and reset behavior.
+
 ## Lore notes
 
 `.github/LORE-SOURCE-REGISTER.md` is the internal production record for canon anchors, source-informed adaptations, and original campaign material. It is kept outside the player-facing site.

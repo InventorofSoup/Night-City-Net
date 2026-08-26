@@ -124,7 +124,8 @@ for (const file of pages) {
   if (block) content = content.replace(/<\/head>/i, `${block}\n</head>`);
   fs.writeFileSync(file, content, "utf8");
 
-  if (relative !== "404.html" && !/^404\s*\|/i.test(title)) {
+  const hiddenFromSearch = /<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["'][^"']*noindex/i.test(content);
+  if (relative !== "404.html" && !/^404\s*\|/i.test(title) && !hiddenFromSearch) {
     sitemapEntries.push(canonicalFor(relative));
   }
 }

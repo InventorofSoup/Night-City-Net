@@ -21,3 +21,5 @@ jobs:
           node-version: "22"
       - name: Verify every page and asset
         run: python tools/audit-site.py
+      - name: Verify campaign state behavior
+        run: node tools/audit-campaign-state.mjs

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Local campaign control terminal for the Night City Net game master.">
+  <title>NC.NET Campaign Control</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://inventorofsoup.github.io/Night-City-Net/gm-control/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NC.NET Campaign Control">
+<meta property="og:description" content="Local campaign control terminal for the Night City Net game master.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NC.NET Campaign Control">
+<meta name="twitter:description" content="Local campaign control terminal for the Night City Net game master.">
+</head>
+<body>
+  <header class="control-header">
+    <div><small>NC.NET // LOCAL CAMPAIGN AUTHORITY</small><h1>Game Master Control Desk</h1><p>This unlisted terminal changes information shown in the added player-resource panels. It never disables a site or prevents player access.</p></div>
+    <aside><span>LOCAL BROWSER STATE</span><b id="revision">REVISION 1</b><small id="updated">Not yet changed</small></aside>
+  </header>
+
+  <nav class="control-nav" aria-label="Control desk sections">
+    <button type="button" class="active" data-tab="world">World State</button>
+    <button type="button" data-tab="coverage">Site Coverage</button>
+    <button type="button" data-tab="districts">Districts</button>
+    <button type="button" data-tab="transfer">Import / Export</button>
+  </nav>
+
+  <main>
+    <form id="campaign-form">
+      <section class="control-panel" data-panel="world">
+        <div class="section-head"><span>01</span><div><small>CAMPAIGN CLOCK AND CONDITIONS</small><h2>Current world state</h2></div></div>
+        <div class="field-grid">
+          <label>Campaign date<input type="date" name="date" required></label>
+          <label>Local time<input type="time" name="time" required></label>
+          <label class="wide">Weather description<input name="weather" required maxlength="120"></label>
+          <label>Air quality index<input type="number" name="airQuality" min="0" max="999" required></label>
+        </div>
+        <fieldset>
+          <legend>Regional event</legend>
+          <label class="toggle"><input type="checkbox" name="eventActive"> Publish this event across the added panels</label>
+          <div class="field-grid">
+            <label>Severity<select name="eventSeverity"><option>notice</option><option>advisory</option><option>urgent</option></select></label>
+            <label>Primary district<input name="eventDistrict" required></label>
+            <label class="wide">Public title<input name="eventTitle" required maxlength="120"></label>
+            <label class="wide">Public detail<textarea name="eventDetail" rows="4" required maxlength="500"></textarea></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="control-panel" data-panel="coverage" hidden>
+        <div class="section-head"><span>02</span><div><small>SITE-SPECIFIC PUBLICATION</small><h2>How each outlet frames the event</h2></div></div>
+        <div class="headline-grid">
+          <label><b>Network 54</b><textarea name="headlineNetwork54" rows="3"></textarea></label>
+          <label><b>FeedFrenzy</b><textarea name="headlineFeedfrenzy" rows="3"></textarea></label>
+          <label><b>NC CivicNet</b><textarea name="headlineCivicnet" rows="3"></textarea></label>
+          <label><b>Trauma Team</b><textarea name="headlineTrauma" rows="3"></textarea></label>
+          <label><b>Militech Security</b><textarea name="headlineMilitech" rows="3"></textarea></label>
+        </div>
+        <fieldset>
+          <legend>Rent-A-Samurai Game Master contract</legend>
+          <label class="toggle"><input type="checkbox" name="jobActive"> Publish the contract</label>
+          <div class="field-grid">
+            <label>Contract ID<input name="jobId" required></label>
+            <label>Pay in eurobucks<input name="jobPay" type="number" min="0" required></label>
+            <label class="wide">Title<input name="jobTitle" required></label>
+            <label>District<input name="jobDistrict" required></label>
+            <label>Danger<select name="jobDanger"><option>Low</option><option>Medium</option><option>High</option><option>Unknown</option></select></label>
+            <label>Client<input name="jobClient" required></label>
+            <label class="wide">Public summary<textarea name="jobSummary" rows="4" required></textarea></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Danger Gal public matter</legend>
+          <label class="toggle"><input type="checkbox" name="caseActive"> Publish the sanitized case</label>
+          <div class="field-grid">
+            <label>Case ID<input name="caseId" required></label>
+            <label>Status<input name="caseStatus" required></label>
+            <label class="wide">Subject<input name="caseSubject" required></label>
+            <label class="wide">Sanitized note<textarea name="caseNote" rows="3" required></textarea></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="control-panel" data-panel="districts" hidden>
+        <div class="section-head"><span>03</span><div><small>REGIONAL OPERATING CONDITIONS</small><h2>District status board</h2></div></div>
+        <p class="intro">These descriptions appear as information only. They do not block navigation or lock a player out of any website.</p>
+        <div id="district-fields" class="district-fields"></div>
+      </section>
+
+      <section class="control-panel" data-panel="transfer" hidden>
+        <div class="section-head"><span>04</span><div><small>CAMPAIGN CONTINUITY</small><h2>Move or restore local state</h2></div></div>
+        <div class="transfer-grid">
+          <article><small>EXPORT</small><h3>Save this campaign state</h3><p>Download a small JSON file that can be imported on another computer or retained between sessions.</p><button type="button" id="export-state">Download campaign file</button></article>
+          <article><small>IMPORT</small><h3>Load an existing campaign state</h3><p>Importing replaces the values currently stored by this control desk.</p><label class="file-label">Choose campaign file<input type="file" id="import-state" accept="application/json,.json"></label></article>
+          <article class="danger"><small>RESTORE</small><h3>Return to the built-in scenario</h3><p>This restores the default South Loop example. Player-specific saved jobs and forms are not changed.</p><button type="button" id="reset-state">Restore control defaults</button></article>
+        </div>
+        <p class="form-status" id="transfer-status" role="status"></p>
+      </section>
+
+      <footer class="control-actions"><p id="save-status" role="status">No unsaved changes.</p><button type="submit">Publish local campaign state</button></footer>
+    </form>
+
+    <aside class="preview" aria-labelledby="preview-title"><small>PLAYER-FACING SUMMARY</small><h2 id="preview-title">Current publication preview</h2><div id="preview-content"></div></aside>
+  </main>
+
+  <script src="../shared/campaign-state.js"></script>
+  <script src="app.js"></script>
+  <script src="/Night-City-Net/shared/network-tools.js"></script>
+</body>
+</html>
