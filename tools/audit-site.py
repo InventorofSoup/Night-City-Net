@@ -20,6 +20,7 @@ class PageParser(HTMLParser):
         self.references: list[str] = []
         self.images: list[dict[str, str]] = []
         self.metadata: list[dict[str, str]] = []
+        self.links: list[dict[str, str]] = []
         self.ids: list[str] = []
         self.form_depth = 0
         self.buttons_without_type_outside_forms = 0
@@ -33,6 +34,8 @@ class PageParser(HTMLParser):
             self.images.append(values)
         elif tag == "meta":
             self.metadata.append(values)
+        elif tag == "link":
+            self.links.append(values)
         elif tag == "form":
             self.form_depth += 1
         elif tag == "button" and self.form_depth == 0 and "type" not in values:
@@ -75,8 +78,30 @@ def check_pages(errors: list[str]) -> tuple[int, int]:
         parser.feed(page.read_text(encoding="utf-8", errors="ignore"))
         relative = page.relative_to(ROOT)
         names = {item.get("name", "").lower() for item in parser.metadata}
+        properties = {item.get("property", "").lower() for item in parser.metadata}
         if "description" not in names:
             errors.append(f"{relative}: missing meta description")
+        for required in ("twitter:card", "twitter:title", "twitter:description"):
+            if required not in names:
+                errors.append(f"{relative}: missing {required} metadata")
+        for required in ("og:type", "og:title", "og:description"):
+            if required not in properties:
+                errors.append(f"{relative}: missing {required} metadata")
+        canonical = [item.get("href", "") for item in parser.links if item.get("rel", "").lower() == "canonical"]
+        if len(canonical) != 1:
+            errors.append(f"{relative}: expected one canonical link, found {len(canonical)}")
+        elif not canonical[0].startswith("https://inventorofsoup.github.io/Night-City-Net/"):
+            errors.append(f"{relative}: canonical link is outside the published site: {canonical[0]}")
+        social_images = [
+            item.get("content", "")
+            for item in parser.metadata
+            if item.get("property", "").lower() == "og:image" or item.get("name", "").lower() == "twitter:image"
+        ]
+        for image_url in social_images:
+            if image_url.startswith("https://inventorofsoup.github.io/Night-City-Net/"):
+                image_path = ROOT / unquote(image_url.removeprefix("https://inventorofsoup.github.io/Night-City-Net/"))
+                if not image_path.exists():
+                    errors.append(f"{relative}: social image does not exist locally: {image_url}")
         duplicates = [name for name, count in Counter(parser.ids).items() if count > 1]
         if duplicates:
             errors.append(f"{relative}: duplicate ids: {', '.join(duplicates)}")
@@ -148,6 +173,71 @@ def check_javascript(errors: list[str]) -> int:
     return len(files)
 
 
+def check_offline_cache(errors: list[str]) -> None:
+    worker = ROOT / "service-worker.js"
+    if not worker.exists():
+        errors.append("service-worker.js is missing")
+        return
+    text = worker.read_text(encoding="utf-8", errors="ignore")
+    core_match = re.search(r"const\s+CORE\s*=\s*\[([\s\S]*?)\];", text)
+    if not core_match:
+        errors.append("service-worker.js: CORE file list could not be read")
+    else:
+        for entry in re.findall(r'ROOT\s*\+\s*["\']([^"\']+)["\']', core_match.group(1)):
+            if not (ROOT / entry).exists():
+                errors.append(f"service-worker.js: missing CORE file: {entry}")
+    if 'request.headers.has("range")' not in text:
+        errors.append("service-worker.js: byte-range requests are not bypassed")
+    if "cache.addAll(" in text:
+        errors.append("service-worker.js: CORE install is still all-or-nothing")
+    if "caches.match(request)" not in text:
+        errors.append("service-worker.js: static assets do not use exact-request cache matching")
+
+    controls = ROOT / "shared" / "network-tools.js"
+    controls_text = controls.read_text(encoding="utf-8", errors="ignore") if controls.exists() else ""
+    for fragment, message in (
+        ('status.setAttribute("role", "status")', "cache status is not exposed to assistive technology"),
+        ('dialog.setAttribute("aria-labelledby"', "reset dialog has no accessible name"),
+        ('dialog.addEventListener("close"', "reset dialog does not restore focus"),
+        ('Regional cache: unavailable', "cache registration failure has no visible state"),
+    ):
+        if fragment not in controls_text:
+            errors.append(f"shared/network-tools.js: {message}")
+
+
+def check_discovery_files(errors: list[str]) -> None:
+    sitemap = ROOT / "sitemap.xml"
+    robots = ROOT / "robots.txt"
+    if not sitemap.exists():
+        errors.append("sitemap.xml is missing")
+    else:
+        sitemap_text = sitemap.read_text(encoding="utf-8", errors="ignore")
+        if "<urlset" not in sitemap_text:
+            errors.append("sitemap.xml does not contain a URL set")
+        listed = set(re.findall(r"<loc>(.*?)</loc>", sitemap_text))
+        expected: set[str] = set()
+        for page in ROOT.rglob("*.html"):
+            relative = page.relative_to(ROOT)
+            content = page.read_text(encoding="utf-8", errors="ignore")
+            title = re.search(r"<title>([\s\S]*?)</title>", content, re.IGNORECASE)
+            if relative.as_posix() == "404.html" or (title and re.match(r"\s*404\s*\|", title.group(1), re.IGNORECASE)):
+                continue
+            canonical = re.search(r'<link\b[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']+)', content, re.IGNORECASE)
+            if canonical:
+                expected.add(canonical.group(1))
+        if listed != expected:
+            missing = sorted(expected - listed)
+            stale = sorted(listed - expected)
+            if missing:
+                errors.append("sitemap.xml is missing published pages: " + ", ".join(missing))
+            if stale:
+                errors.append("sitemap.xml contains stale pages: " + ", ".join(stale))
+    if not robots.exists():
+        errors.append("robots.txt is missing")
+    elif "Sitemap: https://inventorofsoup.github.io/Night-City-Net/sitemap.xml" not in robots.read_text(encoding="utf-8", errors="ignore"):
+        errors.append("robots.txt does not identify the published sitemap")
+
+
 def main() -> int:
     errors: list[str] = []
     pages, references = check_pages(errors)
@@ -155,6 +245,8 @@ def main() -> int:
     webp = check_webp(errors)
     check_dynamic_image_names(errors)
     javascript = check_javascript(errors)
+    check_offline_cache(errors)
+    check_discovery_files(errors)
     tracked_png = subprocess.run(
         ["git", "ls-files", "*.png"], cwd=ROOT, capture_output=True, text=True, check=False
     ).stdout.splitlines()
